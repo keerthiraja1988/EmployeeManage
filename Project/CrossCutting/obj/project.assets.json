@@ -182,11 +182,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Keerthi Raja P\\source\\repos\\EmployeeManage1\\Project\\DomainModel\\DomainModel.csproj",
-      "projectName": "DomainModel",
-      "projectPath": "C:\\Users\\Keerthi Raja P\\source\\repos\\EmployeeManage1\\Project\\DomainModel\\DomainModel.csproj",
+      "projectUniqueName": "C:\\Users\\Keerthi Raja P\\source\\repos\\EmployeeManage1\\Project\\CrossCutting\\CrossCutting.csproj",
+      "projectName": "CrossCutting",
+      "projectPath": "C:\\Users\\Keerthi Raja P\\source\\repos\\EmployeeManage1\\Project\\CrossCutting\\CrossCutting.csproj",
       "packagesPath": "C:\\Users\\Keerthi Raja P\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Keerthi Raja P\\source\\repos\\EmployeeManage1\\Project\\DomainModel\\obj\\",
+      "outputPath": "C:\\Users\\Keerthi Raja P\\source\\repos\\EmployeeManage1\\Project\\CrossCutting\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
