@@ -1,0 +1,14 @@
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\Repository\bin\Release\netstandard2.0\Repository.deps.json
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\Repository\bin\Release\netstandard2.0\Repository.dll
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\Repository\bin\Release\netstandard2.0\Repository.pdb
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\Repository\bin\Release\netstandard2.0\CrossCutting.dll
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\Repository\bin\Release\netstandard2.0\DomainModel.dll
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\Repository\bin\Release\netstandard2.0\CrossCutting.pdb
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\Repository\bin\Release\netstandard2.0\DomainModel.pdb
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\Repository\obj\Release\netstandard2.0\Repository.csprojAssemblyReference.cache
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\Repository\obj\Release\netstandard2.0\Repository.csproj.CoreCompileInputs.cache
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\Repository\obj\Release\netstandard2.0\Repository.AssemblyInfoInputs.cache
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\Repository\obj\Release\netstandard2.0\Repository.AssemblyInfo.cs
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\Repository\obj\Release\netstandard2.0\Repository.csproj.CopyComplete
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\Repository\obj\Release\netstandard2.0\Repository.dll
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\Repository\obj\Release\netstandard2.0\Repository.pdb

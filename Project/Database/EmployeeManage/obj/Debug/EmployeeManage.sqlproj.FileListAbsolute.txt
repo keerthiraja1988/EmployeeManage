@@ -1,0 +1,9 @@
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\Database\EmployeeManage\bin\Debug\EmployeeManage.dacpac
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\Database\EmployeeManage\bin\Debug\EmployeeManage.dll
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\Database\EmployeeManage\bin\Debug\EmployeeManage.pdb
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\Database\EmployeeManage\obj\Debug\Model.xml
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\Database\EmployeeManage\obj\Debug\refactor.xml
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\Database\EmployeeManage\obj\Debug\postdeploy.sql
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\Database\EmployeeManage\obj\Debug\predeploy.sql
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\Database\EmployeeManage\obj\Debug\EmployeeManage.dll
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\Database\EmployeeManage\obj\Debug\EmployeeManage.pdb

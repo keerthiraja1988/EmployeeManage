@@ -25,6 +25,16 @@
         "build": {
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
+      },
+      "DomainModel/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "compile": {
+          "bin/placeholder/DomainModel.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DomainModel.dll": {}
+        }
       }
     }
   },
@@ -168,10 +178,16 @@
         "netstandard.library.2.0.3.nupkg.sha512",
         "netstandard.library.nuspec"
       ]
+    },
+    "DomainModel/1.0.0": {
+      "type": "project",
+      "path": "../DomainModel/DomainModel.csproj",
+      "msbuildProject": "../DomainModel/DomainModel.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
+      "DomainModel >= 1.0.0",
       "NETStandard.Library >= 2.0.3"
     ]
   },
@@ -182,11 +198,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Keerthi Raja P\\source\\repos\\EmployeeManage1\\Project\\ServiceInterface\\ServiceInterface.csproj",
+      "projectUniqueName": "C:\\Users\\Keerthi Raja P\\source\\repos\\EmployeeManage\\Project\\ServiceInterface\\ServiceInterface.csproj",
       "projectName": "ServiceInterface",
-      "projectPath": "C:\\Users\\Keerthi Raja P\\source\\repos\\EmployeeManage1\\Project\\ServiceInterface\\ServiceInterface.csproj",
+      "projectPath": "C:\\Users\\Keerthi Raja P\\source\\repos\\EmployeeManage\\Project\\ServiceInterface\\ServiceInterface.csproj",
       "packagesPath": "C:\\Users\\Keerthi Raja P\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Keerthi Raja P\\source\\repos\\EmployeeManage1\\Project\\ServiceInterface\\obj\\",
+      "outputPath": "C:\\Users\\Keerthi Raja P\\source\\repos\\EmployeeManage\\Project\\ServiceInterface\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -204,7 +220,11 @@
       },
       "frameworks": {
         "netstandard2.0": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Keerthi Raja P\\source\\repos\\EmployeeManage\\Project\\DomainModel\\DomainModel.csproj": {
+              "projectPath": "C:\\Users\\Keerthi Raja P\\source\\repos\\EmployeeManage\\Project\\DomainModel\\DomainModel.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

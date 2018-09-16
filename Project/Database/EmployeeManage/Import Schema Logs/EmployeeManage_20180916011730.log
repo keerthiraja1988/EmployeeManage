@@ -1,0 +1,75 @@
+16-09-2018 18:47:30	This log contains information about the import schema operation into project 'EmployeeManage' on computer 'DESKTOP-0M9B68P' by user 'Keerthi Raja P'.
+16-09-2018 18:47:30	Import of database schema has started.
+16-09-2018 18:47:35	Gathering database options
+16-09-2018 18:47:35	Gathering users
+16-09-2018 18:47:35	Gathering roles
+16-09-2018 18:47:35	Gathering application roles
+16-09-2018 18:47:35	Gathering role memberships
+16-09-2018 18:47:35	Gathering filegroups
+16-09-2018 18:47:35	Gathering full-text catalogs
+16-09-2018 18:47:35	Gathering assemblies
+16-09-2018 18:47:35	Gathering certificates
+16-09-2018 18:47:35	Gathering asymmetric keys
+16-09-2018 18:47:35	Gathering symmetric keys
+16-09-2018 18:47:35	Gathering encrypted symmetric keys
+16-09-2018 18:47:35	Gathering schemas
+16-09-2018 18:47:35	Gathering XML schema collections
+16-09-2018 18:47:35	Gathering user-defined data types
+16-09-2018 18:47:35	Gathering user-defined types
+16-09-2018 18:47:35	Gathering table types
+16-09-2018 18:47:35	Gathering unique keys for table types
+16-09-2018 18:47:35	Gathering primary keys for table types
+16-09-2018 18:47:35	Gathering indexes for table types
+16-09-2018 18:47:35	Gathering check constraints for table types
+16-09-2018 18:47:35	Gathering default constraints for table types
+16-09-2018 18:47:35	Gathering partition functions
+16-09-2018 18:47:35	Gathering partition schemes
+16-09-2018 18:47:35	Gathering functions
+16-09-2018 18:47:35	Gathering encrypted functions
+16-09-2018 18:47:35	Gathering aggregates
+16-09-2018 18:47:35	Gathering procedures
+16-09-2018 18:47:35	Gathering encrypted procedures
+16-09-2018 18:47:35	Gathering tables
+16-09-2018 18:47:35	Gathering primary keys
+16-09-2018 18:47:35	Gathering unique constraints
+16-09-2018 18:47:35	Gathering foreign keys
+16-09-2018 18:47:35	Gathering default constraints
+16-09-2018 18:47:35	Gathering check constraints
+16-09-2018 18:47:35	Gathering views
+16-09-2018 18:47:35	Gathering encrypted views
+16-09-2018 18:47:35	Gathering indexes
+16-09-2018 18:47:35	Gathering statistics
+16-09-2018 18:47:35	Gathering full-text index stoplists
+16-09-2018 18:47:35	Gathering search property lists
+16-09-2018 18:47:35	Gathering search properties
+16-09-2018 18:47:35	Gathering full-text indexes
+16-09-2018 18:47:35	Gathering column store indexes
+16-09-2018 18:47:35	Gathering spatial indexes
+16-09-2018 18:47:35	Gathering XML indexes
+16-09-2018 18:47:35	Gathering Selective XML indexes
+16-09-2018 18:47:35	Gathering encrypted triggers
+16-09-2018 18:47:35	Gathering triggers
+16-09-2018 18:47:35	Gathering encrypted and clr ddl triggers
+16-09-2018 18:47:35	Gathering ddl triggers
+16-09-2018 18:47:35	Gathering synonyms
+16-09-2018 18:47:35	Gathering defaults
+16-09-2018 18:47:35	Gathering data constraint uddt bindings
+16-09-2018 18:47:35	Gathering rules
+16-09-2018 18:47:35	Gathering data constraint uddt bindings
+16-09-2018 18:47:35	Gathering message types
+16-09-2018 18:47:35	Gathering queues
+16-09-2018 18:47:35	Gathering contracts
+16-09-2018 18:47:35	Gathering services
+16-09-2018 18:47:35	Gathering event notifications
+16-09-2018 18:47:35	Gathering remote service bindings
+16-09-2018 18:47:35	Gathering broker priorities
+16-09-2018 18:47:35	Gathering signatures
+16-09-2018 18:47:35	Gathering data compression options
+16-09-2018 18:47:35	Gathering sequence types
+16-09-2018 18:47:35	Gathering extended properties
+16-09-2018 18:47:35	Gathering credentials
+16-09-2018 18:47:35	Gathering logins
+16-09-2018 18:47:35	Gathering server audits
+16-09-2018 18:47:35	Finished importing database.
+16-09-2018 18:47:35	A summary of the import was saved to the following location: C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\Database\EmployeeManage\Import Schema Logs\EmployeeManage_20180916011730.log
+16-09-2018 18:47:35	Click Finish to continue...
