@@ -7,11 +7,22 @@
 
   <ItemGroup>
     <PackageReference Include="Autofac" Version="4.8.1" />
+    <PackageReference Include="Faker.Data" Version="1.0.7" />
     <PackageReference Include="Microsoft.AspNetCore" Version="2.1.3" />
     <PackageReference Include="Microsoft.AspNetCore.CookiePolicy" Version="2.1.2" />
     <PackageReference Include="Microsoft.AspNetCore.HttpsPolicy" Version="2.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.1.2" />
     <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.1.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.1.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.0" />
+    <PackageReference Include="NBuilder" Version="6.0.0" />
+    <PackageReference Include="Telerik.UI.for.AspNet.Core" Version="2018.3.911" />
   </ItemGroup>
 
   <ItemGroup>
@@ -19,6 +30,19 @@
     <ProjectReference Include="..\DependencyInjecionResolver\DependencyInjecionResolver.csproj" />
     <ProjectReference Include="..\DomainModel\DomainModel.csproj" />
     <ProjectReference Include="..\ServiceInterface\ServiceInterface.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\" />
+    <Folder Include="Areas\DashBoard\Controllers\" />
+    <Folder Include="Areas\DashBoard\Data\" />
+    <Folder Include="Areas\DashBoard\Models\" />
+    <Folder Include="Areas\DashBoard\Views\" />
+    <Folder Include="Areas\UserAccount\Controllers\" />
+    <Folder Include="Areas\UserAccount\Data\" />
+    <Folder Include="Areas\UserAccount\Models\" />
+    <Folder Include="Areas\UserAccount\Views\" />
+    <Folder Include="Models\UserAccountViewModel\" />
   </ItemGroup>
 
 </Project>

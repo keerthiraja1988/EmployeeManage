@@ -6,3 +6,4 @@ C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\DomainModel\obj\Rele
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\DomainModel\obj\Release\netstandard2.0\DomainModel.AssemblyInfo.cs
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\DomainModel\obj\Release\netstandard2.0\DomainModel.dll
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\DomainModel\obj\Release\netstandard2.0\DomainModel.pdb
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\DomainModel\obj\Release\netstandard2.0\DomainModel.csprojAssemblyReference.cache

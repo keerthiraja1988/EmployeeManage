@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk.Web" ToolsVersion="15.0">
+
+    <PropertyGroup>
+        <TargetFramework>net462</TargetFramework>
+        <AssemblyName>WebApplication</AssemblyName>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Faker.Data" Version="1.0.7" />
+        <PackageReference Include="Microsoft.AspNetCore" Version="2.1.0" />
+        <PackageReference Include="Microsoft.AspNetCore.CookiePolicy" Version="2.1.0" />
+        <PackageReference Include="Microsoft.AspNetCore.HttpsPolicy" Version="2.1.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.1.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.ViewCompilation" Version="2.1.0" PrivateAssets="All" />
+        <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.1.0" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.1.0" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.0" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.1.0">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.1.0" />
+        <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.0" />
+        <PackageReference Include="NBuilder" Version="6.0.0" />
+        <PackageReference Include="PostSharp" Version="6.0.27" />
+        <PackageReference Include="Telerik.UI.for.AspNet.Core" Version="2018.3.911" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Areas\UserAccount\Controllers\" />
+      <Folder Include="Areas\UserAccount\Data\" />
+      <Folder Include="Areas\UserAccount\Models\" />
+      <Folder Include="Areas\UserAccount\Views\" />
+    </ItemGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+        <DefineConstants>$(DefineConstants);RELEASE</DefineConstants>
+    </PropertyGroup>
+
+</Project>
