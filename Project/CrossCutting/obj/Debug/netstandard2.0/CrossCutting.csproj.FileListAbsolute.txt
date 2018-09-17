@@ -7,3 +7,12 @@ C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\CrossCutting\obj\Deb
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\CrossCutting\obj\Debug\netstandard2.0\CrossCutting.dll
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\CrossCutting\obj\Debug\netstandard2.0\CrossCutting.pdb
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\CrossCutting\obj\Debug\netstandard2.0\CrossCutting.csprojAssemblyReference.cache
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\CrossCutting\bin\Debug\netstandard2.0\CrossCutting.pssym
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\CrossCutting\obj\Debug\netstandard2.0\PostSharp\touch
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\CrossCutting\obj\Debug\netstandard2.0\PostSharp\dependencies.txt
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\CrossCutting\obj\Debug\netstandard2.0\PostSharp\postsharp.app.config
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\CrossCutting\bin\Debug\netstandard2.0\Microsoft.Extensions.Configuration.dll
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\CrossCutting\bin\Debug\netstandard2.0\Microsoft.Extensions.Configuration.xml
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\CrossCutting\obj\Debug\netstandard2.0\CrossCutting.csproj.CopyComplete
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\CrossCutting\bin\Debug\netstandard2.0\DomainModel.dll
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\CrossCutting\bin\Debug\netstandard2.0\DomainModel.pdb

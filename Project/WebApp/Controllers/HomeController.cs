@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using CrossCutting.Logging;
 using FizzWare.NBuilder;
 using Kendo.Mvc.Extensions;
 using Kendo.Mvc.UI;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using WebApp.Infrastructure;
 using WebApp.Models;
 
 namespace WebApp.Controllers
 {
+
     public class HomeController : Controller
     {
         public IConfiguration Configuration { get; set; }
@@ -21,11 +24,12 @@ namespace WebApp.Controllers
             Configuration = iConfig;
         }
 
+        [NlogTrace]
         public IActionResult Index()
         {
             var str = Configuration.GetValue<string>("ApplicationsSetting:SQLConnection");
             ViewBag.AppSQLConfig = Configuration.GetValue<string>("ApplicationsSetting:SQLConnection");
-
+            //throw new Exception();
             return View("Index");
         }
 

@@ -728,3 +728,11 @@ C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebApp\bin\Release\n
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebApp\bin\Release\net461\tr-TR\Kendo.Mvc.resources.dll
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebApp\bin\Release\net461\uk-UA\Kendo.Mvc.resources.dll
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebApp\bin\Release\net461\zh-CN\Kendo.Mvc.resources.dll
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebApp\bin\Release\net461\Serilog.dll
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebApp\bin\Release\net461\Serilog.AspNetCore.dll
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebApp\bin\Release\net461\Serilog.Extensions.Logging.dll
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebApp\bin\Release\net461\Serilog.Settings.Configuration.dll
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebApp\bin\Release\net461\Serilog.Sinks.Console.dll
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebApp\bin\Release\net461\Serilog.Sinks.File.dll
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebApp\bin\Release\net461\Serilog.Sinks.MSSqlServer.dll
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebApp\bin\Release\net461\Serilog.Sinks.PeriodicBatching.dll

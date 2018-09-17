@@ -10,6 +10,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json.Serialization;
+using Microsoft.Extensions.Logging;
+using WebApp.Infrastructure;
+using CrossCutting.Logging;
+using DomainModel;
+using CrossCutting.Caching;
 
 namespace WebApp
 {
@@ -18,6 +23,13 @@ namespace WebApp
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+
+            List<ApplicationConfigModel> applicationConfigs = new List<ApplicationConfigModel>();
+
+            applicationConfigs = Configuration.GetChildren().Select(x =>  new ApplicationConfigModel{
+                                                                            Key = x.Key
+                                                                            ,Value = x.Value }).ToList();
+            Caching.Instance.AddApplicationConfigs(applicationConfigs);
         }
 
         public IConfiguration Configuration { get; set; }
@@ -47,10 +59,12 @@ namespace WebApp
 
             // Add Kendo UI services to the services container
             services.AddKendo();
+            services.AddScoped<NlogTraceAttribute>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             var builder = new ConfigurationBuilder()
                     .SetBasePath(env.ContentRootPath)
@@ -58,6 +72,7 @@ namespace WebApp
                     .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                     .AddEnvironmentVariables()
                     ;
+
 
             Configuration = builder.Build();
 
@@ -78,8 +93,8 @@ namespace WebApp
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
-            // Configure Kendo UI
-          
+           
+            //loggerFactory.AddLog4Net(); // << Add this line
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

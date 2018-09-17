@@ -15,6 +15,28 @@
           "lib/net45/Autofac.dll": {}
         }
       },
+      "Autofac.Extras.DynamicProxy/4.2.1": {
+        "type": "package",
+        "dependencies": {
+          "Autofac": "4.0.0",
+          "Castle.Core": "4.0.0"
+        },
+        "compile": {
+          "lib/net45/Autofac.Extras.DynamicProxy.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Autofac.Extras.DynamicProxy.dll": {}
+        }
+      },
+      "Castle.Core/4.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Castle.Core.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Castle.Core.dll": {}
+        }
+      },
       "Faker.Data/1.0.7": {
         "type": "package",
         "compile": {
@@ -1724,6 +1746,31 @@
           "lib/net46/NuGet.Frameworks.dll": {}
         }
       },
+      "PostSharp/6.0.27": {
+        "type": "package",
+        "dependencies": {
+          "PostSharp.Redist": "[6.0.27, 7.0.0)"
+        },
+        "compile": {
+          "lib/net35-client/_._": {}
+        },
+        "runtime": {
+          "lib/net35-client/_._": {}
+        },
+        "build": {
+          "build/PostSharp.props": {},
+          "build/PostSharp.targets": {}
+        }
+      },
+      "PostSharp.Redist/6.0.27": {
+        "type": "package",
+        "compile": {
+          "lib/net45/PostSharp.dll": {}
+        },
+        "runtime": {
+          "lib/net45/PostSharp.dll": {}
+        }
+      },
       "Remotion.Linq/2.2.0": {
         "type": "package",
         "compile": {
@@ -1731,6 +1778,129 @@
         },
         "runtime": {
           "lib/net45/Remotion.Linq.dll": {}
+        }
+      },
+      "Serilog/2.6.0": {
+        "type": "package",
+        "compile": {
+          "lib/net46/Serilog.dll": {}
+        },
+        "runtime": {
+          "lib/net46/Serilog.dll": {}
+        }
+      },
+      "Serilog.AspNetCore/2.1.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Hosting.Abstractions": "2.0.0",
+          "Microsoft.Extensions.DependencyInjection": "2.0.0",
+          "Microsoft.Extensions.Logging": "2.0.0",
+          "Serilog": "2.5.0",
+          "Serilog.Extensions.Logging": "2.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Serilog.AspNetCore.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Serilog.AspNetCore.dll": {}
+        }
+      },
+      "Serilog.Extensions.Logging/2.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Logging": "2.0.0",
+          "Serilog": "2.3.0"
+        },
+        "frameworkAssemblies": [
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/net461/Serilog.Extensions.Logging.dll": {}
+        },
+        "runtime": {
+          "lib/net461/Serilog.Extensions.Logging.dll": {}
+        }
+      },
+      "Serilog.Settings.Configuration/2.6.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "1.0.0",
+          "Microsoft.Extensions.DependencyModel": "1.0.0",
+          "Serilog": "2.6.0"
+        },
+        "compile": {
+          "lib/net451/Serilog.Settings.Configuration.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Serilog.Settings.Configuration.dll": {}
+        }
+      },
+      "Serilog.Sinks.Console/3.1.2-dev-00777": {
+        "type": "package",
+        "dependencies": {
+          "Serilog": "2.5.0"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/net45/Serilog.Sinks.Console.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Serilog.Sinks.Console.dll": {}
+        }
+      },
+      "Serilog.Sinks.File/4.0.1-dev-00796": {
+        "type": "package",
+        "dependencies": {
+          "Serilog": "2.5.0"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/net45/Serilog.Sinks.File.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Serilog.Sinks.File.dll": {}
+        }
+      },
+      "Serilog.Sinks.MSSqlServer/5.1.2": {
+        "type": "package",
+        "dependencies": {
+          "Serilog": "2.5.0",
+          "Serilog.Sinks.PeriodicBatching": "2.1.1"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "System",
+          "System.Configuration",
+          "System.Data",
+          "System.Xml",
+          "System.Xml.Linq"
+        ],
+        "compile": {
+          "lib/net452/Serilog.Sinks.MSSqlServer.dll": {}
+        },
+        "runtime": {
+          "lib/net452/Serilog.Sinks.MSSqlServer.dll": {}
+        }
+      },
+      "Serilog.Sinks.PeriodicBatching/2.1.1": {
+        "type": "package",
+        "dependencies": {
+          "Serilog": "2.0.0"
+        },
+        "compile": {
+          "lib/net45/Serilog.Sinks.PeriodicBatching.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Serilog.Sinks.PeriodicBatching.dll": {}
         }
       },
       "System.AppContext/4.3.0": {
@@ -1895,7 +2065,7 @@
           "lib/net451/System.Data.Common.dll": {}
         }
       },
-      "System.Data.SqlClient/4.5.0": {
+      "System.Data.SqlClient/4.6.0-preview2-26905-02": {
         "type": "package",
         "frameworkAssemblies": [
           "System.Data",
@@ -2711,6 +2881,11 @@
       "CrossCutting/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "DomainModel": "1.0.0",
+          "PostSharp": "6.0.27",
+          "Serilog.Sinks.MSSqlServer": "5.1.2"
+        },
         "compile": {
           "bin/placeholder/CrossCutting.dll": {}
         },
@@ -2799,6 +2974,28 @@
         },
         "runtime": {
           "lib/net45/Autofac.dll": {}
+        }
+      },
+      "Autofac.Extras.DynamicProxy/4.2.1": {
+        "type": "package",
+        "dependencies": {
+          "Autofac": "4.0.0",
+          "Castle.Core": "4.0.0"
+        },
+        "compile": {
+          "lib/net45/Autofac.Extras.DynamicProxy.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Autofac.Extras.DynamicProxy.dll": {}
+        }
+      },
+      "Castle.Core/4.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Castle.Core.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Castle.Core.dll": {}
         }
       },
       "Faker.Data/1.0.7": {
@@ -4456,6 +4653,31 @@
           "lib/net46/NuGet.Frameworks.dll": {}
         }
       },
+      "PostSharp/6.0.27": {
+        "type": "package",
+        "dependencies": {
+          "PostSharp.Redist": "[6.0.27, 7.0.0)"
+        },
+        "compile": {
+          "lib/net35-client/_._": {}
+        },
+        "runtime": {
+          "lib/net35-client/_._": {}
+        },
+        "build": {
+          "build/PostSharp.props": {},
+          "build/PostSharp.targets": {}
+        }
+      },
+      "PostSharp.Redist/6.0.27": {
+        "type": "package",
+        "compile": {
+          "lib/net45/PostSharp.dll": {}
+        },
+        "runtime": {
+          "lib/net45/PostSharp.dll": {}
+        }
+      },
       "Remotion.Linq/2.2.0": {
         "type": "package",
         "compile": {
@@ -4463,6 +4685,129 @@
         },
         "runtime": {
           "lib/net45/Remotion.Linq.dll": {}
+        }
+      },
+      "Serilog/2.6.0": {
+        "type": "package",
+        "compile": {
+          "lib/net46/Serilog.dll": {}
+        },
+        "runtime": {
+          "lib/net46/Serilog.dll": {}
+        }
+      },
+      "Serilog.AspNetCore/2.1.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Hosting.Abstractions": "2.0.0",
+          "Microsoft.Extensions.DependencyInjection": "2.0.0",
+          "Microsoft.Extensions.Logging": "2.0.0",
+          "Serilog": "2.5.0",
+          "Serilog.Extensions.Logging": "2.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Serilog.AspNetCore.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Serilog.AspNetCore.dll": {}
+        }
+      },
+      "Serilog.Extensions.Logging/2.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Logging": "2.0.0",
+          "Serilog": "2.3.0"
+        },
+        "frameworkAssemblies": [
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/net461/Serilog.Extensions.Logging.dll": {}
+        },
+        "runtime": {
+          "lib/net461/Serilog.Extensions.Logging.dll": {}
+        }
+      },
+      "Serilog.Settings.Configuration/2.6.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "1.0.0",
+          "Microsoft.Extensions.DependencyModel": "1.0.0",
+          "Serilog": "2.6.0"
+        },
+        "compile": {
+          "lib/net451/Serilog.Settings.Configuration.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Serilog.Settings.Configuration.dll": {}
+        }
+      },
+      "Serilog.Sinks.Console/3.1.2-dev-00777": {
+        "type": "package",
+        "dependencies": {
+          "Serilog": "2.5.0"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/net45/Serilog.Sinks.Console.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Serilog.Sinks.Console.dll": {}
+        }
+      },
+      "Serilog.Sinks.File/4.0.1-dev-00796": {
+        "type": "package",
+        "dependencies": {
+          "Serilog": "2.5.0"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/net45/Serilog.Sinks.File.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Serilog.Sinks.File.dll": {}
+        }
+      },
+      "Serilog.Sinks.MSSqlServer/5.1.2": {
+        "type": "package",
+        "dependencies": {
+          "Serilog": "2.5.0",
+          "Serilog.Sinks.PeriodicBatching": "2.1.1"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "System",
+          "System.Configuration",
+          "System.Data",
+          "System.Xml",
+          "System.Xml.Linq"
+        ],
+        "compile": {
+          "lib/net452/Serilog.Sinks.MSSqlServer.dll": {}
+        },
+        "runtime": {
+          "lib/net452/Serilog.Sinks.MSSqlServer.dll": {}
+        }
+      },
+      "Serilog.Sinks.PeriodicBatching/2.1.1": {
+        "type": "package",
+        "dependencies": {
+          "Serilog": "2.0.0"
+        },
+        "compile": {
+          "lib/net45/Serilog.Sinks.PeriodicBatching.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Serilog.Sinks.PeriodicBatching.dll": {}
         }
       },
       "System.AppContext/4.3.0": {
@@ -4627,7 +4972,7 @@
           "lib/net451/System.Data.Common.dll": {}
         }
       },
-      "System.Data.SqlClient/4.5.0": {
+      "System.Data.SqlClient/4.6.0-preview2-26905-02": {
         "type": "package",
         "frameworkAssemblies": [
           "System.Data",
@@ -5341,6 +5686,11 @@
       "CrossCutting/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "DomainModel": "1.0.0",
+          "PostSharp": "6.0.27",
+          "Serilog.Sinks.MSSqlServer": "5.1.2"
+        },
         "compile": {
           "bin/placeholder/CrossCutting.dll": {}
         },
@@ -5430,6 +5780,40 @@
         "lib/net45/Autofac.xml",
         "lib/netstandard1.1/Autofac.dll",
         "lib/netstandard1.1/Autofac.xml"
+      ]
+    },
+    "Autofac.Extras.DynamicProxy/4.2.1": {
+      "sha512": "JzuIqTj9W8Xfdny+Kyek+uhqH5HPe2tLR0zRuj5HCEkloZFlmXzGHBu45g3bJHeHRYW/z5UR4Ja1k9i31nOR+w==",
+      "type": "package",
+      "path": "autofac.extras.dynamicproxy/4.2.1",
+      "files": [
+        "autofac.extras.dynamicproxy.4.2.1.nupkg.sha512",
+        "autofac.extras.dynamicproxy.nuspec",
+        "lib/net45/Autofac.Extras.DynamicProxy.dll",
+        "lib/net45/Autofac.Extras.DynamicProxy.xml",
+        "lib/netstandard1.3/Autofac.Extras.DynamicProxy.dll",
+        "lib/netstandard1.3/Autofac.Extras.DynamicProxy.xml"
+      ]
+    },
+    "Castle.Core/4.0.0": {
+      "sha512": "iLINpMFc07bcb0d075AB0mcXV/MT8J8oyBarDSeyrLM03UoCVOuvYu87LI4511XHfy7XEhHtMDum5gt2s56xDg==",
+      "type": "package",
+      "path": "castle.core/4.0.0",
+      "files": [
+        "ASL - Apache Software Foundation License.txt",
+        "CHANGELOG.md",
+        "LICENSE",
+        "castle.core.4.0.0.nupkg.sha512",
+        "castle.core.nuspec",
+        "lib/net35/Castle.Core.dll",
+        "lib/net35/Castle.Core.xml",
+        "lib/net40-client/Castle.Core.dll",
+        "lib/net40-client/Castle.Core.xml",
+        "lib/net45/Castle.Core.dll",
+        "lib/net45/Castle.Core.xml",
+        "lib/netstandard1.3/Castle.Core.dll",
+        "lib/netstandard1.3/Castle.Core.xml",
+        "readme.txt"
       ]
     },
     "Faker.Data/1.0.7": {
@@ -7191,6 +7575,46 @@
         "nuget.frameworks.nuspec"
       ]
     },
+    "PostSharp/6.0.27": {
+      "sha512": "6w35QeX757xIgmVS8Z/85+v0cAJaK07FK79KprxCPg3QWD/Y+jbfSicwHYGG381cEykqQahPopQrLIkxCt/UAQ==",
+      "type": "package",
+      "path": "postsharp/6.0.27",
+      "files": [
+        ".signature.p7s",
+        "build/PostSharp-Tools.exe",
+        "build/PostSharp.Version.properties",
+        "build/PostSharp.properties",
+        "build/PostSharp.props",
+        "build/PostSharp.targets",
+        "build/PostSharp.tasks",
+        "build/net471/PostSharp.MSBuild.v6.0.27.Release.dll",
+        "build/net471/PostSharp.MSBuild.v6.0.27.Release.pdb",
+        "build/netcoreapp2.0/PostSharp.MSBuild.v6.0.27.Release.dll",
+        "build/netcoreapp2.0/PostSharp.MSBuild.v6.0.27.Release.pdb",
+        "lib/net35-client/_._",
+        "lib/netstandard1.0/_._",
+        "postsharp.6.0.27.nupkg.sha512",
+        "postsharp.nuspec"
+      ]
+    },
+    "PostSharp.Redist/6.0.27": {
+      "sha512": "EfxsT20Djcu6kGMcd+5t79JDjqgCCJonke3rTuzIAcb4Trq+BXL3szC8c2nFugDHcYez12d9OsWIz2ckq9NCbg==",
+      "type": "package",
+      "path": "postsharp.redist/6.0.27",
+      "files": [
+        ".signature.p7s",
+        "lib/net35-client/PostSharp.dll",
+        "lib/net35-client/PostSharp.xml",
+        "lib/net45/PostSharp.dll",
+        "lib/net45/PostSharp.xml",
+        "lib/netstandard1.3/PostSharp.dll",
+        "lib/netstandard1.3/PostSharp.xml",
+        "lib/netstandard2.0/PostSharp.dll",
+        "lib/netstandard2.0/PostSharp.xml",
+        "postsharp.redist.6.0.27.nupkg.sha512",
+        "postsharp.redist.nuspec"
+      ]
+    },
     "Remotion.Linq/2.2.0": {
       "sha512": "fK/76UmpC0FXBlGDFVPLJHQlDLYnGC+XY3eoDgCgbtrhi0vzbXDQ3n/IYHhqSKqXQfGw/u04A1drWs7rFVkRjw==",
       "type": "package",
@@ -7208,6 +7632,124 @@
         "lib/portable-net45+win+wpa81+wp80/Remotion.Linq.xml",
         "remotion.linq.2.2.0.nupkg.sha512",
         "remotion.linq.nuspec"
+      ]
+    },
+    "Serilog/2.6.0": {
+      "sha512": "hxHgHkza8ZowrvQ+jTEF2ypDWGP8NbNtxPQIx7ogTAM9fisDFo2+6kOaxCkleZLO8hiyq0kW5tDLkgm/dbj9uA==",
+      "type": "package",
+      "path": "serilog/2.6.0",
+      "files": [
+        "lib/net45/Serilog.dll",
+        "lib/net45/Serilog.xml",
+        "lib/net46/Serilog.dll",
+        "lib/net46/Serilog.xml",
+        "lib/netstandard1.0/Serilog.dll",
+        "lib/netstandard1.0/Serilog.xml",
+        "lib/netstandard1.3/Serilog.dll",
+        "lib/netstandard1.3/Serilog.xml",
+        "serilog.2.6.0.nupkg.sha512",
+        "serilog.nuspec"
+      ]
+    },
+    "Serilog.AspNetCore/2.1.1": {
+      "sha512": "euuzaDEF8RuTszbqZnYYOm15bGKm0ID3Vaj++sDhmxeL79a8yRemhv2Y8knjvqoOatIpN7Cqd6Jma0A+Pk+V7g==",
+      "type": "package",
+      "path": "serilog.aspnetcore/2.1.1",
+      "files": [
+        "lib/netstandard2.0/Serilog.AspNetCore.dll",
+        "lib/netstandard2.0/Serilog.AspNetCore.xml",
+        "serilog.aspnetcore.2.1.1.nupkg.sha512",
+        "serilog.aspnetcore.nuspec"
+      ]
+    },
+    "Serilog.Extensions.Logging/2.0.0": {
+      "sha512": "JAh1vHmbiwDAjA9VmUQjAXvlGm+vDv8usarajlkx7Arm6Zai+CPY4naE4N9M3Eh520wY5GmIWpM+7zmfMbdTOw==",
+      "type": "package",
+      "path": "serilog.extensions.logging/2.0.0",
+      "files": [
+        "lib/net45/Serilog.Extensions.Logging.dll",
+        "lib/net45/Serilog.Extensions.Logging.xml",
+        "lib/net46/Serilog.Extensions.Logging.dll",
+        "lib/net46/Serilog.Extensions.Logging.xml",
+        "lib/net461/Serilog.Extensions.Logging.dll",
+        "lib/net461/Serilog.Extensions.Logging.xml",
+        "lib/netstandard1.3/Serilog.Extensions.Logging.dll",
+        "lib/netstandard1.3/Serilog.Extensions.Logging.xml",
+        "lib/netstandard2.0/Serilog.Extensions.Logging.dll",
+        "lib/netstandard2.0/Serilog.Extensions.Logging.xml",
+        "serilog.extensions.logging.2.0.0.nupkg.sha512",
+        "serilog.extensions.logging.nuspec"
+      ]
+    },
+    "Serilog.Settings.Configuration/2.6.1": {
+      "sha512": "d23bkPRrI/lxfe3FQ2C1KouU/3tBDhGhIHvmlW94rDeNductsu6wzEOGTI9neImD3AwzCB/WPq2BJCZAWe2R4Q==",
+      "type": "package",
+      "path": "serilog.settings.configuration/2.6.1",
+      "files": [
+        "lib/net451/Serilog.Settings.Configuration.dll",
+        "lib/net451/Serilog.Settings.Configuration.xml",
+        "lib/netstandard1.6/Serilog.Settings.Configuration.dll",
+        "lib/netstandard1.6/Serilog.Settings.Configuration.xml",
+        "serilog.settings.configuration.2.6.1.nupkg.sha512",
+        "serilog.settings.configuration.nuspec"
+      ]
+    },
+    "Serilog.Sinks.Console/3.1.2-dev-00777": {
+      "sha512": "IujCBHiNcIbSWqA7kZ0skRouIDsBI88z+KvSYl3nbqa9cVju4l6sxsumKw6t97XxL1Xku8iTretCZ5YCvNhDIA==",
+      "type": "package",
+      "path": "serilog.sinks.console/3.1.2-dev-00777",
+      "files": [
+        "lib/net45/Serilog.Sinks.Console.dll",
+        "lib/net45/Serilog.Sinks.Console.xml",
+        "lib/netcoreapp1.1/Serilog.Sinks.Console.dll",
+        "lib/netcoreapp1.1/Serilog.Sinks.Console.xml",
+        "lib/netstandard1.3/Serilog.Sinks.Console.dll",
+        "lib/netstandard1.3/Serilog.Sinks.Console.xml",
+        "serilog.sinks.console.3.1.2-dev-00777.nupkg.sha512",
+        "serilog.sinks.console.nuspec"
+      ]
+    },
+    "Serilog.Sinks.File/4.0.1-dev-00796": {
+      "sha512": "JuQGhrb1ejK9JJLgZ8B6Ef7Z6iwq6dHXaj1rOuBVTY3zz12Qg2w6YYTCxw4tvka2A8wOGz1C3ZCN4GmKtxpK7w==",
+      "type": "package",
+      "path": "serilog.sinks.file/4.0.1-dev-00796",
+      "files": [
+        "lib/net45/Serilog.Sinks.File.dll",
+        "lib/net45/Serilog.Sinks.File.xml",
+        "lib/netstandard1.3/Serilog.Sinks.File.dll",
+        "lib/netstandard1.3/Serilog.Sinks.File.xml",
+        "serilog.sinks.file.4.0.1-dev-00796.nupkg.sha512",
+        "serilog.sinks.file.nuspec"
+      ]
+    },
+    "Serilog.Sinks.MSSqlServer/5.1.2": {
+      "sha512": "+FU05c8tKomMmKy0m1FXPciuKBkTPY1blBm5zrRTXCisuB87aT1bR8m8HGaUnSwIrIP7nSISub4+qyBHf+zpKw==",
+      "type": "package",
+      "path": "serilog.sinks.mssqlserver/5.1.2",
+      "files": [
+        "lib/net45/Serilog.Sinks.MSSqlServer.dll",
+        "lib/net45/Serilog.Sinks.MSSqlServer.xml",
+        "lib/net452/Serilog.Sinks.MSSqlServer.dll",
+        "lib/net452/Serilog.Sinks.MSSqlServer.xml",
+        "lib/netstandard2.0/Serilog.Sinks.MSSqlServer.dll",
+        "lib/netstandard2.0/Serilog.Sinks.MSSqlServer.xml",
+        "serilog.sinks.mssqlserver.5.1.2.nupkg.sha512",
+        "serilog.sinks.mssqlserver.nuspec"
+      ]
+    },
+    "Serilog.Sinks.PeriodicBatching/2.1.1": {
+      "sha512": "L1iZtcEzQdEIYCPvhYJYB2RofPg+i1NhHJfS+DpXLyLSMS6OXebqaI1fxWhmJRIjD9D9BuXi23FkZTQDiP7cHw==",
+      "type": "package",
+      "path": "serilog.sinks.periodicbatching/2.1.1",
+      "files": [
+        "lib/net45/Serilog.Sinks.PeriodicBatching.dll",
+        "lib/net45/Serilog.Sinks.PeriodicBatching.xml",
+        "lib/netstandard1.1/Serilog.Sinks.PeriodicBatching.dll",
+        "lib/netstandard1.1/Serilog.Sinks.PeriodicBatching.xml",
+        "lib/netstandard1.2/Serilog.Sinks.PeriodicBatching.dll",
+        "lib/netstandard1.2/Serilog.Sinks.PeriodicBatching.xml",
+        "serilog.sinks.periodicbatching.2.1.1.nupkg.sha512",
+        "serilog.sinks.periodicbatching.nuspec"
       ]
     },
     "System.AppContext/4.3.0": {
@@ -7694,10 +8236,10 @@
         "ref/xamarinwatchos10/_._"
       ]
     },
-    "System.Data.SqlClient/4.5.0": {
-      "sha512": "q6xYImrsNz+WZCa4/zvgUUihMQUxdI3S6e2gPsCA8TB8Ott7/frxxoeIoyjp3dsmvolA9StFD/Ib6tDPf5sHVA==",
+    "System.Data.SqlClient/4.6.0-preview2-26905-02": {
+      "sha512": "62Ufz5hPNBsrhFMIfQcwMN8V0Xazq1n2e+8rrYHRt0SRN44hTN3Wfdy5a61NLvHQ6chPdcx2yI18E9lvmDrfxw==",
       "type": "package",
-      "path": "system.data.sqlclient/4.5.0",
+      "path": "system.data.sqlclient/4.6.0-preview2-26905-02",
       "files": [
         ".signature.p7s",
         "LICENSE.TXT",
@@ -7761,8 +8303,7 @@
         "runtimes/win/lib/netstandard1.3/System.Data.SqlClient.dll",
         "runtimes/win/lib/netstandard2.0/System.Data.SqlClient.dll",
         "runtimes/win/lib/uap10.0.16299/System.Data.SqlClient.dll",
-        "runtimes/win/lib/uap10.0.16300/System.Data.SqlClient.dll",
-        "system.data.sqlclient.4.5.0.nupkg.sha512",
+        "system.data.sqlclient.4.6.0-preview2-26905-02.nupkg.sha512",
         "system.data.sqlclient.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
@@ -10273,6 +10814,7 @@
   "projectFileDependencyGroups": {
     ".NETFramework,Version=v4.6.1": [
       "Autofac >= 4.8.1",
+      "Autofac.Extras.DynamicProxy >= 4.2.1",
       "CrossCutting >= 1.0.0",
       "DependencyInjecionResolver >= 1.0.0",
       "DomainModel >= 1.0.0",
@@ -10288,7 +10830,14 @@
       "Microsoft.VisualStudio.Web.BrowserLink >= 2.1.0",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.1.0",
       "NBuilder >= 6.0.0",
+      "PostSharp >= 6.0.27",
+      "Serilog.AspNetCore >= 2.1.1",
+      "Serilog.Settings.Configuration >= 2.6.1",
+      "Serilog.Sinks.Console >= 3.1.2-dev-00777",
+      "Serilog.Sinks.File >= 4.0.1-dev-00796",
+      "Serilog.Sinks.MSSqlServer >= 5.1.2",
       "ServiceInterface >= 1.0.0",
+      "System.Data.SqlClient >= 4.6.0-preview2-26905-02",
       "Telerik.UI.for.AspNet.Core >= 2018.3.911"
     ]
   },
@@ -10353,6 +10902,10 @@
             "target": "Package",
             "version": "[4.8.1, )"
           },
+          "Autofac.Extras.DynamicProxy": {
+            "target": "Package",
+            "version": "[4.2.1, )"
+          },
           "Faker.Data": {
             "target": "Package",
             "version": "[1.0.7, )"
@@ -10402,6 +10955,34 @@
           "NBuilder": {
             "target": "Package",
             "version": "[6.0.0, )"
+          },
+          "PostSharp": {
+            "target": "Package",
+            "version": "[6.0.27, )"
+          },
+          "Serilog.AspNetCore": {
+            "target": "Package",
+            "version": "[2.1.1, )"
+          },
+          "Serilog.Settings.Configuration": {
+            "target": "Package",
+            "version": "[2.6.1, )"
+          },
+          "Serilog.Sinks.Console": {
+            "target": "Package",
+            "version": "[3.1.2-dev-00777, )"
+          },
+          "Serilog.Sinks.File": {
+            "target": "Package",
+            "version": "[4.0.1-dev-00796, )"
+          },
+          "Serilog.Sinks.MSSqlServer": {
+            "target": "Package",
+            "version": "[5.1.2, )"
+          },
+          "System.Data.SqlClient": {
+            "target": "Package",
+            "version": "[4.6.0-preview2-26905-02, )"
           },
           "Telerik.UI.for.AspNet.Core": {
             "target": "Package",
