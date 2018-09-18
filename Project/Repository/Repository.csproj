@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Insight.Database" Version="6.2.4" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\CrossCutting\CrossCutting.csproj" />
     <ProjectReference Include="..\DomainModel\DomainModel.csproj" />
   </ItemGroup>

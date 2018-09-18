@@ -7,4 +7,3 @@ C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\Database\EmployeeMan
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\Database\EmployeeManage\obj\Debug\predeploy.sql
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\Database\EmployeeManage\obj\Debug\EmployeeManage.dll
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\Database\EmployeeManage\obj\Debug\EmployeeManage.pdb
-C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\Database\EmployeeManage\obj\Debug\EmployeeManage.sqlprojAssemblyReference.cache

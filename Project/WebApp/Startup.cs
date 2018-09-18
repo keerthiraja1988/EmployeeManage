@@ -15,6 +15,10 @@ using WebApp.Infrastructure;
 using CrossCutting.Logging;
 using DomainModel;
 using CrossCutting.Caching;
+using Autofac;
+using WebApp.Controllers;
+using Autofac.Extensions.DependencyInjection;
+using static DependencyInjecionResolver.DependencyInjecionResolver;
 
 namespace WebApp
 {
@@ -33,9 +37,10 @@ namespace WebApp
         }
 
         public IConfiguration Configuration { get; set; }
+        public Autofac.IContainer ApplicationContainer { get; private set; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             services.Configure<CookiePolicyOptions>(options =>
             {
@@ -44,23 +49,29 @@ namespace WebApp
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-
-           
-
             // Maintain property names during serialization. See:
             // https://github.com/aspnet/Announcements/issues/194
             services
                 .AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
                 .AddJsonOptions(options =>
-                    options.SerializerSettings.ContractResolver = new DefaultContractResolver());
-
-
+                    options.SerializerSettings.ContractResolver = new DefaultContractResolver())
+                   
+                    ;
 
             // Add Kendo UI services to the services container
             services.AddKendo();
             services.AddScoped<NlogTraceAttribute>();
 
+            var sqlConnection = Configuration.GetValue<string>("ApplicationsSetting:SQLConnection");
+
+            var builder = new Autofac.ContainerBuilder();
+
+            builder.RegisterAssemblyModules(System.Reflection.Assembly.GetExecutingAssembly());
+            builder.Populate(services);
+            builder.RegisterModule(new ServiceDIContainer(sqlConnection));
+            this.ApplicationContainer = builder.Build();
+            return new AutofacServiceProvider(this.ApplicationContainer);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -73,12 +84,9 @@ namespace WebApp
                     .AddEnvironmentVariables()
                     ;
 
-
             Configuration = builder.Build();
 
-
-
-            var sqlConnection = Configuration.GetValue<string>("ApplicationsSetting:SQLConnection");
+           
 
             if (env.IsDevelopment())
             {

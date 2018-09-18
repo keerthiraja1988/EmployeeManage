@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     ".NETFramework,Version=v4.6.1": {
-      "Autofac/4.8.1": {
+      "Autofac/4.9.0-beta1": {
         "type": "package",
         "frameworkAssemblies": [
           "Microsoft.CSharp",
@@ -13,6 +13,19 @@
         },
         "runtime": {
           "lib/net45/Autofac.dll": {}
+        }
+      },
+      "Autofac.Extensions.DependencyInjection/4.3.0": {
+        "type": "package",
+        "dependencies": {
+          "Autofac": "4.2.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "1.1.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Autofac.Extensions.DependencyInjection.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Autofac.Extensions.DependencyInjection.dll": {}
         }
       },
       "Autofac.Extras.DynamicProxy/4.2.1": {
@@ -44,6 +57,59 @@
         },
         "runtime": {
           "lib/net45/Faker.dll": {}
+        }
+      },
+      "Insight.Database/6.2.4": {
+        "type": "package",
+        "dependencies": {
+          "Insight.Database.Configuration": "6.2.4",
+          "Insight.Database.Core": "6.2.4",
+          "Insight.Database.Providers.Default": "6.2.4"
+        },
+        "compile": {
+          "lib/net451/Insight.Database.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Insight.Database.dll": {}
+        }
+      },
+      "Insight.Database.Configuration/6.2.4": {
+        "type": "package",
+        "dependencies": {
+          "Insight.Database.Core": "6.2.4"
+        },
+        "frameworkAssemblies": [
+          "System.Configuration"
+        ],
+        "compile": {
+          "lib/net451/Insight.Database.Configuration.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Insight.Database.Configuration.dll": {}
+        }
+      },
+      "Insight.Database.Core/6.2.4": {
+        "type": "package",
+        "dependencies": {
+          "System.ValueTuple": "4.4.0"
+        },
+        "compile": {
+          "lib/net451/Insight.Database.Core.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Insight.Database.Core.dll": {}
+        }
+      },
+      "Insight.Database.Providers.Default/6.2.4": {
+        "type": "package",
+        "dependencies": {
+          "Insight.Database.Core": "6.2.4"
+        },
+        "compile": {
+          "lib/net451/Insight.Database.Providers.Default.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Insight.Database.Providers.Default.dll": {}
         }
       },
       "Microsoft.AspNetCore/2.1.3": {
@@ -2723,13 +2789,17 @@
           "lib/net46/System.Threading.Thread.dll": {}
         }
       },
-      "System.ValueTuple/4.3.0": {
+      "System.ValueTuple/4.4.0": {
         "type": "package",
+        "frameworkAssemblies": [
+          "System",
+          "mscorlib"
+        ],
         "compile": {
-          "lib/netstandard1.0/System.ValueTuple.dll": {}
+          "ref/net461/System.ValueTuple.dll": {}
         },
         "runtime": {
-          "lib/netstandard1.0/System.ValueTuple.dll": {}
+          "lib/net461/System.ValueTuple.dll": {}
         }
       },
       "System.Xml.ReaderWriter/4.3.0": {
@@ -2923,7 +2993,8 @@
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "CrossCutting": "1.0.0",
-          "DomainModel": "1.0.0"
+          "DomainModel": "1.0.0",
+          "Insight.Database": "6.2.4"
         },
         "compile": {
           "bin/placeholder/Repository.dll": {}
@@ -2938,6 +3009,7 @@
         "dependencies": {
           "CrossCutting": "1.0.0",
           "DomainModel": "1.0.0",
+          "Insight.Database": "6.2.4",
           "Repository": "1.0.0",
           "ServiceInterface": "1.0.0"
         },
@@ -2963,7 +3035,7 @@
       }
     },
     ".NETFramework,Version=v4.6.1/win7-x86": {
-      "Autofac/4.8.1": {
+      "Autofac/4.9.0-beta1": {
         "type": "package",
         "frameworkAssemblies": [
           "Microsoft.CSharp",
@@ -2974,6 +3046,19 @@
         },
         "runtime": {
           "lib/net45/Autofac.dll": {}
+        }
+      },
+      "Autofac.Extensions.DependencyInjection/4.3.0": {
+        "type": "package",
+        "dependencies": {
+          "Autofac": "4.2.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "1.1.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Autofac.Extensions.DependencyInjection.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Autofac.Extensions.DependencyInjection.dll": {}
         }
       },
       "Autofac.Extras.DynamicProxy/4.2.1": {
@@ -3005,6 +3090,59 @@
         },
         "runtime": {
           "lib/net45/Faker.dll": {}
+        }
+      },
+      "Insight.Database/6.2.4": {
+        "type": "package",
+        "dependencies": {
+          "Insight.Database.Configuration": "6.2.4",
+          "Insight.Database.Core": "6.2.4",
+          "Insight.Database.Providers.Default": "6.2.4"
+        },
+        "compile": {
+          "lib/net451/Insight.Database.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Insight.Database.dll": {}
+        }
+      },
+      "Insight.Database.Configuration/6.2.4": {
+        "type": "package",
+        "dependencies": {
+          "Insight.Database.Core": "6.2.4"
+        },
+        "frameworkAssemblies": [
+          "System.Configuration"
+        ],
+        "compile": {
+          "lib/net451/Insight.Database.Configuration.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Insight.Database.Configuration.dll": {}
+        }
+      },
+      "Insight.Database.Core/6.2.4": {
+        "type": "package",
+        "dependencies": {
+          "System.ValueTuple": "4.4.0"
+        },
+        "compile": {
+          "lib/net451/Insight.Database.Core.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Insight.Database.Core.dll": {}
+        }
+      },
+      "Insight.Database.Providers.Default/6.2.4": {
+        "type": "package",
+        "dependencies": {
+          "Insight.Database.Core": "6.2.4"
+        },
+        "compile": {
+          "lib/net451/Insight.Database.Providers.Default.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Insight.Database.Providers.Default.dll": {}
         }
       },
       "Microsoft.AspNetCore/2.1.3": {
@@ -5528,13 +5666,17 @@
           "lib/net46/System.Threading.Thread.dll": {}
         }
       },
-      "System.ValueTuple/4.3.0": {
+      "System.ValueTuple/4.4.0": {
         "type": "package",
+        "frameworkAssemblies": [
+          "System",
+          "mscorlib"
+        ],
         "compile": {
-          "lib/netstandard1.0/System.ValueTuple.dll": {}
+          "ref/net461/System.ValueTuple.dll": {}
         },
         "runtime": {
-          "lib/netstandard1.0/System.ValueTuple.dll": {}
+          "lib/net461/System.ValueTuple.dll": {}
         }
       },
       "System.Xml.ReaderWriter/4.3.0": {
@@ -5728,7 +5870,8 @@
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "CrossCutting": "1.0.0",
-          "DomainModel": "1.0.0"
+          "DomainModel": "1.0.0",
+          "Insight.Database": "6.2.4"
         },
         "compile": {
           "bin/placeholder/Repository.dll": {}
@@ -5743,6 +5886,7 @@
         "dependencies": {
           "CrossCutting": "1.0.0",
           "DomainModel": "1.0.0",
+          "Insight.Database": "6.2.4",
           "Repository": "1.0.0",
           "ServiceInterface": "1.0.0"
         },
@@ -5769,17 +5913,36 @@
     }
   },
   "libraries": {
-    "Autofac/4.8.1": {
-      "sha512": "aIT9rupCOdab5RMfxvWTBmOxGU77tLqmvSF4V89SzV6oQcJrtuKw/Xp55xy9EijSktbMka55SbroAPOyT+lziw==",
+    "Autofac/4.9.0-beta1": {
+      "sha512": "ELArZEhLmHfl9zv1jht61Fd9qi8qJ3etbs2vRZUnutlG1dVofK+lKDlfyEh+Jfx8RNLxps0PbbgUTaHM6OA+og==",
       "type": "package",
-      "path": "autofac/4.8.1",
+      "path": "autofac/4.9.0-beta1",
       "files": [
-        "Autofac.4.8.1.nupkg.sha512",
-        "Autofac.nuspec",
+        ".signature.p7s",
+        "autofac.4.9.0-beta1.nupkg.sha512",
+        "autofac.nuspec",
         "lib/net45/Autofac.dll",
+        "lib/net45/Autofac.pdb",
         "lib/net45/Autofac.xml",
         "lib/netstandard1.1/Autofac.dll",
+        "lib/netstandard1.1/Autofac.pdb",
         "lib/netstandard1.1/Autofac.xml"
+      ]
+    },
+    "Autofac.Extensions.DependencyInjection/4.3.0": {
+      "sha512": "q32oTGBjPMpxJfq85AfzEFOLmUqa4DHUjqdN1HVRcUt0ObFDMoAhnit7ieBtyCu4vMhJ7DaNnfGHRSkUp1YMyQ==",
+      "type": "package",
+      "path": "autofac.extensions.dependencyinjection/4.3.0",
+      "files": [
+        ".signature.p7s",
+        "Autofac.Extensions.DependencyInjection.4.3.0.nupkg.sha512",
+        "Autofac.Extensions.DependencyInjection.nuspec",
+        "lib/netstandard1.1/Autofac.Extensions.DependencyInjection.dll",
+        "lib/netstandard1.1/Autofac.Extensions.DependencyInjection.pdb",
+        "lib/netstandard1.1/Autofac.Extensions.DependencyInjection.xml",
+        "lib/netstandard2.0/Autofac.Extensions.DependencyInjection.dll",
+        "lib/netstandard2.0/Autofac.Extensions.DependencyInjection.pdb",
+        "lib/netstandard2.0/Autofac.Extensions.DependencyInjection.xml"
       ]
     },
     "Autofac.Extras.DynamicProxy/4.2.1": {
@@ -5824,6 +5987,74 @@
         "faker.data.1.0.7.nupkg.sha512",
         "faker.data.nuspec",
         "lib/net45/Faker.dll"
+      ]
+    },
+    "Insight.Database/6.2.4": {
+      "sha512": "kFdX2+PFcq/Y4rjMx2jW+56b8dgA7Pi+VunfOD6ObVioTf5sI5BD2G+Z1BHIHui0D49dLeiHTp54cueglBOaDg==",
+      "type": "package",
+      "path": "insight.database/6.2.4",
+      "files": [
+        ".signature.p7s",
+        "insight.database.6.2.4.nupkg.sha512",
+        "insight.database.nuspec",
+        "lib/net45/Insight.Database.dll",
+        "lib/net451/Insight.Database.dll",
+        "lib/netstandard1.5/Insight.Database.dll",
+        "lib/netstandard2.0/Insight.Database.dll"
+      ]
+    },
+    "Insight.Database.Configuration/6.2.4": {
+      "sha512": "icOq+5lWQ7Gc648HMK2lSP80MQ9w6wvwL+vyzeLTscQ6E43lhI8wPTVdlKOCXwbSKtOoNxKpg0Q/YZO49O/vZw==",
+      "type": "package",
+      "path": "insight.database.configuration/6.2.4",
+      "files": [
+        ".signature.p7s",
+        "insight.database.configuration.6.2.4.nupkg.sha512",
+        "insight.database.configuration.nuspec",
+        "lib/net45/Insight.Database.Configuration.dll",
+        "lib/net45/Insight.Database.Configuration.xml",
+        "lib/net451/Insight.Database.Configuration.dll",
+        "lib/net451/Insight.Database.Configuration.xml",
+        "lib/netstandard1.5/Insight.Database.Configuration.dll",
+        "lib/netstandard1.5/Insight.Database.Configuration.xml",
+        "lib/netstandard2.0/Insight.Database.Configuration.dll",
+        "lib/netstandard2.0/Insight.Database.Configuration.xml"
+      ]
+    },
+    "Insight.Database.Core/6.2.4": {
+      "sha512": "YoAfQJ50xTaQCzVVkUBdY4OmoqOfAdlLmI8Dpe0HnMPItpsDqZDgnP8zkxfTYiwVlFdBwkI6vOr+X02NAziIpQ==",
+      "type": "package",
+      "path": "insight.database.core/6.2.4",
+      "files": [
+        ".signature.p7s",
+        "insight.database.core.6.2.4.nupkg.sha512",
+        "insight.database.core.nuspec",
+        "lib/net45/Insight.Database.Core.dll",
+        "lib/net45/Insight.Database.Core.xml",
+        "lib/net451/Insight.Database.Core.dll",
+        "lib/net451/Insight.Database.Core.xml",
+        "lib/netstandard1.5/Insight.Database.Core.dll",
+        "lib/netstandard1.5/Insight.Database.Core.xml",
+        "lib/netstandard2.0/Insight.Database.Core.dll",
+        "lib/netstandard2.0/Insight.Database.Core.xml"
+      ]
+    },
+    "Insight.Database.Providers.Default/6.2.4": {
+      "sha512": "x87mYauDFB7ARxQFQNV+M/MbFHvHlfORAvcDM4TlXm0Bxm7NBirxwZeAdOPD6/JayJmSKvFHDrCD12UvSekaWw==",
+      "type": "package",
+      "path": "insight.database.providers.default/6.2.4",
+      "files": [
+        ".signature.p7s",
+        "insight.database.providers.default.6.2.4.nupkg.sha512",
+        "insight.database.providers.default.nuspec",
+        "lib/net45/Insight.Database.Providers.Default.dll",
+        "lib/net45/Insight.Database.Providers.Default.xml",
+        "lib/net451/Insight.Database.Providers.Default.dll",
+        "lib/net451/Insight.Database.Providers.Default.xml",
+        "lib/netstandard1.5/Insight.Database.Providers.Default.dll",
+        "lib/netstandard1.5/Insight.Database.Providers.Default.xml",
+        "lib/netstandard2.0/Insight.Database.Providers.Default.dll",
+        "lib/netstandard2.0/Insight.Database.Providers.Default.xml"
       ]
     },
     "Microsoft.AspNetCore/2.1.3": {
@@ -10449,19 +10680,47 @@
         "ref/xamarinwatchos10/_._"
       ]
     },
-    "System.ValueTuple/4.3.0": {
-      "sha512": "cNLEvBX3d6MMQRZe3SMFNukVbitDAEpVZO17qa0/2FHxZ7Y7PpFRpr6m2615XYM/tYYYf0B+WyHNujqIw8Luwg==",
+    "System.ValueTuple/4.4.0": {
+      "sha512": "BahUww/+mdP4ARCAh2RQhQTg13wYLVrBb9SYVgW8ZlrwjraGCXHGjo0oIiUfZ34LUZkMMR+RAzR7dEY4S1HeQQ==",
       "type": "package",
-      "path": "system.valuetuple/4.3.0",
+      "path": "system.valuetuple/4.4.0",
       "files": [
-        "System.ValueTuple.4.3.0.nupkg.sha512",
+        "LICENSE.TXT",
+        "System.ValueTuple.4.4.0.nupkg.sha512",
         "System.ValueTuple.nuspec",
-        "ThirdPartyNotices.txt",
-        "dotnet_library_license.txt",
-        "lib/netstandard1.0/.xml",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net461/System.ValueTuple.dll",
+        "lib/net461/System.ValueTuple.xml",
+        "lib/net47/System.ValueTuple.dll",
+        "lib/net47/System.ValueTuple.xml",
+        "lib/netcoreapp2.0/_._",
         "lib/netstandard1.0/System.ValueTuple.dll",
-        "lib/portable-net40+sl4+win8+wp8/.xml",
-        "lib/portable-net40+sl4+win8+wp8/System.ValueTuple.dll"
+        "lib/netstandard1.0/System.ValueTuple.xml",
+        "lib/netstandard2.0/_._",
+        "lib/portable-net40+sl4+win8+wp8/System.ValueTuple.dll",
+        "lib/portable-net40+sl4+win8+wp8/System.ValueTuple.xml",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net461/System.ValueTuple.dll",
+        "ref/net461/System.ValueTuple.xml",
+        "ref/net47/System.ValueTuple.dll",
+        "ref/net47/System.ValueTuple.xml",
+        "ref/netcoreapp2.0/_._",
+        "ref/netstandard2.0/_._",
+        "ref/portable-net40+sl4+win8+wp8/System.ValueTuple.dll",
+        "ref/portable-net40+sl4+win8+wp8/System.ValueTuple.xml",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "useSharedDesignerContext.txt",
+        "version.txt"
       ]
     },
     "System.Xml.ReaderWriter/4.3.0": {
@@ -10813,7 +11072,8 @@
   },
   "projectFileDependencyGroups": {
     ".NETFramework,Version=v4.6.1": [
-      "Autofac >= 4.8.1",
+      "Autofac >= 4.9.0-beta1",
+      "Autofac.Extensions.DependencyInjection >= 4.3.0",
       "Autofac.Extras.DynamicProxy >= 4.2.1",
       "CrossCutting >= 1.0.0",
       "DependencyInjecionResolver >= 1.0.0",
@@ -10900,7 +11160,11 @@
         "dependencies": {
           "Autofac": {
             "target": "Package",
-            "version": "[4.8.1, )"
+            "version": "[4.9.0-beta1, )"
+          },
+          "Autofac.Extensions.DependencyInjection": {
+            "target": "Package",
+            "version": "[4.3.0, )"
           },
           "Autofac.Extras.DynamicProxy": {
             "target": "Package",

@@ -736,3 +736,15 @@ C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebApp\bin\Release\n
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebApp\bin\Release\net461\Serilog.Sinks.File.dll
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebApp\bin\Release\net461\Serilog.Sinks.MSSqlServer.dll
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebApp\bin\Release\net461\Serilog.Sinks.PeriodicBatching.dll
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebApp\bin\Release\net461\WebApp.pssym
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebApp\bin\Release\net461\Autofac.Extensions.DependencyInjection.dll
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebApp\bin\Release\net461\Autofac.Extras.DynamicProxy.dll
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebApp\bin\Release\net461\Castle.Core.dll
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebApp\bin\Release\net461\Insight.Database.dll
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebApp\bin\Release\net461\Insight.Database.Configuration.dll
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebApp\bin\Release\net461\Insight.Database.Core.dll
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebApp\bin\Release\net461\Insight.Database.Providers.Default.dll
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebApp\bin\Release\net461\PostSharp.dll
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebApp\obj\Release\net461\PostSharp\touch
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebApp\obj\Release\net461\PostSharp\dependencies.txt
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebApp\obj\Release\net461\PostSharp\postsharp.app.config

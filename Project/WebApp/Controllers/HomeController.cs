@@ -9,6 +9,7 @@ using Kendo.Mvc.Extensions;
 using Kendo.Mvc.UI;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using ServiceInterface;
 using WebApp.Infrastructure;
 using WebApp.Models;
 
@@ -18,17 +19,24 @@ namespace WebApp.Controllers
     public class HomeController : Controller
     {
         public IConfiguration Configuration { get; set; }
+        public IUserAccountService _IUserAccountService { get; set; }
 
-        public HomeController(IConfiguration iConfig)
+        
+        public HomeController(IConfiguration iConfig, IUserAccountService iUserAccountService)
         {
             Configuration = iConfig;
+            _IUserAccountService = iUserAccountService;
         }
 
         [NlogTrace]
         public IActionResult Index()
         {
+            var testValue = this._IUserAccountService.GetTestValue();
             var str = Configuration.GetValue<string>("ApplicationsSetting:SQLConnection");
-            ViewBag.AppSQLConfig = Configuration.GetValue<string>("ApplicationsSetting:SQLConnection");
+            ViewBag.AppSQLConfig = Configuration.GetValue<string>("ApplicationsSetting:SQLConnection")
+                                    + "  Test Value = " + testValue.ToString()
+                                    ;
+
             //throw new Exception();
             return View("Index");
         }
