@@ -748,3 +748,9 @@ C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebApp\bin\Release\n
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebApp\obj\Release\net461\PostSharp\touch
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebApp\obj\Release\net461\PostSharp\dependencies.txt
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebApp\obj\Release\net461\PostSharp\postsharp.app.config
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebApp\bin\Release\net461\brolib32.dll
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebApp\bin\Release\net461\brolib64.dll
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebApp\bin\Release\net461\brolib32.pdb
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebApp\bin\Release\net461\brolib64.pdb
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebApp\bin\Release\net461\Brotli.NET.dll
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebApp\bin\Release\net461\Microsoft.AspNetCore.ResponseCompression.dll

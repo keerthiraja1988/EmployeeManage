@@ -218,8 +218,7 @@
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Program Files (x86)\\Progress\\Telerik UI for ASP.NET Core R3 2018\\wrappers\\aspnetcore\\Binaries\\AspNet.Core": {},
-        "https://api.nuget.org/v3/index.json": {},
-        "https://nuget.telerik.com/nuge": {}
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netstandard2.0": {
