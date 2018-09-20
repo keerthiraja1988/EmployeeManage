@@ -23,6 +23,8 @@ using Microsoft.AspNetCore.ResponseCompression;
 using System.IO;
 using Brotli;
 using System.IO.Compression;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Mvc.Razor;
 
 namespace WebApp
 {
@@ -66,6 +68,9 @@ namespace WebApp
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+        
+
+
             // Maintain property names during serialization. See:
             // https://github.com/aspnet/Announcements/issues/194
             services
@@ -75,6 +80,22 @@ namespace WebApp
                     options.SerializerSettings.ContractResolver = new DefaultContractResolver())
 
                     ;
+
+            services.Configure<RazorViewEngineOptions>(o =>
+            {
+
+                // {2} is area, {1} is controller,{0} is the action    
+                o.ViewLocationFormats.Clear();
+                o.ViewLocationFormats.Add("/Views/{1}/{0}" + RazorViewEngine.ViewExtension);
+                o.ViewLocationFormats.Add("/Views/Shared/{0}" + RazorViewEngine.ViewExtension);
+
+
+                // Untested. You could remove this if you don't care about areas.
+                o.AreaViewLocationFormats.Clear();
+                o.AreaViewLocationFormats.Add("/Areas/{2}/Views/{1}/{0}" + RazorViewEngine.ViewExtension);
+                o.AreaViewLocationFormats.Add("/Areas/{2}/Views/Shared/{0}" + RazorViewEngine.ViewExtension);
+                o.AreaViewLocationFormats.Add("/Areas/Shared/{0}" + RazorViewEngine.ViewExtension);
+            });
 
             //     //  services.Configure<GzipCompressionProviderOptions>(options => options.Level = System.IO.Compression.CompressionLevel.Optimal);
             services.AddResponseCompression(options =>
@@ -94,6 +115,23 @@ namespace WebApp
 
 
             var sqlConnection = Configuration.GetValue<string>("ApplicationsSetting:SQLConnection");
+
+            //ConfigureServices
+            services.AddAuthentication(options =>
+            {
+                options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+
+            })
+                   .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, options =>
+               {
+                   options.AccessDeniedPath = new PathString("/Security/Access");
+                   options.LoginPath = new PathString("/UserAccount/Login");
+                   options.ExpireTimeSpan = TimeSpan.FromSeconds(30);
+                   options.SlidingExpiration = true;
+               });
+         
 
             var builder = new Autofac.ContainerBuilder();
 
@@ -117,7 +155,7 @@ namespace WebApp
             Configuration = builder.Build();
 
 
-          
+
 
             if (env.IsDevelopment())
             {
@@ -133,9 +171,15 @@ namespace WebApp
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
+
+            app.UseAuthentication();
             //loggerFactory.AddLog4Net(); // << Add this line
             app.UseMvc(routes =>
             {
+                routes.MapRoute(
+             name: "area",
+             template: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");

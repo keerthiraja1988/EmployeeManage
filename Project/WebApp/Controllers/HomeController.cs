@@ -7,6 +7,7 @@ using CrossCutting.Logging;
 using FizzWare.NBuilder;
 using Kendo.Mvc.Extensions;
 using Kendo.Mvc.UI;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using ServiceInterface;
@@ -15,7 +16,7 @@ using WebApp.Models;
 
 namespace WebApp.Controllers
 {
-
+    [Authorize]
     public class HomeController : Controller
     {
         public IConfiguration Configuration { get; set; }
