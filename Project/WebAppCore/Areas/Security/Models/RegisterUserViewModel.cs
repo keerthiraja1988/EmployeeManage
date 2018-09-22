@@ -1,0 +1,55 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace WebAppCore.Areas.Security.Models
+{
+    public class RegisterUserViewModel
+    {
+
+        [Required(ErrorMessage = "Please Enter User Name")]
+        [MaxLength(15, ErrorMessage = "Maximum User Name Length is 15 Characters")]
+        [MinLength(5, ErrorMessage = "Minimum User Name Length is 5 Characters")]
+        [Display(Name = "User Name")]
+        public string UserName { get; set; }
+
+        [Required(ErrorMessage = "Please Enter First Name")]
+        [MaxLength(15, ErrorMessage = "Maximum First Name Length is 15 Characters")]
+        [MinLength(5, ErrorMessage = "Minimum First Name Length is 5 Characters")]
+        [Display(Name = "First Name")]
+        public string FirstName { get; set; }
+
+        [Required(ErrorMessage = "Please Enter Last Name")]
+        [MaxLength(15, ErrorMessage = "Maximum Last Name Length is 15 Characters")]
+        [MinLength(5, ErrorMessage = "Minimum Last Name Length is 5 Characters")]
+
+        [Display(Name = "Last Name")]
+        public string LastName { get; set; }
+
+        [Required(ErrorMessage = "Please Enter Email Address")]
+        [Display(Name = "Email")]
+        [RegularExpression(@"^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$",
+      ErrorMessage = "Please Enter Correct Email Address")]
+        [MaxLength(35, ErrorMessage = "Maximum Email Length is 35 Characters")]
+        public string EmailId { get; set; }
+
+        [Required(ErrorMessage = "Please Enter Password Address")]
+        [MinLength(8, ErrorMessage = "Minimum Password Length is 8 Characters")]
+        [MaxLength(25, ErrorMessage = "Maximum Password Length is 25 Characters")]
+      //  [RegularExpression(User.PasswordRegularExpression, ErrorMessage = "Пароль может содержать только латинские символы, дефисы, подчеркивания, точки")]
+        public string Password { get; set; }
+
+        [Required(ErrorMessage = "Please Enter Password Address")]
+        [Display(Name = "Re-Type Password")]
+        [Compare("Password", ErrorMessage = "Password Mismatch, Please Correct")]
+        public string ReTypePassword { get; set; }
+
+        public string CapthaValue { get; set; }
+        public string CapthaEncValue { get; set; }
+
+
+
+    }
+}

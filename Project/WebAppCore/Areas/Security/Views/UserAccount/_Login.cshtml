@@ -1,0 +1,65 @@
+﻿@model WebAppCore.Models.UserLoginViewModel
+<div class="card">
+    <div class="card-header   bg-info text-white text-center">
+        <h5>Login</h5>
+    </div>
+    <div class="card-body">
+
+
+        @using (Html.BeginForm("Login", "UserAccount", "Security", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+        <div class="row">
+            <div class="col-12 ">
+                <label>User Name</label>
+                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @id = "loginUsername"
+              , @placeholder = "Enter User Name"
+           })
+                <small>
+                    @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                </small>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-12 ">
+
+                <label class=" pt-3">Password</label>
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control", @id = "loginPassword"
+              , @placeholder = "Enter Password"
+           })
+                <small>
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                </small>
+            </div>
+
+        </div>
+
+            <br />
+            <div class="text-center">
+                <button type="submit" class="btn btn-info">
+                    <i class="fas fa-angle-double-right"></i>
+                    Login
+                </button>
+                <button type="button" id="btnLoginReset" class="btn btn-info ml-2">
+                    <i class="fas fa-redo"></i>
+                    Clear
+                </button>
+            </div>
+
+
+            }
+
+
+
+        </div>
+        </div>
+
+<script>
+    $('#btnLoginReset').click(function () {
+       
+        $('#loginUsername').val('');
+        $('#loginPassword').val('');
+
+    });
+</script>

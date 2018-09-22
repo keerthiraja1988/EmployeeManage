@@ -1,0 +1,166 @@
+﻿@model WebAppCore.Areas.Security.Models.RegisterUserViewModel
+<div class="card">
+    <div class="card-header   bg-info  text-white text-center">
+        <h5>Register</h5>
+    </div>
+    <div class="card-body">
+
+        @using (Html.BeginForm("RegisterUser", "UserAccount", "Security", FormMethod.Post
+ ))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 ">
+
+                    @Html.LabelFor(model => model.UserName)
+                    @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @id = "registerUsername"
+                  , @placeholder = "Enter User Name"
+               })
+                    <small>
+                        @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                    </small>
+
+                </div>
+
+                <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 ">
+                    @Html.LabelFor(model => model.EmailId)
+
+                    @Html.TextBoxFor(m => m.EmailId, new { @class = "form-control", @id = "registerEmailId"
+                  , @placeholder = "Enter Email Id"
+               })
+                    <small>
+                        @Html.ValidationMessageFor(model => model.EmailId, "", new { @class = "text-danger" })
+                    </small>
+                </div>
+
+            </div>
+            <div class="row pt-3">
+                <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 ">
+                    @Html.LabelFor(model => model.FirstName)
+
+                    @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", @id = "registerFirstName"
+                  , @placeholder = "Enter First Name"
+               })
+                    <small>
+                        @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                    </small>
+                </div>
+
+                <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 ">
+                    @Html.LabelFor(model => model.LastName)
+
+                    @Html.TextBoxFor(m => m.LastName, new { @class = "form-control", @id = "registerLastName"
+                  , @placeholder = "Enter Last Name"
+               })
+                    <small>
+                        @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                    </small>
+                </div>
+
+            </div>
+
+
+
+
+            <div class="row  pt-3">
+                <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 ">
+                    @Html.LabelFor(model => model.Password)
+
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control", @id = "registerPassword"
+                  , @placeholder = "Enter Password"
+               })
+                    <small>
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                    </small>
+
+                    <div id="55" style="padding-top:10px" class="pwstrength_viewport_progress"></div>
+
+                </div>
+
+                <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 ">
+                    @Html.LabelFor(model => model.ReTypePassword)
+
+                    @Html.PasswordFor(m => m.ReTypePassword, new { @class = "form-control", @id = "registerReTypePassword"
+                  , @placeholder = "Re-Type Password"
+               })
+                    <small>
+                        @Html.ValidationMessageFor(model => model.ReTypePassword, "", new { @class = "text-danger" })
+                    </small>
+
+
+
+
+                </div>
+
+            </div>
+
+            <input type="password" class="form-control" style="display:none; " id="password" placeholder="Password">
+          
+
+            <br />
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-info" id="idRegisterUser">
+                    <i class="fas fa-user-plus"></i>
+                    Register
+                </button>
+                <button type="button" id="btnRegisterReset" class="btn btn-info ml-2">
+                    <i class="fas fa-redo"></i>
+                    Clear
+                </button>
+
+                <button type="button" id="btnAutoGenerate" class="btn btn-dark ml-2">
+                    <i class="fas fa-space-shuttle"></i>
+
+                    Auto Populate
+                </button>
+
+            </div>
+
+
+        }
+
+
+    </div>
+</div>
+
+<script>
+    $('#btnRegisterReset').click(function () {
+       
+        $('#registerUsername').val('');
+        $('#registerEmailId').val('');
+        $('#registerFirstName').val('');
+        $('#registerLastName').val('');
+        $('#registerPassword').val('');
+        $('#registerReTypePassword').val('');
+
+    });
+    jQuery(document).ready(function () {
+        "use strict";
+        var options = {};
+        options.ui = {
+            bootstrap4: true,
+            container: "#pwd-container",
+            viewports: {
+                progress: ".pwstrength_viewport_progress"
+            },
+            showVerdictsInsideProgressBar: true
+        };
+        options.common = {
+            
+            onLoad: function () {
+              
+            }
+        };
+    
+        $(':password').pwstrength(options);
+    });
+
+
+    $("#registerPassword").keyup(function () {
+        $("#password").text($("#registerPassword").val());
+    });
+
+
+</script>

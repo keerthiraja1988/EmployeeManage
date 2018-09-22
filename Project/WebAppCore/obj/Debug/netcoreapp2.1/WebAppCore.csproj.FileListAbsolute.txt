@@ -34,6 +34,15 @@ C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\WebAppCore.TagHelpers.input.cache
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\WebAppCore.TagHelpers.output.cache
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\WebAppCore.RazorCoreGenerate.cache
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\Razor\Areas\DashBoard\Views\DashBoard\Index.g.cshtml.cs
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\Razor\Areas\DashBoard\Views\_ViewImports.g.cshtml.cs
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\Razor\Areas\DashBoard\Views\_ViewStart.g.cshtml.cs
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\Razor\Areas\Security\Views\UserAccount\Index.g.cshtml.cs
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\Razor\Areas\Security\Views\UserAccount\Login.g.cshtml.cs
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\Razor\Areas\Security\Views\UserAccount\_Login.g.cshtml.cs
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\Razor\Areas\Security\Views\UserAccount\_Register.g.cshtml.cs
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\Razor\Areas\Shared\_CookieConsentPartial.g.cshtml.cs
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\Razor\Areas\Shared\_ValidationScriptsPartial.g.cshtml.cs
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\Razor\Views\Home\About.g.cshtml.cs
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\Razor\Views\Home\Contact.g.cshtml.cs
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.g.cshtml.cs
@@ -50,4 +59,3 @@ C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\WebAppCore.dll
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\WebAppCore.pdb
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\PostSharp\postsharp.app.config
-C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\bin\Debug\netcoreapp2.1\WebAppCore.dll.config
