@@ -10,7 +10,8 @@
 
 <div class="row">
 
-    <div class="col-sm-12 col-md-12 col-lg-3 col-xl-3">
+    <div class="col-sm-12 col-md-12 col-lg-3 col-xl-3 pb-3
+          order-md-1 order-sm-1  order-xl-1 order-lg-1">
         <div class="card text-white bg-danger">
             <div class="card-header text-center">
                 <h5>Danger</h5>
@@ -30,12 +31,14 @@
         </div>
     </div>
 
-    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 pb-3">
+    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 pb-3 order-md-3 order-sm-3 order-3
+            order-xl-2 order-lg-2">
         @await Html.PartialAsync("_Register", Model.RegisterUserViewModel)
     </div>
 
-    <div class="col-sm-12 col-md-12 col-lg-3 col-xl-3">
-        @*@Html.Partial("_Login.cshtml", Model.UserLoginViewModel)*@
+    <div class="col-sm-12 col-md-12 col-lg-3 col-xl-3  order-md-2 order-sm-2
+            order-xl-3 order-lg-3 order-2">
+    
         @await Html.PartialAsync("_Login", Model.UserLoginViewModel)
     </div>
 

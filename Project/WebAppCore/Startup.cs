@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
+using AutoMapper;
 using CrossCutting.Logging;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
@@ -22,6 +23,8 @@ using static DependencyInjecionResolver.DependencyInjecionResolver;
 
 namespace WebAppCore
 {
+
+
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -87,8 +90,9 @@ namespace WebAppCore
 
             services.AddScoped<NlogTraceAttribute>();
 
+            services.AddAutoMapper();
 
-            var sqlConnection = Configuration.GetValue<string>("ApplicationsSetting:SQLConnection");
+            var sqlConnection = Configuration.GetValue<string>("DBConnection");
 
             //ConfigureServices
             services.AddAuthentication(options =>

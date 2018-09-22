@@ -1,8 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
+using DomainModel;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using ServiceInterface;
 using WebAppCore.Areas.Security.Models;
 using WebAppCore.Models;
 
@@ -11,7 +16,19 @@ namespace WebAppCore.Areas.Security.Controllers
     [Area("Security")]
     public class UserAccountController : Controller
     {
+        public IUserAccountService _IUserAccountService { get; set; }
+        public IConfiguration Configuration { get; set; }
 
+        private readonly IMapper _mapper;
+        public UserAccountController(IConfiguration iConfig, IUserAccountService iUserAccountService
+            , IMapper mapper)
+        {
+            _mapper = mapper;
+            Configuration = iConfig;
+            _IUserAccountService = iUserAccountService;
+        }
+
+       
         //public ActionResult Index()
         //{
         //    RegisterUserViewModel registerUserViewModel = new RegisterUserViewModel();
@@ -50,6 +67,9 @@ namespace WebAppCore.Areas.Security.Controllers
 
 
             }
+
+        
+
             return await Task.Run(() => View("Login", userLoginRegisterDTO));
 
         }
@@ -58,6 +78,8 @@ namespace WebAppCore.Areas.Security.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> RegisterUser(RegisterUserViewModel registerUserViewModel)
         {
+
+            var vv = this._IUserAccountService.GetTestValue();
             UserLoginRegisterDTO userLoginRegisterDTO = new UserLoginRegisterDTO();
             UserLoginViewModel userLoginViewModel = new UserLoginViewModel();
 
@@ -69,6 +91,8 @@ namespace WebAppCore.Areas.Security.Controllers
 
             }
 
+            var userAccount = _mapper.Map<UserAccountModel>(registerUserViewModel);
+            var returnValue = this._IUserAccountService.RegisterNewUser(userAccount);
 
             return await Task.Run(() => View("Login", userLoginRegisterDTO));
 

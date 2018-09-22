@@ -1,11 +1,15 @@
-﻿using Insight.Database;
+﻿using DomainModel;
+using Insight.Database;
 using System;
 
 namespace Repository
 {
     public interface IUserAccountRepository : IDisposable
     {
-        [Sql("SELECT TOP 1 [Id]  FROM [dbo].[Log]")]
+        [Sql("SELECT 1 AS ID")]
         int GetTestValue();
+
+        [Sql("P_RegisterNewUser")]
+        bool RegisterNewUser(UserAccountModel userAccountModel);
     }
 }
