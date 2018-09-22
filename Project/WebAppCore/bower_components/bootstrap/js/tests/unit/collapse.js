@@ -16,7 +16,6 @@ $(function () {
     afterEach: function () {
       $.fn.collapse = $.fn.bootstrapCollapse
       delete $.fn.bootstrapCollapse
-      $('#qunit-fixture').html('')
     }
   })
 

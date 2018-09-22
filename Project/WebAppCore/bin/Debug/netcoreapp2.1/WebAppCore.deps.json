@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.1",
-    "signature": "162a4a8890f589cd1429aaa2a80cc910e580bb9c"
+    "signature": "9c03a216db412f92b89da08b3b53e4591fa24620"
   },
   "compilationOptions": {
     "defines": [
@@ -27,7 +27,7 @@
         "dependencies": {
           "Autofac": "4.9.0-beta1",
           "Autofac.Extensions.DependencyInjection": "4.3.0",
-          "Autofac.Extras.DynamicProxy": "4.2.1",
+          "Autofac.Extras.DynamicProxy": "4.5.0",
           "Brotli.NET": "1.0.19",
           "CrossCutting": "1.0.0",
           "DependencyInjecionResolver": "1.0.0",
@@ -55,7 +55,7 @@
       "Autofac/4.9.0-beta1": {
         "dependencies": {
           "NETStandard.Library": "2.0.3",
-          "System.ComponentModel": "4.0.1"
+          "System.ComponentModel": "4.3.0"
         },
         "runtime": {
           "lib/netstandard1.1/Autofac.dll": {
@@ -82,15 +82,16 @@
           "lib/netstandard2.0/Autofac.Extensions.DependencyInjection.dll": {}
         }
       },
-      "Autofac.Extras.DynamicProxy/4.2.1": {
+      "Autofac.Extras.DynamicProxy/4.5.0": {
         "dependencies": {
           "Autofac": "4.9.0-beta1",
-          "Castle.Core": "4.0.0"
+          "Castle.Core": "4.3.1",
+          "NETStandard.Library": "2.0.3"
         },
         "runtime": {
           "lib/netstandard1.3/Autofac.Extras.DynamicProxy.dll": {
-            "assemblyVersion": "4.2.1.0",
-            "fileVersion": "4.2.1.0"
+            "assemblyVersion": "4.5.0.0",
+            "fileVersion": "4.5.0.0"
           }
         },
         "compile": {
@@ -98,40 +99,27 @@
         }
       },
       "Brotli.NET/1.0.19": {},
-      "Castle.Core/4.0.0": {
+      "Castle.Core/4.3.1": {
         "dependencies": {
-          "System.AppContext": "4.3.0",
+          "NETStandard.Library": "2.0.3",
           "System.Collections.Specialized": "4.3.0",
-          "System.ComponentModel.TypeConverter": "4.1.0",
-          "System.Console": "4.3.0",
-          "System.Diagnostics.Debug": "4.3.0",
-          "System.Diagnostics.Tools": "4.3.0",
-          "System.Diagnostics.TraceSource": "4.0.0",
+          "System.ComponentModel": "4.3.0",
+          "System.ComponentModel.TypeConverter": "4.3.0",
+          "System.Diagnostics.TraceSource": "4.3.0",
           "System.Dynamic.Runtime": "4.3.0",
-          "System.Globalization": "4.3.0",
-          "System.IO.FileSystem": "4.3.0",
-          "System.Linq": "4.3.0",
-          "System.ObjectModel": "4.3.0",
           "System.Reflection": "4.3.0",
           "System.Reflection.Emit": "4.3.0",
-          "System.Reflection.Emit.Lightweight": "4.3.0",
-          "System.Reflection.Extensions": "4.3.0",
           "System.Reflection.TypeExtensions": "4.3.0",
-          "System.Resources.ResourceManager": "4.3.0",
-          "System.Runtime.Extensions": "4.3.0",
-          "System.Runtime.InteropServices": "4.3.0",
-          "System.Threading": "4.3.0",
-          "System.Xml.XmlDocument": "4.3.0",
-          "System.Xml.XmlSerializer": "4.3.0"
+          "System.Xml.XmlDocument": "4.3.0"
         },
         "runtime": {
-          "lib/netstandard1.3/Castle.Core.dll": {
+          "lib/netstandard1.5/Castle.Core.dll": {
             "assemblyVersion": "4.0.0.0",
-            "fileVersion": "4.0.0.0"
+            "fileVersion": "4.3.1.0"
           }
         },
         "compile": {
-          "lib/netstandard1.3/Castle.Core.dll": {}
+          "lib/netstandard1.5/Castle.Core.dll": {}
         }
       },
       "Insight.Database/6.2.4": {
@@ -941,25 +929,25 @@
           "lib/netstandard1.2/Serilog.Sinks.PeriodicBatching.dll": {}
         }
       },
-      "System.ComponentModel/4.0.1": {
+      "System.ComponentModel/4.3.0": {
         "dependencies": {
           "System.Runtime": "4.3.0"
         }
       },
-      "System.ComponentModel.Primitives/4.1.0": {
+      "System.ComponentModel.Primitives/4.3.0": {
         "dependencies": {
-          "System.ComponentModel": "4.0.1",
+          "System.ComponentModel": "4.3.0",
           "System.Resources.ResourceManager": "4.3.0",
           "System.Runtime": "4.3.0"
         }
       },
-      "System.ComponentModel.TypeConverter/4.1.0": {
+      "System.ComponentModel.TypeConverter/4.3.0": {
         "dependencies": {
           "System.Collections": "4.3.0",
           "System.Collections.NonGeneric": "4.3.0",
           "System.Collections.Specialized": "4.3.0",
-          "System.ComponentModel": "4.0.1",
-          "System.ComponentModel.Primitives": "4.1.0",
+          "System.ComponentModel": "4.3.0",
+          "System.ComponentModel.Primitives": "4.3.0",
           "System.Globalization": "4.3.0",
           "System.Linq": "4.3.0",
           "System.Reflection": "4.3.0",
@@ -1029,7 +1017,7 @@
           "ref/netcoreapp2.1/System.Data.SqlClient.dll": {}
         }
       },
-      "System.Diagnostics.TraceSource/4.0.0": {
+      "System.Diagnostics.TraceSource/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "2.1.0",
           "System.Collections": "4.3.0",
@@ -3867,12 +3855,12 @@
       "path": "autofac.extensions.dependencyinjection/4.3.0",
       "hashPath": "autofac.extensions.dependencyinjection.4.3.0.nupkg.sha512"
     },
-    "Autofac.Extras.DynamicProxy/4.2.1": {
+    "Autofac.Extras.DynamicProxy/4.5.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-JzuIqTj9W8Xfdny+Kyek+uhqH5HPe2tLR0zRuj5HCEkloZFlmXzGHBu45g3bJHeHRYW/z5UR4Ja1k9i31nOR+w==",
-      "path": "autofac.extras.dynamicproxy/4.2.1",
-      "hashPath": "autofac.extras.dynamicproxy.4.2.1.nupkg.sha512"
+      "sha512": "sha512-IBSqDGFKX9DCrgFS7sQE0OziEVZppl5SLKfJ5bZk/dDTkAcpqGyQ+hJiV8dr85eI+FnPHplI91T+4dgAnpTfeg==",
+      "path": "autofac.extras.dynamicproxy/4.5.0",
+      "hashPath": "autofac.extras.dynamicproxy.4.5.0.nupkg.sha512"
     },
     "Brotli.NET/1.0.19": {
       "type": "package",
@@ -3881,12 +3869,12 @@
       "path": "brotli.net/1.0.19",
       "hashPath": "brotli.net.1.0.19.nupkg.sha512"
     },
-    "Castle.Core/4.0.0": {
+    "Castle.Core/4.3.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-iLINpMFc07bcb0d075AB0mcXV/MT8J8oyBarDSeyrLM03UoCVOuvYu87LI4511XHfy7XEhHtMDum5gt2s56xDg==",
-      "path": "castle.core/4.0.0",
-      "hashPath": "castle.core.4.0.0.nupkg.sha512"
+      "sha512": "sha512-8Y/eTr6GTElAGV7eAmJuhfLhGdFpNvaNrQ9UQYDScziLmX+/BLGM+9eQr0IcdNDcPN0ADmbtwT6MgecGKy4obw==",
+      "path": "castle.core/4.3.1",
+      "hashPath": "castle.core.4.3.1.nupkg.sha512"
     },
     "Insight.Database/6.2.4": {
       "type": "package",
@@ -4217,26 +4205,26 @@
       "path": "serilog.sinks.periodicbatching/2.1.1",
       "hashPath": "serilog.sinks.periodicbatching.2.1.1.nupkg.sha512"
     },
-    "System.ComponentModel/4.0.1": {
+    "System.ComponentModel/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-oBZFnm7seFiVfugsIyOvQCWobNZs7FzqDV/B7tx20Ep/l3UUFCPDkdTnCNaJZTU27zjeODmy2C/cP60u3D4c9w==",
-      "path": "system.componentmodel/4.0.1",
-      "hashPath": "system.componentmodel.4.0.1.nupkg.sha512"
+      "sha512": "sha512-VyGn1jGRZVfxnh8EdvDCi71v3bMXrsu8aYJOwoV7SNDLVhiEqwP86pPMyRGsDsxhXAm2b3o9OIqeETfN5qfezw==",
+      "path": "system.componentmodel/4.3.0",
+      "hashPath": "system.componentmodel.4.3.0.nupkg.sha512"
     },
-    "System.ComponentModel.Primitives/4.1.0": {
+    "System.ComponentModel.Primitives/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-sc/7eVCdxPrp3ljpgTKVaQGUXiW05phNWvtv/m2kocXqrUQvTVWKou1Edas2aDjTThLPZOxPYIGNb/HN0QjURg==",
-      "path": "system.componentmodel.primitives/4.1.0",
-      "hashPath": "system.componentmodel.primitives.4.1.0.nupkg.sha512"
+      "sha512": "sha512-j8GUkCpM8V4d4vhLIIoBLGey2Z5bCkMVNjEZseyAlm4n5arcsJOeI3zkUP+zvZgzsbLTYh4lYeP/ZD/gdIAPrw==",
+      "path": "system.componentmodel.primitives/4.3.0",
+      "hashPath": "system.componentmodel.primitives.4.3.0.nupkg.sha512"
     },
-    "System.ComponentModel.TypeConverter/4.1.0": {
+    "System.ComponentModel.TypeConverter/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-MnDAlaeJZy9pdB5ZdOlwdxfpI+LJQ6e0hmH7d2+y2LkiD8DRJynyDYl4Xxf3fWFm7SbEwBZh4elcfzONQLOoQw==",
-      "path": "system.componentmodel.typeconverter/4.1.0",
-      "hashPath": "system.componentmodel.typeconverter.4.1.0.nupkg.sha512"
+      "sha512": "sha512-16pQ6P+EdhcXzPiEK4kbA953Fu0MNG2ovxTZU81/qsCd1zPRsKc3uif5NgvllCY598k6bI0KUyKW8fanlfaDQg==",
+      "path": "system.componentmodel.typeconverter/4.3.0",
+      "hashPath": "system.componentmodel.typeconverter.4.3.0.nupkg.sha512"
     },
     "System.Configuration.ConfigurationManager/4.4.0": {
       "type": "package",
@@ -4259,12 +4247,12 @@
       "path": "system.data.sqlclient/4.6.0-preview2-26905-02",
       "hashPath": "system.data.sqlclient.4.6.0-preview2-26905-02.nupkg.sha512"
     },
-    "System.Diagnostics.TraceSource/4.0.0": {
+    "System.Diagnostics.TraceSource/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-6WVCczFZKXwpWpzd/iJkYnsmWTSFFiU24Xx/YdHXBcu+nFI/ehTgeqdJQFbtRPzbrO3KtRNjvkhtj4t5/WwWsA==",
-      "path": "system.diagnostics.tracesource/4.0.0",
-      "hashPath": "system.diagnostics.tracesource.4.0.0.nupkg.sha512"
+      "sha512": "sha512-VnYp1NxGx8Ww731y2LJ1vpfb/DKVNKEZ8Jsh5SgQTZREL/YpWRArgh9pI8CDLmgHspZmLL697CaLvH85qQpRiw==",
+      "path": "system.diagnostics.tracesource/4.3.0",
+      "hashPath": "system.diagnostics.tracesource.4.3.0.nupkg.sha512"
     },
     "System.Runtime.Serialization.Json/4.3.0": {
       "type": "package",

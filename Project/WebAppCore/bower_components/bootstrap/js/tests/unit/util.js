@@ -3,11 +3,7 @@ $(function () {
 
   window.Util = typeof bootstrap !== 'undefined' ? bootstrap.Util : Util
 
-  QUnit.module('util', {
-    afterEach: function () {
-      $('#qunit-fixture').html('')
-    }
-  })
+  QUnit.module('util')
 
   QUnit.test('Util.getSelectorFromElement should return the correct element', function (assert) {
     assert.expect(2)

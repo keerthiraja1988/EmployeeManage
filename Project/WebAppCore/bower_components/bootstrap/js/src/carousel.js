@@ -3,7 +3,7 @@ import Util from './util'
 
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v4.1.3): carousel.js
+ * Bootstrap (v4.1.1): carousel.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * --------------------------------------------------------------------------
  */
@@ -16,7 +16,7 @@ const Carousel = (($) => {
    */
 
   const NAME                   = 'carousel'
-  const VERSION                = '4.1.3'
+  const VERSION                = '4.1.1'
   const DATA_KEY               = 'bs.carousel'
   const EVENT_KEY              = `.${DATA_KEY}`
   const DATA_API_KEY           = '.data-api'
@@ -99,7 +99,7 @@ const Carousel = (($) => {
 
       this._config             = this._getConfig(config)
       this._element            = $(element)[0]
-      this._indicatorsElement  = this._element.querySelector(Selector.INDICATORS)
+      this._indicatorsElement  = $(this._element).find(Selector.INDICATORS)[0]
 
       this._addEventListeners()
     }
@@ -142,7 +142,7 @@ const Carousel = (($) => {
         this._isPaused = true
       }
 
-      if (this._element.querySelector(Selector.NEXT_PREV)) {
+      if ($(this._element).find(Selector.NEXT_PREV)[0]) {
         Util.triggerTransitionEnd(this._element)
         this.cycle(true)
       }
@@ -170,7 +170,7 @@ const Carousel = (($) => {
     }
 
     to(index) {
-      this._activeElement = this._element.querySelector(Selector.ACTIVE_ITEM)
+      this._activeElement = $(this._element).find(Selector.ACTIVE_ITEM)[0]
 
       const activeIndex = this._getItemIndex(this._activeElement)
 
@@ -269,9 +269,7 @@ const Carousel = (($) => {
     }
 
     _getItemIndex(element) {
-      this._items = element && element.parentNode
-        ? [].slice.call(element.parentNode.querySelectorAll(Selector.ITEM))
-        : []
+      this._items = $.makeArray($(element).parent().find(Selector.ITEM))
       return this._items.indexOf(element)
     }
 
@@ -296,7 +294,7 @@ const Carousel = (($) => {
 
     _triggerSlideEvent(relatedTarget, eventDirectionName) {
       const targetIndex = this._getItemIndex(relatedTarget)
-      const fromIndex = this._getItemIndex(this._element.querySelector(Selector.ACTIVE_ITEM))
+      const fromIndex = this._getItemIndex($(this._element).find(Selector.ACTIVE_ITEM)[0])
       const slideEvent = $.Event(Event.SLIDE, {
         relatedTarget,
         direction: eventDirectionName,
@@ -311,8 +309,8 @@ const Carousel = (($) => {
 
     _setActiveIndicatorElement(element) {
       if (this._indicatorsElement) {
-        const indicators = [].slice.call(this._indicatorsElement.querySelectorAll(Selector.ACTIVE))
-        $(indicators)
+        $(this._indicatorsElement)
+          .find(Selector.ACTIVE)
           .removeClass(ClassName.ACTIVE)
 
         const nextIndicator = this._indicatorsElement.children[
@@ -326,7 +324,7 @@ const Carousel = (($) => {
     }
 
     _slide(direction, element) {
-      const activeElement = this._element.querySelector(Selector.ACTIVE_ITEM)
+      const activeElement = $(this._element).find(Selector.ACTIVE_ITEM)[0]
       const activeElementIndex = this._getItemIndex(activeElement)
       const nextElement   = element || activeElement &&
         this._getItemByDirection(direction, activeElement)
@@ -494,11 +492,10 @@ const Carousel = (($) => {
     .on(Event.CLICK_DATA_API, Selector.DATA_SLIDE, Carousel._dataApiClickHandler)
 
   $(window).on(Event.LOAD_DATA_API, () => {
-    const carousels = [].slice.call(document.querySelectorAll(Selector.DATA_RIDE))
-    for (let i = 0, len = carousels.length; i < len; i++) {
-      const $carousel = $(carousels[i])
+    $(Selector.DATA_RIDE).each(function () {
+      const $carousel = $(this)
       Carousel._jQueryInterface.call($carousel, $carousel.data())
-    }
+    })
   })
 
   /**
