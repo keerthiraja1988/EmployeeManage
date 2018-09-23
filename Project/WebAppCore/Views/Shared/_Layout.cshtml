@@ -17,7 +17,7 @@
         <link rel="stylesheet" href="~/lib/JqueryUI/jquery-ui.theme.min.css" />
         <link rel="stylesheet" href="~/lib/JqueryUI/jquery-ui.structure.min.css" />
 
-       
+
     </environment>
 
     <environment include="Development">
@@ -46,12 +46,12 @@
 
     </environment>
     <script>
-      
-        $(window).on('load', function () { 
+
+        $(window).on('load', function () {
             $('#loadingIconModal').modal('show');
-            
-            
-            });
+
+
+        });
 
     </script>
     @*<environment exclude="Development">
@@ -66,22 +66,22 @@
 
 
     <div id="loadingIconModal" class="modal" tabindex="-1" role="dialog" style="z-index:99999">
-                <div class="loaderOverlay" >
-                    <div style="position: fixed; top: 35%;left: 40%;">
-                        <div style="padding-left:75px;">
-                            <div class="loader"></div>
-                        </div>
+        <div class="loaderOverlay">
+            <div style="position: fixed; top: 35%;left: 40%;">
+                <div style="padding-left:75px;">
+                    <div class="loader"></div>
+                </div>
 
 
-                        <div style="padding-top:12px;">
-                            <span style="color:white; font-size:25px; ">Processing, Please Wait...</span>
-                        </div>
-                    </div>
+                <div style="padding-top:12px;">
+                    <span style="color:white; font-size:25px; ">Processing, Please Wait...</span>
+                </div>
+            </div>
         </div>
     </div>
 
-    <div  class="modal fade" role="dialog" style="z-index:99999">
-      
+    <div class="modal fade" role="dialog" style="z-index:99999">
+
     </div>
 
     <img src="~/images/AspNetCore.png" style="position: absolute;
@@ -93,7 +93,7 @@
          "
          style=" box-shadow: 1px 3px 3px 0px rgba(105, 24, 24, 0.37);">
 
-        <a class="navbar-brand" href="#"
+        <a class="navbar-brand" href=""
            style="padding-left: 95px;">HR Management</a>
         <!-- Navbar content -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -122,24 +122,47 @@
                 <li class="nav-item">
                     <a class="nav-link disabled" href="#">Disabled</a>
                 </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                </li>
             </ul>
 
-        </div>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <form asp-area="Security" asp-controller="UserAccount" asp-action="Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })" method="post" id="logoutForm" class="navbar-right">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="mt-2">
+                            <a style="color:white" asp-area="Security" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a>
+                        </li>
+                        <li>
+                            <button type="submit" style="color:white" class="btn btn-link navbar-btn navbar-link">Logout</button>
+                        </li>
+                    </ul>
+                </form>
+            }
+            else
+            {
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="nav-item">
+                        <a style="color:white" class="nav-link" asp-area="Security" asp-page="/UserAccount/UserAccount">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a style="color:white" class="nav-link" asp-area="Security" asp-page="/UserAccount/UserAccount">Login</a>
+                    </li>
+                </ul>
+            }
 
+        </div>
     </nav>
     <partial name="_CookieConsentPartial" />
-
+    
     <div class="container-fluid pl-2 pr-2 pt-4" style="background-color: rgba(254, 232, 255, 0.08); padding-top:18px;">
         @RenderBody()
-
     </div>
 
     <script>
         $(document).ready(function () {
-
-
-
-            //  $('#loadingIconModal').modal('show');
             var $input = $('#pageRefreshOnBackButtonClick');
 
             if ($input.val() == 'yes') {
@@ -161,28 +184,6 @@
 
     </script>
 
-
-    @*<environment exclude="Development">
-            <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
-                    asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
-                    asp-fallback-test="window.jQuery"
-                    crossorigin="anonymous"
-                    integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
-            </script>
-            <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
-                    asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
-                    asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
-                    crossorigin="anonymous"
-                    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
-            </script>
-            <script src="~/js/site.min.js" asp-append-version="true"></script>
-        </environment>*@
-
     @RenderSection("Scripts", required: false)
-
-
 </body>
-
-
-
 </html>

@@ -33,7 +33,7 @@ namespace WebAppCore.Areas.Security.Models
         [RegularExpression(@"^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$",
       ErrorMessage = "Please Enter Email Address : fakeEmail@fake.com")]
         [MaxLength(35, ErrorMessage = "Maximum Email Length is 35 Characters")]
-        public string EmailId { get; set; }
+        public string Email { get; set; }
 
         [Required(ErrorMessage = "Please Enter Password")]
         [MinLength(8, ErrorMessage = "Minimum Password Length is 8 Characters")]

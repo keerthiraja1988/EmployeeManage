@@ -24,11 +24,11 @@
                 </div>
 
                 <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6  pt-3">
-                    <label asp-for="EmailId"></label><span> *</span>
-                    <input asp-for="EmailId" id="registerEmailId"
+                    <label asp-for="Email"></label><span> *</span>
+                    <input asp-for="Email" id="registerEmailId" data-val="true" type="text"
                            placeholder="Enter Email Id" class="form-control" />
                     <small>
-                        <span asp-validation-for="EmailId" id="registerEmailIdVal" class="text-danger"></span>
+                        <span asp-validation-for="Email" id="registerEmailIdVal" class="text-danger"></span>
                     </small>
                 </div>
             </div>
@@ -36,7 +36,7 @@
             <div class="row">
                 <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6  pt-3">
                     <label asp-for="FirstName"></label><span> *</span>
-                    <input asp-for="FirstName" id="registerFirstName"
+                    <input asp-for="FirstName" id="registerFirstName" data-val="true" type="text"
                            placeholder="Enter First Name" class="form-control" />
                     <small>
                         <span asp-validation-for="FirstName" id="registerFirstNameVal" class="text-danger"></span>
@@ -45,7 +45,7 @@
 
                 <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6  pt-3">
                     <label asp-for="LastName"></label><span> *</span>
-                    <input asp-for="LastName" id="registerLastName"
+                    <input asp-for="LastName" id="registerLastName" data-val="true" type="text"
                            placeholder="Enter Last Name" class="form-control" />
                     <small>
                         <span asp-validation-for="LastName" id="registerLastNameVal" class="text-danger"></span>
@@ -56,7 +56,7 @@
             <div class="row">
                 <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6  pt-3">
                     <label asp-for="Password"></label><span> *</span>
-                    <input type="password" asp-for="Password" id="registerPassword"
+                    <input type="password" asp-for="Password" id="registerPassword" data-val="true"
                            placeholder="Enter Password" class="form-control" />
                     <small>
                         <span asp-validation-for="Password" id="registerPasswordVal" class="text-danger"></span>
@@ -66,7 +66,7 @@
 
                 <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6  pt-3">
                     <label asp-for="ReTypePassword"></label><span> *</span>
-                    <input type="password" asp-for="ReTypePassword" id="registerReTypePassword"
+                    <input type="password" asp-for="ReTypePassword" id="registerReTypePassword" data-val="true"
                            placeholder="Re-Type Password" class="form-control" />
                     <small>
                         <span asp-validation-for="ReTypePassword" id="registerReTypePasswordVal" class="text-danger"></span>
@@ -75,10 +75,10 @@
             </div>
 
             <input type="password" class="form-control" style="display:none; " id="password" placeholder="Password">
-
+            <span class="text-success" id="autoPopulatePasswordTxt"></span>
             <div class="text-center">
                 <button type="submit" class="btn btn-info mt-3" id="idRegisterUser"
-                        value="RegisterUser" >
+                        value="RegisterUser">
                     <i class="fas fa-user-plus"></i>
                     Register
                 </button>
@@ -88,7 +88,7 @@
                 </button>
 
                 <button type="button" id="btnAutoGenerate" class="btn btn-dark ml-2 mt-3"
-                         value="AutoGenerate" >
+                        value="AutoGenerate">
                     <i class="fas fa-space-shuttle"></i>
 
                     Auto Populate
@@ -96,7 +96,7 @@
 
             </div>
             <div id="Results"></div>
-           
+
         </form>
     </div>
 </div>
@@ -106,14 +106,6 @@
     $("#btnAutoGenerate").click(function (e) {
         e.preventDefault();
 
-        //$("#registerUserName").rules("remove");
-        //$("#registerEmailId").rules("remove");
-        //$("#registerFirstName").rules("remove");
-        //$("#registerLastName").rules("remove");
-        //$("#registerPassword").rules("remove");
-        //$("#registerReTypePassword").rules("remove");
-
-        //$('#formRegisterUser').submit()
          $.ajax({
             type: "POST",
             url: '@Url.Action("AutoPopulateRegsitration", "UserAccount")',
@@ -123,21 +115,20 @@
             },
              success: function (data) {
                  $("#_RegisterPartialViewDiv").html(data);
+                 $("#registerPassword").val("password");
+                 $("#registerReTypePassword").val("password");
+                 $("#autoPopulatePasswordTxt").text("Your Password is : password");
+                 $("#password").remove();
+                 $("#btnRegisterReset").prop("disabled", true);
+                 $("#btnAutoGenerate").prop("disabled", true);
+
             }
         });
         return false;
     });
 
     var onBeginRegisterForm = function () {
-        //  alert();
-
-        //$("#registerUserName").rules("remove");
-        //$("#registerEmailId").rules("remove");
-        //$("#registerFirstName").rules("remove");
-        //$("#registerLastName").rules("remove");
-        //$("#registerPassword").rules("remove");
-        //$("#registerReTypePassword").rules("remove");
-
+     
         JsMain.ShowLoaddingIndicator();
     };
 
@@ -147,9 +138,11 @@
         JsMain.HideLoaddingIndicator();
     };
 
-    var onSuccessRegisterForm = function () {
+    var onSuccessRegisterForm = function (data) {
         //  alert();
         JsMain.HideLoaddingIndicator();
+     
+        $("#appendPartialView").html(data);
     };
 
     var onFailedRegisterForm = function () {
@@ -191,6 +184,9 @@
             }
         };
         $(':password').pwstrength(options);
+
+     
+
     });
 
 

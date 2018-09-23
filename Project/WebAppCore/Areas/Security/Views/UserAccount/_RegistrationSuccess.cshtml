@@ -1,0 +1,110 @@
+﻿@model WebAppCore.Areas.Security.Models.RegisterUserViewModel
+<div id="modalRegistrationSuccess" class="modal show" tabindex="-1" role="dialog"
+     data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Success</h5>
+
+            </div>
+            <div class="modal-body">
+
+
+                <div class="row">
+                    <p>Your Registration is success</p>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                        <span class="ml-auto">Your User Name : </span>
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                        <h5 class="">
+                            @Html.LabelFor(m => m.UserName, Model.UserName, new { id = "CreatedUserName" })
+                        </h5>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                        <span class="ml-auto">Your User Name : </span>
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                        <h5 class="">
+                            @Html.LabelFor(m => m.Password, Model.Password, new { id = "CreatedPassword" })
+                        </h5>
+                    </div>
+                </div>
+
+
+                <div class="text-center">
+                    <button type="button" id="btnSubmitToLogin" class="btn btn-dark mt-3 mr-2">
+                        <i class="fas fa-angle-double-right"></i>
+                        Login
+                    </button>
+
+                    <button type="button" class="btn btn-primary mt-3" id="btnGoToDashBoard">
+                        <i class="fas fa-tachometer-alt"></i>
+                        Go To DashBoard
+                    </button>
+
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+    <script>
+        jQuery(document).ready(function () {
+            $('#modalRegistrationSuccess').modal('show');
+
+            $("#btnSubmitToLogin").click(function (e) {
+
+                $('#modalRegistrationSuccess').modal('hide');
+
+                $('#registerUserNameVal').text('');
+                $('#registerEmailIdVal').text('');
+                $('#registerFirstNameVal').text('');
+                $('#registerLastNameVal').text('');
+                $('#registerPasswordVal').text('');
+                $('#registerReTypePasswordVal').text('');
+
+                $('#registerUserName').val('');
+                $('#registerEmailId').val('');
+                $('#registerFirstName').val('');
+                $('#registerLastName').val('');
+                $('#registerPassword').val('');
+                $('#registerReTypePassword').val('');
+                $("#password").text("");
+
+                   $('#loginUserName').val($('#CreatedUserName').text());
+
+                   $('#loginPassword').val($('#CreatedPassword').text());
+                $("#btnLoginSubmit").trigger("click");
+            });
+
+            $("#btnGoToDashBoard").click(function (e) {
+
+                $('#registerUserNameVal').text('');
+                $('#registerEmailIdVal').text('');
+                $('#registerFirstNameVal').text('');
+                $('#registerLastNameVal').text('');
+                $('#registerPasswordVal').text('');
+                $('#registerReTypePasswordVal').text('');
+
+                $('#registerUserName').val('');
+                $('#registerEmailId').val('');
+                $('#registerFirstName').val('');
+                $('#registerLastName').val('');
+                $('#registerPassword').val('');
+                $('#registerReTypePassword').val('');
+                $("#password").text("");
+
+                  window.location.href = '@Url.RouteUrl("Home")';
+            });
+
+        });
+    </script>
+</div>
+

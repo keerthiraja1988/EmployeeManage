@@ -51,12 +51,12 @@ namespace WebAppCore
         // This method gets called by the runtime. Use this method to add services to the container.
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
-            services.Configure<CookiePolicyOptions>(options =>
-            {
-                // This lambda determines whether user consent for non-essential cookies is needed for a given request.
-                options.CheckConsentNeeded = context => true;
-                options.MinimumSameSitePolicy = SameSiteMode.None;
-            });
+            //services.Configure<CookiePolicyOptions>(options =>
+            //{
+            //    // This lambda determines whether user consent for non-essential cookies is needed for a given request.
+            //    options.CheckConsentNeeded = context => true;
+            //    options.MinimumSameSitePolicy = SameSiteMode.None;
+            //});
 
 
 
@@ -119,7 +119,7 @@ namespace WebAppCore
                    {
                        options.AccessDeniedPath = new PathString("/Security/Access");
                        options.LoginPath = new PathString("/UserAccount");
-                       options.ExpireTimeSpan = TimeSpan.FromSeconds(30);
+                       options.ExpireTimeSpan = TimeSpan.FromSeconds(600);
                        options.SlidingExpiration = true;
                    });
 

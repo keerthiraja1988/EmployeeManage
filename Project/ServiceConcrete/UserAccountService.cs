@@ -42,8 +42,14 @@ namespace ServiceConcrete
 
         public UserAccountModel GetAutoGenetaratedUserData()
         {
+            UserAccountModel userAccountModel = new UserAccountModel();
+            userAccountModel.UserName = Faker.User.Username();
+            userAccountModel.FirstName = Faker.Name.FirstName();
+            userAccountModel.LastName = Faker.Name.LastName();
+            userAccountModel.Email = Faker.User.Email();
+            userAccountModel.Password = Faker.User.Password();
 
-            return new UserAccountModel();
+            return userAccountModel;
         }
 
     }

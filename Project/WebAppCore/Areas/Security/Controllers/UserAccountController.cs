@@ -2,9 +2,13 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using AutoMapper;
 using DomainModel;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using ServiceInterface;
@@ -29,7 +33,7 @@ namespace WebAppCore.Areas.Security.Controllers
             _IUserAccountService = iUserAccountService;
         }
 
-       
+
         //public ActionResult Index()
         //{
         //    RegisterUserViewModel registerUserViewModel = new RegisterUserViewModel();
@@ -47,75 +51,93 @@ namespace WebAppCore.Areas.Security.Controllers
         [HttpGet]
         public async Task<IActionResult> UserAccount()
         {
+            var cookieAvailable = CookieAuthenticationDefaults.AuthenticationScheme;
+
+            if (cookieAvailable != null)
+            {
+                await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            }
+
             UserLoginRegisterDTO userLoginRegisterDTO = new UserLoginRegisterDTO();
 
-            //RegisterUserViewModel registerUserViewModel = new RegisterUserViewModel();
-            //UserLoginViewModel userLoginViewModel = new UserLoginViewModel();
-            //registerUserViewModel.UserName = "test";
-            //userLoginRegisterDTO.RegisterUserViewModel = registerUserViewModel;
-            //userLoginRegisterDTO.UserLoginViewModel = userLoginViewModel;
             return await Task.Run(() => View("Login", userLoginRegisterDTO));
-
         }
 
         //[Route("Login")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(UserLoginViewModel userLoginViewModel)
+        public async Task<IActionResult> Login(UserLoginViewModel userLoginViewModel, string ReturnUrl)
         {
+            var cookieAvailable = CookieAuthenticationDefaults.AuthenticationScheme;
+
+            if (cookieAvailable != null)
+            {
+               await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+
+            }
             if (!ModelState.IsValid)
             {
                 return await Task.Run(() => PartialView("_Login", userLoginViewModel));
             }
-            return await Task.Run(() => PartialView("_Login", userLoginViewModel));
+
+            List<Claim> claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.Name, "Sean Connery"),
+                new Claim(ClaimTypes.Email, userLoginViewModel.LoginUserName)
+            };
+
+            var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+
+            // create principal
+            ClaimsPrincipal principal = new ClaimsPrincipal(identity);
+
+            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+            return Json(new { newUrl = Url.Action("Index", "DashBoard", new { area = "DashBoard" }) });
+
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> RegisterUser(RegisterUserViewModel registerUserViewModel)
         {
-            if (registerUserViewModel.UserName == "" || registerUserViewModel.UserName == null)
-            {
-                registerUserViewModel.UserName = "test";
-            }
-           
-            UserLoginRegisterDTO userLoginRegisterDTO = new UserLoginRegisterDTO();
-            UserLoginViewModel userLoginViewModel = new UserLoginViewModel();
 
-            userLoginRegisterDTO.RegisterUserViewModel = registerUserViewModel;
-            userLoginRegisterDTO.UserLoginViewModel = userLoginViewModel;
             if (!ModelState.IsValid)
             {
-                //  return await Task.Run(() => View("Login", userLoginRegisterDTO));
                 return await Task.Run(() => PartialView("_Register", registerUserViewModel));
             }
 
             var userAccount = _mapper.Map<UserAccountModel>(registerUserViewModel);
             var returnValue = this._IUserAccountService.RegisterNewUser(userAccount);
-            var returnValue1 = this._IUserAccountService.RegisterNewUser(userAccount);
 
-            return await Task.Run(() => PartialView("_Register", registerUserViewModel));
+            string partialViewHtml = await this.RenderViewAsync("_RegistrationSuccess", registerUserViewModel, true);
 
+            return Json(partialViewHtml);
         }
 
-       
+
         public async Task<IActionResult> AutoPopulateRegsitration()
         {
             RegisterUserViewModel registerUserViewModel = new RegisterUserViewModel();
-            UserLoginViewModel userLoginViewModel = new UserLoginViewModel();
-            registerUserViewModel.UserName = "test";
-            UserLoginRegisterDTO userLoginRegisterDTO = new UserLoginRegisterDTO();
-            userLoginRegisterDTO.RegisterUserViewModel = registerUserViewModel;
-            userLoginRegisterDTO.UserLoginViewModel = userLoginViewModel;
-            //  await Task.Run(() => ));
 
-          string  partialViewHtml = await this.RenderViewAsync("_Register", registerUserViewModel, true);
+            var UserAccountModel = this._IUserAccountService.GetAutoGenetaratedUserData();
 
-            // return await Task.Run(() => PartialView("_Register", registerUserViewModel));
-            //return Content(partialViewHtml);
+            registerUserViewModel = _mapper.Map<RegisterUserViewModel>(UserAccountModel);
+            registerUserViewModel.ReTypePassword = registerUserViewModel.Password;
 
-           return Json(partialViewHtml);
+            string partialViewHtml = await this.RenderViewAsync("_Register", registerUserViewModel, true);
+
+            return Json(partialViewHtml);
         }
 
+        public async Task<IActionResult> Logout()
+        {
+
+            var cookieAvailable = CookieAuthenticationDefaults.AuthenticationScheme;
+            if (cookieAvailable != null)
+            {
+                await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            }
+            return Redirect("/UserAccount");
+        }
     }
 }

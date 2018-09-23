@@ -12,9 +12,10 @@ namespace WebAppCore.Areas.DashBoard.Controllers
     public class DashBoardController : Controller
     {
         [Route("")]
+        [Route("Home")]
         public IActionResult Index()
         {
-            return View();
+            return View("Index");
         }
     }
 }
