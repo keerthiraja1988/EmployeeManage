@@ -33,20 +33,6 @@ namespace WebAppCore.Areas.Security.Controllers
             _IUserAccountService = iUserAccountService;
         }
 
-
-        //public ActionResult Index()
-        //{
-        //    RegisterUserViewModel registerUserViewModel = new RegisterUserViewModel();
-        //    UserLoginViewModel userLoginViewModel = new UserLoginViewModel();
-
-        //    UserLoginRegisterDTO userLoginRegisterDTO = new UserLoginRegisterDTO();
-        //    userLoginRegisterDTO.RegisterUserViewModel = registerUserViewModel;
-        //    userLoginRegisterDTO.UserLoginViewModel = userLoginViewModel;
-        //    //  await Task.Run(() => ));
-        //    //  return await Task.Run(() => View(userLoginRegisterDTO));
-        //    return View(userLoginRegisterDTO);
-        //}
-
         [Route("UserAccount")]
         [HttpGet]
         public async Task<IActionResult> UserAccount()
@@ -72,35 +58,42 @@ namespace WebAppCore.Areas.Security.Controllers
 
             if (cookieAvailable != null)
             {
-               await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+                await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
 
             }
             if (!ModelState.IsValid)
             {
                 return await Task.Run(() => PartialView("_Login", userLoginViewModel));
             }
-
-            List<Claim> claims = new List<Claim>
+            var userAccount = _mapper.Map<UserAccountModel>(userLoginViewModel);
+            var userAccountReturn = this._IUserAccountService.ValidateUserLogin(userAccount);
+            if (userAccountReturn.IsLoginSuccess)
             {
-                new Claim(ClaimTypes.Name, "Sean Connery"),
-                new Claim(ClaimTypes.Email, userLoginViewModel.LoginUserName)
+                List<Claim> claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.Name, userAccountReturn.LastName + " " + userAccountReturn.FirstName),
+                new Claim(ClaimTypes.Email, userAccountReturn.Email)
             };
 
-            var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
 
-            // create principal
-            ClaimsPrincipal principal = new ClaimsPrincipal(identity);
+                // create principal
+                ClaimsPrincipal principal = new ClaimsPrincipal(identity);
 
-            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
-            return Json(new { newUrl = Url.Action("Index", "DashBoard", new { area = "DashBoard" }) });
+                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+                return Json(new { newUrl = Url.Action("Index", "DashBoard", new { area = "DashBoard" }) });
+            }
+            else
+            {
+                return Json(new { newUrl = "LoginFailed" });
 
+            }
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> RegisterUser(RegisterUserViewModel registerUserViewModel)
         {
-
             if (!ModelState.IsValid)
             {
                 return await Task.Run(() => PartialView("_Register", registerUserViewModel));
@@ -113,7 +106,6 @@ namespace WebAppCore.Areas.Security.Controllers
 
             return Json(partialViewHtml);
         }
-
 
         public async Task<IActionResult> AutoPopulateRegsitration()
         {
@@ -131,7 +123,6 @@ namespace WebAppCore.Areas.Security.Controllers
 
         public async Task<IActionResult> Logout()
         {
-
             var cookieAvailable = CookieAuthenticationDefaults.AuthenticationScheme;
             if (cookieAvailable != null)
             {

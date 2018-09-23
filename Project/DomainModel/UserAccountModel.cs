@@ -37,6 +37,9 @@ namespace DomainModel
 
         public DateTime ModifiedOn { get; set; }
         public Int64 ModifiedBy { get; set; }
+
+        public bool IsLoginSuccess { get; set; }
+
     }
 
     public class UserRoleModel

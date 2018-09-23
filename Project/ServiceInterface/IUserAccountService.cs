@@ -11,6 +11,7 @@ namespace ServiceInterface
 
         UserAccountModel GetAutoGenetaratedUserData();
 
+        UserAccountModel ValidateUserLogin(UserAccountModel userAccountModel);
 
     }
 }

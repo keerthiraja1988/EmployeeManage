@@ -11,5 +11,8 @@ namespace Repository
 
         [Sql("P_RegisterNewUser")]
         bool RegisterNewUser(UserAccountModel userAccountModel);
+
+        [Sql("P_GetUserDetailsForLogin")]
+        UserAccountModel GetUserDetailsForLogin(UserAccountModel userAccountModel);
     }
 }

@@ -8570,7 +8570,7 @@ a.text-dark:focus, a.text-dark:hover {
     }
 
     .btn-primary:active {
-        box-shadow: 2px 2px 4px rgba(0,0,0,.4)
+        box-shadow: 2px 3px 3px rgba(0,0,0,.4)
     }
 
     .btn-primary:after {
@@ -8649,7 +8649,7 @@ a.text-dark:focus, a.text-dark:hover {
     }
 
     .btn-secondary:active {
-        box-shadow: 2px 2px 4px rgba(0,0,0,.4)
+        box-shadow: 2px 3px 3px rgba(0,0,0,.4)
     }
 
     .btn-secondary:after {
@@ -8728,7 +8728,7 @@ a.text-dark:focus, a.text-dark:hover {
     }
 
     .btn-success:active {
-        box-shadow: 2px 2px 4px rgba(0,0,0,.4)
+        box-shadow: 2px 3px 3px rgba(0,0,0,.4)
     }
 
     .btn-success:after {
@@ -8807,7 +8807,7 @@ a.text-dark:focus, a.text-dark:hover {
     }
 
     .btn-info:active {
-        box-shadow: 2px 2px 4px rgba(0,0,0,.4)
+        box-shadow: 2px 3px 3px rgba(0,0,0,.4)
     }
 
     .btn-info:after {
@@ -8886,7 +8886,7 @@ a.text-dark:focus, a.text-dark:hover {
     }
 
     .btn-warning:active {
-        box-shadow: 2px 2px 4px rgba(0,0,0,.4)
+        box-shadow: 2px 3px 3px rgba(0,0,0,.4)
     }
 
     .btn-warning:after {
@@ -8965,7 +8965,7 @@ a.text-dark:focus, a.text-dark:hover {
     }
 
     .btn-danger:active {
-        box-shadow: 2px 2px 4px rgba(0,0,0,.4)
+        box-shadow: 2px 3px 3px rgba(0,0,0,.4)
     }
 
     .btn-danger:after {
@@ -9044,7 +9044,7 @@ a.text-dark:focus, a.text-dark:hover {
     }
 
     .btn-dark:active {
-        box-shadow: 2px 2px 4px rgba(0,0,0,.4)
+        box-shadow: 2px 3px 3px rgba(0,0,0,.4)
     }
 
     .btn-dark:after {
@@ -9123,7 +9123,7 @@ a.text-dark:focus, a.text-dark:hover {
     }
 
     .btn-light:active {
-        box-shadow: 2px 2px 4px rgba(0,0,0,.4)
+        box-shadow: 2px 3px 3px rgba(0,0,0,.4)
     }
 
     .btn-light:after {
@@ -9189,7 +9189,6 @@ a.text-dark:focus, a.text-dark:hover {
     }
 
 .btn {
-    text-transform: uppercase;
     border: none;
     box-shadow: 0 1px 4px rgba(0,0,0,.4);
     transition: all .4s
@@ -9213,6 +9212,7 @@ a.text-dark:focus, a.text-dark:hover {
 
 .btn-secondary.disabled, .btn-secondary[disabled], fieldset[disabled] .btn-secondary {
     background-color: rgba(0,0,0,.1);
+    box-shadow: 0 1px 4px rgba(0,0,0,.1);
     color: rgba(0,0,0,.4);
     opacity: 1
 }

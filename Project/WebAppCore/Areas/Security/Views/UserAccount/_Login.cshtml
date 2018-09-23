@@ -82,8 +82,17 @@
     };
 
     var onSuccessLoginForm = function (res) {
-        //  alert();
+      
         JsMain.HideLoaddingIndicator();
-        window.location.href = res.newUrl;
+
+        if (res.newUrl == "LoginFailed") {
+          
+            bootbox.alert("Login Failed. Please try with correct credentials.");
+
+        }
+        else {
+            window.location.href = res.newUrl;
+        }
+        
     };
 </script>

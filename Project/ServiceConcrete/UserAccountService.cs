@@ -37,7 +37,18 @@ namespace ServiceConcrete
 
         public bool RegisterNewUser(UserAccountModel userAccountModel)
         {
+            SercurityService sercurityService = new SercurityService();
+            userAccountModel = sercurityService.GenerateHashAndSaltForPassword(userAccountModel);
+
             return this._IUserAccountRepository.RegisterNewUser(userAccountModel);
+        }
+
+        public UserAccountModel ValidateUserLogin(UserAccountModel userAccountModel)
+        {
+            SercurityService sercurityService = new SercurityService();
+            userAccountModel = sercurityService.ValidateUserLoginAndCredential(userAccountModel);
+
+            return userAccountModel;
         }
 
         public UserAccountModel GetAutoGenetaratedUserData()
