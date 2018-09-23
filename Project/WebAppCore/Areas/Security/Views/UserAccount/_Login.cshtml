@@ -5,37 +5,39 @@
     </div>
     <div class="card-body">
 
+        <form asp-area="Security" asp-controller="UserAccount" asp-action="Login"
+              method="POST" data-ajax="true"
+              data-ajax-begin="onBeginLoginForm" data-ajax-complete="onCompleteLoginForm"
+              data-ajax-failure="onFailedLoginForm" data-ajax-success="onSuccessLoginForm"
+              data-ajax-update="divLogin">
+            <!-- form content-->
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12  pt-3">
+                    <label asp-for="LoginUserName"></label><span> *</span>
+                    <input asp-for="LoginUserName" id="loginUserName"
+                           placeholder="Enter User Name" class="form-control" />
+                    <small>
+                        <span asp-validation-for="LoginUserName" id="LoginUserNameVal" class="text-danger"></span>
+                    </small>
 
-        @using (Html.BeginForm("Login", "UserAccount", "Security", FormMethod.Post))
-        {
-            @Html.AntiForgeryToken()
-        <div class="row">
-            <div class="col-12 ">
-                <label>User Name</label>
-                @Html.TextBoxFor(m => m.LoginUserName, new { @class = "form-control", @id = "loginUsername"
-              , @placeholder = "Enter User Name"
-           })
-                <small>
-                    @Html.ValidationMessageFor(model => model.LoginUserName, "", new { @class = "text-danger" })
-                </small>
+                </div>
+
             </div>
 
-        </div>
-        <div class="row">
-            <div class="col-12 ">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12  pt-3">
+                    <label asp-for="LoginPassword"></label><span> *</span>
+                    <input asp-for="LoginPassword" id="loginPassword"
+                           placeholder="Enter Password" class="form-control" />
+                    <small>
+                        <span asp-validation-for="LoginPassword" id="LoginPasswordVal" class="text-danger"></span>
+                    </small>
 
-                <label class=" pt-3">Password</label>
-                @Html.PasswordFor(m => m.LoginPassword, new { @class = "form-control", @id = "loginPassword"
-              , @placeholder = "Enter Password"
-           })
-                <small>
-                    @Html.ValidationMessageFor(model => model.LoginPassword, "", new { @class = "text-danger" })
-                </small>
+                </div>
+
             </div>
 
-        </div>
 
-           
             <div class="text-center">
                 <button type="submit" class="btn btn-info mt-3">
                     <i class="fas fa-angle-double-right"></i>
@@ -47,19 +49,39 @@
                 </button>
             </div>
 
+        </form>
 
-            }
-
-
-
-        </div>
+    </div>
         </div>
 
 <script>
     $('#btnLoginReset').click(function () {
        
-        $('#loginUsername').val('');
+        $('#loginUserName').val('');
         $('#loginPassword').val('');
 
+        $('#LoginUserNameVal').text('');
+        $('#LoginPasswordVal').text('');
+
     });
+
+    var onBeginLoginForm = function () {
+        //  alert();
+        JsMain.ShowLoaddingIndicator();
+    };
+
+    var onCompleteLoginForm = function () {
+        //  alert();
+        JsMain.HideLoaddingIndicator();
+    };
+
+    var onFailedLoginForm = function () {
+        //  alert();
+        JsMain.HideLoaddingIndicator();
+    };
+
+    var onSuccessLoginForm = function () {
+        //  alert();
+        JsMain.HideLoaddingIndicator();
+    };
 </script>

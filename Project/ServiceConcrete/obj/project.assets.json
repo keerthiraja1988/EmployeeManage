@@ -2,6 +2,15 @@
   "version": 3,
   "targets": {
     ".NETStandard,Version=v2.0": {
+      "Faker.Data/1.0.7": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Faker.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Faker.dll": {}
+        }
+      },
       "Insight.Database/6.2.4": {
         "type": "package",
         "dependencies": {
@@ -1096,6 +1105,16 @@
     }
   },
   "libraries": {
+    "Faker.Data/1.0.7": {
+      "sha512": "3muXNOzLgS3M3kAvdWWBOUlTcPgSUezUwzV6AxTcqyPV+dOAHIFgTakanoBJIbnQMIHtJ3riRQbRGFL5MUX4Hw==",
+      "type": "package",
+      "path": "faker.data/1.0.7",
+      "files": [
+        "faker.data.1.0.7.nupkg.sha512",
+        "faker.data.nuspec",
+        "lib/net45/Faker.dll"
+      ]
+    },
     "Insight.Database/6.2.4": {
       "sha512": "kFdX2+PFcq/Y4rjMx2jW+56b8dgA7Pi+VunfOD6ObVioTf5sI5BD2G+Z1BHIHui0D49dLeiHTp54cueglBOaDg==",
       "type": "package",
@@ -4412,6 +4431,7 @@
     ".NETStandard,Version=v2.0": [
       "CrossCutting >= 1.0.0",
       "DomainModel >= 1.0.0",
+      "Faker.Data >= 1.0.7",
       "Insight.Database >= 6.2.4",
       "NETStandard.Library >= 2.0.3",
       "Repository >= 1.0.0",
@@ -4474,6 +4494,10 @@
     "frameworks": {
       "netstandard2.0": {
         "dependencies": {
+          "Faker.Data": {
+            "target": "Package",
+            "version": "[1.0.7, )"
+          },
           "Insight.Database": {
             "target": "Package",
             "version": "[6.2.4, )"
@@ -4492,5 +4516,17 @@
         "warn": true
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Faker.Data 1.0.7' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETStandard,Version=v2.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Faker.Data",
+      "targetGraphs": [
+        ".NETStandard,Version=v2.0"
+      ]
+    }
+  ]
 }

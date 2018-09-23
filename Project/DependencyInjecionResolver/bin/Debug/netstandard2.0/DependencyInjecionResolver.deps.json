@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETStandard,Version=v2.0/",
-    "signature": "fe2d019d3a529b24ad1c0cf47b642c53b1891f3d"
+    "signature": "f5aae448702ff578623cb2b7cad0286ce3c0fed4"
   },
   "compilationOptions": {},
   "targets": {
@@ -27,6 +27,14 @@
           "lib/netstandard1.1/Autofac.dll": {
             "assemblyVersion": "4.8.1.0",
             "fileVersion": "4.8.1.0"
+          }
+        }
+      },
+      "Faker.Data/1.0.7": {
+        "runtime": {
+          "lib/net45/Faker.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
           }
         }
       },
@@ -883,6 +891,7 @@
         "dependencies": {
           "CrossCutting": "1.0.0",
           "DomainModel": "1.0.0",
+          "Faker.Data": "1.0.7",
           "Insight.Database": "6.2.4",
           "Repository": "1.0.0",
           "ServiceInterface": "1.0.0"
@@ -913,6 +922,13 @@
       "sha512": "sha512-aIT9rupCOdab5RMfxvWTBmOxGU77tLqmvSF4V89SzV6oQcJrtuKw/Xp55xy9EijSktbMka55SbroAPOyT+lziw==",
       "path": "autofac/4.8.1",
       "hashPath": "autofac.4.8.1.nupkg.sha512"
+    },
+    "Faker.Data/1.0.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3muXNOzLgS3M3kAvdWWBOUlTcPgSUezUwzV6AxTcqyPV+dOAHIFgTakanoBJIbnQMIHtJ3riRQbRGFL5MUX4Hw==",
+      "path": "faker.data/1.0.7",
+      "hashPath": "faker.data.1.0.7.nupkg.sha512"
     },
     "Insight.Database/6.2.4": {
       "type": "package",

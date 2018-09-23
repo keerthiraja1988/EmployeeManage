@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using ServiceInterface;
 using WebAppCore.Areas.Security.Models;
+using WebAppCore.Infrastructure;
 using WebAppCore.Models;
 
 namespace WebAppCore.Areas.Security.Controllers
@@ -46,8 +47,14 @@ namespace WebAppCore.Areas.Security.Controllers
         [HttpGet]
         public async Task<IActionResult> UserAccount()
         {
+            UserLoginRegisterDTO userLoginRegisterDTO = new UserLoginRegisterDTO();
 
-            return await Task.Run(() => View("Login", new UserLoginRegisterDTO()));
+            //RegisterUserViewModel registerUserViewModel = new RegisterUserViewModel();
+            //UserLoginViewModel userLoginViewModel = new UserLoginViewModel();
+            //registerUserViewModel.UserName = "test";
+            //userLoginRegisterDTO.RegisterUserViewModel = registerUserViewModel;
+            //userLoginRegisterDTO.UserLoginViewModel = userLoginViewModel;
+            return await Task.Run(() => View("Login", userLoginRegisterDTO));
 
         }
 
@@ -56,30 +63,22 @@ namespace WebAppCore.Areas.Security.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(UserLoginViewModel userLoginViewModel)
         {
-            UserLoginRegisterDTO userLoginRegisterDTO = new UserLoginRegisterDTO();
-            RegisterUserViewModel registerUserViewModel = new RegisterUserViewModel();
-            userLoginRegisterDTO.RegisterUserViewModel = registerUserViewModel;
-            userLoginRegisterDTO.UserLoginViewModel = userLoginViewModel;
-
             if (!ModelState.IsValid)
             {
-                return await Task.Run(() => View("Login", userLoginRegisterDTO));
-
-
+                return await Task.Run(() => PartialView("_Login", userLoginViewModel));
             }
-
-        
-
-            return await Task.Run(() => View("Login", userLoginRegisterDTO));
-
+            return await Task.Run(() => PartialView("_Login", userLoginViewModel));
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> RegisterUser(RegisterUserViewModel registerUserViewModel)
         {
-
-            var vv = this._IUserAccountService.GetTestValue();
+            if (registerUserViewModel.UserName == "" || registerUserViewModel.UserName == null)
+            {
+                registerUserViewModel.UserName = "test";
+            }
+           
             UserLoginRegisterDTO userLoginRegisterDTO = new UserLoginRegisterDTO();
             UserLoginViewModel userLoginViewModel = new UserLoginViewModel();
 
@@ -87,20 +86,36 @@ namespace WebAppCore.Areas.Security.Controllers
             userLoginRegisterDTO.UserLoginViewModel = userLoginViewModel;
             if (!ModelState.IsValid)
             {
-                return await Task.Run(() => View("Login", userLoginRegisterDTO));
-
+                //  return await Task.Run(() => View("Login", userLoginRegisterDTO));
+                return await Task.Run(() => PartialView("_Register", registerUserViewModel));
             }
 
             var userAccount = _mapper.Map<UserAccountModel>(registerUserViewModel);
             var returnValue = this._IUserAccountService.RegisterNewUser(userAccount);
+            var returnValue1 = this._IUserAccountService.RegisterNewUser(userAccount);
 
-            return await Task.Run(() => View("Login", userLoginRegisterDTO));
+            return await Task.Run(() => PartialView("_Register", registerUserViewModel));
 
         }
 
-        //public IActionResult Index()
-        //{
-        //    return View();
-        //}
+       
+        public async Task<IActionResult> AutoPopulateRegsitration()
+        {
+            RegisterUserViewModel registerUserViewModel = new RegisterUserViewModel();
+            UserLoginViewModel userLoginViewModel = new UserLoginViewModel();
+            registerUserViewModel.UserName = "test";
+            UserLoginRegisterDTO userLoginRegisterDTO = new UserLoginRegisterDTO();
+            userLoginRegisterDTO.RegisterUserViewModel = registerUserViewModel;
+            userLoginRegisterDTO.UserLoginViewModel = userLoginViewModel;
+            //  await Task.Run(() => ));
+
+          string  partialViewHtml = await this.RenderViewAsync("_Register", registerUserViewModel, true);
+
+            // return await Task.Run(() => PartialView("_Register", registerUserViewModel));
+            //return Content(partialViewHtml);
+
+           return Json(partialViewHtml);
+        }
+
     }
 }

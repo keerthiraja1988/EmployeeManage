@@ -9,5 +9,8 @@ namespace ServiceInterface
 
         bool RegisterNewUser(UserAccountModel userAccountModel);
 
+        UserAccountModel GetAutoGenetaratedUserData();
+
+
     }
 }

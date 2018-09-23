@@ -3065,6 +3065,7 @@
         "dependencies": {
           "CrossCutting": "1.0.0",
           "DomainModel": "1.0.0",
+          "Faker.Data": "1.0.7",
           "Insight.Database": "6.2.4",
           "Repository": "1.0.0",
           "ServiceInterface": "1.0.0"
@@ -5998,6 +5999,7 @@
         "dependencies": {
           "CrossCutting": "1.0.0",
           "DomainModel": "1.0.0",
+          "Faker.Data": "1.0.7",
           "Insight.Database": "6.2.4",
           "Repository": "1.0.0",
           "ServiceInterface": "1.0.0"

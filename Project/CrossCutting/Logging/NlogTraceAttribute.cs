@@ -24,7 +24,7 @@ namespace CrossCutting.Logging
         /// <param name="args"></param>  
         public override void OnEntry(MethodExecutionArgs args)
         {
-            var vvv = Caching.Caching.Instance.GetApplicationConfigs();
+            //var vvv = Caching.Caching.Instance.GetApplicationConfigs();
 
             // string connectionString1 = ConfigurationManager.ConnectionStrings["KeyToOverride"].ToString();
 

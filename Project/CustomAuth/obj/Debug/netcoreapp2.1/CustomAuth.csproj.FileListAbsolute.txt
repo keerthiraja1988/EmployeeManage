@@ -1,4 +1,3 @@
-C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\CustomAuth\obj\Debug\netcoreapp2.1\CustomAuth.RazorCoreGenerate.cache
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\CustomAuth\bin\Debug\netcoreapp2.1\CustomAuth.deps.json
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\CustomAuth\bin\Debug\netcoreapp2.1\CustomAuth.runtimeconfig.json
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\CustomAuth\bin\Debug\netcoreapp2.1\CustomAuth.runtimeconfig.dev.json
@@ -6,6 +5,7 @@ C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\CustomAuth\bin\Debug
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\CustomAuth\bin\Debug\netcoreapp2.1\CustomAuth.pdb
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\CustomAuth\bin\Debug\netcoreapp2.1\CustomAuth.Views.dll
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\CustomAuth\bin\Debug\netcoreapp2.1\CustomAuth.Views.pdb
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\CustomAuth\obj\Debug\netcoreapp2.1\CustomAuth.csprojAssemblyReference.cache
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\CustomAuth\obj\Debug\netcoreapp2.1\CustomAuth.csproj.CoreCompileInputs.cache
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\CustomAuth\obj\Debug\netcoreapp2.1\CustomAuth.RazorAssemblyInfo.cache
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\CustomAuth\obj\Debug\netcoreapp2.1\CustomAuth.RazorAssemblyInfo.cs
@@ -13,6 +13,7 @@ C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\CustomAuth\obj\Debug
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\CustomAuth\obj\Debug\netcoreapp2.1\CustomAuth.AssemblyInfo.cs
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\CustomAuth\obj\Debug\netcoreapp2.1\CustomAuth.TagHelpers.input.cache
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\CustomAuth\obj\Debug\netcoreapp2.1\CustomAuth.TagHelpers.output.cache
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\CustomAuth\obj\Debug\netcoreapp2.1\CustomAuth.RazorCoreGenerate.cache
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\CustomAuth\obj\Debug\netcoreapp2.1\Razor\Views\Home\About.g.cshtml.cs
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\CustomAuth\obj\Debug\netcoreapp2.1\Razor\Views\Home\Contact.g.cshtml.cs
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\CustomAuth\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.g.cshtml.cs
@@ -29,4 +30,3 @@ C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\CustomAuth\obj\Debug
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\CustomAuth\obj\Debug\netcoreapp2.1\CustomAuth.dll
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\CustomAuth\obj\Debug\netcoreapp2.1\CustomAuth.pdb
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\CustomAuth\obj\Debug\netcoreapp2.1\CustomAuth.csproj.CopyComplete
-C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\CustomAuth\obj\Debug\netcoreapp2.1\CustomAuth.csprojAssemblyReference.cache

@@ -5,7 +5,9 @@ using System.Threading.Tasks;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using AutoMapper;
+using CrossCutting.Caching;
 using CrossCutting.Logging;
+using DomainModel;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -30,6 +32,17 @@ namespace WebAppCore
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+
+            List<ApplicationConfigModel> applicationConfigs = new List<ApplicationConfigModel>();
+
+            applicationConfigs = Configuration.GetChildren().Select(x => new ApplicationConfigModel
+            {
+                Key = x.Key
+                                                                            ,
+                Value = x.Value
+            }).ToList();
+            Caching.Instance.AddApplicationConfigs(applicationConfigs);
+
         }
 
         public IConfiguration Configuration { get; set; }
@@ -111,6 +124,7 @@ namespace WebAppCore
                    });
 
 
+           
             var builder = new Autofac.ContainerBuilder();
 
             builder.RegisterAssemblyModules(System.Reflection.Assembly.GetExecutingAssembly());

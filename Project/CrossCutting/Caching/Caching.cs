@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace CrossCutting.Caching
 {
@@ -33,9 +34,18 @@ namespace CrossCutting.Caching
             ApplicationConfigs = applicationConfigs;
         }
 
-        public List<ApplicationConfigModel> GetApplicationConfigs()
+        public List<ApplicationConfigModel> GetAllApplicationConfigs()
         {
             return ApplicationConfigs;
+        }
+
+        public string GetApplicationConfigs(string Key)
+        {
+            return ApplicationConfigs
+                   .Where(w => w.Key == Key)
+                   .FirstOrDefault()
+                   .Value
+                   ;
         }
     }
 }

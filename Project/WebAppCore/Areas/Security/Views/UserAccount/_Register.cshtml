@@ -3,104 +3,82 @@
     <div class="card-header   bg-info  text-white text-center">
         <h5>Register</h5>
     </div>
-    <div class="card-body">
+    <div class="card-body" id="registerCardBody">
 
-        @using (Html.BeginForm("RegisterUser", "UserAccount", "Security", FormMethod.Post
- ))
-        {
-            @Html.AntiForgeryToken()
+        <form asp-area="Security" asp-controller="UserAccount" asp-action="RegisterUser"
+              method="POST" data-ajax="true"
+              data-ajax-begin="onBeginRegisterForm" data-ajax-complete="onCompleteRegisterForm"
+              data-ajax-failure="onFailedRegisterForm" data-ajax-success="onSuccessRegisterForm"
+              data-ajax-update="divRegisterUser" id="formRegisterUser">
+            <!-- form content-->
+            <div class="row">
+                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6  pt-3">
+                    <label asp-for="UserName"></label><span> *</span>
+
+                    <input asp-for="UserName" id="registerUserName" data-val="true" type="text"
+                           placeholder="Enter User Name" class="form-control" />
+                    <small>
+                        <span asp-validation-for="UserName" id="registerUserNameVal" class="text-danger"></span>
+                    </small>
+
+                </div>
+
+                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6  pt-3">
+                    <label asp-for="EmailId"></label><span> *</span>
+                    <input asp-for="EmailId" id="registerEmailId"
+                           placeholder="Enter Email Id" class="form-control" />
+                    <small>
+                        <span asp-validation-for="EmailId" id="registerEmailIdVal" class="text-danger"></span>
+                    </small>
+                </div>
+            </div>
 
             <div class="row">
                 <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6  pt-3">
-
-                    @Html.LabelFor(model => model.UserName)
-                    @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @id = "registerUsername"
-                  , @placeholder = "Enter User Name"
-               })
+                    <label asp-for="FirstName"></label><span> *</span>
+                    <input asp-for="FirstName" id="registerFirstName"
+                           placeholder="Enter First Name" class="form-control" />
                     <small>
-                        @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger"
-                      , @id = "registerUserNameVals"
-                   })
+                        <span asp-validation-for="FirstName" id="registerFirstNameVal" class="text-danger"></span>
                     </small>
-
                 </div>
 
                 <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6  pt-3">
-                    @Html.LabelFor(model => model.EmailId)
-
-                    @Html.TextBoxFor(m => m.EmailId, new { @class = "form-control", @id = "registerEmailId"
-                  , @placeholder = "Enter Email Id"
-               })
+                    <label asp-for="LastName"></label><span> *</span>
+                    <input asp-for="LastName" id="registerLastName"
+                           placeholder="Enter Last Name" class="form-control" />
                     <small>
-                        @Html.ValidationMessageFor(model => model.EmailId, "", new { @class = "text-danger" })
+                        <span asp-validation-for="LastName" id="registerLastNameVal" class="text-danger"></span>
                     </small>
                 </div>
-
             </div>
-            <div class="row ">
-                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6  pt-3">
-                    @Html.LabelFor(model => model.FirstName)
-
-                    @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", @id = "registerFirstName"
-                  , @placeholder = "Enter First Name"
-               })
-                    <small>
-                        @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
-                    </small>
-                </div>
-
-                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6  pt-3">
-                    @Html.LabelFor(model => model.LastName)
-
-                    @Html.TextBoxFor(m => m.LastName, new { @class = "form-control", @id = "registerLastName"
-                  , @placeholder = "Enter Last Name"
-               })
-                    <small>
-                        @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
-                    </small>
-                </div>
-
-            </div>
-
-
-
 
             <div class="row">
                 <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6  pt-3">
-                    @Html.LabelFor(model => model.Password)
-
-                    @Html.PasswordFor(m => m.Password, new { @class = "form-control", @id = "registerPassword"
-                  , @placeholder = "Enter Password"
-               })
+                    <label asp-for="Password"></label><span> *</span>
+                    <input type="password" asp-for="Password" id="registerPassword"
+                           placeholder="Enter Password" class="form-control" />
                     <small>
-                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                        <span asp-validation-for="Password" id="registerPasswordVal" class="text-danger"></span>
                     </small>
-
                     <div id="55" style="padding-top:10px" class="pwstrength_viewport_progress"></div>
-
                 </div>
 
                 <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6  pt-3">
-                    @Html.LabelFor(model => model.ReTypePassword)
-
-                    @Html.PasswordFor(m => m.ReTypePassword, new { @class = "form-control", @id = "registerReTypePassword"
-                  , @placeholder = "Re-Type Password"
-               })
+                    <label asp-for="ReTypePassword"></label><span> *</span>
+                    <input type="password" asp-for="ReTypePassword" id="registerReTypePassword"
+                           placeholder="Re-Type Password" class="form-control" />
                     <small>
-                        @Html.ValidationMessageFor(model => model.ReTypePassword, "", new { @class = "text-danger" })
+                        <span asp-validation-for="ReTypePassword" id="registerReTypePasswordVal" class="text-danger"></span>
                     </small>
-
-
-
-
                 </div>
-
             </div>
 
             <input type="password" class="form-control" style="display:none; " id="password" placeholder="Password">
-          
+
             <div class="text-center">
-                <button type="submit" class="btn btn-info mt-3" id="idRegisterUser">
+                <button type="submit" class="btn btn-info mt-3" id="idRegisterUser"
+                        value="RegisterUser" >
                     <i class="fas fa-user-plus"></i>
                     Register
                 </button>
@@ -109,31 +87,92 @@
                     Clear
                 </button>
 
-                <button type="button" id="btnAutoGenerate" class="btn btn-dark ml-2 mt-3" >
+                <button type="button" id="btnAutoGenerate" class="btn btn-dark ml-2 mt-3"
+                         value="AutoGenerate" >
                     <i class="fas fa-space-shuttle"></i>
 
                     Auto Populate
                 </button>
 
             </div>
-
-
-        }
-
-
+            <div id="Results"></div>
+           
+        </form>
     </div>
 </div>
 
 <script>
+
+    $("#btnAutoGenerate").click(function (e) {
+        e.preventDefault();
+
+        //$("#registerUserName").rules("remove");
+        //$("#registerEmailId").rules("remove");
+        //$("#registerFirstName").rules("remove");
+        //$("#registerLastName").rules("remove");
+        //$("#registerPassword").rules("remove");
+        //$("#registerReTypePassword").rules("remove");
+
+        //$('#formRegisterUser').submit()
+         $.ajax({
+            type: "POST",
+            url: '@Url.Action("AutoPopulateRegsitration", "UserAccount")',
+            contentType: "application/json",
+            dataType: "json",
+             complete: function (data) {
+            },
+             success: function (data) {
+                 $("#_RegisterPartialViewDiv").html(data);
+            }
+        });
+        return false;
+    });
+
+    var onBeginRegisterForm = function () {
+        //  alert();
+
+        //$("#registerUserName").rules("remove");
+        //$("#registerEmailId").rules("remove");
+        //$("#registerFirstName").rules("remove");
+        //$("#registerLastName").rules("remove");
+        //$("#registerPassword").rules("remove");
+        //$("#registerReTypePassword").rules("remove");
+
+        JsMain.ShowLoaddingIndicator();
+    };
+
+    var onCompleteRegisterForm = function () {
+        //  alert();
+
+        JsMain.HideLoaddingIndicator();
+    };
+
+    var onSuccessRegisterForm = function () {
+        //  alert();
+        JsMain.HideLoaddingIndicator();
+    };
+
+    var onFailedRegisterForm = function () {
+        //  alert();
+        JsMain.HideLoaddingIndicator();
+    };
+
     $('#btnRegisterReset').click(function () {
-       
-        $('#registerUsername').val('');
+
+        $('#registerUserNameVal').text('');
+        $('#registerEmailIdVal').text('');
+        $('#registerFirstNameVal').text('');
+        $('#registerLastNameVal').text('');
+        $('#registerPasswordVal').text('');
+        $('#registerReTypePasswordVal').text('');
+
+        $('#registerUserName').val('');
         $('#registerEmailId').val('');
         $('#registerFirstName').val('');
         $('#registerLastName').val('');
         $('#registerPassword').val('');
         $('#registerReTypePassword').val('');
-
+        $("#password").text("");
     });
     jQuery(document).ready(function () {
         "use strict";
@@ -142,17 +181,15 @@
             bootstrap4: true,
             container: "#pwd-container",
             viewports: {
+                debug: true,
                 progress: ".pwstrength_viewport_progress"
             },
             showVerdictsInsideProgressBar: true
         };
         options.common = {
-            
             onLoad: function () {
-              
             }
         };
-    
         $(':password').pwstrength(options);
     });
 

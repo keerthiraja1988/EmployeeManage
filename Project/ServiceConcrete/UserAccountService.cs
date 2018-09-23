@@ -1,10 +1,12 @@
-﻿using DomainModel;
+﻿using CrossCutting.Caching;
+using DomainModel;
 using Insight.Database;
 using Repository;
 using ServiceInterface;
 using System;
 using System.Data.Common;
 using System.Data.SqlClient;
+using System.Linq;
 
 namespace ServiceConcrete
 {
@@ -14,16 +16,18 @@ namespace ServiceConcrete
         public UserAccountService(DbConnection Parameter)
         {
             SqlInsightDbProvider.RegisterProvider();
-            string sqlConnection = "Data Source=.;Initial Catalog=EmployeeManage;Integrated Security=True";
+            //  string sqlConnection = "Data Source=.;Initial Catalog=EmployeeManage;Integrated Security=True";
+            string sqlConnection = Caching.Instance.GetApplicationConfigs("DBConnection")
+                                           ;
             DbConnection c = new SqlConnection(sqlConnection);
 
             _IUserAccountRepository = c.As<IUserAccountRepository>();
         }
 
-        ~UserAccountService() // destructor define
-        {
-            this._IUserAccountRepository?.Dispose();
-        }
+        //~UserAccountService() // destructor define
+        //{
+        //    this._IUserAccountRepository?.Dispose();
+        //}
 
 
         public int GetTestValue()
@@ -34,6 +38,12 @@ namespace ServiceConcrete
         public bool RegisterNewUser(UserAccountModel userAccountModel)
         {
             return this._IUserAccountRepository.RegisterNewUser(userAccountModel);
+        }
+
+        public UserAccountModel GetAutoGenetaratedUserData()
+        {
+
+            return new UserAccountModel();
         }
 
     }

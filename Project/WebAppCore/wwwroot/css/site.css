@@ -1,4 +1,29 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
+﻿/* Loader Icon Start */
+.loaderOverlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #000;
+    opacity: .75;
+    z-index: 9999;
+}
+
+.loader {
+    padding-left: 17px;
+    border: 13px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 13px solid rgb(34, 85, 130);
+    width: 90px;
+    height: 90px;
+    -webkit-animation: spin .6s linear infinite; /* Safari */
+    animation: spin .6s linear infinite;
+}
+
+/* Loader Icon End */
+
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
 for details on configuring this project to bundle and minify static web assets. */
 body {
     padding-top: 50px;
