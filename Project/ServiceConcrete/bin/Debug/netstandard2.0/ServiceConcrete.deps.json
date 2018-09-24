@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETStandard,Version=v2.0/",
-    "signature": "c1d87695aef06ba12f04a73453d29f336f12b1c5"
+    "signature": "3efb21f19489491384d8770250e884957fb5c5ac"
   },
   "compilationOptions": {},
   "targets": {
@@ -11,6 +11,7 @@
         "dependencies": {
           "CrossCutting": "1.0.0",
           "DomainModel": "1.0.0",
+          "Effortless.Net.Encryption": "3.2.0",
           "Faker.Data": "1.0.7",
           "Insight.Database": "6.2.4",
           "NETStandard.Library": "2.0.3",
@@ -19,6 +20,14 @@
         },
         "runtime": {
           "ServiceConcrete.dll": {}
+        }
+      },
+      "Effortless.Net.Encryption/3.2.0": {
+        "runtime": {
+          "lib/net40/Effortless.Net.Encryption.dll": {
+            "assemblyVersion": "3.2.0.0",
+            "fileVersion": "3.2.0.0"
+          }
         }
       },
       "Faker.Data/1.0.7": {
@@ -882,6 +891,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Effortless.Net.Encryption/3.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-r4mbqL9orj+MaW7vtAYn/Cl0YS4CrtLv0mKe/QD5nhBTsvK70CI5BkWz8QEgld2cMzL45jycxx/Mzl+n3scLeA==",
+      "path": "effortless.net.encryption/3.2.0",
+      "hashPath": "effortless.net.encryption.3.2.0.nupkg.sha512"
     },
     "Faker.Data/1.0.7": {
       "type": "package",

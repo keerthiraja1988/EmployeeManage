@@ -759,3 +759,4 @@ C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebApp\obj\Debug\net
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebApp\obj\Debug\net461\WebApp.exe
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebApp\obj\Debug\net461\WebApp.pdb
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebApp\obj\Debug\net461\PostSharp\postsharp.app.config
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebApp\bin\Debug\net461\Effortless.Net.Encryption.dll

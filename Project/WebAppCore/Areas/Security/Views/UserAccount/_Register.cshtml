@@ -128,13 +128,20 @@
 
                  $("#btnAutoGenerate").prop("disabled", true);
 
+                 $("#registerUserName").prop("readonly", true);
+                 $("#registerEmailId").prop("readonly", true);
+                 $("#registerFirstName").prop("readonly", true);
+                 $("#registerLastName").prop("readonly", true);
+                 $("#registerPassword").prop("readonly", true);
+                 $("#registerReTypePassword").prop("readonly", true);
+
             }
         });
         return false;
     });
 
     var onBeginRegisterForm = function () {
-     
+        
         JsMain.ShowLoaddingIndicator();
     };
 

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Symbols LinesOfCode="196" PostSharpLinesOfCode="0" EnhancedTypesCount="1" SchemaVersion="1" PostSharpVersion="6.0.27.0" xmlns="http://schemas.postsharp.org/2.0/symbols">
   <Class Class="#1=T:[CrossCutting]CrossCutting.Logging.NlogTraceAttribute">
-    <Instance Declaration="#2=M:[WebApp]WebApp.Controllers.HomeController::Index()" Id="a5a1449eaebd17c8">
+    <Instance Declaration="#2=M:[WebApp]WebApp.Controllers.HomeController::Index()" Id="a5a1449e422010a9">
       <Target LinesAvoided="8">
         <JoinPoint Advising="#1" Description="#3=Wrapped by advice(s) OnEntry, OnSuccess, OnException, OnExit" Ordinal="0" />
       </Target>

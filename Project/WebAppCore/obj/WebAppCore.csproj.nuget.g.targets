@@ -12,6 +12,7 @@
     <Import Project="C:\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.extensions.configuration.usersecrets\2.1.1\build\netstandard2.0\Microsoft.Extensions.Configuration.UserSecrets.targets" Condition="Exists('C:\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.extensions.configuration.usersecrets\2.1.1\build\netstandard2.0\Microsoft.Extensions.Configuration.UserSecrets.targets')" />
     <Import Project="C:\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.aspnetcore.mvc.razor.viewcompilation\2.1.1\build\netstandard2.0\Microsoft.AspNetCore.Mvc.Razor.ViewCompilation.targets" Condition="Exists('C:\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.aspnetcore.mvc.razor.viewcompilation\2.1.1\build\netstandard2.0\Microsoft.AspNetCore.Mvc.Razor.ViewCompilation.targets')" />
     <Import Project="C:\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.aspnetcore.app\2.1.1\build\netcoreapp2.1\Microsoft.AspNetCore.App.targets" Condition="Exists('C:\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.aspnetcore.app\2.1.1\build\netcoreapp2.1\Microsoft.AspNetCore.App.targets')" />
+    <Import Project="$(NuGetPackageRoot)ligershark.weboptimizer.core\1.0.215\build\LigerShark.WebOptimizer.Core.targets" Condition="Exists('$(NuGetPackageRoot)ligershark.weboptimizer.core\1.0.215\build\LigerShark.WebOptimizer.Core.targets')" />
     <Import Project="$(NuGetPackageRoot)brotli.net\1.0.19\build\Brotli.NET.targets" Condition="Exists('$(NuGetPackageRoot)brotli.net\1.0.19\build\Brotli.NET.targets')" />
   </ImportGroup>
 </Project>

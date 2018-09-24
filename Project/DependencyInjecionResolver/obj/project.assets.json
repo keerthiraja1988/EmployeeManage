@@ -15,6 +15,15 @@
           "lib/netstandard1.1/Autofac.dll": {}
         }
       },
+      "Effortless.Net.Encryption/3.2.0": {
+        "type": "package",
+        "compile": {
+          "lib/net40/Effortless.Net.Encryption.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Effortless.Net.Encryption.dll": {}
+        }
+      },
       "Faker.Data/1.0.7": {
         "type": "package",
         "compile": {
@@ -1120,6 +1129,7 @@
         "dependencies": {
           "CrossCutting": "1.0.0",
           "DomainModel": "1.0.0",
+          "Effortless.Net.Encryption": "3.2.0",
           "Faker.Data": "1.0.7",
           "Insight.Database": "6.2.4",
           "Repository": "1.0.0",
@@ -1159,6 +1169,16 @@
         "lib/net45/Autofac.xml",
         "lib/netstandard1.1/Autofac.dll",
         "lib/netstandard1.1/Autofac.xml"
+      ]
+    },
+    "Effortless.Net.Encryption/3.2.0": {
+      "sha512": "r4mbqL9orj+MaW7vtAYn/Cl0YS4CrtLv0mKe/QD5nhBTsvK70CI5BkWz8QEgld2cMzL45jycxx/Mzl+n3scLeA==",
+      "type": "package",
+      "path": "effortless.net.encryption/3.2.0",
+      "files": [
+        "effortless.net.encryption.3.2.0.nupkg.sha512",
+        "effortless.net.encryption.nuspec",
+        "lib/net40/Effortless.Net.Encryption.dll"
       ]
     },
     "Faker.Data/1.0.7": {
@@ -4623,6 +4643,16 @@
     }
   },
   "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Effortless.Net.Encryption 3.2.0' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETStandard,Version=v2.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Effortless.Net.Encryption",
+      "targetGraphs": [
+        ".NETStandard,Version=v2.0"
+      ]
+    },
     {
       "code": "NU1701",
       "level": "Warning",

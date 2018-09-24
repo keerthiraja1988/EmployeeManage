@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETFramework,Version=v4.6.1/win7-x86",
-    "signature": "f165dc551cb42866eff5b322241e19a11b516196"
+    "signature": "9afa166c5ce5acf0c3a25287e796b45c18782a32"
   },
   "compilationOptions": {
     "defines": [
@@ -841,6 +841,11 @@
       "Castle.Core/4.0.0": {
         "compile": {
           "lib/net45/Castle.Core.dll": {}
+        }
+      },
+      "Effortless.Net.Encryption/3.2.0": {
+        "compile": {
+          "lib/net40/Effortless.Net.Encryption.dll": {}
         }
       },
       "Faker.Data/1.0.7": {
@@ -2403,6 +2408,7 @@
         "dependencies": {
           "CrossCutting": "1.0.0",
           "DomainModel": "1.0.0",
+          "Effortless.Net.Encryption": "3.2.0",
           "Faker.Data": "1.0.7",
           "Insight.Database": "6.2.4",
           "Repository": "1.0.0",
@@ -2615,6 +2621,11 @@
       "Castle.Core/4.0.0": {
         "runtime": {
           "lib/net45/Castle.Core.dll": {}
+        }
+      },
+      "Effortless.Net.Encryption/3.2.0": {
+        "runtime": {
+          "lib/net40/Effortless.Net.Encryption.dll": {}
         }
       },
       "Faker.Data/1.0.7": {
@@ -4237,6 +4248,7 @@
         "dependencies": {
           "CrossCutting": "1.0.0",
           "DomainModel": "1.0.0",
+          "Effortless.Net.Encryption": "3.2.0",
           "Faker.Data": "1.0.7",
           "Insight.Database": "6.2.4",
           "Repository": "1.0.0",
@@ -4296,6 +4308,13 @@
       "sha512": "sha512-iLINpMFc07bcb0d075AB0mcXV/MT8J8oyBarDSeyrLM03UoCVOuvYu87LI4511XHfy7XEhHtMDum5gt2s56xDg==",
       "path": "castle.core/4.0.0",
       "hashPath": "castle.core.4.0.0.nupkg.sha512"
+    },
+    "Effortless.Net.Encryption/3.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-r4mbqL9orj+MaW7vtAYn/Cl0YS4CrtLv0mKe/QD5nhBTsvK70CI5BkWz8QEgld2cMzL45jycxx/Mzl+n3scLeA==",
+      "path": "effortless.net.encryption/3.2.0",
+      "hashPath": "effortless.net.encryption.3.2.0.nupkg.sha512"
     },
     "Faker.Data/1.0.7": {
       "type": "package",

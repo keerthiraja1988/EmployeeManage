@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -35,6 +36,7 @@ namespace WebAppCore.Areas.Security.Models
         [MaxLength(35, ErrorMessage = "Maximum Email Length is 35 Characters")]
         public string Email { get; set; }
 
+        [Remote(action: "Foo", controller: "Base", areaName: "Base", ErrorMessage = "Remote validation is working")]
         [Required(ErrorMessage = "Please Enter Password")]
         [MinLength(8, ErrorMessage = "Minimum Password Length is 8 Characters")]
         [MaxLength(25, ErrorMessage = "Maximum Password Length is 25 Characters")]

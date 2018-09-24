@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETStandard,Version=v2.0/",
-    "signature": "f5aae448702ff578623cb2b7cad0286ce3c0fed4"
+    "signature": "b7a20a16191589c657fcf169dd8135dcc79b8613"
   },
   "compilationOptions": {},
   "targets": {
@@ -27,6 +27,14 @@
           "lib/netstandard1.1/Autofac.dll": {
             "assemblyVersion": "4.8.1.0",
             "fileVersion": "4.8.1.0"
+          }
+        }
+      },
+      "Effortless.Net.Encryption/3.2.0": {
+        "runtime": {
+          "lib/net40/Effortless.Net.Encryption.dll": {
+            "assemblyVersion": "3.2.0.0",
+            "fileVersion": "3.2.0.0"
           }
         }
       },
@@ -891,6 +899,7 @@
         "dependencies": {
           "CrossCutting": "1.0.0",
           "DomainModel": "1.0.0",
+          "Effortless.Net.Encryption": "3.2.0",
           "Faker.Data": "1.0.7",
           "Insight.Database": "6.2.4",
           "Repository": "1.0.0",
@@ -922,6 +931,13 @@
       "sha512": "sha512-aIT9rupCOdab5RMfxvWTBmOxGU77tLqmvSF4V89SzV6oQcJrtuKw/Xp55xy9EijSktbMka55SbroAPOyT+lziw==",
       "path": "autofac/4.8.1",
       "hashPath": "autofac.4.8.1.nupkg.sha512"
+    },
+    "Effortless.Net.Encryption/3.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-r4mbqL9orj+MaW7vtAYn/Cl0YS4CrtLv0mKe/QD5nhBTsvK70CI5BkWz8QEgld2cMzL45jycxx/Mzl+n3scLeA==",
+      "path": "effortless.net.encryption/3.2.0",
+      "hashPath": "effortless.net.encryption.3.2.0.nupkg.sha512"
     },
     "Faker.Data/1.0.7": {
       "type": "package",

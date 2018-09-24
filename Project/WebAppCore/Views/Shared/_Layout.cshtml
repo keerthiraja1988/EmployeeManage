@@ -27,6 +27,7 @@
         <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pwstrength-bootstrap/2.2.1/pwstrength-bootstrap.min.js"></script>
         <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+        <script src="~/lib/jquery-validation/dist/additional-methods.min.js"></script>
         <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
         <script src="https://ajax.aspnetcdn.com/ajax/jquery.unobtrusive-ajax/3.2.5/jquery.unobtrusive-ajax.min.js"></script>
         <script src="~/js/site.min.js" asp-append-version="true"></script>
@@ -44,7 +45,7 @@
         <script src="~/lib/JqueryUI/jquery-ui.min.js" asp-append-version="true"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js" asp-append-version="true"></script>
 
-        
+
 
     </environment>
     <script>
@@ -158,11 +159,12 @@
         </div>
     </nav>
     <partial name="_CookieConsentPartial" />
-    
+
     <div class="container-fluid pl-2 pr-2 pt-4" style="background-color: rgba(254, 232, 255, 0.08); padding-top:18px;">
         @RenderBody()
     </div>
 
+    <mini-profiler position="RenderPosition.BottomRight" />
     <script>
         $(document).ready(function () {
             var $input = $('#pageRefreshOnBackButtonClick');

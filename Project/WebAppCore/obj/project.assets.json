@@ -73,20 +73,6 @@
           "build/Brotli.NET.targets": {}
         }
       },
-      "BundlerMinifier.Core/2.8.391": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.NETCore.App": "2.0.0-preview1-002111-00",
-          "NUglify": "1.5.11",
-          "Newtonsoft.Json": "9.0.1"
-        },
-        "compile": {
-          "lib/netcoreapp2.0/dotnet-bundle.dll": {}
-        },
-        "runtime": {
-          "lib/netcoreapp2.0/dotnet-bundle.dll": {}
-        }
-      },
       "Castle.Core/4.3.1": {
         "type": "package",
         "dependencies": {
@@ -106,6 +92,15 @@
         },
         "runtime": {
           "lib/netstandard1.5/Castle.Core.dll": {}
+        }
+      },
+      "Effortless.Net.Encryption/3.2.0": {
+        "type": "package",
+        "compile": {
+          "lib/net40/Effortless.Net.Encryption.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Effortless.Net.Encryption.dll": {}
         }
       },
       "Faker.Data/1.0.7": {
@@ -177,6 +172,31 @@
         },
         "runtime": {
           "lib/netstandard2.0/Insight.Database.Providers.Default.dll": {}
+        }
+      },
+      "LigerShark.WebOptimizer.Analyzers/1.0.6": {
+        "type": "package"
+      },
+      "LigerShark.WebOptimizer.Core/1.0.215": {
+        "type": "package",
+        "dependencies": {
+          "LigerShark.WebOptimizer.Analyzers": "1.0.6",
+          "Microsoft.AspNetCore.Hosting.Abstractions": "2.0.0",
+          "Microsoft.AspNetCore.Http.Abstractions": "2.0.0",
+          "Microsoft.AspNetCore.Mvc.TagHelpers": "2.0.0",
+          "Microsoft.AspNetCore.Razor.Runtime": "2.0.0",
+          "Microsoft.Extensions.Configuration.Binder": "2.0.0",
+          "NUglify": "1.5.10"
+        },
+        "compile": {
+          "lib/netstandard2.0/WebOptimizer.Core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/WebOptimizer.Core.dll": {}
+        },
+        "build": {
+          "build/LigerShark.WebOptimizer.Core.props": {},
+          "build/LigerShark.WebOptimizer.Core.targets": {}
         }
       },
       "Microsoft.AspNet.WebApi.Client/5.2.6": {
@@ -1818,6 +1838,18 @@
           "lib/netstandard1.3/Microsoft.DotNet.PlatformAbstractions.dll": {}
         }
       },
+      "Microsoft.DotNet.Watcher.Tools/2.0.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.App": "2.0.7"
+        },
+        "compile": {
+          "lib/netcoreapp2.0/dotnet-watch.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.0/dotnet-watch.dll": {}
+        }
+      },
       "Microsoft.EntityFrameworkCore/2.1.1": {
         "type": "package",
         "dependencies": {
@@ -2946,6 +2978,59 @@
           }
         }
       },
+      "MiniProfiler.AspNetCore/4.0.138": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Hosting.Abstractions": "2.0.0",
+          "Microsoft.AspNetCore.Html.Abstractions": "2.0.0",
+          "Microsoft.AspNetCore.Routing.Abstractions": "2.0.0",
+          "Microsoft.Extensions.Caching.Abstractions": "2.0.0",
+          "Microsoft.Extensions.Options": "2.0.0",
+          "MiniProfiler.Shared": "4.0.138"
+        },
+        "compile": {
+          "lib/netstandard2.0/MiniProfiler.AspNetCore.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/MiniProfiler.AspNetCore.dll": {}
+        }
+      },
+      "MiniProfiler.AspNetCore.Mvc/4.0.138": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Mvc.Core": "2.0.0",
+          "Microsoft.AspNetCore.Mvc.Razor": "2.0.0",
+          "MiniProfiler.AspNetCore": "4.0.138"
+        },
+        "compile": {
+          "lib/netstandard2.0/MiniProfiler.AspNetCore.Mvc.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/MiniProfiler.AspNetCore.Mvc.dll": {}
+        }
+      },
+      "MiniProfiler.Shared/4.0.138": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "2.0.0",
+          "Newtonsoft.Json": "10.0.3",
+          "System.ComponentModel.Primitives": "4.3.0",
+          "System.Data.Common": "4.3.0",
+          "System.Diagnostics.DiagnosticSource": "4.4.1",
+          "System.Diagnostics.StackTrace": "4.3.0",
+          "System.Dynamic.Runtime": "4.3.0",
+          "System.Reflection.Emit.Lightweight": "4.3.0",
+          "System.Runtime.Extensions": "4.3.0",
+          "System.Runtime.Serialization.Primitives": "4.3.0",
+          "System.Threading.Tasks.Parallel": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/MiniProfiler.Shared.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/MiniProfiler.Shared.dll": {}
+        }
+      },
       "NBuilder/6.0.0": {
         "type": "package",
         "dependencies": {
@@ -3007,7 +3092,7 @@
           "lib/netstandard1.6/NuGet.Frameworks.dll": {}
         }
       },
-      "NUglify/1.5.11": {
+      "NUglify/1.5.10": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "1.6.0",
@@ -3734,7 +3819,7 @@
           "System.Runtime": "4.3.0"
         },
         "compile": {
-          "ref/netstandard1.3/_._": {}
+          "ref/netstandard1.3/System.Diagnostics.StackTrace.dll": {}
         },
         "runtime": {
           "lib/netstandard1.3/System.Diagnostics.StackTrace.dll": {}
@@ -5210,6 +5295,7 @@
         "dependencies": {
           "CrossCutting": "1.0.0",
           "DomainModel": "1.0.0",
+          "Effortless.Net.Encryption": "3.2.0",
           "Faker.Data": "1.0.7",
           "Insight.Database": "6.2.4",
           "Repository": "1.0.0",
@@ -5336,24 +5422,6 @@
         "lib/net40/Brotli.NET.pdb"
       ]
     },
-    "BundlerMinifier.Core/2.8.391": {
-      "sha512": "I1FScX7XjqSnwDXyOlb6YjY94qi17QItoCKO9VJsCq+2pneKh73mIKcwrV7hijD0t1L1/2v6j+triavjdpblOw==",
-      "type": "package",
-      "path": "bundlerminifier.core/2.8.391",
-      "files": [
-        "bundlerminifier.core.2.8.391.nupkg.sha512",
-        "bundlerminifier.core.nuspec",
-        "lib/net452/dotnet-bundle.exe",
-        "lib/net452/dotnet-bundle.runtimeconfig.json",
-        "lib/netcoreapp1.0/dotnet-bundle.dll",
-        "lib/netcoreapp1.0/dotnet-bundle.runtimeconfig.json",
-        "lib/netcoreapp2.0/dotnet-bundle.dll",
-        "lib/netcoreapp2.0/dotnet-bundle.runtimeconfig.json",
-        "lib/netstandard2.0/dotnet-bundle.dll",
-        "lib/netstandard2.0/dotnet-bundle.runtimeconfig.json",
-        "prefercliruntime"
-      ]
-    },
     "Castle.Core/4.3.1": {
       "sha512": "8Y/eTr6GTElAGV7eAmJuhfLhGdFpNvaNrQ9UQYDScziLmX+/BLGM+9eQr0IcdNDcPN0ADmbtwT6MgecGKy4obw==",
       "type": "package",
@@ -5375,6 +5443,16 @@
         "lib/netstandard1.5/Castle.Core.dll",
         "lib/netstandard1.5/Castle.Core.xml",
         "readme.txt"
+      ]
+    },
+    "Effortless.Net.Encryption/3.2.0": {
+      "sha512": "r4mbqL9orj+MaW7vtAYn/Cl0YS4CrtLv0mKe/QD5nhBTsvK70CI5BkWz8QEgld2cMzL45jycxx/Mzl+n3scLeA==",
+      "type": "package",
+      "path": "effortless.net.encryption/3.2.0",
+      "files": [
+        "effortless.net.encryption.3.2.0.nupkg.sha512",
+        "effortless.net.encryption.nuspec",
+        "lib/net40/Effortless.Net.Encryption.dll"
       ]
     },
     "Faker.Data/1.0.7": {
@@ -5453,6 +5531,31 @@
         "lib/netstandard1.5/Insight.Database.Providers.Default.xml",
         "lib/netstandard2.0/Insight.Database.Providers.Default.dll",
         "lib/netstandard2.0/Insight.Database.Providers.Default.xml"
+      ]
+    },
+    "LigerShark.WebOptimizer.Analyzers/1.0.6": {
+      "sha512": "Qe5UuBBl0U3l335flvpnHke7pok8EBWMyxHX+2ahtLHGmRnsrsUamRgD9pyBI86n8GLQOTgpTVf6/Y5MaLy1vw==",
+      "type": "package",
+      "path": "ligershark.weboptimizer.analyzers/1.0.6",
+      "files": [
+        "analyzers/dotnet/cs/WebOptimizer.Analyzers.dll",
+        "ligershark.weboptimizer.analyzers.1.0.6.nupkg.sha512",
+        "ligershark.weboptimizer.analyzers.nuspec",
+        "tools/install.ps1",
+        "tools/uninstall.ps1"
+      ]
+    },
+    "LigerShark.WebOptimizer.Core/1.0.215": {
+      "sha512": "gPTZBI+XgJwCBOUBiG9RNJ2sp689XLWFop3Xbkb21Ddx3ctp9CwvGd52Tzvaj4klga2dy8AOJc56u9LqLd9AxA==",
+      "type": "package",
+      "path": "ligershark.weboptimizer.core/1.0.215",
+      "files": [
+        "build/LigerShark.WebOptimizer.Core.props",
+        "build/LigerShark.WebOptimizer.Core.targets",
+        "lib/netstandard2.0/WebOptimizer.Core.dll",
+        "lib/netstandard2.0/WebOptimizer.Core.xml",
+        "ligershark.weboptimizer.core.1.0.215.nupkg.sha512",
+        "ligershark.weboptimizer.core.nuspec"
       ]
     },
     "Microsoft.AspNet.WebApi.Client/5.2.6": {
@@ -6793,6 +6896,22 @@
         "lib/netstandard1.3/Microsoft.DotNet.PlatformAbstractions.dll",
         "microsoft.dotnet.platformabstractions.2.1.0.nupkg.sha512",
         "microsoft.dotnet.platformabstractions.nuspec"
+      ]
+    },
+    "Microsoft.DotNet.Watcher.Tools/2.0.2": {
+      "sha512": "05Nq4UV1zp3FIXYbWEMtavoFye8RLp3XLk9nXPqcD5maHutae1Nwcvx1+CRbfMOkZJqxYKcGFmRG2mu+2W8lYA==",
+      "type": "package",
+      "path": "microsoft.dotnet.watcher.tools/2.0.2",
+      "files": [
+        ".signature.p7s",
+        "lib/netcoreapp2.0/dotnet-watch.dll",
+        "lib/netcoreapp2.0/dotnet-watch.runtimeconfig.json",
+        "microsoft.dotnet.watcher.tools.2.0.2.nupkg.sha512",
+        "microsoft.dotnet.watcher.tools.nuspec",
+        "prefercliruntime",
+        "toolassets/DotNetWatchCommon.targets",
+        "toolassets/DotNetWatchInner.targets",
+        "toolassets/DotNetWatchOuter.targets"
       ]
     },
     "Microsoft.EntityFrameworkCore/2.1.1": {
@@ -8200,6 +8319,54 @@
         "version.txt"
       ]
     },
+    "MiniProfiler.AspNetCore/4.0.138": {
+      "sha512": "IctgNNeqFsxI+OCjbXyCUQ5iiB2inA9WI/9qZQHVc3xh/+JlPFUUV/ni2iv90+6aNNCb8RSnBdrRCnRp9CuDHg==",
+      "type": "package",
+      "path": "miniprofiler.aspnetcore/4.0.138",
+      "files": [
+        ".signature.p7s",
+        "MiniProfiler.AspNetCore.4.0.138.nupkg.sha512",
+        "MiniProfiler.AspNetCore.nuspec",
+        "lib/net461/MiniProfiler.AspNetCore.dll",
+        "lib/net461/MiniProfiler.AspNetCore.xml",
+        "lib/netstandard1.5/MiniProfiler.AspNetCore.dll",
+        "lib/netstandard1.5/MiniProfiler.AspNetCore.xml",
+        "lib/netstandard2.0/MiniProfiler.AspNetCore.dll",
+        "lib/netstandard2.0/MiniProfiler.AspNetCore.xml"
+      ]
+    },
+    "MiniProfiler.AspNetCore.Mvc/4.0.138": {
+      "sha512": "0qEVCmecqQQQ8oCT0+x6pFHAGdrQ4Tqr98o0N/BDc0hSW2Hlqw9++k2UjJKZY4Q65M2clNXsTaybgKpsOrw7Mw==",
+      "type": "package",
+      "path": "miniprofiler.aspnetcore.mvc/4.0.138",
+      "files": [
+        ".signature.p7s",
+        "MiniProfiler.AspNetCore.Mvc.4.0.138.nupkg.sha512",
+        "MiniProfiler.AspNetCore.Mvc.nuspec",
+        "lib/net461/MiniProfiler.AspNetCore.Mvc.dll",
+        "lib/net461/MiniProfiler.AspNetCore.Mvc.xml",
+        "lib/netstandard1.6/MiniProfiler.AspNetCore.Mvc.dll",
+        "lib/netstandard1.6/MiniProfiler.AspNetCore.Mvc.xml",
+        "lib/netstandard2.0/MiniProfiler.AspNetCore.Mvc.dll",
+        "lib/netstandard2.0/MiniProfiler.AspNetCore.Mvc.xml"
+      ]
+    },
+    "MiniProfiler.Shared/4.0.138": {
+      "sha512": "0teQRMShRl8bldDILmgOgLh46oue7kadgyYPEh2ILlc/QyFDatDmPYndSbunMoNaOrsZEqFVH8/I1pLZ2sWQ5g==",
+      "type": "package",
+      "path": "miniprofiler.shared/4.0.138",
+      "files": [
+        ".signature.p7s",
+        "MiniProfiler.Shared.4.0.138.nupkg.sha512",
+        "MiniProfiler.Shared.nuspec",
+        "lib/net461/MiniProfiler.Shared.dll",
+        "lib/net461/MiniProfiler.Shared.xml",
+        "lib/netstandard1.5/MiniProfiler.Shared.dll",
+        "lib/netstandard1.5/MiniProfiler.Shared.xml",
+        "lib/netstandard2.0/MiniProfiler.Shared.dll",
+        "lib/netstandard2.0/MiniProfiler.Shared.xml"
+      ]
+    },
     "NBuilder/6.0.0": {
       "sha512": "fWoh8LbIQYeOQeq4iTkpBU6MP59ASgIBsuZVZFI+sIQI6wXAz7id/LGyZzd4Cc8re0l98GgnWrXoJvARgyDHLw==",
       "type": "package",
@@ -8395,10 +8562,10 @@
         "nuget.frameworks.nuspec"
       ]
     },
-    "NUglify/1.5.11": {
-      "sha512": "BsEI6jqtDNsvW0TIkX7susL1xNvBbGlnuIveQqGa36JJv9At5iiHHy3ehUv3K5Hg9PBITPn1PnIUOLw53pOSCA==",
+    "NUglify/1.5.10": {
+      "sha512": "do9KYDUEbCVMkSFF3P3lJtcCuLLpRAxchFaIY7vidfB4hgdik97f8iqj0dVmJK1X3eZO8jTuGD0CUUYbaFTR8Q==",
       "type": "package",
-      "path": "nuglify/1.5.11",
+      "path": "nuglify/1.5.10",
       "files": [
         "lib/net35/NUglify.dll",
         "lib/net35/NUglify.xml",
@@ -8406,7 +8573,7 @@
         "lib/net40/NUglify.xml",
         "lib/netstandard1.3/NUglify.dll",
         "lib/netstandard1.3/NUglify.xml",
-        "nuglify.1.5.11.nupkg.sha512",
+        "nuglify.1.5.10.nupkg.sha512",
         "nuglify.nuspec"
       ]
     },
@@ -13721,19 +13888,21 @@
       "Autofac.Extensions.DependencyInjection >= 4.3.0",
       "Autofac.Extras.DynamicProxy >= 4.5.0",
       "Brotli.NET >= 1.0.19",
-      "BundlerMinifier.Core >= 2.8.391",
       "CrossCutting >= 1.0.0",
       "DependencyInjecionResolver >= 1.0.0",
       "DomainModel >= 1.0.0",
+      "LigerShark.WebOptimizer.Core >= 1.0.215",
       "Microsoft.AspNetCore.App >= 2.1.1",
       "Microsoft.AspNetCore.Authentication.Cookies >= 2.1.2",
       "Microsoft.AspNetCore.CookiePolicy >= 2.1.2",
       "Microsoft.AspNetCore.HttpsPolicy >= 2.1.1",
       "Microsoft.AspNetCore.ResponseCompression >= 2.2.0-preview2-35157",
       "Microsoft.AspNetCore.StaticFiles >= 2.1.1",
+      "Microsoft.DotNet.Watcher.Tools >= 2.0.2",
       "Microsoft.NETCore.App >= 2.1.0",
       "Microsoft.VisualStudio.Web.BrowserLink >= 2.1.1",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.1.4",
+      "MiniProfiler.AspNetCore.Mvc >= 4.0.138",
       "NBuilder >= 6.0.0",
       "PostSharp >= 6.0.27",
       "ServiceInterface >= 1.0.0",
@@ -13821,9 +13990,9 @@
             "target": "Package",
             "version": "[1.0.19, )"
           },
-          "BundlerMinifier.Core": {
+          "LigerShark.WebOptimizer.Core": {
             "target": "Package",
-            "version": "[2.8.391, )"
+            "version": "[1.0.215, )"
           },
           "Microsoft.AspNetCore.App": {
             "suppressParent": "All",
@@ -13851,6 +14020,10 @@
             "target": "Package",
             "version": "[2.1.1, )"
           },
+          "Microsoft.DotNet.Watcher.Tools": {
+            "target": "Package",
+            "version": "[2.0.2, )"
+          },
           "Microsoft.NETCore.App": {
             "target": "Package",
             "version": "[2.1.0, )",
@@ -13863,6 +14036,10 @@
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",
             "version": "[2.1.4, )"
+          },
+          "MiniProfiler.AspNetCore.Mvc": {
+            "target": "Package",
+            "version": "[4.0.138, )"
           },
           "NBuilder": {
             "target": "Package",
@@ -13890,6 +14067,16 @@
     }
   },
   "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Effortless.Net.Encryption 3.2.0' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETCoreApp,Version=v2.1'. This package may not be fully compatible with your project.",
+      "libraryId": "Effortless.Net.Encryption",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.1"
+      ]
+    },
     {
       "code": "NU1701",
       "level": "Warning",

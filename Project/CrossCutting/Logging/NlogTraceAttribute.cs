@@ -7,8 +7,10 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
+using System.Linq;
 using System.Text;
 using CrossCutting.Caching;
+using System.Reflection;
 
 namespace CrossCutting.Logging
 {
@@ -27,6 +29,9 @@ namespace CrossCutting.Logging
             //var vvv = Caching.Caching.Instance.GetApplicationConfigs();
 
             // string connectionString1 = ConfigurationManager.ConnectionStrings["KeyToOverride"].ToString();
+
+            var methodName = GetMethodName(args.Method);
+            args.MethodExecutionTag = methodName;
 
             var argument = args.Arguments;
             var argument1 = args.Method;
@@ -76,5 +81,15 @@ namespace CrossCutting.Logging
         {
         }
 
+        private string GetMethodName(MethodBase method)
+        {
+            if (method.IsGenericMethod)
+            {
+                var genericArgs = method.GetGenericArguments();
+                var typeNames = genericArgs.Select(t => t.Name);
+                return string.Format("{0}<{1}>", method.Name, String.Join(",", typeNames));
+            }
+            return method.Name;
+        }
     }
 }

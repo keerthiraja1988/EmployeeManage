@@ -1,5 +1,6 @@
 ﻿using CrossCutting.Caching;
 using DomainModel;
+using Effortless.Net.Encryption;
 using Insight.Database;
 using Repository;
 using ServiceInterface;
@@ -28,58 +29,15 @@ namespace ServiceConcrete
             _IUserAccountRepository = c.As<IUserAccountRepository>();
         }
 
-        public string Encrypt(string encryptString)
-        {
-            string EncryptionKey = "0ram@1234xxxxxxxxxxtttttuuuuuiiiiio";  //we can change the code converstion key as per our requirement    
-            byte[] clearBytes = Encoding.Unicode.GetBytes(encryptString);
-            using (Aes encryptor = Aes.Create())
-            {
-                Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(EncryptionKey, new byte[] {
-            0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76
-        });
-                encryptor.Key = pdb.GetBytes(32);
-                encryptor.IV = pdb.GetBytes(16);
-                using (MemoryStream ms = new MemoryStream())
-                {
-                    using (CryptoStream cs = new CryptoStream(ms, encryptor.CreateEncryptor(), CryptoStreamMode.Write))
-                    {
-                        cs.Write(clearBytes, 0, clearBytes.Length);
-                        cs.Close();
-                    }
-                    encryptString = Convert.ToBase64String(ms.ToArray());
-                }
-            }
-            return encryptString;
-        }
-
-        public string Decrypt(string cipherText)
-        {
-            string EncryptionKey = "0ram@1234xxxxxxxxxxtttttuuuuuiiiiio";  //we can change the code converstion key as per our requirement, but the decryption key should be same as encryption key    
-            cipherText = cipherText.Replace(" ", "+");
-            byte[] cipherBytes = Convert.FromBase64String(cipherText);
-            using (Aes encryptor = Aes.Create())
-            {
-                Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(EncryptionKey, new byte[] {
-            0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76
-        });
-                encryptor.Key = pdb.GetBytes(32);
-                encryptor.IV = pdb.GetBytes(16);
-                using (MemoryStream ms = new MemoryStream())
-                {
-                    using (CryptoStream cs = new CryptoStream(ms, encryptor.CreateDecryptor(), CryptoStreamMode.Write))
-                    {
-                        cs.Write(cipherBytes, 0, cipherBytes.Length);
-                        cs.Close();
-                    }
-                    cipherText = Encoding.Unicode.GetString(ms.ToArray());
-                }
-            }
-            return cipherText;
-        }
-
         public UserAccountModel GenerateHashAndSaltForPassword(UserAccountModel userAccountModel)
         {
-            userAccountModel = GenerateSaltAndHash(userAccountModel);
+            userAccountModel.PasswordSalt = Strings.CreateSalt(20);
+
+            string passwordConcated = userAccountModel.Password + userAccountModel.PasswordSalt;
+
+            string generatedHashFromPassAndSalt = Hash.Create(HashType.SHA512, passwordConcated, string.Empty, false);
+
+            userAccountModel.PasswordHash = generatedHashFromPassAndSalt;
             return userAccountModel;
         }
 
@@ -97,60 +55,26 @@ namespace ServiceConcrete
                 }
                 else
                 {
-
-                    isValidUser = ReGenerateSaltAndHash(getUserAccount);
-                    getUserAccount.IsLoginSuccess = isValidUser;
+                    string passwordConcated = userAccountModel.Password + getUserAccount.PasswordSalt;
+                    string generatedHashFromPassAndSalt = Hash.Create(HashType.SHA512, passwordConcated, string.Empty, false);
+                    if (String.Compare(generatedHashFromPassAndSalt, getUserAccount.PasswordHash) == 0)
+                    {
+                        isValidUser = true;
+                    }
                     userAccountModel = getUserAccount;
                 }
-                
+
+                getUserAccount.IsLoginSuccess = isValidUser;
             }
             catch (Exception Ex)
             {
 
-
             }
 
             return userAccountModel;
         }
 
-        private bool ReGenerateSaltAndHash(UserAccountModel userAccountModel)
-        {
-
-            /* Extract the bytes */
-            byte[] hashBytes = Convert.FromBase64String(userAccountModel.PasswordHash);
-            /* Get the salt */
-            byte[] salt = new byte[16];
-            Array.Copy(hashBytes, 0, salt, 0, 16);
-
-            /* Compute the hash on the password the user entered */
-            var pbkdf2 = new Rfc2898DeriveBytes(userAccountModel.Password, salt, 10000);
-            byte[] hash = pbkdf2.GetBytes(20);
-            /* Compare the results */
-            for (int i = 0; i < 20; i++)
-
-                return true;
-
-            return false;
-
-
-        }
-        private UserAccountModel GenerateSaltAndHash(UserAccountModel userAccountModel)
-        {
-            byte[] salt;
-            new RNGCryptoServiceProvider().GetBytes(salt = new byte[16]);
-
-            var pbkdf2 = new Rfc2898DeriveBytes(userAccountModel.Password, salt, 10000);
-            byte[] hash = pbkdf2.GetBytes(20);
-
-            byte[] hashBytes = new byte[36];
-            Array.Copy(salt, 0, hashBytes, 0, 16);
-            Array.Copy(hash, 0, hashBytes, 16, 20);
-            userAccountModel.PasswordHash = Convert.ToBase64String(hashBytes);
-            userAccountModel.PasswordSalt = Convert.ToBase64String(salt);
-
-            return userAccountModel;
-        }
-
+       
 
     }
 }

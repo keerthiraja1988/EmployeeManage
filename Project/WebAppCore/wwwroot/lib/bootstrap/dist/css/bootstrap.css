@@ -1778,12 +1778,12 @@ pre {
 }
 
 .form-control:disabled, .form-control[readonly] {
-    background-color: transparent;
+    background-color: rgba(133,72,72,0);
     opacity: 1
 }
 
 select.form-control:not([size]):not([multiple]) {
-    height: calc(2.7rem + 0rem)
+    height: calc(2.3rem + 0rem)
 }
 
 select.form-control:focus::-ms-value {
@@ -2154,7 +2154,7 @@ select.form-control:focus::-ms-value {
     vertical-align: middle;
     user-select: none;
     border: 0 solid transparent;
-    padding: .6rem 1rem;
+    padding: .4rem 1rem;
     font-size: 1rem;
     line-height: 1.5;
     border-radius: 0;
@@ -3309,7 +3309,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 .custom-select {
     display: inline-block;
     width: 100%;
-    height: calc(2.7rem + 0rem);
+    height: calc(2.3rem + 0rem);
     padding: .375rem 1.75rem .375rem .75rem;
     line-height: 1.5;
     color: #666;
@@ -3365,7 +3365,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     position: relative;
     display: inline-block;
     width: 100%;
-    height: calc(2.7rem + 0rem);
+    height: calc(2.3rem + 0rem);
     margin-bottom: 0
 }
 
@@ -3373,7 +3373,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     position: relative;
     z-index: 2;
     width: 100%;
-    height: calc(2.7rem + 0rem);
+    height: calc(2.3rem + 0rem);
     margin: 0;
     opacity: 0
 }
@@ -3397,8 +3397,8 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     right: 0;
     left: 0;
     z-index: 1;
-    height: calc(2.7rem + 0rem);
-    padding: .6rem 1rem;
+    height: calc(2.3rem + 0rem);
+    padding: .4rem 1rem;
     line-height: 1.5;
     color: #666;
     background-color: transparent;
@@ -3413,8 +3413,8 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
         bottom: 0;
         z-index: 3;
         display: block;
-        height: 2.7rem;
-        padding: .6rem 1rem;
+        height: 2.3rem;
+        padding: .4rem 1rem;
         line-height: 1.5;
         color: #666;
         content: "Browse";
@@ -9301,11 +9301,13 @@ a {
 
     [contenteditable].form-control[disabled], [contenteditable].form-control[readonly], [type=email].form-control[disabled], [type=email].form-control[readonly], [type=password].form-control[disabled], [type=password].form-control[readonly], [type=tel].form-control[disabled], [type=tel].form-control[readonly], [type=text].form-control[disabled], [type=text].form-control[readonly], input.form-control[disabled], input.form-control[readonly], input[type=email][disabled], input[type=email][readonly], input[type=number][disabled], input[type=number][readonly], input[type=password][disabled], input[type=password][readonly], input[type=text][disabled], input[type=text][readonly], textarea.form-control[disabled], textarea.form-control[readonly], textarea[disabled], textarea[readonly] {
         box-shadow: none;
-        border-bottom: 1px dotted #ddd
+        border-bottom: 1px dotted #ddd;
+        background-color: rgba(229,229,229,.54);
+        color: rgba(39,28,28,.47)
     }
 
     [contenteditable].form-control:not(textarea), [type=email].form-control:not(textarea), [type=password].form-control:not(textarea), [type=tel].form-control:not(textarea), [type=text].form-control:not(textarea), input.form-control:not(textarea), input[type=email]:not(textarea), input[type=number]:not(textarea), input[type=password]:not(textarea), input[type=text]:not(textarea), textarea.form-control:not(textarea), textarea:not(textarea) {
-        height: calc(2.7rem + 0rem)
+        height: calc(2.3rem + 0rem)
     }
 
     .input-group-sm > .input-group-append > [contenteditable].form-control.btn, .input-group-sm > .input-group-append > [contenteditable].form-control.input-group-text, .input-group-sm > .input-group-append > [type=email].form-control.btn, .input-group-sm > .input-group-append > [type=email].form-control.input-group-text, .input-group-sm > .input-group-append > [type=password].form-control.btn, .input-group-sm > .input-group-append > [type=password].form-control.input-group-text, .input-group-sm > .input-group-append > [type=tel].form-control.btn, .input-group-sm > .input-group-append > [type=tel].form-control.input-group-text, .input-group-sm > .input-group-append > [type=text].form-control.btn, .input-group-sm > .input-group-append > [type=text].form-control.input-group-text, .input-group-sm > .input-group-append > input.form-control.btn, .input-group-sm > .input-group-append > input.form-control.input-group-text, .input-group-sm > .input-group-append > input[type=email].btn, .input-group-sm > .input-group-append > input[type=email].input-group-text, .input-group-sm > .input-group-append > input[type=number].btn, .input-group-sm > .input-group-append > input[type=number].input-group-text, .input-group-sm > .input-group-append > input[type=password].btn, .input-group-sm > .input-group-append > input[type=password].input-group-text, .input-group-sm > .input-group-append > input[type=text].btn, .input-group-sm > .input-group-append > input[type=text].input-group-text, .input-group-sm > .input-group-append > textarea.btn, .input-group-sm > .input-group-append > textarea.form-control.btn, .input-group-sm > .input-group-append > textarea.form-control.input-group-text, .input-group-sm > .input-group-append > textarea.input-group-text, .input-group-sm > .input-group-prepend > [contenteditable].form-control.btn, .input-group-sm > .input-group-prepend > [contenteditable].form-control.input-group-text, .input-group-sm > .input-group-prepend > [type=email].form-control.btn, .input-group-sm > .input-group-prepend > [type=email].form-control.input-group-text, .input-group-sm > .input-group-prepend > [type=password].form-control.btn, .input-group-sm > .input-group-prepend > [type=password].form-control.input-group-text, .input-group-sm > .input-group-prepend > [type=tel].form-control.btn, .input-group-sm > .input-group-prepend > [type=tel].form-control.input-group-text, .input-group-sm > .input-group-prepend > [type=text].form-control.btn, .input-group-sm > .input-group-prepend > [type=text].form-control.input-group-text, .input-group-sm > .input-group-prepend > input.form-control.btn, .input-group-sm > .input-group-prepend > input.form-control.input-group-text, .input-group-sm > .input-group-prepend > input[type=email].btn, .input-group-sm > .input-group-prepend > input[type=email].input-group-text, .input-group-sm > .input-group-prepend > input[type=number].btn, .input-group-sm > .input-group-prepend > input[type=number].input-group-text, .input-group-sm > .input-group-prepend > input[type=password].btn, .input-group-sm > .input-group-prepend > input[type=password].input-group-text, .input-group-sm > .input-group-prepend > input[type=text].btn, .input-group-sm > .input-group-prepend > input[type=text].input-group-text, .input-group-sm > .input-group-prepend > textarea.btn, .input-group-sm > .input-group-prepend > textarea.form-control.btn, .input-group-sm > .input-group-prepend > textarea.form-control.input-group-text, .input-group-sm > .input-group-prepend > textarea.input-group-text, .input-group-sm > [contenteditable].form-control, .input-group-sm > [type=email].form-control, .input-group-sm > [type=password].form-control, .input-group-sm > [type=tel].form-control, .input-group-sm > [type=text].form-control, .input-group-sm > input.form-control, .input-group-sm > input[type=email].form-control, .input-group-sm > input[type=number].form-control, .input-group-sm > input[type=password].form-control, .input-group-sm > input[type=text].form-control, .input-group-sm > textarea.form-control, [contenteditable].form-control.form-control-sm, [type=email].form-control.form-control-sm, [type=password].form-control.form-control-sm, [type=tel].form-control.form-control-sm, [type=text].form-control.form-control-sm, input.form-control.form-control-sm, input[type=email].form-control-sm, input[type=number].form-control-sm, input[type=password].form-control-sm, input[type=text].form-control-sm, textarea.form-control-sm, textarea.form-control.form-control-sm {

@@ -9,6 +9,7 @@ using System.Xml;
 
 namespace WebAppCore.Controllers
 {
+    [Area("Base")]
     public class BaseController : Controller
     {
         public IActionResult Index()
@@ -16,6 +17,21 @@ namespace WebAppCore.Controllers
             return View();
         }
 
-     
+
+        public IActionResult ValidatePassword(string Password)
+        {
+            return Json("Test");
+        }
+
+        [AcceptVerbs("Get", "Post")]
+        public async Task<IActionResult> Foo(string name)
+        {
+            //bool exists = false;
+            //if (exists)
+            //    return Json(data: false);
+            //else
+                return Json(data: true);
+        }
+
     }
 }

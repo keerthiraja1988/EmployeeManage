@@ -5,6 +5,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using AutoMapper;
+using CrossCutting.Logging;
 using DomainModel;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -35,6 +36,7 @@ namespace WebAppCore.Areas.Security.Controllers
 
         [Route("UserAccount")]
         [HttpGet]
+        [NlogTrace]
         public async Task<IActionResult> UserAccount()
         {
             var cookieAvailable = CookieAuthenticationDefaults.AuthenticationScheme;
@@ -130,5 +132,7 @@ namespace WebAppCore.Areas.Security.Controllers
             }
             return Redirect("/UserAccount");
         }
+
+        
     }
 }

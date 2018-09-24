@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CrossCutting.Logging;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,6 +14,7 @@ namespace WebAppCore.Areas.DashBoard.Controllers
     {
         [Route("")]
         [Route("Home")]
+        [NlogTrace]
         public IActionResult Index()
         {
             return View("Index");
