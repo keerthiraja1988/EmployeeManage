@@ -10,8 +10,11 @@ namespace WebAppCore.Models
         [Display(Name = "User Name")]
         public string LoginUserName { get; set; }
 
-        [Required(ErrorMessage = "Please Enter Password Address")]
+        //[Required(ErrorMessage = "Please Enter Password")]
         [Display(Name = "Password")]
         public string LoginPassword { get; set; }
+
+        [Required(ErrorMessage = "Please Enter Password")]
+        public string CryptLoginPassword { get; set; }
     }
 }

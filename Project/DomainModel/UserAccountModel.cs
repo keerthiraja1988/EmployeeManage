@@ -23,6 +23,7 @@ namespace DomainModel
 
         public string Password { get; set; }
 
+        public string CryptLoginPassword { get; set; }
 
         public string PasswordHash { get; set; }
         public string PasswordSalt { get; set; }

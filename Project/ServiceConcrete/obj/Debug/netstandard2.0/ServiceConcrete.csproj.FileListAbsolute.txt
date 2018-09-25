@@ -16,3 +16,5 @@ C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\ServiceConcrete\obj\
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\ServiceConcrete\obj\Debug\netstandard2.0\ServiceConcrete.csproj.CopyComplete
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\ServiceConcrete\obj\Debug\netstandard2.0\ServiceConcrete.dll
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\ServiceConcrete\obj\Debug\netstandard2.0\ServiceConcrete.pdb
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\ServiceConcrete\bin\Debug\netstandard2.0\Microsoft.AspNetCore.Mvc.ViewFeatures.dll
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\ServiceConcrete\bin\Debug\netstandard2.0\Microsoft.AspNetCore.Mvc.ViewFeatures.xml

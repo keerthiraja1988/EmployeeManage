@@ -61,12 +61,14 @@
                     <small>
                         <span asp-validation-for="Password" id="registerPasswordVal" class="text-danger"></span>
                     </small>
+                    <input type="password" asp-for="CryptLoginPassword" id="hdnCryptRegisterPassword" data-val="true"
+                           hidden class="form-control" />
                     <div id="55" style="padding-top:10px" class="pwstrength_viewport_progress"></div>
                 </div>
 
                 <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6  pt-3">
                     <label asp-for="ReTypePassword"></label><span> *</span>
-                    <input type="password" asp-for="ReTypePassword" id="registerReTypePassword" data-val="true"
+                    <input  type="password" asp-for="ReTypePassword" id="registerReTypePassword" data-val="true"
                            placeholder="Re-Type Password" class="form-control" />
                     <small>
                         <span asp-validation-for="ReTypePassword" id="registerReTypePasswordVal" class="text-danger"></span>
@@ -104,6 +106,24 @@
 </div>
 
 <script>
+    $("#idRegisterUser").click(function (e) {
+        var txtpassword = $('#registerPassword').val();
+        var key = CryptoJS.enc.Utf8.parse('8080808080808080');
+        var iv = CryptoJS.enc.Utf8.parse('8080808080808080');
+
+        var encryptedpassword = CryptoJS.AES.encrypt(CryptoJS.enc.Utf8.parse(txtpassword), key,
+            {
+                keySize: 128 / 8,
+                iv: iv,
+                mode: CryptoJS.mode.CBC,
+                padding: CryptoJS.pad.Pkcs7
+            });
+
+        $('#hdnCryptRegisterPassword').val(encryptedpassword.toString());
+
+        //$('#registerPassword').val("Password is encrypted now");
+        //$('#registerReTypePassword').val("Password is encrypted now");
+    });
 
     $("#btnAutoGenerate").click(function (e) {
         e.preventDefault();
@@ -112,7 +132,10 @@
             type: "POST",
             url: '@Url.Action("AutoPopulateRegsitration", "UserAccount")',
             contentType: "application/json",
-            dataType: "json",
+             dataType: "json",
+             begin: function (data) {
+
+             },
              complete: function (data) {
             },
              success: function (data) {

@@ -28,12 +28,14 @@
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12  pt-3">
                     <label asp-for="LoginPassword"></label><span> *</span>
-                    <input asp-for="LoginPassword" id="loginPassword" type="password"
+
+                    <input id="loginPassword" type="password"
                            placeholder="Enter Password" class="form-control" />
                     <small>
-                        <span asp-validation-for="LoginPassword" id="LoginPasswordVal" class="text-danger"></span>
-                    </small>
-
+            <span asp-validation-for="CryptLoginPassword" id="LoginPasswordVal" class="text-danger"></span>
+        </small>
+                    <input asp-for="CryptLoginPassword" id="hdnCryptLoginPassword" type="password"
+                       hidden    placeholder="Enter Password" class="form-control" />
                 </div>
 
             </div>
@@ -56,8 +58,29 @@
         </div>
 
 <script>
+
+    $("#loginPassword").keyup(function () {
+        var txtpassword = $('#loginPassword').val();
+        var key = CryptoJS.enc.Utf8.parse('8080808080808080');
+        var iv = CryptoJS.enc.Utf8.parse('8080808080808080');
+
+        var encryptedpassword = CryptoJS.AES.encrypt(CryptoJS.enc.Utf8.parse(txtpassword), key,
+            {
+                keySize: 128 / 8,
+                iv: iv,
+                mode: CryptoJS.mode.CBC,
+                padding: CryptoJS.pad.Pkcs7
+            });
+
+        $('#hdnCryptLoginPassword').val(encryptedpassword.toString());
+    });
+
+    $('#btnLoginSubmit').click(function () {
+            
+    });
+
     $('#btnLoginReset').click(function () {
-       
+
         $('#loginUserName').val('');
         $('#loginPassword').val('');
 
@@ -67,17 +90,16 @@
     });
 
     var onBeginLoginForm = function () {
-        //  alert();
+
         JsMain.ShowLoaddingIndicator();
     };
 
     var onCompleteLoginForm = function () {
-        //  alert();
+       
         JsMain.HideLoaddingIndicator();
     };
 
     var onFailedLoginForm = function () {
-        //  alert();
         JsMain.HideLoaddingIndicator();
     };
 

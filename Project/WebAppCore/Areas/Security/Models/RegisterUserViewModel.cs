@@ -11,7 +11,7 @@ namespace WebAppCore.Areas.Security.Models
     {
 
         [Required(ErrorMessage = "Please Enter User Name")]
-        [MaxLength(15, ErrorMessage = "Maximum User Name Length is 15 Characters")]
+        [MaxLength(25, ErrorMessage = "Maximum User Name Length is 25 Characters")]
         [MinLength(5, ErrorMessage = "Minimum User Name Length is 5 Characters")]
         [Display(Name = "User Name")]
         public string UserName { get; set; }
@@ -46,7 +46,10 @@ namespace WebAppCore.Areas.Security.Models
         [Required(ErrorMessage = "Please Enter Password")]
         [Display(Name = "Re-Type Password")]
         [Compare("Password", ErrorMessage = "Password Mismatch, Please Correct")]
+        [MaxLength(25, ErrorMessage = "Maximum Password Length is 25 Characters")]
         public string ReTypePassword { get; set; }
+
+        public string CryptLoginPassword { get; set; }
 
         public string CapthaValue { get; set; }
         public string CapthaEncValue { get; set; }
