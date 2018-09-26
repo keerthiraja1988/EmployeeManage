@@ -37,12 +37,12 @@ namespace WebAppCore.Areas.EmployeeManage.Controllers
             return View();
         }
         [Route("GetEmployeeDetails")]
-        public ActionResult Products_Read([DataSourceRequest] DataSourceRequest request)
+        public async Task<IActionResult> Products_Read([DataSourceRequest] DataSourceRequest request)
         {
-            var employeeDetails = this._IEmployeeManageService.LoadEmployeeData();
+            var employeeDetails = await this._IEmployeeManageService.GetEmployeesDetails();
             List<EmployeeViewModel> EmployeesViewModel = new List<EmployeeViewModel>();
 
-            EmployeesViewModel = _mapper.Map<List<EmployeeViewModel>>(employeeDetails);
+            EmployeesViewModel =  _mapper.Map<List<EmployeeViewModel>>(employeeDetails);
 
             return Json(EmployeesViewModel.ToDataSourceResult(request));
         }

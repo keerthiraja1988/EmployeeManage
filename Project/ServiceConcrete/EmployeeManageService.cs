@@ -10,11 +10,15 @@ using System.Data.Common;
 using System.Data.SqlClient;
 using System.Text;
 using System.Linq;
+using System.Threading.Tasks;
+using System.Data;
+
 namespace ServiceConcrete
 {
     public class EmployeeManageService : IEmployeeManageService
     {
         IEmployeeManageRepository _IEmployeeManageRepository;
+
         public EmployeeManageService(DbConnection Parameter)
         {
             SqlInsightDbProvider.RegisterProvider();
@@ -26,11 +30,11 @@ namespace ServiceConcrete
             _IEmployeeManageRepository = c.As<IEmployeeManageRepository>();
         }
 
-        public List<EmployeeModel> LoadEmployeeData()
+        public async Task<List<EmployeeModel>> LoadEmployeeData()
         {
             //List<EmployeeModel> employeeDetails = new List<EmployeeModel>();
 
-            var employeeDetails = Builder<EmployeeModel>.CreateListOfSize(100)
+            var employeeDetails = Builder<EmployeeModel>.CreateListOfSize(10)
                 .All()
             .With(c => c.FullName = Faker.Name.FullName())
             .With(c => c.FirstName = Faker.Name.FirstName())
@@ -46,7 +50,7 @@ namespace ServiceConcrete
 
             .Build();
 
-            foreach (var item in employeeDetails)
+            Parallel.ForEach(employeeDetails, new ParallelOptions { MaxDegreeOfParallelism = 30 }, item =>
             {
                 EmployeeAddressModel employeeAddressModelP = new EmployeeAddressModel();
                 employeeAddressModelP.Address1 = Faker.Address.SecondaryAddress();
@@ -55,7 +59,7 @@ namespace ServiceConcrete
                 employeeAddressModelP.City = Faker.Address.USCity();
                 employeeAddressModelP.State = Faker.Address.State();
                 employeeAddressModelP.Country = 10;
-                employeeAddressModelP.AddressType ="P";
+                employeeAddressModelP.AddressType = "P";
 
                 EmployeeAddressModel employeeAddressModelC = new EmployeeAddressModel();
                 employeeAddressModelC.Address1 = Faker.Address.SecondaryAddress();
@@ -66,19 +70,42 @@ namespace ServiceConcrete
                 employeeAddressModelC.Country = 10;
                 employeeAddressModelC.AddressType = "C";
 
-               List<EmployeeAddressModel> employeeAddresses = new List<EmployeeAddressModel> ();
+                List<EmployeeAddressModel> employeeAddresses = new List<EmployeeAddressModel>();
                 employeeAddresses.Add(employeeAddressModelP);
                 employeeAddresses.Add(employeeAddressModelC);
 
-                var returnValue = this._IEmployeeManageRepository.LoadEmployeeData(item, employeeAddresses);
+            IEmployeeManageRepository _IEmployeeManageRepository1;
+            
+                SqlInsightDbProvider.RegisterProvider();
+                //  string sqlConnection = "Data Source=.;Initial Catalog=EmployeeManage;Integrated Security=True";
+                string sqlConnection1 = Caching.Instance.GetApplicationConfigs("DBConnection")
+                                               ;
+                DbConnection c1 = new SqlConnection(sqlConnection1);
+
+                _IEmployeeManageRepository1 = c1.As<IEmployeeManageRepository>();
+
+                var returnValue =  _IEmployeeManageRepository1.LoadEmployeeData(item, employeeAddresses);
                 //var returnValue = this._IEmployeeManageRepository.LoadEmployeeData(item);
 
-            }
+            });
 
-
-
-
+         
             return employeeDetails.ToList();
         }
+
+        public async Task<List<EmployeeModel>> GetEmployeesDetails()
+        {
+           
+
+            List<EmployeeModel> employeeDetails = new List<EmployeeModel>();
+            employeeDetails = await Task.Run(() => this._IEmployeeManageRepository.GetEmployeesDetails().Result);
+
+           
+
+            return employeeDetails;
+
+           
+        }
+
     }
 }
