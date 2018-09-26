@@ -5571,6 +5571,7 @@
           "Effortless.Net.Encryption": "3.2.0",
           "Faker.Data": "1.0.7",
           "Insight.Database": "6.2.4",
+          "NBuilder": "6.0.0",
           "Repository": "1.0.0",
           "ServiceInterface": "1.0.0"
         },

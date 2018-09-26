@@ -15,11 +15,13 @@ using Microsoft.Extensions.Configuration;
 using ServiceInterface;
 using WebAppCore.Areas.Security.Models;
 using WebAppCore.Infrastructure;
+using WebAppCore.Infrastructure.Filters;
 using WebAppCore.Models;
 
 namespace WebAppCore.Areas.Security.Controllers
 {
     [Area("Security")]
+    [HandleException]
     public class UserAccountController : Controller
     {
         public IUserAccountService _IUserAccountService { get; set; }

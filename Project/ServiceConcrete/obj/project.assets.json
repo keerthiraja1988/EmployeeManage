@@ -194,6 +194,18 @@
           }
         }
       },
+      "NBuilder/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/netstandard1.6/FizzWare.NBuilder.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.6/FizzWare.NBuilder.dll": {}
+        }
+      },
       "NETStandard.Library/2.0.3": {
         "type": "package",
         "dependencies": {
@@ -2161,6 +2173,17 @@
         "runtimes/win/lib/netstandard1.3/Microsoft.Win32.Registry.dll",
         "useSharedDesignerContext.txt",
         "version.txt"
+      ]
+    },
+    "NBuilder/6.0.0": {
+      "sha512": "fWoh8LbIQYeOQeq4iTkpBU6MP59ASgIBsuZVZFI+sIQI6wXAz7id/LGyZzd4Cc8re0l98GgnWrXoJvARgyDHLw==",
+      "type": "package",
+      "path": "nbuilder/6.0.0",
+      "files": [
+        "lib/net40/FizzWare.NBuilder.dll",
+        "lib/netstandard1.6/FizzWare.NBuilder.dll",
+        "nbuilder.6.0.0.nupkg.sha512",
+        "nbuilder.nuspec"
       ]
     },
     "NETStandard.Library/2.0.3": {
@@ -6493,6 +6516,7 @@
       "Effortless.Net.Encryption >= 3.2.0",
       "Faker.Data >= 1.0.7",
       "Insight.Database >= 6.2.4",
+      "NBuilder >= 6.0.0",
       "NETStandard.Library >= 2.0.3",
       "Repository >= 1.0.0",
       "ServiceInterface >= 1.0.0"
@@ -6565,6 +6589,10 @@
           "Insight.Database": {
             "target": "Package",
             "version": "[6.2.4, )"
+          },
+          "NBuilder": {
+            "target": "Package",
+            "version": "[6.0.0, )"
           },
           "NETStandard.Library": {
             "suppressParent": "All",

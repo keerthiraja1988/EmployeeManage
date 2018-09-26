@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETFramework,Version=v4.6.1/win7-x86",
-    "signature": "9afa166c5ce5acf0c3a25287e796b45c18782a32"
+    "signature": "ba768dbcceb652d45b2e250bf4ea4f5d8ec94b6a"
   },
   "compilationOptions": {
     "defines": [
@@ -885,6 +885,11 @@
         },
         "compile": {
           "lib/net451/Insight.Database.Providers.Default.dll": {}
+        }
+      },
+      "log4net/2.0.8": {
+        "compile": {
+          "lib/net45-full/log4net.dll": {}
         }
       },
       "Microsoft.AspNetCore/2.1.3": {
@@ -2373,7 +2378,8 @@
         "dependencies": {
           "DomainModel": "1.0.0",
           "PostSharp": "6.0.27",
-          "Serilog.Sinks.MSSqlServer": "5.1.2"
+          "Serilog.Sinks.MSSqlServer": "5.1.2",
+          "log4net": "2.0.8"
         },
         "compile": {
           "CrossCutting.dll": {}
@@ -2665,6 +2671,11 @@
         },
         "runtime": {
           "lib/net451/Insight.Database.Providers.Default.dll": {}
+        }
+      },
+      "log4net/2.0.8": {
+        "runtime": {
+          "lib/net45-full/log4net.dll": {}
         }
       },
       "Microsoft.AspNetCore/2.1.3": {
@@ -4213,7 +4224,8 @@
         "dependencies": {
           "DomainModel": "1.0.0",
           "PostSharp": "6.0.27",
-          "Serilog.Sinks.MSSqlServer": "5.1.2"
+          "Serilog.Sinks.MSSqlServer": "5.1.2",
+          "log4net": "2.0.8"
         },
         "runtime": {
           "CrossCutting.dll": {}
@@ -4350,6 +4362,13 @@
       "sha512": "sha512-x87mYauDFB7ARxQFQNV+M/MbFHvHlfORAvcDM4TlXm0Bxm7NBirxwZeAdOPD6/JayJmSKvFHDrCD12UvSekaWw==",
       "path": "insight.database.providers.default/6.2.4",
       "hashPath": "insight.database.providers.default.6.2.4.nupkg.sha512"
+    },
+    "log4net/2.0.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-N41MQGHZImiCfn0cUuSBjZxrcNfIQCuCgQP0rpgB3J/NWponEh3lc1LxJEuIsPAR9Oc1jVvfkNNFCY1C5hf9LA==",
+      "path": "log4net/2.0.8",
+      "hashPath": "log4net.2.0.8.nupkg.sha512"
     },
     "Microsoft.AspNetCore/2.1.3": {
       "type": "package",

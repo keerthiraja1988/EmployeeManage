@@ -42,6 +42,7 @@
   <ItemGroup>
     <Folder Include="Areas\DashBoard\Data\" />
     <Folder Include="Areas\DashBoard\Models\" />
+    <Folder Include="Areas\EmployeeManage\Data\" />
     <Folder Include="Areas\Security\Data\" />
   </ItemGroup>
 

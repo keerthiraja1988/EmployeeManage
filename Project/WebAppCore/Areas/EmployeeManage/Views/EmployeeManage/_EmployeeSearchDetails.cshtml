@@ -1,0 +1,38 @@
+﻿
+
+
+@(Html.Kendo().Grid<WebAppCore.Areas.EmployeeManage.Models.EmployeeViewModel>()
+                                    .Name("grid")
+                                    .Columns(columns =>
+                                    {
+                                        columns.Bound(c => c.EmployeeId).Width(190);
+                                        columns.Bound(c => c.FirstName).Width(140);
+
+                                        columns.Bound(c => c.LastName);
+                                        columns.Bound(c => c.FullName);
+                                        columns.Bound(c => c.Initial);
+                                        
+                                        columns.Bound(c => c.Email).Width(190);
+                                        columns.Bound(c => c.DateOfBirth).Width(190);
+                                        columns.Bound(c => c.DateOfJoining).Width(190);
+                                        columns.Bound(c => c.TIN).Width(190);
+                                        columns.Bound(c => c.PASSPORT).Width(190);
+                                        columns.Bound(c => c.WorkLocation).Width(190);
+
+                                        columns.Bound(c => c.IsActive).Width(110);
+                                        columns.Bound(c => c.IsAuthorized).Width(110);
+
+
+                                        columns.Bound(c => c.CreatedOn).Width(190);
+                                        columns.Bound(c => c.CreatedBy).Width(190);
+                                        
+
+                                    })
+                                    .DataSource(dataSource => dataSource
+                                        .Ajax()
+                                        .Read(read => read.Action(
+                                            routeValues:"GetEmployeeDetails",
+                                            controllerName: "EmployeeManage", actionName: "Products_Read"
+                                            ))
+                                    )
+)

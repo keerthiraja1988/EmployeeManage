@@ -31,6 +31,7 @@ namespace CrossCutting.Logging
         /// <param name="args"></param>  
         public override void OnEntry(MethodExecutionArgs args)
         {
+            SeriLogSQL.LogInformation();
 
             Controller apiController = (Controller)args.Instance;
             //var context = apiController.;
@@ -53,26 +54,26 @@ namespace CrossCutting.Logging
             {
                 AdditionalDataColumns = new Collection<DataColumn>
     {
-        new DataColumn {DataType = typeof(string), ColumnName = "UserName"},
-       new DataColumn {DataType = typeof(string), ColumnName = "UserId"},
-        new DataColumn {DataType = typeof(string), ColumnName = "UserHostAddress"},
-        new DataColumn {DataType = typeof(string), ColumnName = "RequestUrl"},
-        new DataColumn {DataType = typeof(string), ColumnName = "BrowserAgent"},
+       // new DataColumn {DataType = typeof(string), ColumnName = "UserName"},
+       //new DataColumn {DataType = typeof(string), ColumnName = "UserId"},
+       // new DataColumn {DataType = typeof(string), ColumnName = "UserHostAddress"},
+       // new DataColumn {DataType = typeof(string), ColumnName = "RequestUrl"},
+       // new DataColumn {DataType = typeof(string), ColumnName = "BrowserAgent"},
 
     }
             };
 
             var connectionString = @"Data Source=.;Initial Catalog=DB_A40D34_keerthirajapraba;Integrated Security=True";  // or the name of a connection string in the app config
-            var tableName = "SeriApplicationLog";
-            var columnOptions = columnOption;
-            //var columnOptions = new ColumnOptions();  // optional
+            var tableName = "Log";
+          //  var columnOptions = columnOption;
+            var columnOptions = new ColumnOptions();  // optional
 
             using (var log = new LoggerConfiguration()
             .WriteTo.MSSqlServer(connectionString, tableName, columnOptions: columnOptions)
             .CreateLogger())
             {
 
-                log.ForContext("UserName", "Test Data").Information("Index method called!!!");
+                //log.ForContext("UserName", "Test Data").Information("Index method called!!!");
 
                 var sensorInput = new { Latitude = 25, Longitude = 134 };
                 log.Information("Processing {@SensorInput}", sensorInput);

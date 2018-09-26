@@ -64,3 +64,8 @@ C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\Razor\Areas\Security\Views\UserAccount\_RegistrationSuccess.g.cshtml.cs
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_LoginPartial.g.cshtml.cs
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\Razor\Areas\Shared\_LoginPartial.g.cshtml.cs
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\Razor\Areas\EmployeeManage\Views\_ViewImports.g.cshtml.cs
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\Razor\Areas\EmployeeManage\Views\_ViewStart.g.cshtml.cs
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\Razor\Areas\EmployeeManage\Views\EmployeeManage\Index.g.cshtml.cs
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\Razor\Areas\EmployeeManage\Views\EmployeeManage\_EmployeeSearch.g.cshtml.cs
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\Razor\Areas\EmployeeManage\Views\EmployeeManage\_EmployeeSearchDetails.g.cshtml.cs

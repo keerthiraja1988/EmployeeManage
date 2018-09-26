@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Symbols LinesOfCode="177" PostSharpLinesOfCode="0" EnhancedTypesCount="2" SchemaVersion="1" PostSharpVersion="6.0.27.0" xmlns="http://schemas.postsharp.org/2.0/symbols">
+<Symbols LinesOfCode="249" PostSharpLinesOfCode="0" EnhancedTypesCount="2" SchemaVersion="1" PostSharpVersion="6.0.27.0" xmlns="http://schemas.postsharp.org/2.0/symbols">
   <Evolution Source="#1=M:[WebAppCore]WebAppCore.Areas.Security.Controllers.UserAccountController::UserAccount()" Target="#2=M:[WebAppCore]WebAppCore.Areas.Security.Controllers.UserAccountController+&lt;UserAccount&gt;d__10::MoveNext()" />
   <Class Class="#3=T:[CrossCutting]CrossCutting.Logging.NlogTraceAttribute">
-    <Instance Declaration="#1" Id="5878df680a12cf5d">
+    <Instance Declaration="#1" Id="5878df686c08c7cb">
       <Target LinesAvoided="8">
         <JoinPoint Advised="#2" Advising="#3" Description="#4=Wrapped by advice(s) OnEntry, OnSuccess, OnException, OnExit" Ordinal="0" />
       </Target>
     </Instance>
-    <Instance Declaration="#5=M:[WebAppCore]WebAppCore.Areas.DashBoard.Controllers.DashBoardController::Index()" Id="5878df68a3452557">
+    <Instance Declaration="#5=M:[WebAppCore]WebAppCore.Areas.DashBoard.Controllers.DashBoardController::Index()" Id="5878df68dfa75f2d">
       <Target LinesAvoided="8">
         <JoinPoint Advising="#3" Description="#4" />
       </Target>
