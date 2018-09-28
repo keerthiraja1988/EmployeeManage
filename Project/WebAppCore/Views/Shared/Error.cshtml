@@ -1,22 +1,47 @@
-﻿@model ErrorViewModel
-@{
+﻿@{
     ViewData["Title"] = "Error";
 }
 
-<h1 class="text-danger">Error.</h1>
-<h2 class="text-danger">An error occurred while processing your request.</h2>
+<div style="background-color:white" class="container-fluid paddingLeft40px">
 
-@if (Model.ShowRequestId)
-{
-    <p>
-        <strong>Request ID:</strong> <code>@Model.RequestId</code>
-    </p>
-}
+    <img src="https://a0.muscache.com/airbnb/static/error_pages/404-Airbnb_final-d652ff855b1335dd3eedc3baa8dc8b69.gif" width="300" height="400" alt="Girl has dropped her ice cream.">
 
-<h3>Development Mode</h3>
-<p>
-    Swapping to <strong>Development</strong> environment will display more detailed information about the error that occurred.
-</p>
-<p>
-    <strong>Development environment should not be enabled in deployed applications</strong>, as it can result in sensitive information from exceptions being displayed to end users. For local debugging, development environment can be enabled by setting the <strong>ASPNETCORE_ENVIRONMENT</strong> environment variable to <strong>Development</strong>, and restarting the application.
-</p>
+
+
+    <h1 id="oopsText" class="text-jumbo text-ginormous">Oops!</h1>
+
+    <h2 id="errorText">An error occurred while processing your request.</h2>
+
+    <h6 id="errorMessage" hidden="hidden" class="text-danger" style="font-weight:bold">@ViewBag.ErrorMessage</h6>
+</div>
+
+
+
+<script>
+
+    $(document).ready(function () {
+
+
+
+        setTimeout(function () {
+
+            $("#oopsText").show("slow");
+
+            $("#errorText").show("slow");
+
+        }, 2000);
+
+        setTimeout(function () {
+
+
+            $("#errorMessage").show("slow");
+
+        }, 3000);
+
+
+
+    });
+
+
+
+</script>

@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
 	 <_RazorBuildServerPipeName>razor-issues-2406</_RazorBuildServerPipeName>
+   
   </PropertyGroup>
 
   <ItemGroup>
@@ -20,6 +21,8 @@
     <PackageReference Include="Microsoft.AspNetCore.HttpsPolicy" Version="2.1.1" />
   
     <PackageReference Include="Microsoft.AspNetCore.ResponseCompression" Version="2.2.0-preview2-35157" />
+  
+    <PackageReference Include="Microsoft.AspNetCore.Server.IISIntegration" Version="2.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.1.1" />
     <PackageReference Include="Microsoft.DotNet.Watcher.Tools" Version="2.0.2" />
     <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.1.1" />
@@ -44,6 +47,12 @@
     <Folder Include="Areas\DashBoard\Models\" />
     <Folder Include="Areas\EmployeeManage\Data\" />
     <Folder Include="Areas\Security\Data\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Views\Shared\Error.cshtml">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

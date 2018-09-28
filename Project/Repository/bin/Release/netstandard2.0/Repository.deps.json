@@ -835,7 +835,8 @@
         "dependencies": {
           "DomainModel": "1.0.0",
           "PostSharp": "6.0.27",
-          "Serilog.Sinks.MSSqlServer": "5.1.2"
+          "Serilog.Sinks.MSSqlServer": "5.1.2",
+          "Microsoft.AspNetCore.Mvc.ViewFeatures": "2.1.1.0"
         },
         "runtime": {
           "CrossCutting.dll": {}
@@ -844,6 +845,14 @@
       "DomainModel/1.0.0": {
         "runtime": {
           "DomainModel.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Mvc.ViewFeatures.Reference/2.1.1.0": {
+        "runtime": {
+          "Microsoft.AspNetCore.Mvc.ViewFeatures.dll": {
+            "assemblyVersion": "2.1.1.0",
+            "fileVersion": "2.1.1.18157"
+          }
         }
       }
     }
@@ -1337,6 +1346,11 @@
     },
     "DomainModel/1.0.0": {
       "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.AspNetCore.Mvc.ViewFeatures.Reference/2.1.1.0": {
+      "type": "reference",
       "serviceable": false,
       "sha512": ""
     }

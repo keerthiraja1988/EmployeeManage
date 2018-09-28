@@ -22,14 +22,9 @@ namespace DependencyInjecionResolver
             {
 
                 DbConnection sqlDBConnection = new SqlConnection(sqlConnection);
-                //var asm = System.Reflection.Assembly.LoadFrom("BAL.dll");
+            
                 var asm = typeof(ServiceLayerRegister).Assembly;
 
-                builder.RegisterType<DbConnection>().As<IDbConnection>()
-                                .WithParameter("connectionString", "Data Source =.; Initial Catalog = FileEncryption; Integrated Security = True")
-                                ;
-
-                //builder.RegisterAggregateService<IMyAggregateService>();
                 builder.RegisterAssemblyTypes(asm)
                 .Where(t => t.Name.EndsWith("Service"))
                  .AsImplementedInterfaces()

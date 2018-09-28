@@ -6,11 +6,13 @@ C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\DependencyInjecionRe
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\DependencyInjecionResolver\bin\Debug\netstandard2.0\Repository.dll
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\DependencyInjecionResolver\bin\Debug\netstandard2.0\ServiceConcrete.dll
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\DependencyInjecionResolver\bin\Debug\netstandard2.0\ServiceInterface.dll
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\DependencyInjecionResolver\bin\Debug\netstandard2.0\Microsoft.AspNetCore.Mvc.ViewFeatures.dll
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\DependencyInjecionResolver\bin\Debug\netstandard2.0\ServiceConcrete.pdb
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\DependencyInjecionResolver\bin\Debug\netstandard2.0\ServiceInterface.pdb
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\DependencyInjecionResolver\bin\Debug\netstandard2.0\CrossCutting.pdb
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\DependencyInjecionResolver\bin\Debug\netstandard2.0\DomainModel.pdb
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\DependencyInjecionResolver\bin\Debug\netstandard2.0\Repository.pdb
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\DependencyInjecionResolver\bin\Debug\netstandard2.0\Microsoft.AspNetCore.Mvc.ViewFeatures.xml
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\DependencyInjecionResolver\obj\Debug\netstandard2.0\DependencyInjecionResolver.csprojAssemblyReference.cache
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\DependencyInjecionResolver\obj\Debug\netstandard2.0\DependencyInjecionResolver.csproj.CoreCompileInputs.cache
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\DependencyInjecionResolver\obj\Debug\netstandard2.0\DependencyInjecionResolver.AssemblyInfoInputs.cache
@@ -18,5 +20,3 @@ C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\DependencyInjecionRe
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\DependencyInjecionResolver\obj\Debug\netstandard2.0\DependencyInjecionResolver.csproj.CopyComplete
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\DependencyInjecionResolver\obj\Debug\netstandard2.0\DependencyInjecionResolver.dll
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\DependencyInjecionResolver\obj\Debug\netstandard2.0\DependencyInjecionResolver.pdb
-C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\DependencyInjecionResolver\bin\Debug\netstandard2.0\Microsoft.AspNetCore.Mvc.ViewFeatures.dll
-C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\DependencyInjecionResolver\bin\Debug\netstandard2.0\Microsoft.AspNetCore.Mvc.ViewFeatures.xml

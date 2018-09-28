@@ -17,6 +17,12 @@ namespace WebAppCore.Controllers
             return View();
         }
 
+        [Route("/Error")]
+        //[Route("")]
+        public IActionResult Error()
+        {
+            return View("/Views/Shared/Error.cshtml");
+        }
 
         public IActionResult ValidatePassword(string Password)
         {

@@ -54,7 +54,7 @@ namespace WebAppCore
         // This method gets called by the runtime. Use this method to add services to the container.
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
-           
+
             // Maintain property names during serialization. See:
             // https://github.com/aspnet/Announcements/issues/194
             services
@@ -72,8 +72,8 @@ namespace WebAppCore
 
             services.AddAutoMapper();
 
-            var sqlConnection = Configuration.GetValue<string>("DBConnection");
-            
+           
+
             services.AddAuthentication(options =>
             {
                 options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
@@ -93,23 +93,21 @@ namespace WebAppCore
 
             ConfigureWebOptimer(services);
 
-         
-          
-
-
             var builder = new Autofac.ContainerBuilder();
 
             builder.RegisterAssemblyModules(System.Reflection.Assembly.GetExecutingAssembly());
             builder.Populate(services);
+            var sqlConnection = Configuration.GetValue<string>("DBConnection");
             builder.RegisterModule(new ServiceDIContainer(sqlConnection));
             this.ApplicationContainer = builder.Build();
             return new AutofacServiceProvider(this.ApplicationContainer);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
+
+
             // ...existing configuration...
             app.UseMiniProfiler();
 
@@ -122,19 +120,17 @@ namespace WebAppCore
 
             Configuration = builder.Build();
 
-
-
-
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
-                app.UseHsts();
+                //app.UseDeveloperExceptionPage();
+               app.UseExceptionHandler("/Error");
+               app.UseHsts();
             }
-           // app.UseWebOptimizer();
+            // app.UseWebOptimizer();
             app.UseResponseCompression();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
@@ -146,7 +142,7 @@ namespace WebAppCore
             // app.UseWebMarkupMin();
             //loggerFactory.AddLog4Net(); // << Add this line
 
-           
+
 
             app.UseMvc(routes =>
             {
@@ -154,9 +150,9 @@ namespace WebAppCore
              name: "area",
              template: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
 
-                //routes.MapRoute(
-                //    name: "default",
-                //    template: "{controller=Home}/{action=Index}/{id?}");
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
 
@@ -165,10 +161,10 @@ namespace WebAppCore
             services.Configure<RazorViewEngineOptions>(o =>
             {
 
-                // {2} is area, {1} is controller,{0} is the action    
-                o.ViewLocationFormats.Clear();
-                o.ViewLocationFormats.Add("/Views/{1}/{0}" + RazorViewEngine.ViewExtension);
-                o.ViewLocationFormats.Add("/Views/Shared/{0}" + RazorViewEngine.ViewExtension);
+                //// {2} is area, {1} is controller,{0} is the action    
+                //o.ViewLocationFormats.Clear();
+                //o.ViewLocationFormats.Add("/Views/{1}/{0}" + RazorViewEngine.ViewExtension);
+                //o.ViewLocationFormats.Add("/Views/Shared/{0}" + RazorViewEngine.ViewExtension);
 
 
                 // Untested. You could remove this if you don't care about areas.

@@ -17,7 +17,9 @@ namespace WebAppCore.Areas.DashBoard.Controllers
         [NlogTrace]
         public IActionResult Index()
         {
-            return View("Index");
+            //throw new Exception();
+
+           return View("Index");
         }
     }
 }
