@@ -18,3 +18,4 @@ C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\CrossCutting\obj\Rel
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\CrossCutting\obj\Release\netstandard2.0\CrossCutting.dll
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\CrossCutting\obj\Release\netstandard2.0\CrossCutting.pdb
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\CrossCutting\obj\Release\netstandard2.0\PostSharp\postsharp.app.config
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\CrossCutting\bin\Release\netstandard2.0\NLog.config

@@ -1,4 +1,5 @@
 ﻿using CrossCutting.Caching;
+using CrossCutting.Logging;
 using DomainModel;
 using Insight.Database;
 using Repository;
@@ -10,6 +11,8 @@ using System.Linq;
 
 namespace ServiceConcrete
 {
+    [NLogging]
+
     public class UserAccountService : IUserAccountService
     {
         IUserAccountRepository _IUserAccountRepository;

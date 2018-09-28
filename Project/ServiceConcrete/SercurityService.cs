@@ -1,4 +1,5 @@
 ﻿using CrossCutting.Caching;
+using CrossCutting.Logging;
 using DomainModel;
 using Effortless.Net.Encryption;
 using Insight.Database;
@@ -14,6 +15,8 @@ using System.Text;
 
 namespace ServiceConcrete
 {
+    [NLogging]
+
     public class SercurityService : ISercurityService
     {
         private IUserAccountRepository _IUserAccountRepository;

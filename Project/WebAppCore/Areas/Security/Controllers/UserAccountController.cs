@@ -21,26 +21,28 @@ using WebAppCore.Models;
 namespace WebAppCore.Areas.Security.Controllers
 {
     [Area("Security")]
-    [HandleException]
+    //[HandleException]
+    [NLogging]
     public class UserAccountController : Controller
     {
         public IUserAccountService _IUserAccountService { get; set; }
-        public IConfiguration Configuration { get; set; }
+        public IConfiguration _Configuration { get; set; }
 
         private readonly IMapper _mapper;
         public UserAccountController(IConfiguration iConfig, IUserAccountService iUserAccountService
             , IMapper mapper)
         {
             _mapper = mapper;
-            Configuration = iConfig;
+            _Configuration = iConfig;
             _IUserAccountService = iUserAccountService;
         }
 
         [Route("UserAccount")]
         [HttpGet]
-        [NlogTrace]
-        public async Task<IActionResult> UserAccount()
+      
+        public async Task<IActionResult> UserAccount(string redirectUrl)
         {
+            //throw new Exception();
             var cookieAvailable = CookieAuthenticationDefaults.AuthenticationScheme;
 
             if (cookieAvailable != null)
@@ -58,6 +60,7 @@ namespace WebAppCore.Areas.Security.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(UserLoginViewModel userLoginViewModel, string ReturnUrl)
         {
+
             var cookieAvailable = CookieAuthenticationDefaults.AuthenticationScheme;
 
             if (cookieAvailable != null)

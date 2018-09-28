@@ -1,4 +1,5 @@
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\bin\Debug\netcoreapp2.1\WebAppCore.pssym
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\bin\Debug\netcoreapp2.1\NLog.config
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\bin\Debug\netcoreapp2.1\brolib32.dll
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\bin\Debug\netcoreapp2.1\brolib64.dll
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\bin\Debug\netcoreapp2.1\brolib32.pdb
@@ -49,6 +50,7 @@ C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\Razor\Areas\Security\Views\UserAccount\_RegistrationSuccess.g.cshtml.cs
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\Razor\Areas\Security\Views\_ViewImports.g.cshtml.cs
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\Razor\Areas\Security\Views\_ViewStart.g.cshtml.cs
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\Razor\Areas\Shared\Error.g.cshtml.cs
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\Razor\Areas\Shared\_CookieConsentPartial.g.cshtml.cs
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\Razor\Areas\Shared\_LoginPartial.g.cshtml.cs
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\Razor\Areas\Shared\_ValidationScriptsPartial.g.cshtml.cs

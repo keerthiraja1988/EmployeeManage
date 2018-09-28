@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETStandard,Version=v2.0/",
-    "signature": "36c7b8ea27a4437afb0b9dbb7b5b1795dd81b29a"
+    "signature": "72112cdacc9352f460f18100b6d456ac35149eaa"
   },
   "compilationOptions": {},
   "targets": {
@@ -160,6 +160,21 @@
           "Microsoft.NETCore.Platforms": "1.1.0"
         }
       },
+      "NLog/4.5.10": {
+        "runtime": {
+          "lib/netstandard2.0/NLog.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.5.10.8381"
+          }
+        }
+      },
+      "NLog.Config/4.5.10": {
+        "dependencies": {
+          "NLog": "4.5.10",
+          "NLog.Schema": "4.5.10"
+        }
+      },
+      "NLog.Schema/4.5.10": {},
       "PostSharp/6.0.27": {
         "dependencies": {
           "PostSharp.Redist": "6.0.27"
@@ -884,9 +899,10 @@
       "CrossCutting/1.0.0": {
         "dependencies": {
           "DomainModel": "1.0.0",
+          "NLog": "4.5.10",
+          "NLog.Config": "4.5.10",
           "PostSharp": "6.0.27",
-          "Serilog.Sinks.MSSqlServer": "5.1.2",
-          "Microsoft.AspNetCore.Mvc.ViewFeatures": "2.1.1.0"
+          "Serilog.Sinks.MSSqlServer": "5.1.2"
         },
         "runtime": {
           "CrossCutting.dll": {}
@@ -915,6 +931,7 @@
           "Faker.Data": "1.0.7",
           "Insight.Database": "6.2.4",
           "NBuilder": "6.0.0",
+          "PostSharp": "6.0.27",
           "Repository": "1.0.0",
           "ServiceInterface": "1.0.0"
         },
@@ -928,14 +945,6 @@
         },
         "runtime": {
           "ServiceInterface.dll": {}
-        }
-      },
-      "Microsoft.AspNetCore.Mvc.ViewFeatures.Reference/2.1.1.0": {
-        "runtime": {
-          "Microsoft.AspNetCore.Mvc.ViewFeatures.dll": {
-            "assemblyVersion": "2.1.1.0",
-            "fileVersion": "2.1.1.18157"
-          }
         }
       }
     }
@@ -1036,6 +1045,27 @@
       "sha512": "sha512-st47PosZSHrjECdjeIzZQbzivYBJFv6P2nv4cj2ypdI204DO+vZ7l5raGMiX4eXMJ53RfOIg+/s4DHVZ54Nu2A==",
       "path": "netstandard.library/2.0.3",
       "hashPath": "netstandard.library.2.0.3.nupkg.sha512"
+    },
+    "NLog/4.5.10": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-IXZEFeDj/R3OL6bCcLNVFVFlBxp4zey9X2RdmISG+P9hp0uivIgkN6nBqCIE6yF0dRrUBye84uaD7emNVmqAnQ==",
+      "path": "nlog/4.5.10",
+      "hashPath": "nlog.4.5.10.nupkg.sha512"
+    },
+    "NLog.Config/4.5.10": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-nOtgd0XfrC+DaiLWG42Kc6tcDpupvOvu/lFYBTpW1igQg2r1L1QKiRdfrNW6eVHfEgTaeMuRfxQA9AgEXp8Crg==",
+      "path": "nlog.config/4.5.10",
+      "hashPath": "nlog.config.4.5.10.nupkg.sha512"
+    },
+    "NLog.Schema/4.5.10": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-eFLjmdxZoe57yRuITEcsb7hThseUEb5miW9vXX8Zape3U7wsGGgI51TupB9zqZJclpKQJSJjCPlI9/lMU4mFvg==",
+      "path": "nlog.schema/4.5.10",
+      "hashPath": "nlog.schema.4.5.10.nupkg.sha512"
     },
     "PostSharp/6.0.27": {
       "type": "package",
@@ -1479,11 +1509,6 @@
     },
     "ServiceInterface/1.0.0": {
       "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Microsoft.AspNetCore.Mvc.ViewFeatures.Reference/2.1.1.0": {
-      "type": "reference",
       "serviceable": false,
       "sha512": ""
     }

@@ -10,14 +10,15 @@ namespace WebAppCore.Areas.DashBoard.Controllers
 {
     [Authorize]
     [Area("DashBoard")]
+    [NLogging]
     public class DashBoardController : Controller
     {
         [Route("")]
         [Route("Home")]
-        [NlogTrace]
+      
         public IActionResult Index()
         {
-            //throw new Exception();
+           // throw new Exception();
 
            return View("Index");
         }

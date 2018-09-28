@@ -55,6 +55,7 @@ namespace WebAppCore
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
 
+          
             // Maintain property names during serialization. See:
             // https://github.com/aspnet/Announcements/issues/194
             services
@@ -68,7 +69,7 @@ namespace WebAppCore
             // Add Kendo UI services to the services container
             services.AddKendo();
 
-            services.AddScoped<NlogTraceAttribute>();
+           // services.AddScoped<NLoggingAttribute>();
 
             services.AddAutoMapper();
 
@@ -140,10 +141,7 @@ namespace WebAppCore
             app.UseAuthentication();
 
             // app.UseWebMarkupMin();
-            //loggerFactory.AddLog4Net(); // << Add this line
-
-
-
+           
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

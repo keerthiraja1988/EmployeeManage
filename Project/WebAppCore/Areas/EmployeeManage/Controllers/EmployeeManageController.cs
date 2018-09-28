@@ -10,11 +10,13 @@ using ServiceInterface;
 using Kendo.Mvc.UI;
 using Kendo.Mvc.Extensions;
 using WebAppCore.Areas.EmployeeManage.Models;
+using CrossCutting.Logging;
 
 namespace WebAppCore.Areas.EmployeeManage.Controllers
 {
     [Authorize]
     [Area("EmployeeManage")]
+   [NLogging]
     public class EmployeeManageController : Controller
     {
         public IEmployeeManageService _IEmployeeManageService { get; set; }
@@ -32,6 +34,7 @@ namespace WebAppCore.Areas.EmployeeManage.Controllers
 
         public IActionResult Index()
         {
+
             //var vvv = this._IEmployeeManageService.LoadEmployeeData();
 
             return View();
@@ -43,7 +46,7 @@ namespace WebAppCore.Areas.EmployeeManage.Controllers
             List<EmployeeViewModel> EmployeesViewModel = new List<EmployeeViewModel>();
 
             EmployeesViewModel =  _mapper.Map<List<EmployeeViewModel>>(employeeDetails);
-
+          //  throw new Exception();
             return Json(EmployeesViewModel.ToDataSourceResult(request));
         }
     }

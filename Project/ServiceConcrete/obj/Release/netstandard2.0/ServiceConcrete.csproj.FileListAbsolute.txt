@@ -5,12 +5,10 @@ C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\ServiceConcrete\bin\
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\ServiceConcrete\bin\Release\netstandard2.0\DomainModel.dll
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\ServiceConcrete\bin\Release\netstandard2.0\Repository.dll
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\ServiceConcrete\bin\Release\netstandard2.0\ServiceInterface.dll
-C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\ServiceConcrete\bin\Release\netstandard2.0\Microsoft.AspNetCore.Mvc.ViewFeatures.dll
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\ServiceConcrete\bin\Release\netstandard2.0\CrossCutting.pdb
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\ServiceConcrete\bin\Release\netstandard2.0\DomainModel.pdb
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\ServiceConcrete\bin\Release\netstandard2.0\Repository.pdb
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\ServiceConcrete\bin\Release\netstandard2.0\ServiceInterface.pdb
-C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\ServiceConcrete\bin\Release\netstandard2.0\Microsoft.AspNetCore.Mvc.ViewFeatures.xml
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\ServiceConcrete\obj\Release\netstandard2.0\ServiceConcrete.csprojAssemblyReference.cache
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\ServiceConcrete\obj\Release\netstandard2.0\ServiceConcrete.csproj.CoreCompileInputs.cache
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\ServiceConcrete\obj\Release\netstandard2.0\ServiceConcrete.AssemblyInfoInputs.cache
@@ -18,3 +16,8 @@ C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\ServiceConcrete\obj\
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\ServiceConcrete\obj\Release\netstandard2.0\ServiceConcrete.csproj.CopyComplete
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\ServiceConcrete\obj\Release\netstandard2.0\ServiceConcrete.dll
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\ServiceConcrete\obj\Release\netstandard2.0\ServiceConcrete.pdb
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\ServiceConcrete\bin\Release\netstandard2.0\ServiceConcrete.pssym
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\ServiceConcrete\bin\Release\netstandard2.0\NLog.config
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\ServiceConcrete\obj\Release\netstandard2.0\PostSharp\touch
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\ServiceConcrete\obj\Release\netstandard2.0\PostSharp\dependencies.txt
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\ServiceConcrete\obj\Release\netstandard2.0\PostSharp\postsharp.app.config

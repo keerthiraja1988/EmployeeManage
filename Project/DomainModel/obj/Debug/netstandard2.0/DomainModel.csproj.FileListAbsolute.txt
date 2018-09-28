@@ -6,4 +6,3 @@ C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\DomainModel\obj\Debu
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\DomainModel\obj\Debug\netstandard2.0\DomainModel.AssemblyInfo.cs
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\DomainModel\obj\Debug\netstandard2.0\DomainModel.dll
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\DomainModel\obj\Debug\netstandard2.0\DomainModel.pdb
-C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\DomainModel\obj\Debug\netstandard2.0\DomainModel.csprojAssemblyReference.cache

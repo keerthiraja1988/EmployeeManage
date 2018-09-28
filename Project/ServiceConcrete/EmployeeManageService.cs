@@ -12,9 +12,11 @@ using System.Text;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Data;
+using CrossCutting.Logging;
 
 namespace ServiceConcrete
 {
+    [NLogging]
     public class EmployeeManageService : IEmployeeManageService
     {
         IEmployeeManageRepository _IEmployeeManageRepository;
@@ -93,6 +95,7 @@ namespace ServiceConcrete
             return employeeDetails.ToList();
         }
 
+       
         public async Task<List<EmployeeModel>> GetEmployeesDetails()
         {
            

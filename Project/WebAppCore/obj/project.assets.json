@@ -103,6 +103,33 @@
           "lib/net40/Effortless.Net.Encryption.dll": {}
         }
       },
+      "Elmah.Io.AspNetCore/3.5.59": {
+        "type": "package",
+        "dependencies": {
+          "Elmah.Io.Client": "[3.2.52, 4.0.0)",
+          "Microsoft.AspNetCore.Http": "1.1.1",
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/netstandard1.1/Elmah.Io.AspNetCore.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/Elmah.Io.AspNetCore.dll": {}
+        }
+      },
+      "Elmah.Io.Client/3.2.52": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Rest.ClientRuntime": "2.3.10",
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/netstandard1.4/Elmah.Io.Client.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.4/Elmah.Io.Client.dll": {}
+        }
+      },
       "Faker.Data/1.0.7": {
         "type": "package",
         "compile": {
@@ -2836,6 +2863,19 @@
           "lib/netstandard1.0/_._": {}
         }
       },
+      "Microsoft.Rest.ClientRuntime/2.3.10": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "Newtonsoft.Json": "9.0.1"
+        },
+        "compile": {
+          "lib/netstandard1.4/Microsoft.Rest.ClientRuntime.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.4/Microsoft.Rest.ClientRuntime.dll": {}
+        }
+      },
       "Microsoft.VisualStudio.Web.BrowserLink/2.1.1": {
         "type": "package",
         "dependencies": {
@@ -3078,6 +3118,67 @@
         },
         "runtime": {
           "lib/netstandard1.3/Newtonsoft.Json.Bson.dll": {}
+        }
+      },
+      "NLog/4.5.10": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/NLog.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/NLog.dll": {}
+        }
+      },
+      "NLog.Config/4.5.10": {
+        "type": "package",
+        "dependencies": {
+          "NLog": "4.5.10",
+          "NLog.Schema": "4.5.10"
+        },
+        "contentFiles": {
+          "contentFiles/any/any/_._": {
+            "buildAction": "None",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          }
+        }
+      },
+      "NLog.Extensions.Logging/1.3.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Logging": "2.0.1",
+          "NLog": "[4.5.10, 5.0.0-beta01)"
+        },
+        "compile": {
+          "lib/netstandard2.0/NLog.Extensions.Logging.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/NLog.Extensions.Logging.dll": {}
+        }
+      },
+      "NLog.Schema/4.5.10": {
+        "type": "package",
+        "contentFiles": {
+          "contentFiles/any/any/_._": {
+            "buildAction": "None",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          }
+        }
+      },
+      "NLog.Web.AspNetCore/4.7.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Hosting.Abstractions": "2.0.0",
+          "Microsoft.AspNetCore.Http": "2.0.0",
+          "Microsoft.AspNetCore.Routing.Abstractions": "2.0.0",
+          "NLog.Extensions.Logging": "1.3.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/NLog.Web.AspNetCore.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/NLog.Web.AspNetCore.dll": {}
         }
       },
       "NuGet.Frameworks/4.7.0": {
@@ -5239,6 +5340,8 @@
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "DomainModel": "1.0.0",
+          "NLog": "4.5.10",
+          "NLog.Config": "4.5.10",
           "PostSharp": "6.0.27",
           "Serilog.Sinks.MSSqlServer": "5.1.2"
         },
@@ -5299,6 +5402,7 @@
           "Faker.Data": "1.0.7",
           "Insight.Database": "6.2.4",
           "NBuilder": "6.0.0",
+          "PostSharp": "6.0.27",
           "Repository": "1.0.0",
           "ServiceInterface": "1.0.0"
         },
@@ -5454,6 +5558,29 @@
         "effortless.net.encryption.3.2.0.nupkg.sha512",
         "effortless.net.encryption.nuspec",
         "lib/net40/Effortless.Net.Encryption.dll"
+      ]
+    },
+    "Elmah.Io.AspNetCore/3.5.59": {
+      "sha512": "miWuBSvogEfE7uAcN+JisnlzKeGBlV7aJhUwrBFvPUPbFinUtAwtTgHXpeypmnPH6ys7CjB1Lr2zWgIFlDbzdA==",
+      "type": "package",
+      "path": "elmah.io.aspnetcore/3.5.59",
+      "files": [
+        ".signature.p7s",
+        "elmah.io.aspnetcore.3.5.59.nupkg.sha512",
+        "elmah.io.aspnetcore.nuspec",
+        "lib/netstandard1.1/Elmah.Io.AspNetCore.dll"
+      ]
+    },
+    "Elmah.Io.Client/3.2.52": {
+      "sha512": "gCiJYYz84XjYa2cM83t7htU2DSFWl07zKWs/Bxn+qoR8eaNk7jo2oZWF+IAly20ynnV/A6a5o1dBv9H4nncBcA==",
+      "type": "package",
+      "path": "elmah.io.client/3.2.52",
+      "files": [
+        "Elmah.Io.Client.3.2.52.nupkg.sha512",
+        "Elmah.Io.Client.nuspec",
+        "lib/net45/Elmah.Io.Client.dll",
+        "lib/netstandard1.1/Elmah.Io.Client.dll",
+        "lib/netstandard1.4/Elmah.Io.Client.dll"
       ]
     },
     "Faker.Data/1.0.7": {
@@ -8013,6 +8140,21 @@
         "version.txt"
       ]
     },
+    "Microsoft.Rest.ClientRuntime/2.3.10": {
+      "sha512": "JO9CzV1hvjtrIzq06gJ5nNv7GV24Xz3Y3O9vx7fCe7ndNA0NmD3fZ9JUgFir2UvJ2/+9vvCo/6RXjyfywvQQIw==",
+      "type": "package",
+      "path": "microsoft.rest.clientruntime/2.3.10",
+      "files": [
+        "lib/net452/Microsoft.Rest.ClientRuntime.dll",
+        "lib/net452/Microsoft.Rest.ClientRuntime.runtimeconfig.json",
+        "lib/net452/Microsoft.Rest.ClientRuntime.xml",
+        "lib/netstandard1.4/Microsoft.Rest.ClientRuntime.dll",
+        "lib/netstandard1.4/Microsoft.Rest.ClientRuntime.runtimeconfig.json",
+        "lib/netstandard1.4/Microsoft.Rest.ClientRuntime.xml",
+        "microsoft.rest.clientruntime.2.3.10.nupkg.sha512",
+        "microsoft.rest.clientruntime.nuspec"
+      ]
+    },
     "Microsoft.VisualStudio.Web.BrowserLink/2.1.1": {
       "sha512": "6mQC24ZyX1hsTB4PISXmMmq1iUykP9asVl3btWm8WB88KT7EWc/Kq4L5jVnMnWsCoMhaBah47ohO1ve4W9S0Ew==",
       "type": "package",
@@ -8545,6 +8687,101 @@
         "lib/netstandard1.3/Newtonsoft.Json.Bson.xml",
         "newtonsoft.json.bson.1.0.1.nupkg.sha512",
         "newtonsoft.json.bson.nuspec"
+      ]
+    },
+    "NLog/4.5.10": {
+      "sha512": "IXZEFeDj/R3OL6bCcLNVFVFlBxp4zey9X2RdmISG+P9hp0uivIgkN6nBqCIE6yF0dRrUBye84uaD7emNVmqAnQ==",
+      "type": "package",
+      "path": "nlog/4.5.10",
+      "files": [
+        ".signature.p7s",
+        "lib/monoandroid44/NLog.dll",
+        "lib/monoandroid44/NLog.xml",
+        "lib/net35/NLog.dll",
+        "lib/net35/NLog.xml",
+        "lib/net40-client/NLog.dll",
+        "lib/net40-client/NLog.xml",
+        "lib/net45/NLog.dll",
+        "lib/net45/NLog.xml",
+        "lib/netstandard1.3/NLog.dll",
+        "lib/netstandard1.3/NLog.xml",
+        "lib/netstandard1.5/NLog.dll",
+        "lib/netstandard1.5/NLog.xml",
+        "lib/netstandard2.0/NLog.dll",
+        "lib/netstandard2.0/NLog.xml",
+        "lib/sl4/NLog.dll",
+        "lib/sl4/NLog.xml",
+        "lib/sl5/NLog.dll",
+        "lib/sl5/NLog.xml",
+        "lib/wp8/NLog.dll",
+        "lib/wp8/NLog.xml",
+        "lib/xamarinios10/NLog.dll",
+        "lib/xamarinios10/NLog.xml",
+        "nlog.4.5.10.nupkg.sha512",
+        "nlog.nuspec"
+      ]
+    },
+    "NLog.Config/4.5.10": {
+      "sha512": "nOtgd0XfrC+DaiLWG42Kc6tcDpupvOvu/lFYBTpW1igQg2r1L1QKiRdfrNW6eVHfEgTaeMuRfxQA9AgEXp8Crg==",
+      "type": "package",
+      "path": "nlog.config/4.5.10",
+      "files": [
+        ".signature.p7s",
+        "content/NLog.config",
+        "contentFiles/any/any/NLog.config",
+        "nlog.config.4.5.10.nupkg.sha512",
+        "nlog.config.nuspec",
+        "tools/Install.ps1"
+      ]
+    },
+    "NLog.Extensions.Logging/1.3.0": {
+      "sha512": "0LkprrGi/rKoIax6VpHbNCfpnf89PH8C6uOGJDIqAMt/LPdzcFpam1BRVPimJC0gEULLd2tlkovvQXcom+2TtQ==",
+      "type": "package",
+      "path": "nlog.extensions.logging/1.3.0",
+      "files": [
+        ".signature.p7s",
+        "lib/net451/NLog.Extensions.Logging.dll",
+        "lib/net451/NLog.Extensions.Logging.xml",
+        "lib/net461/NLog.Extensions.Logging.dll",
+        "lib/net461/NLog.Extensions.Logging.xml",
+        "lib/netstandard1.3/NLog.Extensions.Logging.dll",
+        "lib/netstandard1.3/NLog.Extensions.Logging.xml",
+        "lib/netstandard1.5/NLog.Extensions.Logging.dll",
+        "lib/netstandard1.5/NLog.Extensions.Logging.xml",
+        "lib/netstandard2.0/NLog.Extensions.Logging.dll",
+        "lib/netstandard2.0/NLog.Extensions.Logging.xml",
+        "nlog.extensions.logging.1.3.0.nupkg.sha512",
+        "nlog.extensions.logging.nuspec"
+      ]
+    },
+    "NLog.Schema/4.5.10": {
+      "sha512": "eFLjmdxZoe57yRuITEcsb7hThseUEb5miW9vXX8Zape3U7wsGGgI51TupB9zqZJclpKQJSJjCPlI9/lMU4mFvg==",
+      "type": "package",
+      "path": "nlog.schema/4.5.10",
+      "files": [
+        ".signature.p7s",
+        "content/NLog.xsd",
+        "contentFiles/any/any/NLog.xsd",
+        "nlog.schema.4.5.10.nupkg.sha512",
+        "nlog.schema.nuspec"
+      ]
+    },
+    "NLog.Web.AspNetCore/4.7.0": {
+      "sha512": "QHT1QfyGYselgNVY23KI8tL3rwgWH8Xkb37x0DsDB3sW0fYVHyvxoWZIp8AkYH75zNFZnMTROAChDRuNTwUG3Q==",
+      "type": "package",
+      "path": "nlog.web.aspnetcore/4.7.0",
+      "files": [
+        ".signature.p7s",
+        "lib/net451/NLog.Web.AspNetCore.dll",
+        "lib/net451/NLog.Web.AspNetCore.xml",
+        "lib/net461/NLog.Web.AspNetCore.dll",
+        "lib/net461/NLog.Web.AspNetCore.xml",
+        "lib/netstandard1.5/NLog.Web.AspNetCore.dll",
+        "lib/netstandard1.5/NLog.Web.AspNetCore.xml",
+        "lib/netstandard2.0/NLog.Web.AspNetCore.dll",
+        "lib/netstandard2.0/NLog.Web.AspNetCore.xml",
+        "nlog.web.aspnetcore.4.7.0.nupkg.sha512",
+        "nlog.web.aspnetcore.nuspec"
       ]
     },
     "NuGet.Frameworks/4.7.0": {
@@ -13892,6 +14129,7 @@
       "CrossCutting >= 1.0.0",
       "DependencyInjecionResolver >= 1.0.0",
       "DomainModel >= 1.0.0",
+      "Elmah.Io.AspNetCore >= 3.5.59",
       "LigerShark.WebOptimizer.Core >= 1.0.215",
       "Microsoft.AspNetCore.App >= 2.1.1",
       "Microsoft.AspNetCore.Authentication.Cookies >= 2.1.2",
@@ -13906,6 +14144,7 @@
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.1.4",
       "MiniProfiler.AspNetCore.Mvc >= 4.0.138",
       "NBuilder >= 6.0.0",
+      "NLog.Web.AspNetCore >= 4.7.0",
       "PostSharp >= 6.0.27",
       "ServiceInterface >= 1.0.0",
       "System.Data.SqlClient >= 4.6.0-preview2-26905-02",
@@ -13992,6 +14231,10 @@
             "target": "Package",
             "version": "[1.0.19, )"
           },
+          "Elmah.Io.AspNetCore": {
+            "target": "Package",
+            "version": "[3.5.59, )"
+          },
           "LigerShark.WebOptimizer.Core": {
             "target": "Package",
             "version": "[1.0.215, )"
@@ -14050,6 +14293,10 @@
           "NBuilder": {
             "target": "Package",
             "version": "[6.0.0, )"
+          },
+          "NLog.Web.AspNetCore": {
+            "target": "Package",
+            "version": "[4.7.0, )"
           },
           "PostSharp": {
             "target": "Package",

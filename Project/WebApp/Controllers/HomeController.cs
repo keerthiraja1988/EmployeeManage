@@ -29,10 +29,8 @@ namespace WebApp.Controllers
             _IUserAccountService = iUserAccountService;
         }
 
-        [NlogTrace]
         public IActionResult Index()
         {
-
             var testValue = this._IUserAccountService.GetTestValue();
             var str = Configuration.GetValue<string>("ApplicationsSetting:SQLConnection");
             ViewBag.AppSQLConfig = Configuration.GetValue<string>("ApplicationsSetting:SQLConnection")

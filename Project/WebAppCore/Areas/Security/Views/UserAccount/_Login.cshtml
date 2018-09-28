@@ -9,8 +9,8 @@
               method="POST" data-ajax="true"
               data-ajax-begin="onBeginLoginForm" data-ajax-complete="onCompleteLoginForm"
               data-ajax-failure="onFailedLoginForm" data-ajax-success="onSuccessLoginForm"
-            
-              data-ajax-update="divLogin">
+                  asp-route-returnUrl="@Context.Request.Path"
+              data-ajax-update="divLogin" >
             <!-- form content-->
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12  pt-3">
