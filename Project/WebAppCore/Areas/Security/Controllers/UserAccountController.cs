@@ -9,6 +9,7 @@ using CrossCutting.Logging;
 using DomainModel;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -21,7 +22,6 @@ using WebAppCore.Models;
 namespace WebAppCore.Areas.Security.Controllers
 {
     [Area("Security")]
-    //[HandleException]
     [NLogging]
     public class UserAccountController : Controller
     {
@@ -85,7 +85,10 @@ namespace WebAppCore.Areas.Security.Controllers
                 {
                 new Claim(ClaimTypes.Name, userAccountReturn.LastName + " " + userAccountReturn.FirstName),
                 new Claim ( "http://example.org/claims/UserName", "UserName", userAccountReturn.UserName),
-                new Claim(ClaimTypes.NameIdentifier , userAccountReturn.UserId.ToString()),
+                new Claim ( "http://example.org/claims/FirstName", "FirstName", userAccountReturn.FirstName),
+                new Claim ( "http://example.org/claims/LastName", "LastName", userAccountReturn.LastName),
+
+                    new Claim(ClaimTypes.NameIdentifier , userAccountReturn.UserId.ToString()),
                 new Claim("http://example.org/claims/LoggedInTime", "LoggedInTime", DateTime.Now.ToString()),
                 new Claim(ClaimTypes.Email, userAccountReturn.Email),
             };
@@ -142,7 +145,8 @@ namespace WebAppCore.Areas.Security.Controllers
             return Json(partialViewHtml);
         }
 
-        public async Task<IActionResult> Logout()
+        [Authorize]
+        public async Task<IActionResult> Logout(string returnUrl = null)
         {
             var cookieAvailable = CookieAuthenticationDefaults.AuthenticationScheme;
             if (cookieAvailable != null)
@@ -152,17 +156,29 @@ namespace WebAppCore.Areas.Security.Controllers
             return Redirect("/UserAccount");
         }
 
-        
+        [Route("AccessDenied")]
+        [HttpGet]
+       // [Authorize]
+        public async Task<IActionResult> AccessDenied()
+        {
+            return await Task.Run(() => View("AccessDenied"));
+        }
+
         [HttpPost]
-        [Roles("Basic")]
+        [Authorize]
         public async Task<IActionResult> GetLoggedInUserDetails()
         {
             var getUserDetailsTask = Task.Run(() => this.User.GetLoggedInUserDetails());
             var loggedInUserDetails = await getUserDetailsTask;
             LoggedInUserDetailsViewModel loggedInUserDetailsViewModel = new LoggedInUserDetailsViewModel();
-            loggedInUserDetailsViewModel.FirstName = loggedInUserDetails.UserName;
+            loggedInUserDetailsViewModel.UserName = loggedInUserDetails.UserName;
+            loggedInUserDetailsViewModel.FirstName = loggedInUserDetails.FirstName;
+            loggedInUserDetailsViewModel.LastName = loggedInUserDetails.LastName;
+            loggedInUserDetailsViewModel.UserId = loggedInUserDetails.UserId;
+            loggedInUserDetailsViewModel.UserRoles = loggedInUserDetails.UserRoles;
+            loggedInUserDetailsViewModel.Email = loggedInUserDetails.Email;
 
-           // return await Task.Run(() => PartialView("_LoggedInUserDetails", loggedInUserDetailsViewModel));
+            // return await Task.Run(() => PartialView("_LoggedInUserDetails", loggedInUserDetailsViewModel));
 
             string partialViewHtml = await this.RenderViewAsync("_LoggedInUserDetails", loggedInUserDetailsViewModel, true);
 

@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewData["Title"] = "AccessDenied";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+
+    <div class="col-md-12">
+        <div class="error-template text-center">
+            <h1 class="display-1" style=" color: #e21212; font-size:larger;font-size: 165px;">
+                <i class="fas fa-exclamation-triangle"></i>
+            </h1>
+           
+            <h1 class="display-4">
+                Access Denied!
+            </h1>
+            <div  class="error-details pt-3 ">
+                Access to the requested page has been denied due to in-sufficient access.
+            </div>
+
+            <div class="error-details pt-1">
+                Please contact system administrator for requesting access.
+            </div>
+            <div class="error-actions pt-4">
+                <a href="\Home" class="btn btn-primary btn-lg">
+                    <i class="fas fa-home"></i>
+                    Take Me Home
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

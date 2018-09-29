@@ -28,14 +28,19 @@
                   
                 },
                 success: function (data) {
-                    debugger;
-                    //$("#globalHTMLAppender").append(data.toString());
-                    //$("#_RegisterPartialViewDiv").html(data);
                     $("#globalHTMLAppender").html(data);
                 }
             });
 
         }
+
+        publicMethod.Response404Error = function (httpObj, data) {
+          
+            var urll = "\AccessDenied";
+           
+            window.location.href = urll;
+        }
+
 
     }(window.JsMain = window.JsMain || {}, jQuery)
 );

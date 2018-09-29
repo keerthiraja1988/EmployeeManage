@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO.Compression;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
@@ -30,11 +31,16 @@ using static DependencyInjecionResolver.DependencyInjecionResolver;
 namespace WebAppCore
 {
 
+    
+
 
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        private readonly ILogger<Startup> _logger;
+
+        public Startup(IConfiguration configuration, ILogger<Startup> logger)
         {
+            _logger = logger;
             Configuration = configuration;
 
             List<ApplicationConfigModel> applicationConfigs = new List<ApplicationConfigModel>();
@@ -85,22 +91,25 @@ namespace WebAppCore
             })
                    .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, options =>
                    {
-                       options.AccessDeniedPath = new PathString("/Security/Access");
+                       options.AccessDeniedPath = new PathString("/AccessDenied");
                        options.LoginPath = new PathString("/UserAccount");
                        options.ExpireTimeSpan = TimeSpan.FromSeconds(600);
                        options.SlidingExpiration = true;
-                   });
+                    
+                       options.Events = new CookieAuthenticationEvents()
+                       {
+                           
 
-            //services.AddAuthorization(options =>
-            //{
-            //    options.AddPolicy("AllScreenFullAccessPolicy",
-            //                    policy => policy.RequireClaim(
-            //                       "SuperUser",
-            //                        "Admin",
-            //                        "Manager",
-            //                        "Supervisor"
-            //                        ));
-            //});
+                           OnRedirectToAccessDenied = (ctx) =>
+                           {
+                               var request = ctx.HttpContext.Request.Path;
+                               _logger.LogError("Access Denied to Path"+
+                                                request.Value);
+                               ctx.Response.Redirect(ctx.RedirectUri);
+                               return Task.CompletedTask;
+                           }
+                       };
+                   });
 
             ConfigureMiniProfier(services);
 

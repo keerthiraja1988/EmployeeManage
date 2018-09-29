@@ -9,9 +9,6 @@
 
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
 
-    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
     <link rel="stylesheet" href="~/css/site.css" />
 
     <link rel="stylesheet" href="~/lib/JqueryUI/jquery-ui.min.css" />
@@ -34,7 +31,7 @@
 
 
     @*<link href="https://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common-bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="https://kendo.cdn.telerik.com/2018.3.911/styles/kendo.bootstrap.min.css" rel="stylesheet" type="text/css" />*@
+        <link href="https://kendo.cdn.telerik.com/2018.3.911/styles/kendo.bootstrap.min.css" rel="stylesheet" type="text/css" />*@
     <link href="~/lib/kendo-ui/all.css" rel="stylesheet" type="text/css" />
 
     <script src="https://kendo.cdn.telerik.com/2018.3.911/js/jszip.min.js"></script>
@@ -51,6 +48,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/aes.min.js"></script>
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jsnlog/2.24.0/jsnlog.min.js'></script>
+
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js" integrity="sha384-kW+oWsYx3YpxvjtZjFXqazFpA7UP/MbiY4jvs+RWZo2+N94PFZ36T6TFkc9O3qoB" crossorigin="anonymous"></script>
 
     <script>
 
@@ -102,14 +101,14 @@
     z-index: 1031;
     height: 80px;
     width: 100px; padding-left:10px" />
-    <nav class="navbar navbar-expand-lg  navbar-dark bg-primary fixed-top
-         "
+    <nav class="navbar navbar-expand-lg  navbar-dark bg-primary fixed-top pt-0 pb-0"
          style=" box-shadow: 1px 3px 3px 0px rgba(105, 24, 24, 0.37);">
 
-        <a class="navbar-brand" href=""
+        <a class="navbar-brand" href="\"
            style="padding-left: 95px;">HR Management</a>
         <!-- Navbar content -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -157,15 +156,22 @@
 
             @if (User.Identity.IsAuthenticated)
             {
-                <a style="color:white" onclick="JsMain.GetLoggedInUserDetails('@Url.Action("GetLoggedInUserDetails", "UserAccount",  new { Area = "Security" })')" title="Manage">Hello @User.Identity.Name!</a>
+            <a style="color:white; background-color:#15134e" onclick="JsMain.GetLoggedInUserDetails('@Url.Action("GetLoggedInUserDetails", "UserAccount",  new { Area = "Security" })')"
+               class="btn btn-primary"  title="Manage">
+                Hello <span class="blockquote">@User.Identity.Name!</span>
+            </a>
 
-                <form asp-area="Security" asp-controller="UserAccount" asp-action="Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })" method="post" id="logoutForm" class="navbar-right">
+                <form 
+                    asp-area="Security" asp-controller="UserAccount" asp-action="Logout" 
+                    onclick="JsMain.ShowLoaddingIndicator()"
+                    asp-route-returnUrl="@Url.Action("Index", "UserAccount", new { area = "UserAccount" })"
+                            method="post" id="logoutForm" class="navbar-right">
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="mt-2">
-
-                        </li>
+                        
                         <li>
-                            <button type="submit" style="color:white" class="btn btn-link navbar-btn navbar-link">Logout</button>
+                            <button type="submit" style="box-shadow: 0 1px 4px rgb(0, 0, 0);color:sandybrown;padding-right: 14px;margin-left: 9px;" class="btn btn-primary">
+                                <i style="font-size: 20px;margin-top: 6px;margin-left: 0px;margin-right: 2px;" class="fas fa-power-off"></i>
+                            </button>
                         </li>
                     </ul>
                 </form>

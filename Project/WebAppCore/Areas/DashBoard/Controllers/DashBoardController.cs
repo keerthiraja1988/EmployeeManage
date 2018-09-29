@@ -5,21 +5,19 @@ using System.Threading.Tasks;
 using CrossCutting.Logging;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using WebAppCore.Infrastructure.Filters;
 
 namespace WebAppCore.Areas.DashBoard.Controllers
 {
-    [Authorize]
+    [Roles("SuperUser")]
     [Area("DashBoard")]
     [NLogging]
     public class DashBoardController : Controller
     {
         [Route("")]
         [Route("Home")]
-      
         public IActionResult Index()
         {
-           // throw new Exception();
-
            return View("Index");
         }
     }

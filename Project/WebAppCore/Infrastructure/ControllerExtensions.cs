@@ -1,7 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.ViewEngines;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
+using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -14,7 +17,8 @@ namespace WebAppCore.Infrastructure
     public static class ControllerExtensions
     {
 
-        public async static Task<(int UserId, string UserName, string Email, List<string> UserRoles, DateTime LoggedInTime)>
+        public async static Task<(int UserId, string UserName, string FirstName, string LastName,
+            string Email, List<string> UserRoles, DateTime LoggedInTime)>
             GetLoggedInUserDetails(this ClaimsPrincipal principal)
         {
             if (principal == null)
@@ -22,12 +26,14 @@ namespace WebAppCore.Infrastructure
 
             var userId = Convert.ToInt32(principal.FindFirst(ClaimTypes.NameIdentifier)?.Value);
             var userName = principal.Claims.Where(w => w.Value == "UserName").FirstOrDefault().ValueType;
+            var firstName = principal.Claims.Where(w => w.Value == "FirstName").FirstOrDefault().ValueType;
+            var lastName = principal.Claims.Where(w => w.Value == "LastName").FirstOrDefault().ValueType;
             var email = principal.FindFirst(ClaimTypes.Email)?.Value.ToString();
             var loggedInTime = Convert.ToDateTime(
                             principal.Claims.Where(w => w.Value == "LoggedInTime")
                             .FirstOrDefault().ValueType);
             var userRoles = principal.FindAll(ClaimTypes.Role).Select(s => s.Value).ToList();
-            return (userId, userName, email, userRoles, loggedInTime);
+            return (userId, userName, firstName, lastName, email, userRoles, loggedInTime);
         }
 
         public static async Task<string> RenderViewAsync<TModel>(this Controller controller, string viewName, TModel model, bool partial = false)
@@ -65,3 +71,4 @@ namespace WebAppCore.Infrastructure
         }
     }
 }
+

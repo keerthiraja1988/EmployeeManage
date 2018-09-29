@@ -137,7 +137,12 @@
 
              },
              complete: function (data) {
-            },
+             },
+             error: function (httpObj, data) {
+                 if (httpObj.status == 401) {
+                     JsMain.Response404Error(httpObj, data);
+                 }
+             },
              success: function (data) {
                  $("#_RegisterPartialViewDiv").html(data);
                  $("#registerPassword").val("password");

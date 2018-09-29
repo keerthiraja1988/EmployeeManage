@@ -43,8 +43,10 @@ C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\Razor\Areas\EmployeeManage\Views\EmployeeManage\_EmployeeSearchDetails.g.cshtml.cs
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\Razor\Areas\EmployeeManage\Views\_ViewImports.g.cshtml.cs
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\Razor\Areas\EmployeeManage\Views\_ViewStart.g.cshtml.cs
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\Razor\Areas\Security\Views\UserAccount\AccessDenied.g.cshtml.cs
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\Razor\Areas\Security\Views\UserAccount\Index.g.cshtml.cs
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\Razor\Areas\Security\Views\UserAccount\Login.g.cshtml.cs
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\Razor\Areas\Security\Views\UserAccount\_LoggedInUserDetails.g.cshtml.cs
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\Razor\Areas\Security\Views\UserAccount\_Login.g.cshtml.cs
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\Razor\Areas\Security\Views\UserAccount\_Register.g.cshtml.cs
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\Razor\Areas\Security\Views\UserAccount\_RegistrationSuccess.g.cshtml.cs
@@ -71,4 +73,3 @@ C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\WebAppCore.dll
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\WebAppCore.pdb
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\PostSharp\postsharp.app.config
-C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\Razor\Areas\Security\Views\UserAccount\_LoggedInUserDetails.g.cshtml.cs
