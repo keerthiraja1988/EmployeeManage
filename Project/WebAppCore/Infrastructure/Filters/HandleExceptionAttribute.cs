@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
@@ -9,6 +10,9 @@ using System.Threading.Tasks;
 
 namespace WebAppCore.Infrastructure.Filters
 {
+
+
+
     public class HandleExceptionAttribute : ExceptionFilterAttribute
     {
         public override void OnException(ExceptionContext context)

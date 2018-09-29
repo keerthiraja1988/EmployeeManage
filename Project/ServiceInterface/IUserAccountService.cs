@@ -1,5 +1,6 @@
 ﻿using DomainModel;
 using System;
+using System.Collections.Generic;
 
 namespace ServiceInterface
 {
@@ -11,7 +12,7 @@ namespace ServiceInterface
 
         UserAccountModel GetAutoGenetaratedUserData();
 
-        UserAccountModel ValidateUserLogin(UserAccountModel userAccountModel);
+        (UserAccountModel UserAccount, List<UserRolesModel> UserRoles) ValidateUserLogin(UserAccountModel userAccountModel);
 
     }
 }

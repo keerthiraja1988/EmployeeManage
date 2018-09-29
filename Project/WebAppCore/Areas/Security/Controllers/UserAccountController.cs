@@ -39,7 +39,7 @@ namespace WebAppCore.Areas.Security.Controllers
 
         [Route("UserAccount")]
         [HttpGet]
-      
+
         public async Task<IActionResult> UserAccount(string redirectUrl)
         {
             //throw new Exception();
@@ -60,40 +60,54 @@ namespace WebAppCore.Areas.Security.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(UserLoginViewModel userLoginViewModel, string ReturnUrl)
         {
-
             var cookieAvailable = CookieAuthenticationDefaults.AuthenticationScheme;
 
             if (cookieAvailable != null)
             {
                 await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-
             }
             if (!ModelState.IsValid)
             {
                 return await Task.Run(() => PartialView("_Login", userLoginViewModel));
             }
+
             var userAccount = _mapper.Map<UserAccountModel>(userLoginViewModel);
-            var userAccountReturn = this._IUserAccountService.ValidateUserLogin(userAccount);
+            var validateUserLoginResult = this._IUserAccountService.ValidateUserLogin(userAccount);
+
+            UserAccountModel userAccountReturn = new UserAccountModel();
+            List<UserRolesModel> userRoles = new List<UserRolesModel>();
+            userAccountReturn = validateUserLoginResult.UserAccount;
+            userRoles = validateUserLoginResult.UserRoles;
+
             if (userAccountReturn.IsLoginSuccess)
             {
                 List<Claim> claims = new List<Claim>
-            {
+                {
                 new Claim(ClaimTypes.Name, userAccountReturn.LastName + " " + userAccountReturn.FirstName),
-                new Claim(ClaimTypes.Email, userAccountReturn.Email)
+                new Claim ( "http://example.org/claims/UserName", "UserName", userAccountReturn.UserName),
+                new Claim(ClaimTypes.NameIdentifier , userAccountReturn.UserId.ToString()),
+                new Claim("http://example.org/claims/LoggedInTime", "LoggedInTime", DateTime.Now.ToString()),
+                new Claim(ClaimTypes.Email, userAccountReturn.Email),
             };
+
+                if (userRoles != null && userRoles.Count > 0)
+                {
+                    foreach (var item in userRoles)
+                    {
+                        claims.Add(new Claim(ClaimTypes.Role, item.RoleName));
+                    }
+                }
 
                 var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
 
                 // create principal
                 ClaimsPrincipal principal = new ClaimsPrincipal(identity);
-
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
                 return Json(new { newUrl = Url.Action("Index", "DashBoard", new { area = "DashBoard" }) });
             }
             else
             {
                 return Json(new { newUrl = "LoginFailed" });
-
             }
         }
 
@@ -138,6 +152,6 @@ namespace WebAppCore.Areas.Security.Controllers
             return Redirect("/UserAccount");
         }
 
-        
+
     }
 }

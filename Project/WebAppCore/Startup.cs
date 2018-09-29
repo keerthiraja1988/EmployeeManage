@@ -9,6 +9,7 @@ using AutoMapper;
 using CrossCutting.Caching;
 using CrossCutting.Logging;
 using DomainModel;
+using JSNLog;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -90,6 +91,17 @@ namespace WebAppCore
                        options.SlidingExpiration = true;
                    });
 
+            //services.AddAuthorization(options =>
+            //{
+            //    options.AddPolicy("AllScreenFullAccessPolicy",
+            //                    policy => policy.RequireClaim(
+            //                       "SuperUser",
+            //                        "Admin",
+            //                        "Manager",
+            //                        "Supervisor"
+            //                        ));
+            //});
+
             ConfigureMiniProfier(services);
 
             ConfigureWebOptimer(services);
@@ -141,7 +153,12 @@ namespace WebAppCore
             app.UseAuthentication();
 
             // app.UseWebMarkupMin();
-           
+
+            var jsnlogConfiguration = new JsnlogConfiguration();
+
+            app.UseJSNLog(new LoggingAdapter(loggerFactory), jsnlogConfiguration);
+          
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

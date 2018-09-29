@@ -9,6 +9,6 @@ namespace ServiceInterface
     {
         UserAccountModel GenerateHashAndSaltForPassword(UserAccountModel userAccountModel);
 
-        UserAccountModel ValidateUserLoginAndCredential(UserAccountModel userAccountModel);
+        (UserAccountModel UserAccount, List<UserRolesModel> UserRoles)ValidateUserLoginAndCredential(UserAccountModel userAccountModel);
     }
 }

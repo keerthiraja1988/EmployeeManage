@@ -98,16 +98,10 @@ namespace ServiceConcrete
        
         public async Task<List<EmployeeModel>> GetEmployeesDetails()
         {
-           
-
             List<EmployeeModel> employeeDetails = new List<EmployeeModel>();
             employeeDetails = await Task.Run(() => this._IEmployeeManageRepository.GetEmployeesDetails().Result);
-
-           
-
+            //throw new Exception();
             return employeeDetails;
-
-           
         }
 
     }

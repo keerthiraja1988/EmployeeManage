@@ -11,42 +11,43 @@ using Kendo.Mvc.UI;
 using Kendo.Mvc.Extensions;
 using WebAppCore.Areas.EmployeeManage.Models;
 using CrossCutting.Logging;
+using WebAppCore.Infrastructure.Filters;
+using WebAppCore.Infrastructure;
 
 namespace WebAppCore.Areas.EmployeeManage.Controllers
 {
-    [Authorize]
     [Area("EmployeeManage")]
-   [NLogging]
+    [NLogging]
+    [Roles("SuperUser", "Admin")]
     public class EmployeeManageController : Controller
     {
         public IEmployeeManageService _IEmployeeManageService { get; set; }
-        public IConfiguration Configuration { get; set; }
+        public IConfiguration _configuration { get; set; }
 
         private readonly IMapper _mapper;
         public EmployeeManageController(IConfiguration iConfig, IEmployeeManageService iEmployeeManageService
             , IMapper mapper)
         {
             _mapper = mapper;
-            Configuration = iConfig;
+            _configuration = iConfig;
             _IEmployeeManageService = iEmployeeManageService;
         }
 
-
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-
-            //var vvv = this._IEmployeeManageService.LoadEmployeeData();
-
+            var getUserDetailsTask = Task.Run(() => this.User.GetLoggedInUserDetails());
+            var loggedInUserDetails = await getUserDetailsTask;
             return View();
         }
+
         [Route("GetEmployeeDetails")]
         public async Task<IActionResult> Products_Read([DataSourceRequest] DataSourceRequest request)
         {
             var employeeDetails = await this._IEmployeeManageService.GetEmployeesDetails();
             List<EmployeeViewModel> EmployeesViewModel = new List<EmployeeViewModel>();
 
-            EmployeesViewModel =  _mapper.Map<List<EmployeeViewModel>>(employeeDetails);
-          //  throw new Exception();
+            EmployeesViewModel = _mapper.Map<List<EmployeeViewModel>>(employeeDetails);
+
             return Json(EmployeesViewModel.ToDataSourceResult(request));
         }
     }

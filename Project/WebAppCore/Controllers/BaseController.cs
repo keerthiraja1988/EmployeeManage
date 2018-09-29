@@ -28,15 +28,13 @@ namespace WebAppCore.Controllers
         {
             return Json("Test");
         }
+               
 
         [AcceptVerbs("Get", "Post")]
         public async Task<IActionResult> Foo(string name)
         {
-            //bool exists = false;
-            //if (exists)
-            //    return Json(data: false);
-            //else
-                return Json(data: true);
+
+            return Json(data: true);
         }
 
     }

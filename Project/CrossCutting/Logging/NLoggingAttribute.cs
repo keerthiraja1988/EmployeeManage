@@ -52,7 +52,7 @@ namespace CrossCutting.Logging
         {
           
             var connectionString = CrossCutting.Caching.Caching.Instance.GetApplicationConfigs("DBConnection");
-            var tableName = "ApplicationLogs";
+            var tableName = "LogsApplicationTrace";
             var columnOptions = new ColumnOptions();  // optional
 
             Logger = new LoggerConfiguration()

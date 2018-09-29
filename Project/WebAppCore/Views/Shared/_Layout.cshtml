@@ -48,7 +48,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/aes.min.js"></script>
 
-
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jsnlog/2.24.0/jsnlog.min.js'></script>
 
     <script>
 
@@ -57,6 +57,12 @@
 
 
         });
+
+        window.onerror = function (msg, url, line) {
+            var message = "JsErrorId!%$*: "+ "Error in " + url + " on line " + line + ": " + msg;
+            JL("JSError.WebAppCore").error(message);
+           
+        };
 
     </script>
     @*<environment exclude="Development">
@@ -197,11 +203,14 @@
                     $('#loadingIconModal').fadeOut(500, function () {
                         $('#loadingIconModal').modal('hide');
                     });
-
+        
                     //do something special
                 }, 500);
         });
+                    
 
+
+        
     </script>
 
     @RenderSection("Scripts", required: false)

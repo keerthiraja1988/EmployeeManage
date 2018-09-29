@@ -111,7 +111,7 @@ namespace WebApp
             // Add Kendo UI services to the services container
             services.AddKendo();
 
-            services.AddScoped<NlogTraceAttribute>();
+            //services.AddScoped<NlogTraceAttribute>();
 
 
             var sqlConnection = Configuration.GetValue<string>("ApplicationsSetting:SQLConnection");

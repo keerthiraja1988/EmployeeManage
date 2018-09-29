@@ -1,6 +1,7 @@
 ﻿using DomainModel;
 using Insight.Database;
 using System;
+using System.Collections.Generic;
 
 namespace Repository
 {
@@ -12,7 +13,7 @@ namespace Repository
         [Sql("P_RegisterNewUser")]
         bool RegisterNewUser(UserAccountModel userAccountModel);
 
-        [Sql("P_GetUserDetailsForLogin")]
-        UserAccountModel GetUserDetailsForLogin(UserAccountModel userAccountModel);
+        [Sql("P_GetUserDetailsForLogin")]      
+        Results<UserAccountModel, UserRolesModel> GetUserDetailsForLogin(UserAccountModel userAccountModel);
     }
 }
