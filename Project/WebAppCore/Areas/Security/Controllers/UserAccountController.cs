@@ -152,6 +152,24 @@ namespace WebAppCore.Areas.Security.Controllers
             return Redirect("/UserAccount");
         }
 
+        
+        [HttpPost]
+        [Roles("Basic")]
+        public async Task<IActionResult> GetLoggedInUserDetails()
+        {
+            var getUserDetailsTask = Task.Run(() => this.User.GetLoggedInUserDetails());
+            var loggedInUserDetails = await getUserDetailsTask;
+            LoggedInUserDetailsViewModel loggedInUserDetailsViewModel = new LoggedInUserDetailsViewModel();
+            loggedInUserDetailsViewModel.FirstName = loggedInUserDetails.UserName;
+
+           // return await Task.Run(() => PartialView("_LoggedInUserDetails", loggedInUserDetailsViewModel));
+
+            string partialViewHtml = await this.RenderViewAsync("_LoggedInUserDetails", loggedInUserDetailsViewModel, true);
+
+            return Json(partialViewHtml);
+
+        }
+
 
     }
 }

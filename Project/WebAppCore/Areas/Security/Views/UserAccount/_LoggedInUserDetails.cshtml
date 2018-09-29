@@ -1,0 +1,77 @@
+﻿@model WebAppCore.Areas.Security.Models.LoggedInUserDetailsViewModel
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form asp-area="Security" asp-controller="UserAccount" asp-action="RegisterUser"
+                      method="POST" data-ajax="true"
+                      data-ajax-begin="onBeginRegisterForm" data-ajax-complete="onCompleteRegisterForm"
+                      data-ajax-failure="onFailedRegisterForm" data-ajax-success="onSuccessRegisterForm"
+                      data-ajax-update="divRegisterUser" id="formRegisterUser">
+                    <!-- form content-->
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6  pt-3">
+                            <label asp-for="UserName"></label><span> *</span>
+
+                            <input asp-for="UserName" id="registerUserName" data-val="true" type="text"
+                                   placeholder="Enter User Name" class="form-control" />
+                            <small>
+                                <span asp-validation-for="UserName" id="registerUserNameVal" class="text-danger"></span>
+                            </small>
+
+                        </div>
+
+                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6  pt-3">
+                            <label asp-for="Email"></label><span> *</span>
+                            <input asp-for="Email" id="registerEmailId" data-val="true" type="text"
+                                   placeholder="Enter Email Id" class="form-control" />
+                            <small>
+                                <span asp-validation-for="Email" id="registerEmailIdVal" class="text-danger"></span>
+                            </small>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6  pt-3">
+                            <label asp-for="FirstName"></label><span> *</span>
+                            <input asp-for="FirstName" id="registerFirstName" data-val="true" type="text"
+                                   placeholder="Enter First Name" class="form-control" />
+                            <small>
+                                <span asp-validation-for="FirstName" id="registerFirstNameVal" class="text-danger"></span>
+                            </small>
+                        </div>
+
+                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6  pt-3">
+                            <label asp-for="LastName"></label><span> *</span>
+                            <input asp-for="LastName" id="registerLastName" data-val="true" type="text"
+                                   placeholder="Enter Last Name" class="form-control" />
+                            <small>
+                                <span asp-validation-for="LastName" id="registerLastNameVal" class="text-danger"></span>
+                            </small>
+                        </div>
+                    </div>
+
+
+                    <div id="Results"></div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+   
