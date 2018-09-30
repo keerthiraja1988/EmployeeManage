@@ -12,7 +12,7 @@ using AutoMapper;
 using CrossCutting.Caching;
 using CrossCutting.Logging;
 using DomainModel;
-using Hangfire;
+
 using JSNLog;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
@@ -68,8 +68,7 @@ namespace WebAppCore
 
             services.AddHostedService<TimedHostedService>();
 
-            services.AddHangfire(x => x.UseSqlServerStorage("Data Source=.;Initial Catalog=HangfireDB;Integrated Security=True"));
-            // Maintain property names during serialization. See:
+             // Maintain property names during serialization. See:
             // https://github.com/aspnet/Announcements/issues/194
             services
                 .AddMvc()
@@ -138,11 +137,7 @@ namespace WebAppCore
             )
         {
             
-            app.UseHangfireServer();
-            app.UseHangfireDashboard("/hangfire");
-
-            RecurringJob.AddOrUpdate("CheckStudentAgeJob",
-                           () => new CheckStudentAgeJob().Execute(), Cron.Minutely);
+          
 
             // ...existing configuration...
             app.UseMiniProfiler();

@@ -1,5 +1,5 @@
 ﻿
-@model WebAppCore.Areas.DashBoard.Models.DashBoardRow1Widgets
+@model WebAppCore.Areas.DashBoard.Models.DashBoardRow1WidgetsViewModel
 
 <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 pl-0 pr-2 pt-0 pb-0 mb-2"
      id="divDashBoardRow1WidgetEmployeeDetails">
@@ -26,7 +26,7 @@
                     <small class="" style="">Employees Created Today :</small>
                 </div>
                 <div class="col-4 d-flex justify-content-start">
-                    @Model.NoOfEmployeesCreatedToday
+                    <small class="" style="">@Model.NoOfEmployeesCreatedToday</small>  
                 </div>
             </div>
             <div class="row">
@@ -34,7 +34,7 @@
                     <small class="" style="">Pending Authrization :</small>
                 </div>
                 <div class="col-4 d-flex justify-content-start">
-                    @Model.NoOfEmployeesPendingAuth
+                    <small class="" style="">@Model.NoOfEmployeesPendingAuth</small>
                 </div>
             </div>
         </div>
@@ -51,7 +51,9 @@
             </div>
 
             <div class="row justify-content-center">
-                <h1 class="display-4 mb-0" style="font-size:45px ; line-height: 1.1;">60</h1>
+                <h1 class="display-4 mb-0" style="font-size:45px ; line-height: 1.1;">
+                    @Model.TodayNoOfApplicationErrors
+                </h1>
 
             </div>
             <div style="font-size:14px" class="row justify-content-center">
@@ -60,19 +62,20 @@
         </div>
         <div class="card-body pb-0 pt-0 pr-0 pl-0">
             <div class="row">
-                <div class="col-7 d-flex justify-content-end">
-                    <small class="" style="">Error Last Logged :</small>
+                <div class="col-5 d-flex justify-content-end">
+                    <small class="" style="">Last Logged :</small>
                 </div>
-                <div class="col-5 d-flex justify-content-start">
-                    12-5
+                <div class="col-7 d-flex justify-content-start">
+                    <small class="" style="">@Model.ErrorLastLoggedOn</small>
+
                 </div>
             </div>
             <div class="row">
-                <div class="col-7 d-flex justify-content-end">
-                    <small class="" style="">Total No. of Errors :</small>
+                <div class="col-5 d-flex justify-content-end">
+                    <small class="" style="">Total Errors :</small>
                 </div>
-                <div class="col-5 d-flex justify-content-start">
-                    4569
+                <div class="col-7 d-flex justify-content-start">
+                    <small class="" style="">@Model.TotalNoOfApplicationErrors</small>
                 </div>
             </div>
         </div>
@@ -90,7 +93,9 @@
             </div>
 
             <div class="row justify-content-center">
-                <h1 class="display-4 mb-0" style="font-size:45px ; line-height: 1.1;">6</h1>
+                <h1 class="display-4 mb-0" style="font-size:45px ; line-height: 1.1;">
+                    @Model.TotalNoOfServicesScheduled
+                </h1>
 
             </div>
             <div style="font-size:14px" class="row justify-content-center">
@@ -99,19 +104,19 @@
         </div>
         <div class="card-body pb-0 pt-0 pr-0 pl-0">
             <div class="row">
-                <div class="col-6 d-flex justify-content-end">
+                <div class="col-5 d-flex justify-content-end">
                     <small class="" style="">Last Checked :</small>
                 </div>
-                <div class="col-6 d-flex justify-content-start">
-                    20-56-8955
+                <div class="col-7 d-flex justify-content-start">
+                    <small class="" style="">@Model.ServicesLastChecked</small>
                 </div>
             </div>
             <div class="row">
-                <div class="col-6 d-flex justify-content-end">
+                <div class="col-5 d-flex justify-content-end">
                     <small class="" style="">Services Down :</small>
                 </div>
-                <div class="col-6 d-flex justify-content-start">
-                    0
+                <div class="col-7 d-flex justify-content-start">
+                    <small class="" style="">@Model.TotalNoOfServicesDown</small>
                 </div>
             </div>
         </div>
@@ -131,7 +136,9 @@
             </div>
 
             <div class="row justify-content-center">
-                <h1 class="display-4 mb-0" style="font-size:45px ; line-height: 1.1;">6</h1>
+                <h1 class="display-4 mb-0" style="font-size:45px ; line-height: 1.1;">
+                    @Model.TotalNoOfApplicationUsers
+                </h1>
 
             </div>
             <div style="font-size:14px" class="row justify-content-center">
@@ -144,7 +151,7 @@
                     <small class="" style="">Active Users :</small>
                 </div>
                 <div class="col-6 d-flex justify-content-start">
-                   42
+                    <small class="" style="">@Model.NoOfActiveUsers</small>
                 </div>
             </div>
             <div class="row">
@@ -152,7 +159,7 @@
                     <small class="" style="">Active Sessions :</small>
                 </div>
                 <div class="col-6 d-flex justify-content-start">
-                    56
+                    <small class="" style="">@Model.NoOfActiveSessions</small>
                 </div>
             </div>
         </div>

@@ -1,4 +1,6 @@
-﻿using Hangfire;
+﻿
+using AutoMapper;
+using DomainModel.DashBoard;
 using Kendo.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
@@ -7,10 +9,9 @@ using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using Quartz;
-using Quartz.Impl;
-using Quartz.Spi;
+
 using RazorLight;
+using ServiceInterface;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -23,73 +24,61 @@ using WebAppCore.SignalRHubs;
 
 namespace WebAppCore.Infrastructure
 {
-
-    public class CheckStudentAgeJob
-    {
-        
-        public void Execute()
-        {
-          
-        }
-    }
-
-    internal class TimedHostedService :  IHostedService, IDisposable
+    internal class TimedHostedService : IHostedService, IDisposable
     {
         private readonly IHubContext<DashBoardHub> _hubContext;
 
-        
-        private readonly ILogger _logger;
         private Timer _timer;
+        private IDashBoardService _iDashBoardService;
+        private readonly IMapper _mapper;
 
         public TimedHostedService(ILogger<TimedHostedService> logger
-            , IHubContext<DashBoardHub> hubContext)
+            , IHubContext<DashBoardHub> hubContext, IDashBoardService IDashBoardService
+            , IMapper mapper)
         {
+            _mapper = mapper;
             _hubContext = hubContext;
-            _logger = logger;
+            _iDashBoardService = IDashBoardService;
         }
 
         public Task StartAsync(CancellationToken cancellationToken)
         {
-            
-            _logger.LogInformation("Timed Background Service is starting.");
 
             _timer = new Timer(DoWork, null, TimeSpan.Zero,
-                TimeSpan.FromSeconds(10));
+                TimeSpan.FromSeconds(20));
 
             return Task.CompletedTask;
         }
 
         private void DoWork(object state)
         {
-            DashBoardWidgetsDTO dashBoardWidgetsDTO = new DashBoardWidgetsDTO();
-            dashBoardWidgetsDTO.DashBoardRow1Widgets = new DashBoardRow1Widgets();
-            dashBoardWidgetsDTO.DashBoardRow1Widgets.TotalNoOfEmployees = 
-                Convert.ToString(DateTime.Now.Hour.ToString()).ToString()
-                  + " "  + DateTime.Now.Minute.ToString() + " " +  DateTime.Now.Second.ToString();
-            dashBoardWidgetsDTO.DashBoardRow1Widgets.NoOfEmployeesCreatedToday = "25";
-            dashBoardWidgetsDTO.DashBoardRow1Widgets.NoOfEmployeesPendingAuth = "37";
-
+            DashBoardRow1WidgetsModel dashBoardRow1WidgetsModel = new DashBoardRow1WidgetsModel();
+            var dashBoardRow1WidgetsModelTask = Task.Run(() =>
+                                    this._iDashBoardService.GetBoardRow1WidgetsDetails()
+                                );
+            string content;
             var vv = new PhysicalFileProvider(
             Path.Combine(Directory.GetCurrentDirectory()));
-            string content;
+
             using (StreamReader sr = new StreamReader(vv.Root + "Areas/DashBoard/Views/DashBoard/_DashBoardRow1Widgets.cshtml"))
             {
                 content = sr.ReadToEnd();
             }
 
-            // string template = "Hello @Model.Name! Welcome to Razor!";
-
-
             var engine = new RazorLightEngineBuilder()
-               
                .UseMemoryCachingProvider()
                .Build();
 
-        
+            dashBoardRow1WidgetsModelTask.Wait();
+            dashBoardRow1WidgetsModel = dashBoardRow1WidgetsModelTask.Result;
+
+            DashBoardWidgetsDTO dashBoardWidgetsDTO = new DashBoardWidgetsDTO();
+            dashBoardWidgetsDTO.DashBoardRow1WidgetsViewModel = new DashBoardRow1WidgetsViewModel();
+            dashBoardWidgetsDTO.DashBoardRow1WidgetsViewModel = _mapper.Map<DashBoardRow1WidgetsViewModel>(dashBoardRow1WidgetsModel);
 
             var getdashBoardRow1DetailsTask = Task.Run(() =>
                                       engine.CompileRenderAsync("sdvsdvd", content,
-                                                    dashBoardWidgetsDTO.DashBoardRow1Widgets)
+                                                    dashBoardWidgetsDTO.DashBoardRow1WidgetsViewModel)
                                             );
 
             getdashBoardRow1DetailsTask.Wait();
@@ -102,7 +91,6 @@ namespace WebAppCore.Infrastructure
 
         public Task StopAsync(CancellationToken cancellationToken)
         {
-            _logger.LogInformation("Timed Background Service is stopping.");
 
             _timer?.Change(Timeout.Infinite, 0);
 

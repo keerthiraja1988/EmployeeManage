@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using CrossCutting.Logging;
-using Hangfire;
+using DomainModel.DashBoard;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using ServiceInterface;
 using WebAppCore.Areas.DashBoard.Models;
 using WebAppCore.Infrastructure.Filters;
 
@@ -16,16 +18,31 @@ namespace WebAppCore.Areas.DashBoard.Controllers
     [NLogging]
     public class DashBoardController : Controller
     {
+        private IDashBoardService _iDashBoardService;
+        private readonly IMapper _mapper;
+
+        public DashBoardController(
+                 IDashBoardService IDashBoardService
+                   , IMapper mapper)
+        {
+            _mapper = mapper;
+            
+            _iDashBoardService = IDashBoardService;
+        }
         [Route("")]
         [Route("Home")]
         public IActionResult Index()
         {
-
+            DashBoardRow1WidgetsModel dashBoardRow1WidgetsModel = new DashBoardRow1WidgetsModel();
+            var dashBoardRow1WidgetsModelTask = Task.Run(() =>
+                                    this._iDashBoardService.GetBoardRow1WidgetsDetails()
+                                );
             DashBoardWidgetsDTO dashBoardWidgetsDTO = new DashBoardWidgetsDTO();
-            dashBoardWidgetsDTO.DashBoardRow1Widgets = new DashBoardRow1Widgets();
-            dashBoardWidgetsDTO.DashBoardRow1Widgets.TotalNoOfEmployees = "5210";
-            dashBoardWidgetsDTO.DashBoardRow1Widgets.NoOfEmployeesCreatedToday = "25";
-            dashBoardWidgetsDTO.DashBoardRow1Widgets.NoOfEmployeesPendingAuth= "37";
+            dashBoardWidgetsDTO.DashBoardRow1WidgetsViewModel = new DashBoardRow1WidgetsViewModel();
+
+            dashBoardRow1WidgetsModelTask.Wait();
+            dashBoardRow1WidgetsModel = dashBoardRow1WidgetsModelTask.Result;
+            dashBoardWidgetsDTO.DashBoardRow1WidgetsViewModel = _mapper.Map<DashBoardRow1WidgetsViewModel>(dashBoardRow1WidgetsModel);
 
             return View("Index", dashBoardWidgetsDTO);
         }

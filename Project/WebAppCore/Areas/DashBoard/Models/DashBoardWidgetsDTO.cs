@@ -7,6 +7,6 @@ namespace WebAppCore.Areas.DashBoard.Models
 {
     public class DashBoardWidgetsDTO
     {
-        public DashBoardRow1Widgets DashBoardRow1Widgets { get; set; }
+        public DashBoardRow1WidgetsViewModel DashBoardRow1WidgetsViewModel { get; set; }
     }
 }
