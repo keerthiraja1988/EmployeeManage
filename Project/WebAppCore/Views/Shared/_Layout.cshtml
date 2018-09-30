@@ -76,39 +76,39 @@
 <body>
     <input type="hidden" id="pageRefreshOnBackButtonClick" value="no">
 
+    <div class="modal show" id="loadingIconModal"
+         tabindex="-1" role="dialog"
+         data-backdrop="static" data-keyboard="false"
+         style="z-index:99999;background-color: rgba(0, 0, 0, 0.32);">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content d-flex align-items-center" style="background-color: #ffffff00;box-shadow: none;border-bottom: 0px;">
 
-    <div id="loadingIconModal" class="modal" tabindex="-1" role="dialog" style="z-index:99999">
-        <div class="loaderOverlay">
-            <div style="position: fixed; top: 35%;left: 40%;">
-                <div style="padding-left:75px;">
-                    <div class="loader"></div>
-                </div>
+                <div class="loader"></div>
 
 
-                <div style="padding-top:12px;">
-                    <span style="color:white; font-size:25px; ">Processing, Please Wait...</span>
-                </div>
+
+
+                <span style="color:white; font-size:25px; ">Processing, Please Wait...</span>
+
+
+
             </div>
         </div>
     </div>
-
-    <div class="modal fade" role="dialog" style="z-index:99999">
-
-    </div>
-
-    <img src="~/images/AspNetCore.png" style="position: absolute;
-    top: 0px;
-    z-index: 1031;
-    height: 80px;
-    width: 100px; padding-left:10px" />
     <nav class="navbar navbar-expand-lg  navbar-dark bg-primary fixed-top pt-0 pb-0"
-         style=" box-shadow: 1px 3px 3px 0px rgba(105, 24, 24, 0.37);">
-
-        <a class="navbar-brand" href="\"
-           style="padding-left: 95px;">HR Management</a>
+         style="box-shadow: 1px 3px 3px 0px rgba(105, 24, 24, 0.37);padding-right: 9px;
+            padding-left: 9px;min-height: 53px;">
+        <div id="brandLogo" class="btn pl-0" style="background-color:rgb(17, 23, 82);
+                    box-shadow: 2px 3px 10px rgba(10, 6, 6, 0.38); position: fixed; width: 65px;
+                    height: 65px; left: 5px;  z-index: 2;cursor:pointer ;top: 0px;
+                        " onclick="JsMain.RedirectToHomePage()">
+            <h3 style="color:white;margin-top: 12px;margin-left: 2px;">
+                Logo
+            </h3>
+        </div>
+        <a class="navbar-brand" href="\" style="padding-left: 69px;margin-right: 0.352;font-size: 22px;margin-right: 0px;">HR Management</a>
         <!-- Navbar content -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse"
-                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -153,46 +153,52 @@
                     <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                 </li>
             </ul>
+            <div style="
+    display: flex;
+    padding-bottom: 1px;
+" class="d-flex justify-content-end">
+                @if (User.Identity.IsAuthenticated)
+                {
 
-            @if (User.Identity.IsAuthenticated)
-            {
-            <a style="color:white; background-color:#15134e" onclick="JsMain.GetLoggedInUserDetails('@Url.Action("GetLoggedInUserDetails", "UserAccount",  new { Area = "Security" })')"
-               class="btn btn-primary"  title="Manage">
-                Hello <span class="blockquote">@User.Identity.Name!</span>
-            </a>
+                    <a style="color:white; background-color:#15134e; padding-left: 5px;padding-right: 5px;" onclick="JsMain.GetLoggedInUserDetails('@Url.Action("GetLoggedInUserDetails", "UserAccount",  new { Area = "Security" })')"
+                       class="btn btn-primary" title="Manage">
+                        Hello <span class="blockquote">@User.Identity.Name!</span>
+                    </a>
 
-                <form 
-                    asp-area="Security" asp-controller="UserAccount" asp-action="Logout" 
-                    onclick="JsMain.ShowLoaddingIndicator()"
-                    asp-route-returnUrl="@Url.Action("Index", "UserAccount", new { area = "UserAccount" })"
-                            method="post" id="logoutForm" class="navbar-right">
+                    <form asp-area="Security" asp-controller="UserAccount" asp-action="Logout"
+                          onclick="JsMain.ShowLoaddingIndicator()"
+                          asp-route-returnUrl="@Url.Action("Index", "UserAccount", new { area = "UserAccount" })"
+                          method="post" id="logoutForm" class="navbar-right">
+                        <ul class="nav navbar-nav navbar-right">
+
+                            <li>
+                                <button type="submit" style="box-shadow: 0 1px 4px rgb(0, 0, 0);color:sandybrown;padding-right: 14px;margin-left: 9px;" class="btn btn-primary">
+                                    <i style="font-size: 20px;margin-top: 6px;margin-left: 0px;margin-right: 2px;" class="fas fa-power-off"></i>
+                                </button>
+                            </li>
+                        </ul>
+                    </form>
+
+                }
+                else
+                {
+
                     <ul class="nav navbar-nav navbar-right">
-                        
-                        <li>
-                            <button type="submit" style="box-shadow: 0 1px 4px rgb(0, 0, 0);color:sandybrown;padding-right: 14px;margin-left: 9px;" class="btn btn-primary">
-                                <i style="font-size: 20px;margin-top: 6px;margin-left: 0px;margin-right: 2px;" class="fas fa-power-off"></i>
-                            </button>
+                        <li class="nav-item">
+                            <a style="color:white" class="nav-link" asp-area="Security" asp-page="/UserAccount/UserAccount">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a style="color:white" class="nav-link" asp-area="Security" asp-page="/UserAccount/UserAccount">Login</a>
                         </li>
                     </ul>
-                </form>
-            }
-            else
-            {
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="nav-item">
-                        <a style="color:white" class="nav-link" asp-area="Security" asp-page="/UserAccount/UserAccount">Register</a>
-                    </li>
-                    <li class="nav-item">
-                        <a style="color:white" class="nav-link" asp-area="Security" asp-page="/UserAccount/UserAccount">Login</a>
-                    </li>
-                </ul>
-            }
-
+                }
+            </div>
         </div>
     </nav>
     <partial name="_CookieConsentPartial" />
 
-    <div class="container-fluid pl-2 pr-2 pt-4" style="background-color: rgba(254, 232, 255, 0.08); padding-top:18px;">
+    <div class="container-fluid pl-1 pr-1" style="background-color:
+    rgba(254, 232, 255, 0.08);padding-top: 13px;">
         @RenderBody()
     </div>
     <div class="row">

@@ -3,8 +3,12 @@
      data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Success</h5>
+            <div class="modal-header bg-success" 
+                 style="box-shadow: 0 0 5px #888;">
+                <h5 class="modal-title  text-secondary">
+                    <i class="fas fa-thumbs-up"></i>
+                    Success
+                </h5>
 
             </div>
             <div class="modal-body">
@@ -15,10 +19,10 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 pr-1 pl-1">
                         <span class="ml-auto">Your User Name : </span>
                     </div>
-                    <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 pr-1 pl-1">
                         <h5 class="">
                             @Html.LabelFor(m => m.UserName, Model.UserName, new { id = "CreatedUserName" })
                         </h5>
@@ -26,10 +30,10 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 pr-1 pl-1">
                         <span class="ml-auto">Your Password : </span>
                     </div>
-                    <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 pr-1 pl-1">
                         <h5 class="">
                             @Html.LabelFor(m => m.Password, Model.Password, new { id = "CreatedPassword" })
                         </h5>
