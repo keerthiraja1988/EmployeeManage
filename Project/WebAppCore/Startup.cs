@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.IO.Compression;
 using System.Linq;
 using System.Net;
+using System.Net.WebSockets;
+using System.Threading;
 using System.Threading.Tasks;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
@@ -10,6 +12,7 @@ using AutoMapper;
 using CrossCutting.Caching;
 using CrossCutting.Logging;
 using DomainModel;
+using Hangfire;
 using JSNLog;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
@@ -24,8 +27,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Serialization;
 using StackExchange.Profiling.Storage;
+using WebAppCore.Areas.DashBoard.SignalR;
 using WebAppCore.Infrastructure;
-
+using WebAppCore.SignalRHubs;
 using static DependencyInjecionResolver.DependencyInjecionResolver;
 
 namespace WebAppCore
@@ -62,7 +66,9 @@ namespace WebAppCore
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
 
-          
+            services.AddHostedService<TimedHostedService>();
+
+            services.AddHangfire(x => x.UseSqlServerStorage("Data Source=.;Initial Catalog=HangfireDB;Integrated Security=True"));
             // Maintain property names during serialization. See:
             // https://github.com/aspnet/Announcements/issues/194
             services
@@ -72,6 +78,8 @@ namespace WebAppCore
                     options.SerializerSettings.ContractResolver = new DefaultContractResolver())
                     ;
             ConfigureRazorAndCompression(services);
+
+            services.AddSignalR();
 
             // Add Kendo UI services to the services container
             services.AddKendo();
@@ -116,7 +124,7 @@ namespace WebAppCore
             ConfigureWebOptimer(services);
 
             var builder = new Autofac.ContainerBuilder();
-
+        
             builder.RegisterAssemblyModules(System.Reflection.Assembly.GetExecutingAssembly());
             builder.Populate(services);
             var sqlConnection = Configuration.GetValue<string>("DBConnection");
@@ -126,9 +134,15 @@ namespace WebAppCore
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory
+            )
         {
+            
+            app.UseHangfireServer();
+            app.UseHangfireDashboard("/hangfire");
 
+            RecurringJob.AddOrUpdate("CheckStudentAgeJob",
+                           () => new CheckStudentAgeJob().Execute(), Cron.Minutely);
 
             // ...existing configuration...
             app.UseMiniProfiler();
@@ -166,7 +180,12 @@ namespace WebAppCore
             var jsnlogConfiguration = new JsnlogConfiguration();
 
             app.UseJSNLog(new LoggingAdapter(loggerFactory), jsnlogConfiguration);
-          
+
+            app.UseSignalR(routes =>
+            {
+                routes.MapHub<ApplicationHub>("/applicationHub");
+                routes.MapHub<DashBoardHub>("/dashBoardHub");
+            });
 
             app.UseMvc(routes =>
             {
@@ -178,6 +197,19 @@ namespace WebAppCore
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+        }
+
+        private async Task Echo(HttpContext context, WebSocket webSocket)
+        {
+            var buffer = new byte[1024 * 4];
+            WebSocketReceiveResult result = await webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
+            while (!result.CloseStatus.HasValue)
+            {
+                await webSocket.SendAsync(new ArraySegment<byte>(buffer, 0, result.Count), result.MessageType, result.EndOfMessage, CancellationToken.None);
+
+                result = await webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
+            }
+            await webSocket.CloseAsync(result.CloseStatus.Value, result.CloseStatusDescription, CancellationToken.None);
         }
 
         private static void ConfigureRazorAndCompression(IServiceCollection services)

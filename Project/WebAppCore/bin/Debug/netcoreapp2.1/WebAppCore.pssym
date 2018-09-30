@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Symbols LinesOfCode="277" PostSharpLinesOfCode="0" EnhancedTypesCount="3" SchemaVersion="1" PostSharpVersion="6.0.27.0" xmlns="http://schemas.postsharp.org/2.0/symbols">
+<Symbols LinesOfCode="352" PostSharpLinesOfCode="0" EnhancedTypesCount="3" SchemaVersion="1" PostSharpVersion="6.0.27.0" xmlns="http://schemas.postsharp.org/2.0/symbols">
   <Evolution Source="#1=M:[WebAppCore]WebAppCore.Areas.Security.Controllers.UserAccountController::UserAccount(System.String)" Target="#2=M:[WebAppCore]WebAppCore.Areas.Security.Controllers.UserAccountController+&lt;UserAccount&gt;d__10::MoveNext()" />
   <Evolution Source="#3=M:[WebAppCore]WebAppCore.Areas.Security.Controllers.UserAccountController::Login([WebAppCore]WebAppCore.Models.UserLoginViewModel, System.String)" Target="#4=M:[WebAppCore]WebAppCore.Areas.Security.Controllers.UserAccountController+&lt;Login&gt;d__11::MoveNext()" />
   <Evolution Source="#5=M:[WebAppCore]WebAppCore.Areas.Security.Controllers.UserAccountController::RegisterUser([WebAppCore]WebAppCore.Areas.Security.Models.RegisterUserViewModel)" Target="#6=M:[WebAppCore]WebAppCore.Areas.Security.Controllers.UserAccountController+&lt;RegisterUser&gt;d__12::MoveNext()" />
@@ -10,7 +10,7 @@
   <Evolution Source="#15=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController::Index()" Target="#16=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController+&lt;Index&gt;d__10::MoveNext()" />
   <Evolution Source="#17=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController::Products_Read(Kendo.Mvc.UI.DataSourceRequest)" Target="#18=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController+&lt;Products_Read&gt;d__11::MoveNext()" />
   <Class Class="#19=T:[CrossCutting]CrossCutting.Logging.NLoggingAttribute">
-    <Instance Declaration="#20=T:[WebAppCore]WebAppCore.Areas.Security.Controllers.UserAccountController" Id="5878df685769c79b">
+    <Instance Declaration="#20=T:[WebAppCore]WebAppCore.Areas.Security.Controllers.UserAccountController" Id="5878df6890aae3e7">
       <Target Target="#21=M:[WebAppCore]WebAppCore.Areas.Security.Controllers.UserAccountController::get__IUserAccountService()" LinesAvoided="6">
         <JoinPoint Advising="#19" Description="#22=Wrapped by advice(s) OnEntry, OnException, OnExit" Ordinal="0" />
       </Target>
@@ -48,7 +48,7 @@
         <JoinPoint Advised="#14" Advising="#19" Description="#22" Ordinal="11" />
       </Target>
     </Instance>
-    <Instance Declaration="#27=T:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController" Id="5878df68776f6377">
+    <Instance Declaration="#27=T:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController" Id="5878df68d47f2c3f">
       <Target Target="#28=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController::get__IEmployeeManageService()" LinesAvoided="6">
         <JoinPoint Advising="#19" Description="#22" Ordinal="12" />
       </Target>
@@ -71,7 +71,7 @@
         <JoinPoint Advised="#18" Advising="#19" Description="#22" Ordinal="18" />
       </Target>
     </Instance>
-    <Instance Declaration="#33=T:[WebAppCore]WebAppCore.Areas.DashBoard.Controllers.DashBoardController" Id="5878df6816bcd645">
+    <Instance Declaration="#33=T:[WebAppCore]WebAppCore.Areas.DashBoard.Controllers.DashBoardController" Id="5878df689d503a91">
       <Target Target="#34=M:[WebAppCore]WebAppCore.Areas.DashBoard.Controllers.DashBoardController::Index()" LinesAvoided="6">
         <JoinPoint Advising="#19" Description="#22" Ordinal="19" />
       </Target>

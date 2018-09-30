@@ -36,6 +36,7 @@ C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\WebAppCore.TagHelpers.output.cache
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\WebAppCore.RazorCoreGenerate.cache
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\Razor\Areas\DashBoard\Views\DashBoard\Index.g.cshtml.cs
+C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\Razor\Areas\DashBoard\Views\DashBoard\_DashBoardRow1Widgets.g.cshtml.cs
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\Razor\Areas\DashBoard\Views\_ViewImports.g.cshtml.cs
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\Razor\Areas\DashBoard\Views\_ViewStart.g.cshtml.cs
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\Razor\Areas\EmployeeManage\Views\EmployeeManage\Index.g.cshtml.cs

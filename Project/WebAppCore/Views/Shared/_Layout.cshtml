@@ -50,7 +50,7 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jsnlog/2.24.0/jsnlog.min.js'></script>
 
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js" integrity="sha384-kW+oWsYx3YpxvjtZjFXqazFpA7UP/MbiY4jvs+RWZo2+N94PFZ36T6TFkc9O3qoB" crossorigin="anonymous"></script>
-
+    <script src="~/lib/signalr/dist/browser/signalr.min.js"></script>
     <script>
 
         $(window).on('load', function () {
@@ -230,9 +230,39 @@
         });
 
 
+        var connection = new signalR.HubConnectionBuilder().withUrl("/applicationHub").build();
+
+        connection.on("rUpdateDashBoardRow1Widgets", function (message) {
+
+            //var msg = message.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+            //var encodedMsg = user + " says " + msg;
+            console.error(message.toString());
+
+        });
+
+        connection.start().catch(function (err) {
+            return console.error(err.toString());
+        });
+
+        setTimeout(
+            function () {
+                connection.invoke("SendMessage", "vvvvv", "vdsvsdv").catch(function (err) {
+                    return console.error(err.toString());
+                });
+            }, 3000);
+
+
+
 
 
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/kute.js@1.6.5/kute.min.js" crossorigin="anonymous"></script> <!-- jQuery Plugin -->
+
+    <script src="https://cdn.jsdelivr.net/npm/kute.js@1.6.5/kute-attr.min.js" crossorigin="anonymous"></script> <!-- jQuery Plugin -->
+    <script src="https://cdn.jsdelivr.net/npm/kute.js@1.6.5/kute-css.min.js" crossorigin="anonymous"></script> <!-- jQuery Plugin -->
+    <script src="https://cdn.jsdelivr.net/npm/kute.js@1.6.5/kute-jquery.min.js" crossorigin="anonymous"></script> <!-- jQuery Plugin -->
+    <script src="https://cdn.jsdelivr.net/npm/kute.js@1.6.5/kute-svg.min.js" crossorigin="anonymous"></script> <!-- jQuery Plugin -->
+    <script src="https://cdn.jsdelivr.net/npm/kute.js@1.6.5/kute-text.min.js" crossorigin="anonymous"></script> <!-- jQuery Plugin -->
 
     @RenderSection("Scripts", required: false)
 </body>

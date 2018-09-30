@@ -1,0 +1,160 @@
+﻿
+@model WebAppCore.Areas.DashBoard.Models.DashBoardRow1Widgets
+
+<div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 pl-0 pr-2 pt-0 pb-0 mb-2"
+     id="divDashBoardRow1WidgetEmployeeDetails">
+    <div class="card text-white bg-info pl-0 pr-0 pt-0 pb-0 btn btn-info "
+         style=" box-shadow: 0px 4px 7px -1px #777;" >
+        <div class="card-header " style="padding-bottom: 3px; padding-top: 3px;">
+            <div class="row" style="font-size: 14px;">
+                <i style="font-size: 21px;" class="fas fa-users mr-2"></i>  Total Employees
+            </div>
+
+            <div class="row justify-content-center">
+                <h1 class="display-4 mb-0" style="font-size:45px ; line-height: 1.1;">
+                    @Model.TotalNoOfEmployees
+                </h1>
+
+            </div>
+            <div style="font-size:14px" class="row justify-content-center">
+                Employees
+            </div>
+        </div>
+        <div class="card-body pb-0 pt-0 pr-0 pl-0">
+            <div class="row">
+                <div class="col-8 d-flex justify-content-end">
+                    <small class="" style="">Employees Created Today :</small>
+                </div>
+                <div class="col-4 d-flex justify-content-start">
+                    @Model.NoOfEmployeesCreatedToday
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-8 d-flex justify-content-end">
+                    <small class="" style="">Pending Authrization :</small>
+                </div>
+                <div class="col-4 d-flex justify-content-start">
+                    @Model.NoOfEmployeesPendingAuth
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 pl-0 pr-2 pt-0 pb-0 mb-2"
+     id="divDashBoardRow1WidgetAppErrors">
+    <div class="card text-white bg-info pl-0 pr-0 pt-0 pb-0 btn btn-info "
+         style=" box-shadow: 0px 4px 7px -1px #777;">
+        <div class="card-header " style="padding-bottom: 3px; padding-top: 3px;">
+            <div class="row" style="font-size: 14px;">
+                <i style="font-size: 18px;" class="fas fa-exclamation-triangle mr-2  mt-1"></i>
+                Application Errors
+            </div>
+
+            <div class="row justify-content-center">
+                <h1 class="display-4 mb-0" style="font-size:45px ; line-height: 1.1;">60</h1>
+
+            </div>
+            <div style="font-size:14px" class="row justify-content-center">
+                Today
+            </div>
+        </div>
+        <div class="card-body pb-0 pt-0 pr-0 pl-0">
+            <div class="row">
+                <div class="col-7 d-flex justify-content-end">
+                    <small class="" style="">Error Last Logged :</small>
+                </div>
+                <div class="col-5 d-flex justify-content-start">
+                    12-5
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-7 d-flex justify-content-end">
+                    <small class="" style="">Total No. of Errors :</small>
+                </div>
+                <div class="col-5 d-flex justify-content-start">
+                    4569
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 pl-0 pr-2 pt-0 pb-0 mb-2"
+      id="divDashBoardRow1WidgetServices">
+    <div class="card text-white bg-info pl-0 pr-0 pt-0 pb-0 btn btn-info "
+        
+         style=" box-shadow: 0px 4px 7px -1px #777;">
+        <div class="card-header " style="padding-bottom: 3px; padding-top: 3px;">
+            <div class="row" style="font-size: 14px;">
+
+                <i style="font-size: 18px;" class="fas fa-cogs mr-2 mt-1"></i>  Services Scheduled
+            </div>
+
+            <div class="row justify-content-center">
+                <h1 class="display-4 mb-0" style="font-size:45px ; line-height: 1.1;">6</h1>
+
+            </div>
+            <div style="font-size:14px" class="row justify-content-center">
+                Services
+            </div>
+        </div>
+        <div class="card-body pb-0 pt-0 pr-0 pl-0">
+            <div class="row">
+                <div class="col-6 d-flex justify-content-end">
+                    <small class="" style="">Last Checked :</small>
+                </div>
+                <div class="col-6 d-flex justify-content-start">
+                    20-56-8955
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6 d-flex justify-content-end">
+                    <small class="" style="">Services Down :</small>
+                </div>
+                <div class="col-6 d-flex justify-content-start">
+                    0
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 pl-0 pr-2 pt-0 pb-0 mb-2"
+       id="divDashBoardRow1WidgetActiveUsers">
+    <div class="card text-white bg-info pl-0 pr-0 pt-0 pb-0 btn btn-info "
+       
+         style=" box-shadow: 0px 4px 7px -1px #777;">
+        <div class="card-header " style="padding-bottom: 3px; padding-top: 3px;">
+            <div class="row" style="font-size: 14px;">
+              
+                <i style="font-size: 18px;" class="fas fa-camera-retro mr-2 mt-0"></i>  Application Users
+            </div>
+
+            <div class="row justify-content-center">
+                <h1 class="display-4 mb-0" style="font-size:45px ; line-height: 1.1;">6</h1>
+
+            </div>
+            <div style="font-size:14px" class="row justify-content-center">
+                Total
+            </div>
+        </div>
+        <div class="card-body pb-0 pt-0 pr-0 pl-0">
+            <div class="row">
+                <div class="col-6 d-flex justify-content-end">
+                    <small class="" style="">Active Users :</small>
+                </div>
+                <div class="col-6 d-flex justify-content-start">
+                   42
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6 d-flex justify-content-end">
+                    <small class="" style="">Active Sessions :</small>
+                </div>
+                <div class="col-6 d-flex justify-content-start">
+                    56
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
