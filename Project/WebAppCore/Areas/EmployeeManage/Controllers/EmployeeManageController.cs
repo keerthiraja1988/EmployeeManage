@@ -35,6 +35,7 @@ namespace WebAppCore.Areas.EmployeeManage.Controllers
 
         public async Task<IActionResult> Index()
         {
+           // var getUserDetailsTask1 = this._IEmployeeManageService.LoadEmployeeData();
             var getUserDetailsTask = Task.Run(() => this.User.GetLoggedInUserDetails());
             var loggedInUserDetails = await getUserDetailsTask;
             return View();

@@ -39,8 +39,8 @@ namespace WebAppCore.Areas.Security.Controllers
 
         [Route("UserAccount")]
         [HttpGet]
-
-        public async Task<IActionResult> UserAccount(string redirectUrl)
+        [AllowAnonymous]
+        public async Task<IActionResult> UserAccount(string returnUrl = null)
         {
             //throw new Exception();
             var cookieAvailable = CookieAuthenticationDefaults.AuthenticationScheme;
@@ -58,6 +58,7 @@ namespace WebAppCore.Areas.Security.Controllers
         //[Route("Login")]
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [AllowAnonymous]
         public async Task<IActionResult> Login(UserLoginViewModel userLoginViewModel, string ReturnUrl)
         {
             var cookieAvailable = CookieAuthenticationDefaults.AuthenticationScheme;
@@ -116,6 +117,7 @@ namespace WebAppCore.Areas.Security.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [AllowAnonymous]
         public async Task<IActionResult> RegisterUser(RegisterUserViewModel registerUserViewModel)
         {
             if (!ModelState.IsValid)
@@ -131,6 +133,7 @@ namespace WebAppCore.Areas.Security.Controllers
             return Json(partialViewHtml);
         }
 
+        [AllowAnonymous]
         public async Task<IActionResult> AutoPopulateRegsitration()
         {
             RegisterUserViewModel registerUserViewModel = new RegisterUserViewModel();
@@ -158,7 +161,7 @@ namespace WebAppCore.Areas.Security.Controllers
 
         [Route("AccessDenied")]
         [HttpGet]
-       // [Authorize]
+        [AllowAnonymous]
         public async Task<IActionResult> AccessDenied()
         {
             return await Task.Run(() => View("AccessDenied"));

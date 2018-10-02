@@ -14,7 +14,7 @@
 
         publicMethod.GetLoggedInUserDetails = function (url) {
            // alert(url);
-
+            JsMain.ShowLoaddingIndicator();
             $.ajax({
                 type: "POST",
                 url: url,
@@ -25,13 +25,15 @@
                     
                 },
                 complete: function (data) {
-                    setTimeout(
-                        function () {
-                            JsMain.HideLoaddingIndicator();
-                        }, 5000);
+                  
                 },
                 success: function (data) {
-                    $("#globalHTMLAppender").html(data);
+                   
+                    setTimeout(
+                        function () {
+                            $("#globalHTMLAppender").html(data);
+                            JsMain.HideLoaddingIndicator();
+                        }, 100);
                 },
                 error: function (data) {
                     JsMain.HideLoaddingIndicator();

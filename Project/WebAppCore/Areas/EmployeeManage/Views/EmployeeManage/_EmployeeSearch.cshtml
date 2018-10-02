@@ -1,1 +1,82 @@
-﻿@model WebAppCore.Areas.EmployeeManage.Models.EmployeeViewModel
+﻿@model WebAppCore.Areas.EmployeeManage.Models.EmployeeSearchViewModel
+
+<div class="card">
+    <div class="card-header   bg-primary  text-white pt-1 pb-1">
+        Employee Search
+    </div>
+    <div class="card-body pt-1 pb-1"  id="registerCardBody">
+
+        <form asp-area="Security" asp-controller="UserAccount" asp-action="RegisterUser"
+              method="POST" data-ajax="true"
+              data-ajax-begin="onBeginRegisterForm" data-ajax-complete="onCompleteRegisterForm"
+              data-ajax-failure="onFailedRegisterForm" data-ajax-success="onSuccessRegisterForm"
+              data-ajax-update="divRegisterUser" id="formRegisterUser">
+            <!-- form content-->
+            <div class="row">
+                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6  ">
+                    <label asp-for="EmployeeId"></label><span> *</span>
+
+                    <input asp-for="EmployeeId" id="registerUserName" data-val="true" type="text"
+                           placeholder="Enter User Name" class="form-control" />
+                    <small>
+                        <span asp-validation-for="EmployeeId" id="registerUserNameVal" class="text-danger"></span>
+                    </small>
+
+                </div>
+
+                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 ">
+                    <label asp-for="Email"></label><span> *</span>
+                    <input asp-for="Email" id="registerEmailId" data-val="true" type="text"
+                           placeholder="Enter Email Id" class="form-control" />
+                    <small>
+                        <span asp-validation-for="Email" id="registerEmailIdVal" class="text-danger"></span>
+                    </small>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6  ">
+                    <label asp-for="FirstName" class="mb-1"></label>
+                    <input asp-for="FirstName" id="registerFirstName" data-val="true" type="text"
+                           placeholder="Enter First Name" class="form-control" />
+                   
+                </div>
+
+                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 ">
+                    <label asp-for="LastName"></label>
+                    <input asp-for="LastName" id="registerLastName" data-val="true" type="text"
+                           placeholder="Enter Last Name" class="form-control" />
+                    <small>
+                        <span asp-validation-for="LastName" id="registerLastNameVal" class="text-danger"></span>
+                    </small>
+                </div>
+            </div>
+
+         
+            <input type="password" class="form-control" style="display:none; " id="password" placeholder="Password">
+            <span class="text-success" id="autoPopulatePasswordTxt"></span>
+            <div class="text-center">
+                <button type="submit" class="btn btn-info mt-3" id="idRegisterUser"
+                        value="RegisterUser">
+                    <i class="fas fa-user-plus"></i>
+                    Register
+                </button>
+
+                <button type="button" id="btnRegisterReset" class="btn btn-info ml-2 mt-3">
+                    <i class="fas fa-redo"></i>
+                    Clear
+                </button>
+
+                <button type="button" id="btnAutoGenerate" class="btn btn-dark ml-2 mt-3"
+                        value="AutoGenerate">
+                    <i class="fas fa-space-shuttle"></i>
+
+                    Auto Populate
+                </button>
+
+            </div>
+            <div id="Results"></div>
+
+        </form>
+    </div>
+</div>

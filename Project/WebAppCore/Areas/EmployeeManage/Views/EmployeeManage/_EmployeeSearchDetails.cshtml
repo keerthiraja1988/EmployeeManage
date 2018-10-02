@@ -3,29 +3,23 @@
                                     .Name("grid")
                                     .Columns(columns =>
                                     {
-                                        columns.Bound(c => c.EmployeeId).Width(190);
-                                        columns.Bound(c => c.FirstName).Width(140);
+                                        columns.Bound(c => c.EmployeeId).Width(110); 
+                                        columns.Bound(c => c.FirstName).Width(300);
+                                        columns.Bound(c => c.LastName).Width(300);
+                                        columns.Bound(c => c.FullName).Width(300);
+                                        columns.Bound(c => c.Initial).Width(300);
+                                        columns.Bound(c => c.Email).Width(300);
 
-                                        columns.Bound(c => c.LastName);
-                                        columns.Bound(c => c.FullName);
-                                        columns.Bound(c => c.Initial);
-                                        
-                                        columns.Bound(c => c.Email).Width(190);
-                                        columns.Bound(c => c.DateOfBirth).Width(190);
-                                        columns.Bound(c => c.DateOfJoining).Width(190);
-                                        columns.Bound(c => c.TIN).Width(190);
-                                        columns.Bound(c => c.PASSPORT).Width(190);
-                                        columns.Bound(c => c.WorkLocation).Width(190);
-
-                                        columns.Bound(c => c.IsActive).Width(110);
-                                        columns.Bound(c => c.IsAuthorized).Width(110);
-
-
-                                        columns.Bound(c => c.CreatedOn).Width(190);
-                                        columns.Bound(c => c.CreatedBy).Width(190);
-                                        
 
                                     })
+                                  
+                                .Scrollable()
+
+                                     .Filterable()
+                                .Sortable()
+                               
+                                .ColumnMenu()
+                               .Resizable(resizable => resizable.Columns(true))
                                     .DataSource(dataSource => dataSource
                                         .Ajax()
                                         .Read(read => read.Action(

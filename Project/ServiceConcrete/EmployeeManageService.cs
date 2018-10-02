@@ -29,14 +29,14 @@ namespace ServiceConcrete
                                            ;
             DbConnection c = new SqlConnection(sqlConnection);
 
-            _IEmployeeManageRepository = c.As<IEmployeeManageRepository>();
+            _IEmployeeManageRepository = c.AsParallel<IEmployeeManageRepository>();
         }
 
         public async Task<List<EmployeeModel>> LoadEmployeeData()
         {
             //List<EmployeeModel> employeeDetails = new List<EmployeeModel>();
 
-            var employeeDetails = Builder<EmployeeModel>.CreateListOfSize(10)
+            var employeeDetails = Builder<EmployeeModel>.CreateListOfSize(1000)
                 .All()
             .With(c => c.FullName = Faker.Name.FullName())
             .With(c => c.FirstName = Faker.Name.FirstName())
@@ -46,8 +46,8 @@ namespace ServiceConcrete
 
             .With(c => c.DateOfBirth = Faker.Date.Birthday())
             .With(c => c.DateOfJoining = Faker.Date.Recent(5))
-            .With(c => c.TIN = Faker.Lorem.Letters(10).ToString())
-            .With(c => c.PASSPORT = Faker.Lorem.Letters(10).ToString())
+            .With(c => c.TIN = Faker.Number.RandomNumber(56123488).ToString())
+            .With(c => c.PASSPORT = Faker.Number.RandomNumber(86123488).ToString())
             .With(c => c.UserId = 1)
 
             .Build();

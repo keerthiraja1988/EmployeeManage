@@ -16,6 +16,7 @@ using DomainModel;
 using JSNLog;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.CookiePolicy;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -66,7 +67,7 @@ namespace WebAppCore
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
 
-            services.AddHostedService<TimedHostedService>();
+            
 
              // Maintain property names during serialization. See:
             // https://github.com/aspnet/Announcements/issues/194
@@ -87,7 +88,7 @@ namespace WebAppCore
 
             services.AddAutoMapper();
 
-           
+            services.AddHostedService<TimedHostedService>();
 
             services.AddAuthentication(options =>
             {
@@ -118,6 +119,31 @@ namespace WebAppCore
                        };
                    });
 
+            services.AddHsts(options =>
+            {
+                options.Preload = true;
+                options.IncludeSubDomains = true;
+                options.MaxAge = TimeSpan.FromDays(60);
+                options.ExcludedHosts.Add("example.com");
+                options.ExcludedHosts.Add("www.example.com");
+            });
+
+            services.AddAntiforgery(options =>
+            {
+               
+                // new API
+                options.Cookie.Name = "AntiforgeryCookie";
+                
+                options.Cookie.Path = "/";
+                options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+            });
+
+            services.AddHttpsRedirection(options =>
+            {
+                options.RedirectStatusCode = StatusCodes.Status307TemporaryRedirect;
+                options.HttpsPort = 443;
+            });
+
             ConfigureMiniProfier(services);
 
             ConfigureWebOptimer(services);
@@ -129,6 +155,9 @@ namespace WebAppCore
             var sqlConnection = Configuration.GetValue<string>("DBConnection");
             builder.RegisterModule(new ServiceDIContainer(sqlConnection));
             this.ApplicationContainer = builder.Build();
+
+           
+
             return new AutofacServiceProvider(this.ApplicationContainer);
         }
 
@@ -165,7 +194,11 @@ namespace WebAppCore
             app.UseResponseCompression();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            app.UseCookiePolicy();
+            //app.UseSession();
+            app.UseCookiePolicy(new CookiePolicyOptions
+            {
+                HttpOnly = HttpOnlyPolicy.Always
+            });
 
 
             app.UseAuthentication();

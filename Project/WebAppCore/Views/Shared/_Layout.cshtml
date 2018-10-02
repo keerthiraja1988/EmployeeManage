@@ -28,7 +28,7 @@
     <script src="https://ajax.aspnetcdn.com/ajax/jquery.unobtrusive-ajax/3.2.5/jquery.unobtrusive-ajax.min.js"></script>
     <script src="~/js/site.min.js" asp-append-version="true"></script>
     <script src="~/js/Main.js" asp-append-version="true"></script>
-
+    <script src="~/js/Employee.js" asp-append-version="true"></script>
 
     @*<link href="https://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common-bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="https://kendo.cdn.telerik.com/2018.3.911/styles/kendo.bootstrap.min.css" rel="stylesheet" type="text/css" />*@
@@ -51,6 +51,8 @@
 
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js" integrity="sha384-kW+oWsYx3YpxvjtZjFXqazFpA7UP/MbiY4jvs+RWZo2+N94PFZ36T6TFkc9O3qoB" crossorigin="anonymous"></script>
     <script src="~/lib/signalr/dist/browser/signalr.min.js"></script>
+
+   
     <script>
 
         $(window).on('load', function () {
@@ -100,19 +102,21 @@
             padding-left: 9px;min-height: 53px;">
         <div id="brandLogo" class="btn pl-0" style="background-color:rgb(17, 23, 82);
                     box-shadow: 2px 3px 10px rgba(10, 6, 6, 0.38); position: fixed; width: 65px;
-                    height: 65px; left: 5px;  z-index: 2;cursor:pointer ;top: 0px;
+                    height: 58px; left: 5px;  z-index: 2;cursor:pointer ;top: 0px;
                         " onclick="JsMain.RedirectToHomePage()">
-            <h3 style="color:white;margin-top: 12px;margin-left: 2px;">
+            <h3 style="color:white;margin-top: 5px;margin-left: 2px;">
                 Logo
             </h3>
         </div>
-        <a class="navbar-brand" href="\" style="padding-left: 69px;margin-right: 0.352;font-size: 22px;margin-right: 0px;">HR Management</a>
+        <a class="navbar-brand" href="\" style="padding-left: 72px;margin-right: 0.352;font-size: 23px;margin-right: 0px;">HR Management</a>
         <!-- Navbar content -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+                style=" padding-left: 5px;  padding-right: 5px;">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" style="max-height:300px; overflow-y:auto">
             <ul class="navbar-nav mr-auto">
 
                 <li class="nav-item dropdown">
@@ -185,10 +189,12 @@
 
                     <ul class="nav navbar-nav navbar-right">
                         <li class="nav-item">
-                            <a style="color:white" class="nav-link" asp-area="Security" asp-page="/UserAccount/UserAccount">Register</a>
+                            <a style="color:white" class="nav-link" asp-area="Security" asp-controller="UserAccount" asp-action="UserAccount"
+                                     >Register</a>
                         </li>
                         <li class="nav-item">
-                            <a style="color:white" class="nav-link" asp-area="Security" asp-page="/UserAccount/UserAccount">Login</a>
+                            <a style="color:white" class="nav-link" asp-area="Security" asp-controller="UserAccount"
+                                 asp-action="UserAccount">Login</a>
                         </li>
                     </ul>
                 }
@@ -225,8 +231,21 @@
                         $('#loadingIconModal').modal('hide');
                     });
 
+                    var brandLogoAnimate = KUTE.fromTo('#brandLogo', { rotateX: 180 }, { rotateX: 180 }, { perspective: 600, duration: 600 });
+                    var brandLogoAnimateReverse = KUTE.fromTo('#brandLogo', { rotateX: 180 }, { rotateX: 0 }, { perspective: 600, duration: 100 });
+                    brandLogoAnimate.chain(brandLogoAnimateReverse);
+                    brandLogoAnimate.start();
+
                     //do something special
                 }, 500);
+
+            var timerID = setInterval(function () {
+                var brandLogoAnimate = KUTE.fromTo('#brandLogo', { rotateX: 180 }, { rotateX: 180 }, { perspective: 600, duration: 800 });
+                var brandLogoAnimateReverse = KUTE.fromTo('#brandLogo', { rotateX: 180 }, { rotateX: 0 }, { perspective: 600, duration: 100 });
+                brandLogoAnimate.chain(brandLogoAnimateReverse);
+                brandLogoAnimate.start();
+            }, 10 * 1000);
+
         });
 
 
@@ -251,8 +270,7 @@
                 });
             }, 3000);
 
-
-
+     
 
 
     </script>
@@ -263,6 +281,7 @@
     <script src="https://cdn.jsdelivr.net/npm/kute.js@1.6.5/kute-jquery.min.js" crossorigin="anonymous"></script> <!-- jQuery Plugin -->
     <script src="https://cdn.jsdelivr.net/npm/kute.js@1.6.5/kute-svg.min.js" crossorigin="anonymous"></script> <!-- jQuery Plugin -->
     <script src="https://cdn.jsdelivr.net/npm/kute.js@1.6.5/kute-text.min.js" crossorigin="anonymous"></script> <!-- jQuery Plugin -->
+
 
     @RenderSection("Scripts", required: false)
 </body>
