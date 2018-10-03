@@ -4,79 +4,257 @@
     <div class="card-header   bg-primary  text-white pt-1 pb-1">
         Employee Search
     </div>
-    <div class="card-body pt-1 pb-1"  id="registerCardBody">
+    <div class="card-body pt-1 pb-1 pl-0" id="registerCardBody">
 
-        <form asp-area="Security" asp-controller="UserAccount" asp-action="RegisterUser"
+        <form autocomplete="off" asp-area="Security" asp-controller="UserAccount" asp-action="RegisterUser"
               method="POST" data-ajax="true"
               data-ajax-begin="onBeginRegisterForm" data-ajax-complete="onCompleteRegisterForm"
               data-ajax-failure="onFailedRegisterForm" data-ajax-success="onSuccessRegisterForm"
               data-ajax-update="divRegisterUser" id="formRegisterUser">
             <!-- form content-->
+
+            <div class="row pt-1">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 pl-2 pb-1 pr-0 ">
+                    <span class="">Employee Id</span>
+                    @(Html.Kendo().AutoComplete()
+                                                                                                                                       .Name("inputEmployeeId")
+                                                                                                                                       .DataTextField("EmployeeId")
+                                                                                                                                       .Filter("contains")
+                                                                                                                                       .MinLength(3)
+                                                                                                                                       .HtmlAttributes(new
+                                                                                                                                       {
+                                                                                                                                           style = "width:100% ",
+                                                                                                                                           @class = "form-control"
+                                                                                                                                                                ,
+                                                                                                                                           @autocomplete = "false"
+                                                                                                                                       })
+                                                                                                                                       .DataSource(source =>
+                                                                                                                                       {
+                                                                                                                                           source
+                                                                                                                                                        .Read(read => read.Action(
+                                                                                                                                                     routeValues: "GetEmployeeDetailsForSearch",
+                                                                                                                                                     controllerName: "EmployeeManage", actionName: "GetEmployeeDetailsForSearch"
+                                                                                                                                                     ).Data("onEmployeeSeach")
+                                                                                                                                                         )
+                                                                                                                                                           .ServerFiltering(true);
+                                                                                                                                       })
+                    )
+                </div>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 pl-2 pb-1 pr-0 ">
+                    <span class="">Full Name</span>
+                    @(Html.Kendo().AutoComplete()
+                                                                                                                                          .Name("inputFullName")
+                                                                                                                                          .DataTextField("FullName")
+                                                                                                                                          .Filter("contains")
+                                                                                                                                          .MinLength(3)
+                                                                                                                                          .HtmlAttributes(new { style = "width:100%", @class = "form-control" })
+                                                                                                                                          .DataSource(source =>
+                                                                                                                                          {
+                                                                                                                                              source
+                                                                                                                                                           .Read(read => read.Action(
+                                                                                                                                                        routeValues: "GetEmployeeDetailsForSearch",
+                                                                                                                                                        controllerName: "EmployeeManage", actionName: "GetEmployeeDetailsForSearch"
+                                                                                                                                                        ).Data("onAdditionalData")
+                                                                                                                                                            )
+                                                                                                                                                              .ServerFiltering(true);
+                                                                                                                                          })
+                    )
+                </div>
+
+                <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 pl-2 pb-1 pr-0 ">
+                    <span class="">First Name</span>
+                    @(Html.Kendo().AutoComplete()
+                                                                                                                                             .Name("inputFirstName")
+                                                                                                                                             .DataTextField("FirstName")
+                                                                                                                                             .Filter("contains")
+                                                                                                                                             .MinLength(3)
+                                                                                                                                             .HtmlAttributes(new { style = "width:100%", @class = "form-control" })
+                                                                                                                                             .DataSource(source =>
+                                                                                                                                             {
+                                                                                                                                                 source
+                                                                                                                                                              .Read(read => read.Action(
+                                                                                                                                                           routeValues: "GetEmployeeDetailsForSearch",
+                                                                                                                                                           controllerName: "EmployeeManage", actionName: "GetEmployeeDetailsForSearch"
+                                                                                                                                                           ).Data("onAdditionalData")
+                                                                                                                                                               )
+                                                                                                                                                                 .ServerFiltering(true);
+                                                                                                                                             })
+                    )
+                </div>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 pl-2 pb-1 pr-0 ">
+                    <span class="">Last Name</span>
+                    @(Html.Kendo().AutoComplete()
+                                                                                                                                     .Name("inputLastName")
+                                                                                                                                     .DataTextField("LastName")
+                                                                                                                                     .Filter("contains")
+                                                                                                                                     .MinLength(3)
+                                                                                                                                     .HtmlAttributes(new { style = "width:100%", @class = "form-control" })
+                                                                                                                                     .DataSource(source =>
+                                                                                                                                     {
+                                                                                                                                         source
+                                                                                                                                                      .Read(read => read.Action(
+                                                                                                                                                   routeValues: "GetEmployeeDetailsForSearch",
+                                                                                                                                                   controllerName: "EmployeeManage", actionName: "GetEmployeeDetailsForSearch"
+                                                                                                                                                   ).Data("onAdditionalData")
+                                                                                                                                                       )
+                                                                                                                                                         .ServerFiltering(true);
+                                                                                                                                     })
+                    )
+                </div>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 pl-2 pb-1 pr-0 ">
+                    <span class="">Email</span>
+                    @(Html.Kendo().AutoComplete()
+                                                                                                                                             .Name("inputEmail")
+                                                                                                                                             .DataTextField("FullName")
+                                                                                                                                             .Filter("contains")
+                                                                                                                                             .MinLength(3)
+                                                                                                                                             .HtmlAttributes(new { style = "width:100%", @class = "form-control" })
+                                                                                                                                             .DataSource(source =>
+                                                                                                                                             {
+                                                                                                                                                 source
+                                                                                                                                                              .Read(read => read.Action(
+                                                                                                                                                           routeValues: "GetEmployeeDetailsForSearch",
+                                                                                                                                                           controllerName: "EmployeeManage", actionName: "GetEmployeeDetailsForSearch"
+                                                                                                                                                           ).Data("onAdditionalData")
+                                                                                                                                                               )
+                                                                                                                                                                 .ServerFiltering(true);
+                                                                                                                                             })
+                    )
+                </div>
+
+                <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 pl-2 pb-1 pr-0 ">
+                    <span class="">TIN</span>
+                    @(Html.Kendo().AutoComplete()
+                                                                                                                                             .Name("inputTIN")
+                                                                                                                                             .DataTextField("TIN")
+                                                                                                                                             .Filter("contains")
+                                                                                                                                             .MinLength(3)
+                                                                                                                                             .HtmlAttributes(new { style = "width:100%", @class = "form-control" })
+                                                                                                                                             .DataSource(source =>
+                                                                                                                                             {
+                                                                                                                                                 source
+                                                                                                                                                              .Read(read => read.Action(
+                                                                                                                                                           routeValues: "GetEmployeeDetailsForSearch",
+                                                                                                                                                           controllerName: "EmployeeManage", actionName: "GetEmployeeDetailsForSearch"
+                                                                                                                                                           ).Data("onAdditionalData")
+                                                                                                                                                               )
+                                                                                                                                                                 .ServerFiltering(true);
+                                                                                                                                             })
+                    )
+                </div>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 pl-2 pb-1 pr-0 ">
+                    <span class="">Passport</span>
+                    @(Html.Kendo().AutoComplete()
+                                                                                                                                             .Name("inputPassport")
+                                                                                                                                             .DataTextField("Passport")
+                                                                                                                                             .Filter("contains")
+                                                                                                                                             .MinLength(3)
+                                                                                                                                             .HtmlAttributes(new { style = "width:100%", @class = "form-control" })
+                                                                                                                                             .DataSource(source =>
+                                                                                                                                             {
+                                                                                                                                                 source
+                                                                                                                                                              .Read(read => read.Action(
+                                                                                                                                                           routeValues: "GetEmployeeDetailsForSearch",
+                                                                                                                                                           controllerName: "EmployeeManage", actionName: "GetEmployeeDetailsForSearch"
+                                                                                                                                                           ).Data("onAdditionalData")
+                                                                                                                                                               )
+                                                                                                                                                                 .ServerFiltering(true);
+                                                                                                                                             })
+                    )
+                </div>
+
+
+            </div>
+
+
+
             <div class="row">
-                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6  ">
-                    <label asp-for="EmployeeId"></label><span> *</span>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 pl-2 pb-1 pr-0
+                    ">
+                    <span class="">Date Of Birth</span>
+                    <div class="row">
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 pt-0 pl-0 pb-0 pr-2 ">
+                            <small class="">From</small>
+                            @(Html.Kendo().DatePicker()
+                                                                                                                                             .Name("DateOfBirthFrom")
+                                                                                                                                             .Value("10/10/2011")
+                                                                                                                                             .HtmlAttributes(new { style = "width: 100%", title = "DateOfBirthFrom" })
+                            )
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 pt-0 pl-0 pb-0 pr-2 ">
+                            <small class="">To</small>
 
-                    <input asp-for="EmployeeId" id="registerUserName" data-val="true" type="text"
-                           placeholder="Enter User Name" class="form-control" />
-                    <small>
-                        <span asp-validation-for="EmployeeId" id="registerUserNameVal" class="text-danger"></span>
-                    </small>
+                            @(Html.Kendo().DatePicker()
+                                                                                           .Name("DateOfBirthTo")
+                                                                                           .Value("10/10/2011")
+                                                                                           .HtmlAttributes(new { style = "width: 100%", title = "DateOfBirthTo" })
+                            )
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 pl-2 pb-1 pr-0
+                    ">
+                    <span class="">Date Of Joining</span>
+                    <div class="row">
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 pt-0 pl-0 pb-0 pr-2 ">
+                            <small class="">From</small>
+                            @(Html.Kendo().DatePicker()
+                                                                                                                                             .Name("DateOfJoiningFrom")
+                                                                                                                                             .Value("10/10/2011")
+                                                                                                                                             .HtmlAttributes(new { style = "width: 100%", title = "DateOfJoiningFrom" })
+                            )
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 pt-0 pl-0 pb-0 pr-2 ">
+                            <small class="">To</small>
+
+                            @(Html.Kendo().DatePicker()
+                                                                                           .Name("DateOfJoiningTo")
+                                                                                           .Value("10/10/2011")
+                                                                                           .HtmlAttributes(new { style = "width: 100%", title = "DateOfJoiningTo" })
+                            )
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 pl-2 pb-1 pr-0
+                    ">
+
+                </div>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 pl-2 pb-1 pr-0
+                 d-flex align-items-center justify-content-end">
+                    <button type="submit" class="btn btn-info" id="btnSearchEmployeeDetails"
+                            value="Search">
+                        <i class="fas fa-search"></i>
+                        Search
+                    </button>
+
+                    <button type="button" id="btnClear" class="btn btn-info ml-2">
+                        <i class="fas fa-redo"></i>
+                        Clear
+                    </button>
 
                 </div>
 
-                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 ">
-                    <label asp-for="Email"></label><span> *</span>
-                    <input asp-for="Email" id="registerEmailId" data-val="true" type="text"
-                           placeholder="Enter Email Id" class="form-control" />
-                    <small>
-                        <span asp-validation-for="Email" id="registerEmailIdVal" class="text-danger"></span>
-                    </small>
-                </div>
             </div>
 
-            <div class="row">
-                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6  ">
-                    <label asp-for="FirstName" class="mb-1"></label>
-                    <input asp-for="FirstName" id="registerFirstName" data-val="true" type="text"
-                           placeholder="Enter First Name" class="form-control" />
-                   
-                </div>
 
-                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 ">
-                    <label asp-for="LastName"></label>
-                    <input asp-for="LastName" id="registerLastName" data-val="true" type="text"
-                           placeholder="Enter Last Name" class="form-control" />
-                    <small>
-                        <span asp-validation-for="LastName" id="registerLastNameVal" class="text-danger"></span>
-                    </small>
-                </div>
-            </div>
-
-         
-            <input type="password" class="form-control" style="display:none; " id="password" placeholder="Password">
-            <span class="text-success" id="autoPopulatePasswordTxt"></span>
-            <div class="text-center">
-                <button type="submit" class="btn btn-info mt-3" id="idRegisterUser"
-                        value="RegisterUser">
-                    <i class="fas fa-user-plus"></i>
-                    Register
-                </button>
-
-                <button type="button" id="btnRegisterReset" class="btn btn-info ml-2 mt-3">
-                    <i class="fas fa-redo"></i>
-                    Clear
-                </button>
-
-                <button type="button" id="btnAutoGenerate" class="btn btn-dark ml-2 mt-3"
-                        value="AutoGenerate">
-                    <i class="fas fa-space-shuttle"></i>
-
-                    Auto Populate
-                </button>
-
-            </div>
-            <div id="Results"></div>
 
         </form>
     </div>
 </div>
+
+<script>
+    function onAdditionalData() {
+        return {
+
+            SearchText: $("#inputFullName").val(), SearchColumn: "FullName"
+        };
+    }
+
+    function onEmployeeSeach() {
+        return {
+
+            SearchText: $("#inputEmployeeId").val(), SearchColumn: "EmployeeId"
+        };
+    }
+</script>

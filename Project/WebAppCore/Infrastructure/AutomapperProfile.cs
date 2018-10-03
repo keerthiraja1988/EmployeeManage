@@ -30,7 +30,8 @@ namespace WebAppCore.Infrastructure
 
             CreateMap<EmployeeAddressViewModel, EmployeeAddressModel>()
                 .ReverseMap();
-
+            CreateMap<EmployeeSearchViewModel, EmployeeSearchModel>()
+               .ReverseMap();
             CreateMap<EmployeeViewModel, EmployeeModel>()
                 .ReverseMap();
 

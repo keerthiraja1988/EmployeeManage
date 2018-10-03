@@ -85,3 +85,69 @@ body {
 .svg-inline--fa {
     margin-right: 5px;
 }
+
+.modal-open {
+    overflow: scroll !important;
+}
+
+
+.k-autocomplete {
+    border-radius: 0.0rem !important;
+    color: #666 !important;
+}
+
+
+
+k-datepicker {
+    border-radius: 0.0rem !important;
+    color: #666 !important;
+}
+
+.k-picker-wrap, .k-state-default .k-state-selected {
+    border-radius: 0.0rem !important;
+    color: #666 !important;
+}
+
+k-picker-wrap .k-state-focused .k-state-selected {
+    box-shadow: none !important;
+    border-color: none !important;
+    color: #666 !important;
+    height: calc(2.2rem + 0rem) !important;
+}
+
+.k-autocomplete .k-state-focused, .k-combobox .k-state-focused, .k-combobox .k-state-active, .k-datepicker .k-state-focused,
+.k-timepicker .k-state-focused,
+.k-datetimepicker .k-state-focused, .k-datepicker .k-state-active,
+.k-timepicker .k-state-active,
+.k-datetimepicker .k-state-active,
+.k-dateinput .k-state-focused,
+.k-state-focused .k-multiselect-wrap,
+.k-numerictextbox .k-state-focused {
+    box-shadow: none !important;
+    border-color: none !important;
+    color: #666 !important;
+    height: calc(2.2rem + 0rem) !important;
+}
+
+.k-input:focus, .k-input.k-state-focused, .k-textbox:focus, .k-textbox.k-state-focused, .k-textarea:focus, .k-textarea.k-state-focused, .k-input.k-textbox:focus, .k-input.k-textbox.k-state-focused 
+
+{
+    border-color: none !important;
+}
+
+.k-datetimepicker .k-state-focused {
+    box-shadow: none !important;
+    border-color: none !important;
+    color: #666 !important;
+    height: calc(2.2rem + 0rem) !important;
+}
+
+
+.form-control:focus {
+    color: #666;
+    background-color: transparent;
+    border-color: none !important;
+    outline: 0;
+    box-shadow: 0 0 0 .2rem rgba(28,26,104,.25)
+}
+

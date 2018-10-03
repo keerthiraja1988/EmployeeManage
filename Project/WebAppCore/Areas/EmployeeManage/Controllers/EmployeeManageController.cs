@@ -13,6 +13,7 @@ using WebAppCore.Areas.EmployeeManage.Models;
 using CrossCutting.Logging;
 using WebAppCore.Infrastructure.Filters;
 using WebAppCore.Infrastructure;
+using DomainModel.EmployeeManage;
 
 namespace WebAppCore.Areas.EmployeeManage.Controllers
 {
@@ -51,5 +52,28 @@ namespace WebAppCore.Areas.EmployeeManage.Controllers
 
             return Json(EmployeesViewModel.ToDataSourceResult(request));
         }
+
+
+        [Route("GetEmployeeDetailsForSearch")]
+        public async Task<IEnumerable<EmployeeSearchViewModel>> GetEmployeeDetailsForSearch(EmployeeSearchViewModel employeeSearchViewModel)
+        {
+            IEnumerable<EmployeeSearchViewModel> employeeSearchResult = new List<EmployeeSearchViewModel>();
+            EmployeeSearchModel employeeSearchModel = new EmployeeSearchModel();
+            employeeSearchModel = _mapper.Map<EmployeeSearchModel>(employeeSearchViewModel);
+
+            var employeSearchDetails = await this._IEmployeeManageService
+                                            .GetEmployeesDetailsForSearch(employeeSearchModel);
+
+            employeeSearchResult = _mapper.Map<List<EmployeeSearchViewModel>>(employeSearchDetails);
+
+            return employeeSearchResult;
+        }
+
+        [Route("GetEmployeeDetailsForSearch1")]
+        public IActionResult ServerFiltering(string text, string TT)
+        {
+            return View();
+        }
+
     }
 }

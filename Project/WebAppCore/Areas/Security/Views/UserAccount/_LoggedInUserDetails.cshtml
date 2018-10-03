@@ -1,31 +1,34 @@
 ﻿@model WebAppCore.Areas.Security.Models.LoggedInUserDetailsViewModel
-<!-- Modal -->
+
+
 <div class="modal fade pl-0" id="modalloggedInUserDetails" tabindex="-1" role="dialog"
-     data-backdrop="static" data-keyboard="false">
+    aria-hidden="true" data-backdrop="static" data-keyboard="false">
     <script>
         $(function () {
-         
+
             $("#LoggedInUserDetailsdialog").draggable(
                 {
                     handle: "#LoggedInUserDetailsheader"
                 }
             );
             $(".modal-title").disableSelection();
-            
+
         });
     </script>
 
     <div id="LoggedInUserDetailsdialog" class="modal-dialog  modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header bg-info "
-                
-                style="box-shadow: 0 0 5px #888; cursor: grab; color:white" id="LoggedInUserDetailsheader">
+                 style="box-shadow: 0 0 5px #888; cursor: grab; color:white" id="LoggedInUserDetailsheader">
                 <h5 class="modal-title" id="exampleModalLabel">
                     <i class="fas fa-user-tie"></i>
                     User Details
                 </h5>
             </div>
             <div class="modal-body">
+
+
+             
                 <div class="row">
                     <div class="col-12 col-sm-12 col-md-8 col-lg-9 col-xl-9 pl-0 pb-3">
                         <div class="row">
@@ -86,6 +89,9 @@
         $('#modalloggedInUserDetails').modal('show');
     });
 </script>
+
+
+
 
 
 

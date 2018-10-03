@@ -30,6 +30,7 @@ using Newtonsoft.Json.Serialization;
 using StackExchange.Profiling.Storage;
 using WebAppCore.Areas.DashBoard.SignalR;
 using WebAppCore.Infrastructure;
+using WebAppCore.Infrastructure.CustomMiddleware;
 using WebAppCore.SignalRHubs;
 using static DependencyInjecionResolver.DependencyInjecionResolver;
 
@@ -168,8 +169,6 @@ namespace WebAppCore
             
           
 
-            // ...existing configuration...
-            app.UseMiniProfiler();
 
             var builder = new ConfigurationBuilder()
                     .SetBasePath(env.ContentRootPath)
@@ -182,6 +181,9 @@ namespace WebAppCore
 
             if (env.IsDevelopment())
             {
+
+                // ...existing configuration...
+                app.UseMiniProfiler();
                 app.UseDeveloperExceptionPage();
             }
             else
@@ -197,9 +199,10 @@ namespace WebAppCore
             //app.UseSession();
             app.UseCookiePolicy(new CookiePolicyOptions
             {
-                HttpOnly = HttpOnlyPolicy.Always
+                HttpOnly = HttpOnlyPolicy.Always,
+                  Secure = CookieSecurePolicy.Always,
+                MinimumSameSitePolicy = SameSiteMode.None
             });
-
 
             app.UseAuthentication();
 
@@ -315,5 +318,8 @@ namespace WebAppCore
 
             });
         }
+
+
+
     }
 }

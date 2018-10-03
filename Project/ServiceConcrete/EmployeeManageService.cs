@@ -104,5 +104,15 @@ namespace ServiceConcrete
             return employeeDetails;
         }
 
+
+        public async Task<List<EmployeeSearchModel>> GetEmployeesDetailsForSearch(EmployeeSearchModel employeeSearchModel)
+        {
+            List<EmployeeSearchModel> employeeSearchDetails = new List<EmployeeSearchModel>();
+            employeeSearchDetails = await Task.Run(() => this._IEmployeeManageRepository
+                                                    .GetEmployeesDetailsForSearch(employeeSearchModel).Result);
+            //throw new Exception();
+            return employeeSearchDetails;
+        }
+
     }
 }

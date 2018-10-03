@@ -39,7 +39,7 @@ namespace WebAppCore
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-           .UseKestrel()
+             .UseKestrel(c => c.AddServerHeader = false)
             .UseContentRoot(Directory.GetCurrentDirectory())
             .UseIISIntegration() // IMPORTANT!!!
 
