@@ -110,13 +110,13 @@
         </div>
         <a class="navbar-brand" href="\" style="padding-left: 72px;margin-right: 0.352;font-size: 23px;margin-right: 0px;">HR Management</a>
         <!-- Navbar content -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        <button id="btnNavbarCollapse" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
-                style=" padding-left: 5px;  padding-right: 5px;">
-            <span class="navbar-toggler-icon"></span>
+                style=" padding-left: 5px;  padding-right: 5px;height: 40px;width: 40px;">
+            <i class="fas fa-angle-double-left"></i>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent" style="max-height:300px; overflow-y:auto">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" style="max-height:400px;">
             <ul class="navbar-nav mr-auto">
 
                 <li class="nav-item dropdown">
@@ -204,7 +204,7 @@
     <partial name="_CookieConsentPartial" />
 
     <div class="container-fluid pl-1 pr-1" style="background-color:
-    rgba(254, 232, 255, 0.08);padding-top: 13px;">
+    rgba(254, 232, 255, 0.08);padding-top: 9px;">
         @RenderBody()
     </div>
     <div class="row">
@@ -215,6 +215,17 @@
 
     <mini-profiler position="RenderPosition.BottomRight" />
     <script>
+        $('.navbar-collapse').on('shown.bs.collapse', function () {
+            $('#btnNavbarCollapse').html('<i class="fas fa-angle-double-down"></i>');
+            $('#navbarSupportedContent').css('overflow-y', 'scroll');
+        });
+        $('.navbar-collapse').on('hidden.bs.collapse', function () {
+            $('#btnNavbarCollapse').html('<i class="fas fa-angle-double-left"></i>');
+            $('#navbarSupportedContent').css('overflow-y', 'hidden');
+         
+
+        });
+
         $(document).ready(function () {
             var $input = $('#pageRefreshOnBackButtonClick');
 

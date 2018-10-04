@@ -183,7 +183,7 @@ namespace WebAppCore
             {
 
                 // ...existing configuration...
-                app.UseMiniProfiler();
+                //app.UseMiniProfiler();
                 app.UseDeveloperExceptionPage();
             }
             else
