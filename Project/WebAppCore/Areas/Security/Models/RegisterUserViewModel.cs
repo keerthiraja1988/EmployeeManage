@@ -12,19 +12,19 @@ namespace WebAppCore.Areas.Security.Models
 
         [Required(ErrorMessage = "Please Enter User Name")]
         [MaxLength(25, ErrorMessage = "Maximum User Name Length is 25 Characters")]
-        [MinLength(5, ErrorMessage = "Minimum User Name Length is 5 Characters")]
+        [MinLength(3, ErrorMessage = "Minimum User Name Length is 3 Characters")]
         [Display(Name = "User Name")]
         public string UserName { get; set; }
 
         [Required(ErrorMessage = "Please Enter First Name")]
         [MaxLength(25, ErrorMessage = "Maximum First Name Length is 25 Characters")]
-        [MinLength(4, ErrorMessage = "Minimum First Name Length is 4 Characters")]
+        [MinLength(3, ErrorMessage = "Minimum First Name Length is 3 Characters")]
         [Display(Name = "First Name")]
         public string FirstName { get; set; }
 
         [Required(ErrorMessage = "Please Enter Last Name")]
         [MaxLength(25, ErrorMessage = "Maximum Last Name Length is 25 Characters")]
-        [MinLength(4, ErrorMessage = "Minimum Last Name Length is 4 Characters")]
+        [MinLength(3, ErrorMessage = "Minimum Last Name Length is 3 Characters")]
 
         [Display(Name = "Last Name")]
         public string LastName { get; set; }

@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - WebAppCore</title>
 
@@ -27,9 +28,7 @@
     <script src="~/js/Main.js" asp-append-version="true"></script>
     <script src="~/js/Employee.js" asp-append-version="true"></script>
 
-    @*<link href="https://kendo.cdn.telerik.com/2018.3.911/styles/kendo.common-bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <link href="https://kendo.cdn.telerik.com/2018.3.911/styles/kendo.bootstrap.min.css" rel="stylesheet" type="text/css" />*@
-    <link href="~/lib/kendo-ui/all.css" rel="stylesheet" type="text/css" />
+
 
     <script src="https://kendo.cdn.telerik.com/2018.3.911/js/jszip.min.js"></script>
     <script src="https://kendo.cdn.telerik.com/2018.3.911/js/kendo.all.min.js"></script>
@@ -49,10 +48,13 @@
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js" integrity="sha384-kW+oWsYx3YpxvjtZjFXqazFpA7UP/MbiY4jvs+RWZo2+N94PFZ36T6TFkc9O3qoB" crossorigin="anonymous"></script>
     <script src="~/lib/signalr/dist/browser/signalr.min.js"></script>
 
-
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
 
+    <link href="~/lib/kendo-ui/all.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="~/css/site.css" />
+
     <script>
 
         $(window).on('load', function () {
@@ -76,14 +78,15 @@
         </environment>*@
 </head>
 <body>
-    <input type="hidden" id="pageRefreshOnBackButtonClick" value="no">
+
+    <input type="hidden" id="refresh" value="no">
 
     <div class="modal show" id="loadingIconModal"
          tabindex="-1" role="dialog"
          data-backdrop="static" data-keyboard="false"
          style="z-index:99999;background-color: rgba(0, 0, 0, 0.32);">
         <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content d-flex align-items-center" style="background-color: #ffffff00;box-shadow: none;border-bottom: 0px;">
+            <div class="modal-content d-flex align-items-center" style="background-color: transparent;box-shadow: none;border-bottom: 0px;">
 
                 <div class="loader"></div>
 
@@ -97,30 +100,31 @@
             </div>
         </div>
     </div>
-    <nav class="navbar navbar-expand-lg  navbar-dark bg-primary fixed-top pt-0 pb-0"
-         style="box-shadow: 1px 3px 3px 0px rgba(105, 24, 24, 0.37);padding-right: 9px;
-            padding-left: 9px;min-height: 53px;">
+    <nav class="navbar navbar-expand-lg  navbar-dark bg-primary fixed-top pt-0 pb-0 pl-0 pr-0"
+         style="box-shadow: 1px 3px 3px 0px rgba(105, 24, 24, 0.37);
+           min-height: 53px;">
         <div id="brandLogo" class="btn pl-0" style="background-color:rgb(17, 23, 82);
                     box-shadow: 2px 3px 10px rgba(10, 6, 6, 0.38); position: fixed; width: 65px;
-                    height: 58px; left: 5px;  z-index: 2;cursor:pointer ;top: 0px;
+                    height: 58px; left: 7px;  z-index: 2;cursor:pointer ;top: 0px;
                         " onclick="JsMain.RedirectToHomePage()">
             <h3 style="color:white;margin-top: 5px;margin-left: 2px;">
                 Logo
             </h3>
         </div>
-        <a class="navbar-brand" href="\" style="padding-left: 72px;margin-right: 0.352;font-size: 23px;margin-right: 0px;">HR Management</a>
+        <a id="navBrandHome" class="navbar-brand" href="\" style="padding-left: 83px;padding-right:5px;margin-right: 0.352;
+                    font-size: 23px;margin-right: 3px;">Management</a>
         <!-- Navbar content -->
         <button id="btnNavbarCollapse" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
-                style=" padding-left: 5px;  padding-right: 5px;height: 40px;width: 40px;">
+                style="height: 40px;width: 40px;">
             <i class="fas fa-angle-double-left"></i>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent" style="max-height:400px;">
-            <ul class="navbar-nav mr-auto">
+            <ul class="navbar-nav mr-auto ">
 
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbaEmployeeDropDown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <li class="nav-item dropdown p-l-xs p-l-sm " id="navItemEmployeeDropDown">
+                    <a class="nav-link dropdown-toggle pl-0" href="#" id="navbaEmployeeDropDown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Employee
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -132,14 +136,14 @@
                     </div>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                <li class="nav-item p-l-xs p-l-sm ">
+                    <a class="nav-link pl-0" href="#">Home <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                <li class="nav-item p-l-xs p-l-sm ">
+                    <a class="nav-link pl-0" href="#">Link</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <li class="nav-item dropdown p-l-xs p-l-sm pr-1">
+                    <a class="nav-link dropdown-toggle pl-0" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Dropdown
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -149,12 +153,12 @@
                         <a class="dropdown-item" href="#">Something else here</a>
                     </div>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Disabled</a>
+                <li class="nav-item p-l-xs p-l-sm ">
+                    <a class="nav-link disabled pl-0" href="#">Disabled</a>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                <li class="nav-item p-l-xs p-l-sm ">
+                    <a class="nav-link pl-0" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                 </li>
             </ul>
             <div style="
@@ -189,12 +193,11 @@
 
                     <ul class="nav navbar-nav navbar-right">
                         <li class="nav-item">
-                            <a style="color:white" class="nav-link" asp-area="Security" asp-controller="UserAccount" asp-action="UserAccount"
-                                     >Register</a>
+                            <a style="color:white" class="nav-link" asp-area="Security" asp-controller="UserAccount" asp-action="UserAccount">Register</a>
                         </li>
                         <li class="nav-item">
                             <a style="color:white" class="nav-link" asp-area="Security" asp-controller="UserAccount"
-                                 asp-action="UserAccount">Login</a>
+                               asp-action="UserAccount">Login</a>
                         </li>
                     </ul>
                 }
@@ -215,6 +218,8 @@
 
     <mini-profiler position="RenderPosition.BottomRight" />
     <script>
+
+
         $('.navbar-collapse').on('shown.bs.collapse', function () {
             $('#btnNavbarCollapse').html('<i class="fas fa-angle-double-down"></i>');
             $('#navbarSupportedContent').css('overflow-y', 'scroll');
@@ -222,19 +227,15 @@
         $('.navbar-collapse').on('hidden.bs.collapse', function () {
             $('#btnNavbarCollapse').html('<i class="fas fa-angle-double-left"></i>');
             $('#navbarSupportedContent').css('overflow-y', 'hidden');
-         
+
 
         });
 
-        $(document).ready(function () {
-            var $input = $('#pageRefreshOnBackButtonClick');
 
-            if ($input.val() == 'yes') {
-                location.reload(true)
-            }
-            else {
-                $input.val('yes');
-            }
+
+        $(document).ready(function () {
+
+            
             setTimeout(
                 function () {
 
@@ -281,7 +282,7 @@
                 });
             }, 3000);
 
-     
+
 
 
     </script>
@@ -295,5 +296,8 @@
 
 
     @RenderSection("Scripts", required: false)
+
+    
+
 </body>
 </html>

@@ -117,17 +117,16 @@
 .k-input.k-textbox, .k-multiselect-wrap, .k-numerictextbox .k-numeric-wrap {
   color: #292b2c;
   background-color: #ffffff;
-  border-color: none !important; }
+  border-color: rgba(33, 37, 41, 0.15); }
 
-    .k-autocomplete.k-state-hover, .k-combobox > :hover,
-    .k-combobox .k-state-hover, .k-datepicker .k-state-hover,
-    .k-timepicker .k-state-hover,
-    .k-datetimepicker .k-state-hover, .k-multiselect-wrap:hover,
-    .k-state-hover > .k-multiselect-wrap, .k-numerictextbox .k-state-hover {
-        color: #292b2c;
-        background-color: #ffffff;
-        border-color: transparent;
-    }
+.k-autocomplete.k-state-hover, .k-combobox > :hover,
+.k-combobox .k-state-hover, .k-datepicker .k-state-hover,
+.k-timepicker .k-state-hover,
+.k-datetimepicker .k-state-hover, .k-multiselect-wrap:hover,
+.k-state-hover > .k-multiselect-wrap, .k-numerictextbox .k-state-hover {
+  color: #292b2c;
+  background-color: #ffffff;
+  border-color: rgba(33, 37, 41, 0.15); }
 
 .k-autocomplete.k-state-focused, .k-combobox .k-state-focused, .k-combobox .k-state-active, .k-datepicker .k-state-focused,
 .k-timepicker .k-state-focused,
@@ -136,7 +135,7 @@
 .k-datetimepicker .k-state-active, .k-dateinput .k-state-focused, .k-state-focused .k-multiselect-wrap, .k-numerictextbox .k-state-focused {
   color: #292b2c;
   background-color: #ffffff;
-  border-color:none;
+  border-color: #3935cd;
   box-shadow: none; }
 
 .k-treeview .k-in.k-state-hover, .k-calendar .k-state-hover .k-link, .k-panelbar .k-panel > .k-item > .k-link:hover,
@@ -1016,7 +1015,7 @@ kendo-sortable {
   border-radius: 0.25rem;
   padding: 0;
   width: 100%;
-  border-width: 0px;
+  border-width: 1px;
   border-style: solid;
   box-sizing: border-box;
   position: relative;
@@ -7820,16 +7819,15 @@ div.k-grid-footer {
   .k-input.k-textbox:hover,
   .k-input.k-textbox.k-state-hover {
     border-color: rgba(33, 37, 41, 0.15); }
-    .k-input:focus, .k-input.k-state-focused,
-    .k-textbox:focus,
-    .k-textbox.k-state-focused,
-    .k-textarea:focus,
-    .k-textarea.k-state-focused,
-    .k-input.k-textbox:focus,
-    .k-input.k-textbox.k-state-focused {
-        border-color: none !important;
-        box-shadow: none;
-    }
+  .k-input:focus, .k-input.k-state-focused,
+  .k-textbox:focus,
+  .k-textbox.k-state-focused,
+  .k-textarea:focus,
+  .k-textarea.k-state-focused,
+  .k-input.k-textbox:focus,
+  .k-input.k-textbox.k-state-focused {
+    border-color: #3935cd;
+    box-shadow: none; }
   .k-input:invalid, .k-input.k-state-invalid, .k-input.ng-invalid.ng-touched, .k-input.ng-invalid.ng-dirty,
   .k-textbox:invalid,
   .k-textbox.k-state-invalid,

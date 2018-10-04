@@ -39,7 +39,6 @@ namespace ServiceConcrete
             string passwordConcated = userAccountModel.Password + userAccountModel.PasswordSalt;
 
             string generatedHashFromPassAndSalt = Hash.Create(HashType.SHA512, passwordConcated, string.Empty, false);
-
             userAccountModel.PasswordHash = generatedHashFromPassAndSalt;
             return userAccountModel;
         }

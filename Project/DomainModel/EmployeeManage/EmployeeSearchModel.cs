@@ -10,7 +10,9 @@ namespace DomainModel.EmployeeManage
         public string EmployeeId { get; set; }
         public string FirstName { get; set; }
         public string FullName { get; set; }
-
+        public string Email { get; set; }
+        public string TIN { get; set; }
+        public string Passport { get; set; }
 
         public string SearchText { get; set; }
         public string SearchColumn { get; set; }
