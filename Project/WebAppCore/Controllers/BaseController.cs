@@ -17,7 +17,7 @@ namespace WebAppCore.Controllers
             return View();
         }
 
-        [Route("/Error")]
+        [Route("Error")]
         //[Route("")]
         public IActionResult Error()
         {

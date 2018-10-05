@@ -21,13 +21,14 @@
                     @(Html.Kendo().AutoComplete().Name("inputEmployeeId")
                                      .DataTextField("EmployeeId")
                                      .Filter("contains")
-                                     .MinLength(3)
+                                     .MinLength(2)
                                      .HtmlAttributes(new
                                      {
                                          style = "width:100% ",
                                          @class = "form-control"
                                                               ,
                                          @autocomplete = "false",
+                                         @placeholder = "Eg. 31"
 
                                      })
                                      .DataSource(source =>
@@ -48,7 +49,9 @@
                                   .DataTextField("FullName")
                                   .Filter("contains")
                                   .MinLength(3)
-                                  .HtmlAttributes(new { style = "width:100%", @class = "form-control" })
+                                  .HtmlAttributes(new { style = "width:100%", @class = "form-control"
+                                  , @placeholder = "Eg. Car"
+                                  })
                                   .DataSource(source =>
                                   {
                                       source
@@ -69,7 +72,9 @@
                                         .DataTextField("Email")
                                         .Filter("contains")
                                         .MinLength(3)
-                                        .HtmlAttributes(new { style = "width:100%", @class = "form-control" })
+                                        .HtmlAttributes(new { style = "width:100%", @class = "form-control"
+                                  , @placeholder = "Eg. Car"
+                                        })
                                         .DataSource(source =>
                                         {
                                             source
@@ -89,7 +94,9 @@
                            .DataTextField("TIN")
                            .Filter("contains")
                            .MinLength(3)
-                           .HtmlAttributes(new { style = "width:100%", @class = "form-control" })
+                           .HtmlAttributes(new { style = "width:100%", @class = "form-control"
+                                  , @placeholder = "Eg. 123"
+                           })
                            .DataSource(source =>
                            {
                                source
@@ -108,7 +115,8 @@
                                .DataTextField("Passport")
                                .Filter("contains")
                                .MinLength(3)
-                               .HtmlAttributes(new { style = "width:100%", @class = "form-control" })
+                               .HtmlAttributes(new { style = "width:100%", @class = "form-control"
+                                , @placeholder = "Eg. 123"})
                                .DataSource(source =>
                                {
                                    source
@@ -134,21 +142,20 @@
                                      ">
                                     <small class="pl-1">From</small>
                                     @(Html.Kendo().DatePicker().Name("DateOfBirthFrom")
-                                             .Value("08/12/1998")
+                                        .Name("inputDateOfBirthFrom")
+                                             .Value("")
                                             .HtmlAttributes(new
                                             {
                                                 style = "width: 100%",
                                                 title = "DateOfBirthFrom"
-
-
                                             })
                                     )
                                 </div>
                                 <div class="col-12 col-sm-12 col-md-6 col-lg-5 col-xl-6 pt-0 pl-2 pb-0 pr-0 ">
                                     <small class="pl-1">To</small>
 
-                                    @(Html.Kendo().DatePicker().Name("DateOfBirthTo")
-                                     .Value("08/12/1999")
+                                    @(Html.Kendo().DatePicker().Name("inputDateOfBirthTo")
+                                     .Value("")
                                      .HtmlAttributes(new
                                      {
                                          style = "width: 100%",
@@ -168,8 +175,8 @@
                             <div class="row">
                                 <div class="col-12 col-sm-12 col-md-6 col-lg-5 col-xl-6  pt-0 pl-2 pb-0 pr-0 ">
                                     <small class="pl-1">From</small>
-                                    @(Html.Kendo().DatePicker().Name("DateOfJoiningFrom")
-                                 .Value("10/10/2011")
+                                    @(Html.Kendo().DatePicker().Name("inputDateOfJoiningFrom")
+                                 .Value("")
                                  .HtmlAttributes(new
                                  {
                                      style = "width: 100%;",
@@ -182,8 +189,8 @@
                                 <div class="col-12 col-sm-12 col-md-6 col-lg-5 col-xl-6 pt-0 pl-2 pb-0 pr-0 ">
                                     <small class="pl-1">To</small>
 
-                                    @(Html.Kendo().DatePicker().Name("DateOfJoiningTo")
-                                     .Value("10/10/2012")
+                                    @(Html.Kendo().DatePicker().Name("inputDateOfJoiningTo")
+                                     .Value("")
                                      .HtmlAttributes(new
                                      {
                                          style = "width: 100%",
@@ -197,13 +204,13 @@
 
                         <div class="col-12 col-sm-12 col-md-12 col-lg-2 col-xl-3 pl-2 pb-1 pr-0 pt-1
                  d-flex align-items-center justify-content-end">
-                            <button type="submit" class="btn btn-info" id="btnSearchEmployeeDetails"
+                            <button type="button" class="btn btn-info" id="btnSearchEmployeeDetails"
                                     value="Search">
                                 <i class="fas fa-search"></i>
                                 Search
                             </button>
 
-                            <button type="button" id="btnClear" class="btn btn-info ml-2">
+                            <button type="button" id="btnSearchEmployeeClear" class="btn btn-info ml-2">
                                 <i class="fas fa-redo"></i>
                                 Clear
                             </button>
@@ -227,26 +234,44 @@
 
 <script>
 
+    $('#btnSearchEmployeeDetails').on('click', function (e) {
+        JsMain.ShowLoaddingIndicator();
+        $("#grdEmployeeSearch").data("kendoGrid").dataSource.read();
+    })
+
+    $('#btnSearchEmployeeClear').on('click', function (e) {
+        $("#inputDateOfBirthFrom").data("kendoDatePicker").value('');
+        $("#inputDateOfBirthTo").data("kendoDatePicker").value('');
+        $("#inputDateOfJoiningFrom").data("kendoDatePicker").value('');
+        $("#inputDateOfJoiningTo").data("kendoDatePicker").value('');
+
+        $("#inputEmployeeId").data("kendoAutoComplete").value('');
+        $("#inputFullName").data("kendoAutoComplete").value('');
+        $("#inputEmail").data("kendoAutoComplete").value('');
+        $("#inputTIN").data("kendoAutoComplete").value('');
+        $("#inputPassport").data("kendoAutoComplete").value('');
+    })
 
 
+    $('.k-datepicker').on('click', function (e) {
+        var datepicker = $("#" + e.target.id).data("kendoDatePicker");
+        datepicker.open();
+    })
 
     function onEmployeeIdSearch() {
         return {
-
             SearchText: $("#inputEmployeeId").val(), SearchColumn: "EmployeeId"
         };
     }
 
     function onEmployeeFullNameSearch() {
         return {
-
             SearchText: $("#inputFullName").val(), SearchColumn: "FullName"
         };
     }
 
     function onEmailSearch() {
         return {
-
             SearchText: $("#inputEmail").val(), SearchColumn: "Email"
         };
     }
@@ -261,17 +286,16 @@
         };
     }
     jQuery(document).ready(function () {
+        $('#inputDateOfBirthFrom').attr("readonly", true);
+        $('#inputDateOfBirthTo').attr("disabled", true);
+        $('#inputDateOfJoiningFrom').attr("disabled", true);
+        $('#inputDateOfJoiningTo').attr("disabled", true);
 
-        $('#DateOfBirthTo').attr("readonly", true);
-
-        $('#DateOfBirthFrom').attr("disabled", true);
-        $('#DateOfJoiningFrom').attr("disabled", true);
-        $('#DateOfJoiningTo').attr("disabled", true);
-
-        $('#DateOfBirthTo, #DateOfBirthFrom, #DateOfJoiningFrom, #DateOfJoiningTo').css({
+        $('#inputDateOfBirthFrom, #inputDateOfBirthTo, #inputDateOfJoiningFrom, #inputDateOfJoiningTo').css({
             "background-color": "white",
             "box-shadow": "1px 1px 1px 1px #ddd",
             "color": "inherit"
         });
+
     });
 </script>

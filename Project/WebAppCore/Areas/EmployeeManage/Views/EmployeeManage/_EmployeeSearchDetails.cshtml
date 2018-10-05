@@ -1,30 +1,75 @@
 ﻿
 @(Html.Kendo().Grid<WebAppCore.Areas.EmployeeManage.Models.EmployeeViewModel>()
-                                    .Name("grid")
-                                    .Columns(columns =>
-                                    {
-                                        columns.Bound(c => c.EmployeeId).Width(110); 
-                                        columns.Bound(c => c.FirstName).Width(300);
-                                        columns.Bound(c => c.LastName).Width(300);
-                                        columns.Bound(c => c.FullName).Width(300);
-                                        columns.Bound(c => c.Initial).Width(300);
-                                        columns.Bound(c => c.Email).Width(300);
+                                            .Name("grdEmployeeSearch")
+                                            .Columns(columns =>
+                                            {
+                                                columns.Bound(c => c.EmployeeId).Width(110);
+                                                columns.Bound(c => c.FirstName).Width(300);
+                                                columns.Bound(c => c.LastName).Width(300);
+                                                columns.Bound(c => c.FullName).Width(300);
+                                                columns.Bound(c => c.Initial).Width(300);
+                                                columns.Bound(c => c.Email).Width(300);
 
+                                            })
 
-                                    })
-                                  
-                                .Scrollable()
+                                        .Scrollable()
 
-                                     .Filterable()
-                                .Sortable()
-                               
-                                .ColumnMenu()
-                               .Resizable(resizable => resizable.Columns(true))
-                                    .DataSource(dataSource => dataSource
-                                        .Ajax()
-                                        .Read(read => read.Action(
-                                            routeValues:"GetEmployeeDetails",
-                                            controllerName: "EmployeeManage", actionName: "Products_Read"
-                                            ))
-                                    )
+                                             .Filterable()
+                                        .Sortable()
+
+                                        .ColumnMenu()
+                                       .Resizable(resizable => resizable.Columns(true))
+                                       .Events(events => events
+                                            .DataBound("onDataBound")
+                                           
+
+                                        )
+
+                                            .DataSource(dataSource => dataSource
+                                                .Ajax()
+                                                .Events(events => events.Error("onError"))
+                                                .Read(read => read.Action(
+                                                    routeValues: "GetEmployeeDetails",
+                                                    controllerName: "EmployeeManage", actionName: "Products_Read"
+                                                    ).Data("GetEmployeeSearchDataForRead")
+                                                    
+                                                    )
+                                            )
 )
+
+<input type="hidden" id="hdnSeachAllEmployee" name="hdnSeachAllEmployee" value="1">
+
+<script>
+
+    function onError(e) {
+
+        JsMain.Response404Error();
+        
+    }
+
+    function onDataBound(arg) {
+        JsMain.HideLoaddingIndicator();
+
+    }
+
+    function GetEmployeeSearchDataForRead() {
+        var dateOfBirthStart = kendo.toString($("#inputDateOfBirthFrom").data("kendoDatePicker").value(), 'd');
+        var dateOfBirthEnd = kendo.toString($("#inputDateOfBirthTo").data("kendoDatePicker").value(), 'd');
+        var dateOfJoiningStart = kendo.toString($("#inputDateOfJoiningFrom").data("kendoDatePicker").value(), 'd');
+        var dateOfJoiningStartEnd = kendo.toString($("#inputDateOfJoiningTo").data("kendoDatePicker").value(), 'd');
+        var searchAllEmployee = $("#hdnSeachAllEmployee").val();
+        $("#hdnSeachAllEmployee").val('0');
+        return {
+            EmployeeId: $("#inputEmployeeId").val(),
+            FullName: $("#inputFullName").val(),
+            Email: $("#inputEmail").val(),
+            TIN: $("#inputTIN").val(),
+            Passport: $("#inputPassport").val(),
+            DateOfBirthStart: dateOfBirthStart,
+            DateOfBirthEnd: dateOfBirthEnd,
+            DateOfJoiningStart: dateOfJoiningStart,
+            DateOfJoiningEnd: dateOfJoiningStartEnd,
+            SearchAllEmployee: searchAllEmployee,
+        }
+    };
+</script>

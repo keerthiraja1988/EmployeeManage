@@ -13,5 +13,8 @@ namespace ServiceInterface
         Task<List<EmployeeModel>> GetEmployeesDetails();
 
         Task<List<EmployeeSearchModel>> GetEmployeesDetailsForSearch(EmployeeSearchModel employeeSearchModel);
+
+        Task<List<EmployeeModel>> GetEmployeesDetailsOnSearch(EmployeeSearchModel employeeSearchModel);
+
     }
 }

@@ -219,6 +219,7 @@
     <mini-profiler position="RenderPosition.BottomRight" />
     <script>
 
+        var errorPageUrl = '@Url.Action("Error", "Base", new { area = "Base" })';
 
         $('.navbar-collapse').on('shown.bs.collapse', function () {
             $('#btnNavbarCollapse').html('<i class="fas fa-angle-double-down"></i>');

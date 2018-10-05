@@ -1,48 +1,43 @@
-﻿@{
+﻿
+
+@{
     ViewData["Title"] = "Error";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="row">
 
-<div style="background-color:white" class="container-fluid paddingLeft40px">
+    <div class="col-md-12">
+        <div class="error-template text-center">
+            <h1 class="display-1" style=" color: #e21212; font-size:larger;font-size: 165px;">
+                <i class="fas fa-grimace"></i>
+            </h1>
 
-    <img src="https://a0.muscache.com/airbnb/static/error_pages/404-Airbnb_final-d652ff855b1335dd3eedc3baa8dc8b69.gif" width="300" height="400" alt="Girl has dropped her ice cream.">
+            <h1 class="display-3">
+                Oops!
+            </h1>
+            <div class="error-details pt-0 " style="font-size: 20px;">
+                An error occurred while processing your request.
+            </div>
+            <div class="error-details pt-0" style="font-size: 20px;">
+                Please contact system administrator.
 
+            </div>
+            <div class="error-details pt-1" style="font-size: 12px !important; font-weight:bold ">
+                @DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff")
+            </div>
 
-
-    <h1 id="oopsText" class="text-jumbo text-ginormous">Oops!</h1>
-
-    <h2 id="errorText">An error occurred while processing your request.</h2>
-
-    <h6 id="errorMessage" hidden="hidden" class="text-danger" style="font-weight:bold">@ViewBag.ErrorMessage</h6>
+            <div class="error-actions pt-3">
+                <a href="\Home" class="btn btn-primary btn-lg" onclick="JsMain.ShowLoaddingIndicator()">
+                    <i class="fas fa-home"></i>
+                    Take Me Home
+                </a>
+            </div>
+        </div>
+    </div>
 </div>
 
-
-
 <script>
-
     $(document).ready(function () {
-
-
-
-        setTimeout(function () {
-
-            $("#oopsText").show("slow");
-
-            $("#errorText").show("slow");
-
-        }, 2000);
-
-        setTimeout(function () {
-
-
-            $("#errorMessage").show("slow");
-
-        }, 3000);
-
-
-
+        $('#loadingIconModal').modal('hide');
     });
-
-
-
 </script>

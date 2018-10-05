@@ -14,6 +14,7 @@ using CrossCutting.Logging;
 using WebAppCore.Infrastructure.Filters;
 using WebAppCore.Infrastructure;
 using DomainModel.EmployeeManage;
+using System.Globalization;
 
 namespace WebAppCore.Areas.EmployeeManage.Controllers
 {
@@ -43,9 +44,14 @@ namespace WebAppCore.Areas.EmployeeManage.Controllers
         }
 
         [Route("GetEmployeeDetails")]
-        public async Task<IActionResult> Products_Read([DataSourceRequest] DataSourceRequest request)
+        public async Task<IActionResult> Products_Read([DataSourceRequest] DataSourceRequest request
+                                                                , EmployeeSearchViewModel employeeSearchViewModel)
         {
-            var employeeDetails = await this._IEmployeeManageService.GetEmployeesDetails();
+            var vvv = CultureInfo.CurrentCulture.Name;
+            EmployeeSearchModel employeeSearchModel = new EmployeeSearchModel();
+            employeeSearchModel = _mapper.Map<EmployeeSearchModel>(employeeSearchViewModel);
+
+            var employeeDetails = await this._IEmployeeManageService.GetEmployeesDetailsOnSearch(employeeSearchModel);
             List<EmployeeViewModel> EmployeesViewModel = new List<EmployeeViewModel>();
 
             EmployeesViewModel = _mapper.Map<List<EmployeeViewModel>>(employeeDetails);

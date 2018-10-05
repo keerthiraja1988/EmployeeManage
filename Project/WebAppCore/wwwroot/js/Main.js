@@ -43,16 +43,10 @@
 
         }
         publicMethod.Response404Error1 = function (data) {
-
-            var urll = "\AccessDenied";
-
-            window.location.href = urll;
+            window.location.href = errorPageUrl;
         }
         publicMethod.Response404Error = function (httpObj, data) {
-          
-            var urll = "\AccessDenied";
-           
-            window.location.href = urll;
+            window.location.href = errorPageUrl;
         }
 
         publicMethod.RedirectToHomePage = function () {

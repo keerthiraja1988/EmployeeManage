@@ -43,10 +43,7 @@
                         Login
                     </button>
 
-                    <button type="button" class="btn btn-primary mt-3" id="btnGoToDashBoard">
-                        <i class="fas fa-tachometer-alt"></i>
-                        Go To DashBoard
-                    </button>
+                  
                 </div>
             </div>
         </div>
@@ -94,25 +91,6 @@
                 $("#btnLoginSubmit").trigger("click");
             });
 
-            $("#btnGoToDashBoard").click(function (e) {
-
-                $('#registerUserNameVal').text('');
-                $('#registerEmailIdVal').text('');
-                $('#registerFirstNameVal').text('');
-                $('#registerLastNameVal').text('');
-                $('#registerPasswordVal').text('');
-                $('#registerReTypePasswordVal').text('');
-
-                $('#registerUserName').val('');
-                $('#registerEmailId').val('');
-                $('#registerFirstName').val('');
-                $('#registerLastName').val('');
-                $('#registerPassword').val('');
-                $('#registerReTypePassword').val('');
-                $("#password").text("");
-
-                  window.location.href = '@Url.RouteUrl("Home")';
-            });
 
         });
     </script>

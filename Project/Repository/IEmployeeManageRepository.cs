@@ -17,5 +17,9 @@ namespace Repository
 
         [Sql("P_GetEmployeesDetailsForSearch")]
         Task<List<EmployeeSearchModel>> GetEmployeesDetailsForSearch(EmployeeSearchModel employeeSearchModel);
+
+        [Sql("P_GetEmployeesDetailsOnSearch")]
+        Task<List<EmployeeModel>> GetEmployeesDetailsOnSearch(EmployeeSearchModel employeeSearchModel);
+
     }
 }

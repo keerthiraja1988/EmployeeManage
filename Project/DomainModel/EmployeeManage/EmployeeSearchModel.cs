@@ -6,6 +6,7 @@ namespace DomainModel.EmployeeManage
 {
     public class EmployeeSearchModel
     {
+        public string SearchAllEmployee { get; set; }
 
         public string EmployeeId { get; set; }
         public string FirstName { get; set; }
@@ -17,11 +18,11 @@ namespace DomainModel.EmployeeManage
         public string SearchText { get; set; }
         public string SearchColumn { get; set; }
 
-        public DateTime DateOfBirthStart { get; set; }
-        public DateTime DateOfBirthEnd { get; set; }
+        public DateTime? DateOfBirthStart { get; set; }
+        public DateTime? DateOfBirthEnd { get; set; }
 
-        public DateTime DateOfJoiningStart { get; set; }
-        public DateTime DateOfJoiningStartEnd { get; set; }
+        public DateTime? DateOfJoiningStart { get; set; }
+        public DateTime? DateOfJoiningEnd { get; set; }
 
     }
 }

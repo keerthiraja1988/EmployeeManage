@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO.Compression;
 using System.Linq;
 using System.Net;
@@ -68,9 +69,9 @@ namespace WebAppCore
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
 
-            
+          
 
-             // Maintain property names during serialization. See:
+            // Maintain property names during serialization. See:
             // https://github.com/aspnet/Announcements/issues/194
             services
                 .AddMvc()
@@ -166,9 +167,13 @@ namespace WebAppCore
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory
             )
         {
-            
-          
 
+
+            var cultureInfo = new CultureInfo("en-US");
+            cultureInfo.NumberFormat.CurrencySymbol = "€";
+
+            CultureInfo.DefaultThreadCurrentCulture = cultureInfo;
+            CultureInfo.DefaultThreadCurrentUICulture = cultureInfo;
 
             var builder = new ConfigurationBuilder()
                     .SetBasePath(env.ContentRootPath)
