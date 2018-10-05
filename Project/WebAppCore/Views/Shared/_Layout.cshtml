@@ -87,19 +87,12 @@
          style="z-index:99999;background-color: rgba(0, 0, 0, 0.32);">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content d-flex align-items-center" style="background-color: transparent;box-shadow: none;border-bottom: 0px;">
-
                 <div class="loader"></div>
-
-
-
-
                 <span style="color:white; font-size:25px; padding-top: 10px;">Processing, Please Wait...</span>
-
-
-
             </div>
         </div>
     </div>
+
     <nav class="navbar navbar-expand-lg  navbar-dark bg-primary fixed-top pt-0 pb-0 pl-0 pr-0"
          style="box-shadow: 1px 3px 3px 0px rgba(105, 24, 24, 0.37);
            min-height: 53px;">
@@ -112,7 +105,7 @@
             </h3>
         </div>
         <a id="navBrandHome" class="navbar-brand" href="\" style="padding-left: 83px;padding-right:5px;margin-right: 0.352;
-                    font-size: 23px;margin-right: 3px;">Management</a>
+                    font-size: 23px;margin-right: 3px;">HR Management</a>
         <!-- Navbar content -->
         <button id="btnNavbarCollapse" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
@@ -136,30 +129,24 @@
                     </div>
                 </li>
 
-                <li class="nav-item p-l-xs p-l-sm ">
-                    <a class="nav-link pl-0" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item p-l-xs p-l-sm ">
-                    <a class="nav-link pl-0" href="#">Link</a>
-                </li>
+             
                 <li class="nav-item dropdown p-l-xs p-l-sm pr-1">
                     <a class="nav-link dropdown-toggle pl-0" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown
+                        Static Pages
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
+                        <a class="dropdown-item"  asp-area="Base" asp-controller="Base" asp-action="Error"
+                                                        >Error Page</a>
+                        <a class="dropdown-item"asp-area="Security" asp-controller="UserAccount" asp-action="AccessDenied"
+                                            >Access Denied</a>
+                      
                     </div>
                 </li>
                 <li class="nav-item p-l-xs p-l-sm ">
                     <a class="nav-link disabled pl-0" href="#">Disabled</a>
                 </li>
 
-                <li class="nav-item p-l-xs p-l-sm ">
-                    <a class="nav-link pl-0" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                </li>
+               
             </ul>
             <div style="
     display: flex;

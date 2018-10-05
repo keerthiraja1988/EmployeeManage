@@ -139,6 +139,34 @@
           "lib/net45/Faker.dll": {}
         }
       },
+      "FluentValidation/8.0.100": {
+        "type": "package",
+        "dependencies": {
+          "System.Collections.Concurrent": "4.3.0",
+          "System.ComponentModel.Annotations": "4.4.1",
+          "System.ComponentModel.Primitives": "4.3.0",
+          "System.ValueTuple": "4.5.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/FluentValidation.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/FluentValidation.dll": {}
+        }
+      },
+      "FluentValidation.AspNetCore/8.0.100": {
+        "type": "package",
+        "dependencies": {
+          "FluentValidation": "8.0.100",
+          "Microsoft.AspNetCore.Mvc": "2.1.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/FluentValidation.AspNetCore.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/FluentValidation.AspNetCore.dll": {}
+        }
+      },
       "Insight.Database/6.2.4": {
         "type": "package",
         "dependencies": {
@@ -5630,6 +5658,36 @@
         "faker.data.1.0.7.nupkg.sha512",
         "faker.data.nuspec",
         "lib/net45/Faker.dll"
+      ]
+    },
+    "FluentValidation/8.0.100": {
+      "sha512": "kGyYfxWWsLawTXnPrZ6l82Mqe7n3gHoFDqPalrCzpsqzDP6Jthx8gnMvSrcsaDeeEpR6i6SRsWdX4NxQtIKd+Q==",
+      "type": "package",
+      "path": "fluentvalidation/8.0.100",
+      "files": [
+        ".signature.p7s",
+        "fluentvalidation.8.0.100.nupkg.sha512",
+        "fluentvalidation.nuspec",
+        "lib/net45/FluentValidation.dll",
+        "lib/net45/FluentValidation.xml",
+        "lib/netstandard1.1/FluentValidation.dll",
+        "lib/netstandard1.1/FluentValidation.xml",
+        "lib/netstandard1.6/FluentValidation.dll",
+        "lib/netstandard1.6/FluentValidation.xml",
+        "lib/netstandard2.0/FluentValidation.dll",
+        "lib/netstandard2.0/FluentValidation.xml"
+      ]
+    },
+    "FluentValidation.AspNetCore/8.0.100": {
+      "sha512": "VpzvmVZbmcDVomIsf8OhOR+CHKOUUk5q0nZo+dQjKfJeoIhMMDmQvf8pD9eKCy67JsfXZWhGBWWuRlULl60d2Q==",
+      "type": "package",
+      "path": "fluentvalidation.aspnetcore/8.0.100",
+      "files": [
+        ".signature.p7s",
+        "fluentvalidation.aspnetcore.8.0.100.nupkg.sha512",
+        "fluentvalidation.aspnetcore.nuspec",
+        "lib/netstandard2.0/FluentValidation.AspNetCore.dll",
+        "lib/netstandard2.0/FluentValidation.AspNetCore.xml"
       ]
     },
     "Insight.Database/6.2.4": {
@@ -14191,6 +14249,7 @@
       "DependencyInjecionResolver >= 1.0.0",
       "DomainModel >= 1.0.0",
       "Elmah.Io.AspNetCore >= 3.5.59",
+      "FluentValidation.AspNetCore >= 8.0.100",
       "JSNLog.AspNetCore >= 99.0.0",
       "LigerShark.WebOptimizer.Core >= 1.0.215",
       "Microsoft.AspNetCore.App >= 2.1.1",
@@ -14297,6 +14356,10 @@
           "Elmah.Io.AspNetCore": {
             "target": "Package",
             "version": "[3.5.59, )"
+          },
+          "FluentValidation.AspNetCore": {
+            "target": "Package",
+            "version": "[8.0.100, )"
           },
           "JSNLog.AspNetCore": {
             "target": "Package",

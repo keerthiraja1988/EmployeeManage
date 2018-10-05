@@ -75,6 +75,13 @@ namespace WebAppCore.Areas.EmployeeManage.Controllers
             return employeeSearchResult;
         }
 
+        [Route("ValidateEmployeeDetailsOnSearch")]
+        public async Task<IActionResult> ValidateEmployeeDetailsOnSearch(EmployeeSearchViewModel employeeSearchViewModel)
+        {
+            return await Task.Run(() => new JsonResult("Success"));
+            //return new JsonResult("Success");
+        }
+
         [Route("GetEmployeeDetailsForSearch1")]
         public IActionResult ServerFiltering(string text, string TT)
         {

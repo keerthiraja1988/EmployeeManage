@@ -475,3 +475,12 @@ k-picker-wrap .k-state-focused .k-state-selected {
     color: #ffffff !important;
     background-color: #1c1a68;
 }
+.k-grid-content tr:last-child td, .k-grid-content-locked tr:last-child td {
+    border-bottom-width: 1px !important;
+}
+
+.box-hover {
+    background: #141c65;
+    cursor: pointer;
+    box-shadow: none !important;
+}

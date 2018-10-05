@@ -21,17 +21,15 @@
                                        .Resizable(resizable => resizable.Columns(true))
                                        .Events(events => events
                                             .DataBound("onDataBound")
-                                           
-
+                                            .DataBinding("onDataBinding")
                                         )
-
                                             .DataSource(dataSource => dataSource
                                                 .Ajax()
                                                 .Events(events => events.Error("onError"))
                                                 .Read(read => read.Action(
                                                     routeValues: "GetEmployeeDetails",
                                                     controllerName: "EmployeeManage", actionName: "Products_Read"
-                                                    ).Data("GetEmployeeSearchDataForRead")
+                                                    ).Data("JsEmployee.GetEmployeeSearchDataForRead")
                                                     
                                                     )
                                             )
@@ -42,34 +40,18 @@
 <script>
 
     function onError(e) {
-
         JsMain.Response404Error();
-        
     }
 
     function onDataBound(arg) {
         JsMain.HideLoaddingIndicator();
+    }
 
+    function onDataBinding(arg) {
+        JsMain.HideLoaddingIndicator();
     }
 
     function GetEmployeeSearchDataForRead() {
-        var dateOfBirthStart = kendo.toString($("#inputDateOfBirthFrom").data("kendoDatePicker").value(), 'd');
-        var dateOfBirthEnd = kendo.toString($("#inputDateOfBirthTo").data("kendoDatePicker").value(), 'd');
-        var dateOfJoiningStart = kendo.toString($("#inputDateOfJoiningFrom").data("kendoDatePicker").value(), 'd');
-        var dateOfJoiningStartEnd = kendo.toString($("#inputDateOfJoiningTo").data("kendoDatePicker").value(), 'd');
-        var searchAllEmployee = $("#hdnSeachAllEmployee").val();
-        $("#hdnSeachAllEmployee").val('0');
-        return {
-            EmployeeId: $("#inputEmployeeId").val(),
-            FullName: $("#inputFullName").val(),
-            Email: $("#inputEmail").val(),
-            TIN: $("#inputTIN").val(),
-            Passport: $("#inputPassport").val(),
-            DateOfBirthStart: dateOfBirthStart,
-            DateOfBirthEnd: dateOfBirthEnd,
-            DateOfJoiningStart: dateOfJoiningStart,
-            DateOfJoiningEnd: dateOfJoiningStartEnd,
-            SearchAllEmployee: searchAllEmployee,
-        }
+        
     };
 </script>

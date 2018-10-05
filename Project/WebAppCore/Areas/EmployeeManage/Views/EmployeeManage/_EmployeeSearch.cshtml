@@ -6,229 +6,227 @@
     </div>
     <div class="card-body pt-1 pb-1 pl-0" id="registerCardBody">
 
-        <form autocomplete="off" asp-area="Security" asp-controller="UserAccount" asp-action="RegisterUser"
-              method="POST" data-ajax="true"
-              data-ajax-begin="onBeginRegisterForm" data-ajax-complete="onCompleteRegisterForm"
-              data-ajax-failure="onFailedRegisterForm" data-ajax-success="onSuccessRegisterForm"
-              data-ajax-update="divRegisterUser" id="formRegisterUser">
-            <!-- form content-->
+        <div class="row pt-1">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 pl-2 pb-1 pr-0 ">
+                <span class="">Employee Id</span>
+                @(Html.Kendo().AutoComplete().Name("inputEmployeeId")
+                                                 .DataTextField("EmployeeId")
+                                                 .Filter("contains")
+                                                 .MinLength(2)
+                                                 .HtmlAttributes(new
+                                                 {
+                                                     style = "width:100% ",
+                                                     @class = "form-control"
+                                                                          ,
+                                                     @autocomplete = "false",
+                                                     @placeholder = "Eg. 31"
 
-            <div class="row pt-1">
-                <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 pl-2 pb-1 pr-0 ">
-
-
-                    <span class="">Employee Id</span>
-                    @(Html.Kendo().AutoComplete().Name("inputEmployeeId")
-                                     .DataTextField("EmployeeId")
-                                     .Filter("contains")
-                                     .MinLength(2)
-                                     .HtmlAttributes(new
-                                     {
-                                         style = "width:100% ",
-                                         @class = "form-control"
-                                                              ,
-                                         @autocomplete = "false",
-                                         @placeholder = "Eg. 31"
-
-                                     })
-                                     .DataSource(source =>
-                                     {
-                                         source
-                                  .Read(read => read.Action(
-                               routeValues: "GetEmployeeDetailsForSearch",
-                               controllerName: "EmployeeManage", actionName: "GetEmployeeDetailsForSearch"
-                               ).Data("onEmployeeIdSearch")
-                                   )
-                                                             .ServerFiltering(true);
-                                     })
-                    )
-                </div>
-                <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 pl-2 pb-1 pr-0 ">
-                    <span class="">Full Name</span>
-                    @(Html.Kendo().AutoComplete().Name("inputFullName")
-                                  .DataTextField("FullName")
-                                  .Filter("contains")
-                                  .MinLength(3)
-                                  .HtmlAttributes(new { style = "width:100%", @class = "form-control"
-                                  , @placeholder = "Eg. Car"
-                                  })
-                                  .DataSource(source =>
-                                  {
-                                      source
-                                                   .Read(read => read.Action(
-                                                routeValues: "GetEmployeeDetailsForSearch",
-                                                controllerName: "EmployeeManage", actionName: "GetEmployeeDetailsForSearch"
-                                                ).Data("onEmployeeFullNameSearch")
-                                                    )
-                                                      .ServerFiltering(true);
-                                  })
-                    )
-                </div>
-
-
-                <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 pl-2 pb-1 pr-0 ">
-                    <span class="">Email</span>
-                    @(Html.Kendo().AutoComplete().Name("inputEmail")
-                                        .DataTextField("Email")
-                                        .Filter("contains")
-                                        .MinLength(3)
-                                        .HtmlAttributes(new { style = "width:100%", @class = "form-control"
-                                  , @placeholder = "Eg. Car"
-                                        })
-                                        .DataSource(source =>
-                                        {
-                                            source
-                                                         .Read(read => read.Action(
-                                                      routeValues: "GetEmployeeDetailsForSearch",
-                                                      controllerName: "EmployeeManage", actionName: "GetEmployeeDetailsForSearch"
-                                                      ).Data("onEmailSearch")
-                                                          )
-                                                            .ServerFiltering(true);
-                                        })
-                    )
-                </div>
-
-                <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 pl-2 pb-1 pr-0 ">
-                    <span class="">TIN</span>
-                    @(Html.Kendo().AutoComplete().Name("inputTIN")
-                           .DataTextField("TIN")
-                           .Filter("contains")
-                           .MinLength(3)
-                           .HtmlAttributes(new { style = "width:100%", @class = "form-control"
-                                  , @placeholder = "Eg. 123"
-                           })
-                           .DataSource(source =>
-                           {
-                               source
-                                            .Read(read => read.Action(
-                                         routeValues: "GetEmployeeDetailsForSearch",
-                                         controllerName: "EmployeeManage", actionName: "GetEmployeeDetailsForSearch"
-                                         ).Data("onTINSearch")
-                                             )
-                                               .ServerFiltering(true);
-                           })
-                    )
-                </div>
-                <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 pl-2 pb-1 pr-0 ">
-                    <span class="">Passport</span>
-                    @(Html.Kendo().AutoComplete().Name("inputPassport")
-                               .DataTextField("Passport")
-                               .Filter("contains")
-                               .MinLength(3)
-                               .HtmlAttributes(new { style = "width:100%", @class = "form-control"
-                                , @placeholder = "Eg. 123"})
-                               .DataSource(source =>
-                               {
-                                   source
-                                                .Read(read => read.Action(
-                                             routeValues: "GetEmployeeDetailsForSearch",
-                                             controllerName: "EmployeeManage", actionName: "GetEmployeeDetailsForSearch"
-                                             ).Data("onPassportSearch")
-                                                 )
-                                                   .ServerFiltering(true);
-                               })
-                    )
-                </div>
-
-
-                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-9 pl-0 pb-1 pr-0 ">
-                    <div class="row">
-
-                        <div class="col-12 col-sm-12 col-md-6 col-lg-5 col-xl-4 pl-0 pb-1 pr-0 pt-1
-                 p-l-lg">
-                            <span class=" pl-2">Date Of Birth</span>
-                            <div class="row">
-                                <div class="col-12 col-sm-12 col-md-6 col-lg-5  col-xl-6 pt-0 pl-2 pb-0 pr-0
-                                     ">
-                                    <small class="pl-1">From</small>
-                                    @(Html.Kendo().DatePicker().Name("DateOfBirthFrom")
-                                        .Name("inputDateOfBirthFrom")
-                                             .Value("")
-                                            .HtmlAttributes(new
-                                            {
-                                                style = "width: 100%",
-                                                title = "DateOfBirthFrom"
-                                            })
-                                    )
-                                </div>
-                                <div class="col-12 col-sm-12 col-md-6 col-lg-5 col-xl-6 pt-0 pl-2 pb-0 pr-0 ">
-                                    <small class="pl-1">To</small>
-
-                                    @(Html.Kendo().DatePicker().Name("inputDateOfBirthTo")
-                                     .Value("")
-                                     .HtmlAttributes(new
-                                     {
-                                         style = "width: 100%",
-                                         title = "DateOfBirthTo"
-
-                                     })
-                                    )
-                                </div>
-                            </div>
-
-                        </div>
-
-
-                        <div class="col-12 col-sm-12 col-md-6 col-lg-5 col-xl-4 pl-0 pb-1 pr-0 pt-1
-                 p-l-lg">
-                            <span class=" pl-2">Date Of Joining</span>
-                            <div class="row">
-                                <div class="col-12 col-sm-12 col-md-6 col-lg-5 col-xl-6  pt-0 pl-2 pb-0 pr-0 ">
-                                    <small class="pl-1">From</small>
-                                    @(Html.Kendo().DatePicker().Name("inputDateOfJoiningFrom")
-                                 .Value("")
-                                 .HtmlAttributes(new
-                                 {
-                                     style = "width: 100%;",
-                                     title = "DateOfJoiningFrom"
-
-                                 })
-
-                                    )
-                                </div>
-                                <div class="col-12 col-sm-12 col-md-6 col-lg-5 col-xl-6 pt-0 pl-2 pb-0 pr-0 ">
-                                    <small class="pl-1">To</small>
-
-                                    @(Html.Kendo().DatePicker().Name("inputDateOfJoiningTo")
-                                     .Value("")
-                                     .HtmlAttributes(new
-                                     {
-                                         style = "width: 100%",
-                                         title = "DateOfJoiningTo"
-                                     })
-                                    )
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="col-12 col-sm-12 col-md-12 col-lg-2 col-xl-3 pl-2 pb-1 pr-0 pt-1
-                 d-flex align-items-center justify-content-end">
-                            <button type="button" class="btn btn-info" id="btnSearchEmployeeDetails"
-                                    value="Search">
-                                <i class="fas fa-search"></i>
-                                Search
-                            </button>
-
-                            <button type="button" id="btnSearchEmployeeClear" class="btn btn-info ml-2">
-                                <i class="fas fa-redo"></i>
-                                Clear
-                            </button>
-
-                        </div>
-
-
-                    </div>
-                </div>
-
+                                                 })
+                                                 .DataSource(source =>
+                                                 {
+                                                     source
+                                              .Read(read => read.Action(
+                                           routeValues: "GetEmployeeDetailsForSearch",
+                                           controllerName: "EmployeeManage", actionName: "GetEmployeeDetailsForSearch"
+                                           ).Data("onEmployeeIdSearch")
+                                               )
+                                                                         .ServerFiltering(true);
+                                                 })
+                )
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 pl-2 pb-1 pr-0 ">
+                <span class="">Full Name</span>
+                @(Html.Kendo().AutoComplete().Name("inputFullName")
+                                              .DataTextField("FullName")
+                                              .Filter("contains")
+                                              .MinLength(3)
+                                              .HtmlAttributes(new
+                                              {
+                                                  style = "width:100%",
+                                                  @class = "form-control"
+                                              ,
+                                                  @placeholder = "Eg. Car"
+                                              })
+                                              .DataSource(source =>
+                                              {
+                                                  source
+                                                               .Read(read => read.Action(
+                                                            routeValues: "GetEmployeeDetailsForSearch",
+                                                            controllerName: "EmployeeManage", actionName: "GetEmployeeDetailsForSearch"
+                                                            ).Data("onEmployeeFullNameSearch")
+                                                                )
+                                                                  .ServerFiltering(true);
+                                              })
+                )
             </div>
 
 
+            <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 pl-2 pb-1 pr-0 ">
+                <span class="">Email</span>
+                @(Html.Kendo().AutoComplete().Name("inputEmail")
+                                                    .DataTextField("Email")
+                                                    .Filter("contains")
+                                                    .MinLength(3)
+                                                    .HtmlAttributes(new
+                                                    {
+                                                        style = "width:100%",
+                                                        @class = "form-control"
+                                              ,
+                                                        @placeholder = "Eg. Car"
+                                                    })
+                                                    .DataSource(source =>
+                                                    {
+                                                        source
+                                                                     .Read(read => read.Action(
+                                                                  routeValues: "GetEmployeeDetailsForSearch",
+                                                                  controllerName: "EmployeeManage", actionName: "GetEmployeeDetailsForSearch"
+                                                                  ).Data("onEmailSearch")
+                                                                      )
+                                                                        .ServerFiltering(true);
+                                                    })
+                )
+            </div>
+
+            <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 pl-2 pb-1 pr-0 ">
+                <span class="">TIN</span>
+                @(Html.Kendo().AutoComplete().Name("inputTIN")
+                                       .DataTextField("TIN")
+                                       .Filter("contains")
+                                       .MinLength(3)
+                                       .HtmlAttributes(new
+                                       {
+                                           style = "width:100%",
+                                           @class = "form-control"
+                                              ,
+                                           @placeholder = "Eg. 123"
+                                       })
+                                       .DataSource(source =>
+                                       {
+                                           source
+                                                        .Read(read => read.Action(
+                                                     routeValues: "GetEmployeeDetailsForSearch",
+                                                     controllerName: "EmployeeManage", actionName: "GetEmployeeDetailsForSearch"
+                                                     ).Data("onTINSearch")
+                                                         )
+                                                           .ServerFiltering(true);
+                                       })
+                )
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 pl-2 pb-1 pr-0 ">
+                <span class="">Passport</span>
+                @(Html.Kendo().AutoComplete().Name("inputPassport")
+                                           .DataTextField("Passport")
+                                           .Filter("contains")
+                                           .MinLength(3)
+                                           .HtmlAttributes(new
+                                           {
+                                               style = "width:100%",
+                                               @class = "form-control"
+                                            ,
+                                               @placeholder = "Eg. 123"
+                                           })
+                                           .DataSource(source =>
+                                           {
+                                               source
+                                                            .Read(read => read.Action(
+                                                         routeValues: "GetEmployeeDetailsForSearch",
+                                                         controllerName: "EmployeeManage", actionName: "GetEmployeeDetailsForSearch"
+                                                         ).Data("onPassportSearch")
+                                                             )
+                                                               .ServerFiltering(true);
+                                           })
+                )
+            </div>
 
 
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-9 pl-0 pb-1 pr-0 ">
+                <div class="row">
+
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-5 col-xl-4 pl-0 pb-1 pr-0 pt-1
+                 p-l-lg">
+                        <span class=" pl-2">Date Of Birth</span>
+                        <div class="row">
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-5  col-xl-6 pt-0 pl-2 pb-0 pr-0
+                                     ">
+                                <small class="pl-1">From</small>
+                                @(Html.Kendo().DatePicker().Name("DateOfBirthFrom")
+                                                    .Name("inputDateOfBirthFrom")
+                                                         .Value("")
+                                                        .HtmlAttributes(new
+                                                        {
+                                                            style = "width: 100%",
+                                                            title = "DateOfBirthFrom"
+                                                        })
+                                )
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-5 col-xl-6 pt-0 pl-2 pb-0 pr-0 ">
+                                <small class="pl-1">To</small>
+
+                                @(Html.Kendo().DatePicker().Name("inputDateOfBirthTo")
+                                                 .Value("")
+                                                 .HtmlAttributes(new
+                                                 {
+                                                     style = "width: 100%",
+                                                     title = "DateOfBirthTo"
+
+                                                 })
+                                )
+                            </div>
+                        </div>
+
+                    </div>
 
 
-        </form>
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-5 col-xl-4 pl-0 pb-1 pr-0 pt-1
+                 p-l-lg">
+                        <span class=" pl-2">Date Of Joining</span>
+                        <div class="row">
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-5 col-xl-6  pt-0 pl-2 pb-0 pr-0 ">
+                                <small class="pl-1">From</small>
+                                @(Html.Kendo().DatePicker().Name("inputDateOfJoiningFrom")
+                                             .Value("")
+                                             .HtmlAttributes(new
+                                             {
+                                                 style = "width: 100%;",
+                                                 title = "DateOfJoiningFrom"
+
+                                             })
+
+                                )
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-5 col-xl-6 pt-0 pl-2 pb-0 pr-0 ">
+                                <small class="pl-1">To</small>
+
+                                @(Html.Kendo().DatePicker().Name("inputDateOfJoiningTo")
+                                                 .Value("")
+                                                 .HtmlAttributes(new
+                                                 {
+                                                     style = "width: 100%",
+                                                     title = "DateOfJoiningTo"
+                                                 })
+                                )
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-2 col-xl-3 pl-2 pb-1 pr-0 pt-1
+                 d-flex align-items-center justify-content-end">
+                        <button type="button" class="btn btn-info" id="btnSearchEmployeeDetails"
+                                value="Search">
+                            <i class="fas fa-search"></i>
+                            Search
+                        </button>
+
+                        <button type="button" id="btnClearSearchEmployeeDetails" class="btn btn-info ml-2">
+                            <i class="fas fa-redo"></i>
+                            Clear
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -236,10 +234,15 @@
 
     $('#btnSearchEmployeeDetails').on('click', function (e) {
         JsMain.ShowLoaddingIndicator();
-        $("#grdEmployeeSearch").data("kendoGrid").dataSource.read();
+
+        var validateEmployeeDetailsOnSearchUrl =
+            '@Url.Action("ValidateEmployeeDetailsOnSearch", "EmployeeManage",
+                                                new { area = "EmployeeManage" })';
+       JsEmployee.ValidateEmployeeDetailsOnSearch(validateEmployeeDetailsOnSearchUrl);
+       
     })
 
-    $('#btnSearchEmployeeClear').on('click', function (e) {
+    $('#btnClearSearchEmployeeDetails').on('click', function (e) {
         $("#inputDateOfBirthFrom").data("kendoDatePicker").value('');
         $("#inputDateOfBirthTo").data("kendoDatePicker").value('');
         $("#inputDateOfJoiningFrom").data("kendoDatePicker").value('');
