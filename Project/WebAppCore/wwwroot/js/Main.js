@@ -52,10 +52,18 @@
         publicMethod.RedirectToHomePage = function () {
             JsMain.ShowLoaddingIndicator();
             var url = "\Home";
-
             window.location.href = url;
         }
 
+        publicMethod.ShowMessageShowPopUp = function (data) {
+            var splitedDtata = data.split("|");
+            if (splitedDtata[1]) {
+                $('#modalMessageShowPopUpHeaderTitle').text(splitedDtata[2]);
+                $('#modalMessageShowPopUpMessage').text(splitedDtata[3]);
+                $('#modalMessageShowPopUp').modal('show');
+            }
+            
+        }
 
     }(window.JsMain = window.JsMain || {}, jQuery)
 );
