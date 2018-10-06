@@ -1,0 +1,175 @@
+﻿@model WebAppCore.Areas.EmployeeManage.Models.EmployeeViewModel
+
+@await Html.PartialAsync("_EmployeeSearchDetails")
+
+<div class="modal fade pl-0" id="modalEditUserDetails" tabindex="-1" role="dialog"
+     aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <script>
+        $(function () {
+            $("#EditUserDetailsDialog").draggable(
+                {
+                    handle: "#EditUserDetailsHeader"
+                }
+            );
+            $(".modal-title").disableSelection();
+        });
+    </script>
+
+    <div id="EditUserDetailsDialog" class="modal-dialog  modal-lg" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header bg-info "
+                 style="box-shadow: 0 0 5px #888; cursor: grab; color:white" id="EditUserDetailsHeader">
+                <h5 class="modal-title  text-secondary" id="exampleModalLabel">
+                    <i class="fas fa-user-tie"></i>
+                    User Details
+                </h5>
+            </div>
+            <div class="modal-body pt-0" style="overflow-y: auto;">
+                <form asp-area="EmployeeManage" asp-controller="EmployeeManage" asp-action="EditEmployeeDetails"
+                      method="POST" data-ajax="true"
+                      data-ajax-begin="onBeginRegisterForm" data-ajax-complete="onCompleteRegisterForm"
+                      data-ajax-failure="onFailedRegisterForm" data-ajax-success="onSuccessRegisterForm"
+                      data-ajax-update="divEditEmployee" id="formEditEmployee">
+                    <!-- form content-->
+                    <div class="row">
+                        <input asp-for="EmployeeId" id="editEmployeeId" data-val="true" type="text"
+                               hidden="hidden" class="form-control" />
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 pt-2">
+                            <label asp-for="FirstName" class="mb-1"></label><span> *</span>
+
+                            <input asp-for="FirstName" id="editFirstName" data-val="true" type="text"
+                                   placeholder="Enter User Name" class="form-control" />
+                            <small>
+                                <span asp-validation-for="FirstName" id="validateFirstName" class="text-danger"></span>
+                            </small>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 pt-2">
+                            <label asp-for="LastName" class="mb-1"></label><span> *</span>
+
+                            <input asp-for="LastName" id="editLastName" data-val="true" type="text"
+                                   placeholder="Enter User Name" class="form-control" />
+                            <small>
+                                <span asp-validation-for="LastName" id="validateLastName" class="text-danger"></span>
+                            </small>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 pt-2">
+                            <label asp-for="Email" class="mb-1"></label><span> *</span>
+
+                            <input asp-for="Email" id="editEmail" data-val="true" type="text"
+                                   placeholder="Enter Email" class="form-control" />
+                            <small>
+                                <span asp-validation-for="Email" id="validateEmail" class="text-danger"></span>
+                            </small>
+                        </div>
+
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 pt-2">
+                            <label asp-for="WorkLocation" class="mb-1"></label><span> *</span>
+
+                            <input asp-for="WorkLocation" id="editWorkLocation" data-val="true" type="text"
+                                   placeholder="Select Work Location" class="form-control" />
+                            <small>
+                                <span asp-validation-for="WorkLocation" id="validateWorkLocation" class="text-danger"></span>
+                            </small>
+                        </div>
+
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 pt-2">
+                            <label asp-for="DateOfBirth" class="mb-1"></label><span> *</span>
+
+                            <input asp-for="DateOfBirth" id="editDateOfBirth" data-val="true" type="text"
+                                   placeholder="Select Date Of Birth" class="form-control" />
+                            <small>
+                                <span asp-validation-for="DateOfBirth" id="validateDateOfBirth" class="text-danger"></span>
+                            </small>
+                        </div>
+
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 pt-2">
+                            <label asp-for="DateOfJoining" class="mb-1"></label><span> *</span>
+
+                            <input asp-for="DateOfJoining" id="editDateOfJoining" data-val="true" type="text"
+                                   placeholder="Select Date Of Joining" class="form-control" />
+                            <small>
+                                <span asp-validation-for="DateOfJoining" id="validateDateOfJoining" class="text-danger"></span>
+                            </small>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6  pt-2">
+                            <label asp-for="TIN" class="mb-1"></label><span> *</span>
+
+                            <input asp-for="TIN" id="editTIN" data-val="true" type="text"
+                                   placeholder="Select TIN" class="form-control" />
+                            <small>
+                                <span asp-validation-for="TIN" id="validateTIN" class="text-danger"></span>
+                            </small>
+                        </div>
+
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 pt-1">
+                            <label asp-for="PASSPORT" class="mb-1"></label><span> *</span>
+
+                            <input asp-for="PASSPORT" id="editPASSPORT" data-val="true" type="text"
+                                   placeholder="Select PASSPORT" class="form-control" />
+                            <small>
+                                <span asp-validation-for="PASSPORT" id="validatePASSPORT" class="text-danger"></span>
+                            </small>
+                        </div>
+
+                    </div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary" id="btnEditEmployeeSave" value="EditEmployeeSave">
+                        <i class="fas fa-save"></i>
+                        Save
+                    </button>
+                </div>
+                <button type="button" class="btn btn-dark" id="btnEditEmployeeCancel">
+                    <i class="far fa-times-circle"></i>
+                    Cancel
+                </button>
+                <div id="Results"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+    var onBeginRegisterForm = function () {
+        JsMain.ShowLoaddingIndicator();
+    };
+
+    var onCompleteRegisterForm = function () {
+        JsMain.HideLoaddingIndicator();
+    };
+
+    var onSuccessRegisterForm = function (data) {
+        debugger;
+        JsMain.HideLoaddingIndicator();
+        $("#appendEmployeeManagePartialViews").html(data);
+        // $("#appendPartialView").html(data);
+    };
+
+    var onFailedRegisterForm = function () {
+        //  alert();
+        JsMain.HideLoaddingIndicator();
+    };
+
+    $('#btnEditEmployeeCancel').click(function () {
+        $('#modalEditUserDetails').modal('hide');
+        setTimeout(
+            function () {
+                $("#modalEditUserDetails").remove();
+                //do something special
+            }, 1000);
+
+    });
+    $('#btnEditEmployeeSave').click(function () {
+        $('#formEditEmployee').submit();
+    });
+
+    jQuery(document).ready(function () {
+        $('#modalEditUserDetails').modal('show');
+    });
+
+
+</script>

@@ -234,47 +234,38 @@
 
 <script>
 
-    $(window).bind('mousewheel DOMMouseScroll', function (event) {
-        if (event.originalEvent.wheelDelta > 0 || event.originalEvent.detail < 0) {
-            // get effect type from
-            var selectedEffect = 'blind';
+    //$(window).bind('mousewheel DOMMouseScroll', function (event) {
+    //    if (event.originalEvent.wheelDelta > 0 || event.originalEvent.detail < 0) {
+    //        // get effect type from
+    //        var selectedEffect = 'blind';
 
-            // Most effect types need no options passed by default
-            var options = {};
-            // some effects have required parameters
-            if (selectedEffect === "scale") {
-                options = { percent: 50 };
-            } else if (selectedEffect === "size") {
-                options = { to: { width: 200, height: 60 } };
-            }
-            $("#registerCardBody").show(selectedEffect, options, 1000);
-        }
-        else {
-            // get effect type from
-            var selectedEffect = 'blind';
-
-            // Most effect types need no options passed by default
-            var options = {};
-            // some effects have required parameters
-            if (selectedEffect === "scale") {
-                options = { percent: 50 };
-            } else if (selectedEffect === "size") {
-                options = { to: { width: 200, height: 60 } };
-            }
-            $("#registerCardBody").hide(selectedEffect, options, 1000);
-        }
-    });
-
-    //var lastScrollTop = 0;
-    //$(window).scroll(function (event) {
-    //    var st = $(this).scrollTop();
-    //    if (st > lastScrollTop) {
-           
-    //    } else {
-
+    //        // Most effect types need no options passed by default
+    //        var options = {};
+    //        // some effects have required parameters
+    //        if (selectedEffect === "scale") {
+    //            options = { percent: 50 };
+    //        } else if (selectedEffect === "size") {
+    //            options = { to: { width: 200, height: 60 } };
+    //        }
+    //        $("#registerCardBody").show(selectedEffect, options, 1000);
     //    }
-    //    lastScrollTop = st;
+    //    else {
+    //        // get effect type from
+    //        var selectedEffect = 'blind';
+
+    //        // Most effect types need no options passed by default
+    //        var options = {};
+    //        // some effects have required parameters
+    //        if (selectedEffect === "scale") {
+    //            options = { percent: 50 };
+    //        } else if (selectedEffect === "size") {
+    //            options = { to: { width: 200, height: 60 } };
+    //        }
+    //        $("#registerCardBody").hide(selectedEffect, options, 1000);
+    //    }
     //});
+
+    
 
     $('#btnSearchEmployeeDetails').on('click', function (e) {
         JsMain.ShowLoaddingIndicator();

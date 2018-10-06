@@ -55,7 +55,19 @@
             window.location.href = url;
         }
 
-        publicMethod.ShowMessageShowPopUp = function (data) {
+        publicMethod.ShowMessageShowReloadPopUp = function (header, message) {
+            $('#modalMessageShowReloadPopUpHeaderTitle').text(header);
+            $('#modalMessageShowReloadPopUpMessage').text(message);
+            $('#modalMessageShowReloadPopUp').modal('show');
+        },
+
+            publicMethod.ShowMessageShowPopUp = function (header, message) {
+            $('#modalMessageShowPopUpHeaderTitle').text(header);
+            $('#modalMessageShowPopUpMessage').text(message);
+            $('#modalMessageShowPopUp').modal('show');
+        },
+
+        publicMethod.ShowMessageShowPopUp1 = function (data) {
             var splitedDtata = data.split("|");
             if (splitedDtata[1]) {
                 $('#modalMessageShowPopUpHeaderTitle').text(splitedDtata[2]);

@@ -12,9 +12,14 @@ namespace ServiceInterface
 
         Task<List<EmployeeModel>> GetEmployeesDetails();
 
+        Task<EmployeeModel> GetEmployeeDetails(EmployeeModel employeeSearchModel);
+
         Task<List<EmployeeSearchModel>> GetEmployeesDetailsForSearch(EmployeeSearchModel employeeSearchModel);
 
         Task<List<EmployeeModel>> GetEmployeesDetailsOnSearch(EmployeeSearchModel employeeSearchModel);
 
+        Task<int> EditEmployeeDetails(EmployeeModel employeeModel, List<EmployeeAddressModel> employeeAddresses);
+
+        Task<int> DeleteEmployee(EmployeeModel employeeModel);
     }
 }

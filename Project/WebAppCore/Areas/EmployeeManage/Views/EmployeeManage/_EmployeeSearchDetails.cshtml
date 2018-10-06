@@ -1,44 +1,97 @@
 ﻿
-@(Html.Kendo().Grid<WebAppCore.Areas.EmployeeManage.Models.EmployeeViewModel>()
-                                            .Name("grdEmployeeSearch")
-                                            .Columns(columns =>
-                                            {
-                                                columns.Bound(c => c.EmployeeId).Width(110);
-                                                columns.Bound(c => c.FirstName).Width(300);
-                                                columns.Bound(c => c.LastName).Width(300);
-                                                columns.Bound(c => c.FullName).Width(300);
-                                                columns.Bound(c => c.Initial).Width(300);
-                                                columns.Bound(c => c.Email).Width(300);
+@(Html.Kendo().Grid<WebAppCore.Areas.EmployeeManage.Models.EmployeeViewModel>().Name("grdEmployeeSearch")
+                                                    .Columns(columns =>
+                                                    {
 
-                                            })
+                                                        columns.Command(command =>
+                                                        {
 
-                                        .Scrollable()
+                                                            command.Custom("Edit").Text("<i class='fas fa-user-edit'></i>")
+                                                            .Click("onEditEmployeeDetails").HtmlAttributes(
+                                                                            new
+                                                                            {
+                                                                                @style =
+                                                                            "margin-top : 1px; margin-bottom : 1px ;margin-right : 5px ;" +
+                                                                            "box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);    transition: all 0.4s; "
+                                                                            });
 
-                                             .Filterable()
-                                        .Sortable()
+                                                            command.Custom("Delete").Text("<i class='fas fa-user-times'></i>").Click("onDeleteEmployee")
+                                                                                .HtmlAttributes(
+                                                                            new { @style =
+                                                                            "margin-top : 1px; margin-bottom : 1px ;background-color: #b71010 ;" +
+                                                                            "box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);    transition: all 0.4s; " });
+                                                        })
+                                                                .Width(110);
+                                                        columns.Bound(c => c.EmployeeId).Width(125);
+                                                        columns.Bound(c => c.FirstName).Width(120);
+                                                        columns.Bound(c => c.LastName).Width(110);
+                                                        columns.Bound(c => c.FullName).Width(110);
+                                                        columns.Bound(c => c.DateOfBirth).Format("{0: yyyy-MM-dd}").Width(130);
+                                                        columns.Bound(c => c.DateOfJoining).Format("{0: yyyy-MM-dd}").Width(145);
 
-                                        .ColumnMenu()
-                                       .Resizable(resizable => resizable.Columns(true))
-                                       .Events(events => events
-                                            .DataBound("onDataBound")
-                                            .DataBinding("onDataBinding")
-                                            
-                                        )
-                                            .DataSource(dataSource => dataSource
-                                                .Ajax()
-                                                .Events(events => events.Error("onError"))
-                                                .Read(read => read.Action(
-                                                    routeValues: "GetEmployeeDetails",
-                                                    controllerName: "EmployeeManage", actionName: "Products_Read"
-                                                    ).Data("JsEmployee.GetEmployeeSearchDataForRead")
-                                                    
+                                                        columns.Bound(c => c.Email);
+                                                        columns.Bound(c => c.TIN);
+                                                        columns.Bound(c => c.PASSPORT);
+
+                                                    })
+                                                     .Mobile()
+                            .Editable(editable => editable.Mode(GridEditMode.InLine))
+                             .Scrollable()
+                             
+                                        //  .HtmlAttributes(new { style = "height: 650px; width: 1600px;" })
+                                        .Pageable()
+
+
+                                                     .Filterable()
+                                                .Sortable()
+
+                                                .ColumnMenu()
+                                               .Resizable(resizable => resizable.Columns(true))
+                                               .Events(events => events
+                                                    .DataBound("onDataBound")
+                                                    .DataBinding("onDataBinding")
+
+                                                )
+
+                                                    .DataSource(dataSource => dataSource
+                                                        .Ajax()
+                                                        .PageSize(20)
+                                                        .Model(model => model.Id(p => p.EmployeeId))
+                                                        .Events(events =>
+                                                                events.Error("onError")
+
+                                                                )
+                                                        .Read(read => read.Action(
+                                                            routeValues: "GetEmployeeDetails",
+                                                            controllerName: "EmployeeManage", actionName: "Products_Read"
+                                                            ).Data("JsEmployee.GetEmployeeSearchDataForRead")
+                                                            )
+
                                                     )
-                                            )
 )
 
 <input type="hidden" id="hdnSeachAllEmployee" name="hdnSeachAllEmployee" value="1">
 
 <script>
+
+    function onDeleteEmployee(e) {
+        JsMain.ShowLoaddingIndicator();
+    var urlDeleteEmployee =  '@Url.Action("DeleteEmployee", "EmployeeManage",
+                                                new { area = "EmployeeManage" })';
+
+        var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
+        JsEmployee.DeleteEmployee(urlDeleteEmployee, dataItem, e);
+        e.preventDefault();
+    }
+
+    function onEditEmployeeDetails(e) {
+        var urlEditEmployeeDetails =  '@Url.Action("GetEmployeeDetailsForEdit", "EmployeeManage",
+                                                new { area = "EmployeeManage" })';
+
+        var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
+        JsEmployee.EditEmployeeDetails(urlEditEmployeeDetails, dataItem);
+        e.preventDefault();
+    }
 
     function onError(e) {
         JsMain.Response404Error();
@@ -53,6 +106,6 @@
     }
 
     function GetEmployeeSearchDataForRead() {
-        
+
     };
 </script>

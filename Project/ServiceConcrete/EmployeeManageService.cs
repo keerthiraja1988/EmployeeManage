@@ -76,8 +76,8 @@ namespace ServiceConcrete
                 employeeAddresses.Add(employeeAddressModelP);
                 employeeAddresses.Add(employeeAddressModelC);
 
-            IEmployeeManageRepository _IEmployeeManageRepository1;
-            
+                IEmployeeManageRepository _IEmployeeManageRepository1;
+
                 SqlInsightDbProvider.RegisterProvider();
                 //  string sqlConnection = "Data Source=.;Initial Catalog=EmployeeManage;Integrated Security=True";
                 string sqlConnection1 = Caching.Instance.GetApplicationConfigs("DBConnection")
@@ -86,16 +86,13 @@ namespace ServiceConcrete
 
                 _IEmployeeManageRepository1 = c1.As<IEmployeeManageRepository>();
 
-                var returnValue =  _IEmployeeManageRepository1.LoadEmployeeData(item, employeeAddresses);
+                var returnValue = _IEmployeeManageRepository1.LoadEmployeeData(item, employeeAddresses);
                 //var returnValue = this._IEmployeeManageRepository.LoadEmployeeData(item);
 
             });
-
-         
             return employeeDetails.ToList();
         }
 
-       
         public async Task<List<EmployeeModel>> GetEmployeesDetails()
         {
             List<EmployeeModel> employeeDetails = new List<EmployeeModel>();
@@ -104,6 +101,11 @@ namespace ServiceConcrete
             return employeeDetails;
         }
 
+        public async Task<EmployeeModel> GetEmployeeDetails(EmployeeModel employeeSearchModel)
+        {
+            return await Task.Run(() => this._IEmployeeManageRepository
+                                                   .GetEmployeeDetails(employeeSearchModel).Result);
+        }
 
         public async Task<List<EmployeeSearchModel>> GetEmployeesDetailsForSearch(EmployeeSearchModel employeeSearchModel)
         {
@@ -119,6 +121,18 @@ namespace ServiceConcrete
             employeeDetails = await Task.Run(() => this._IEmployeeManageRepository
                                                     .GetEmployeesDetailsOnSearch(employeeSearchModel).Result);
             return employeeDetails;
+        }
+
+        public async Task<int> EditEmployeeDetails(EmployeeModel employeeModel, List<EmployeeAddressModel> employeeAddresses)
+        {
+           return await Task.Run(() => this._IEmployeeManageRepository
+                                                    .EditEmployeeDetails(employeeModel, employeeAddresses).Result);
+        }
+
+        public async Task<int> DeleteEmployee(EmployeeModel employeeModel)
+        {
+            return await Task.Run(() => this._IEmployeeManageRepository
+                                                     .DeleteEmployee(employeeModel).Result);
         }
     }
 }

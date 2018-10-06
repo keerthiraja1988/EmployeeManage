@@ -47,7 +47,6 @@ namespace WebAppCore.Areas.EmployeeManage.Controllers
         public async Task<IActionResult> Products_Read([DataSourceRequest] DataSourceRequest request
                                                                 , EmployeeSearchViewModel employeeSearchViewModel)
         {
-            var vvv = CultureInfo.CurrentCulture.Name;
             EmployeeSearchModel employeeSearchModel = new EmployeeSearchModel();
             employeeSearchModel = _mapper.Map<EmployeeSearchModel>(employeeSearchViewModel);
 
@@ -59,6 +58,59 @@ namespace WebAppCore.Areas.EmployeeManage.Controllers
             return Json(EmployeesViewModel.ToDataSourceResult(request));
         }
 
+        [HttpPost]
+        [Route("GetEmployeeDetailsForEdit")]
+        public async Task<IActionResult> GetEmployeeDetailsForEdit([FromBody] EmployeeViewModel employeeSearchViewModel)
+        {
+            EmployeeModel employeeSearchModel = new EmployeeModel();
+            employeeSearchModel = _mapper.Map<EmployeeModel>(employeeSearchViewModel);
+
+            var employeeDetails = await this._IEmployeeManageService.GetEmployeeDetails(employeeSearchModel);
+
+            EmployeeViewModel EmployeesViewModel = new EmployeeViewModel();
+
+            EmployeesViewModel = _mapper.Map<EmployeeViewModel>(employeeDetails);
+
+            string partialViewHtml = await this.RenderViewAsync("_EditEmployeeDetails", EmployeesViewModel, true);
+
+            return Json(partialViewHtml);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Route("EditEmployeeDetails")]
+        public async Task<IActionResult> EditEmployeeDetails(EmployeeViewModel employeeViewModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                return await Task.Run(() => PartialView("_EditEmployeeDetails", employeeViewModel));
+            }
+
+            int isDBCallSucces = await SaveEmployeeDetails(employeeViewModel);
+
+            return Json("");
+        }
+
+        [HttpPost]
+        //[ValidateAntiForgeryToken]
+        [Route("DeleteEmployee")]
+        public async Task<IActionResult> DeleteEmployee([FromBody] EmployeeViewModel employeeViewModel)
+        {
+            EmployeeModel employeeModel = new EmployeeModel();
+            employeeModel = _mapper.Map<EmployeeModel>(employeeViewModel);
+
+            int isDBCallSucces = await this._IEmployeeManageService.DeleteEmployee(employeeModel);
+
+            if (isDBCallSucces == 0)
+            {
+              return  new JsonResult("RequestPassed|0|Success|Employee Deleted Successfully");
+            }
+            else
+            {
+                return new JsonResult("RequestFailed|1|Error|Error Occurred on Employee Deletion");
+            }
+           
+        }
 
         [Route("GetEmployeeDetailsForSearch")]
         public async Task<IEnumerable<EmployeeSearchViewModel>> GetEmployeeDetailsForSearch(EmployeeSearchViewModel employeeSearchViewModel)
@@ -98,6 +150,21 @@ namespace WebAppCore.Areas.EmployeeManage.Controllers
 
             return await Task.Run(() =>
                     new JsonResult("RequestPassed|0|Success|Validate Employee Details On Search Success"));
+        }
+
+        #region Private Methods EmployeeManage Controller
+
+        private async Task<int> SaveEmployeeDetails(EmployeeViewModel employeeViewModel)
+        {
+            employeeViewModel.DateOfBirth = DateTime.Now;
+            employeeViewModel.DateOfJoining = DateTime.Now;
+
+            EmployeeModel employeeModel = new EmployeeModel();
+            List<EmployeeAddressModel> employeeAddresses = new List<EmployeeAddressModel>();
+            employeeModel = _mapper.Map<EmployeeModel>(employeeViewModel);
+
+            return await this._IEmployeeManageService.EditEmployeeDetails(employeeModel
+                                                                                , employeeAddresses);
         }
 
         private static async Task<string> ValidateEmployeeDetailsOnSearchAllFiled(EmployeeSearchViewModel employeeSearchViewModel)
@@ -155,11 +222,6 @@ namespace WebAppCore.Areas.EmployeeManage.Controllers
             return "";
         }
 
-        [Route("GetEmployeeDetailsForSearch1")]
-        public IActionResult ServerFiltering(string text, string TT)
-        {
-            return View();
-        }
-
+        #endregion
     }
 }

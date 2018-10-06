@@ -81,10 +81,50 @@
 
     <input type="hidden" id="refresh" value="no">
 
-    <!-- The Modal -->
-    <div class="modal fade" id="modalMessageShowPopUp"   tabindex="-1" role="dialog"
+    <div class="modal fade" id="modalMessageShowReloadPopUp" tabindex="-1" role="dialog"
          data-backdrop="static" data-keyboard="false">
-        <div class="modal-dialog"  id="modalMessageShowPopUpDialog">
+        <div class="modal-dialog" id="modalMessageShowReloadPopUp">
+            <div class="modal-content">
+                <script>
+                    $(function () {
+                        $("#modalMessageShowReloadPopUpDialog").draggable(
+                            {
+                                handle: "#modalMessageShowReloadPopUpHeader"
+                            }
+                        );
+                        $(".modal-title").disableSelection();
+
+
+                        $('#modalMessageShowReloadPopUpClose').on('click', function (e) {
+                            location.reload();
+                        });
+                    });
+                </script>
+                <div class="modal-header bg-info pt-0 pb-0 "
+                     style="box-shadow: 0 0 5px #888; cursor: grab; color:white" id="modalMessageShowReloadPopUpHeader">
+                    <h5 class="modal-title" id="modalMessageShowReloadPopUpHeaderTitle"></h5>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body" id="modalMessageShowReloadPopUpBody">
+                    <span id="modalMessageShowReloadPopUpMessage"></span>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" id="modalMessageShowReloadPopUpClose" class="btn btn-dark ml-2"
+                            data-dismiss="modal">
+                        <i class="fas fa-times"></i>
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- The Modal -->
+    <div class="modal fade" id="modalMessageShowPopUp" tabindex="-1" role="dialog"
+         data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog" id="modalMessageShowPopUpDialog">
             <div class="modal-content">
                 <script>
                     $(function () {
