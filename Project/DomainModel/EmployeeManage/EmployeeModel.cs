@@ -19,9 +19,9 @@ namespace DomainModel.EmployeeManage
 
         public string Email { get; set; }
 
-        public DateTime DateOfBirth { get; set; }
+        public DateTime? DateOfBirth { get; set; }
 
-        public DateTime DateOfJoining { get; set; }
+        public DateTime? DateOfJoining { get; set; }
 
         public int PermenantAddressId { get; set; }
 

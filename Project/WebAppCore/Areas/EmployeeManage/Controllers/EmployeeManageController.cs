@@ -15,6 +15,8 @@ using WebAppCore.Infrastructure.Filters;
 using WebAppCore.Infrastructure;
 using DomainModel.EmployeeManage;
 using System.Globalization;
+using DomainModel.Shared;
+using WebAppCore.Models;
 
 namespace WebAppCore.Areas.EmployeeManage.Controllers
 {
@@ -91,10 +93,10 @@ namespace WebAppCore.Areas.EmployeeManage.Controllers
             return Json("");
         }
 
-        [HttpPost]
-        //[ValidateAntiForgeryToken]
+        [AcceptVerbs("Post")]
+     
         [Route("DeleteEmployee")]
-        public async Task<IActionResult> DeleteEmployee([FromBody] EmployeeViewModel employeeViewModel)
+        public async Task<IActionResult> DeleteEmployee([DataSourceRequest] DataSourceRequest request, EmployeeViewModel employeeViewModel)
         {
             EmployeeModel employeeModel = new EmployeeModel();
             employeeModel = _mapper.Map<EmployeeModel>(employeeViewModel);
@@ -103,14 +105,14 @@ namespace WebAppCore.Areas.EmployeeManage.Controllers
 
             if (isDBCallSucces == 0)
             {
-              return  new JsonResult("RequestPassed|0|Success|Employee Deleted Successfully");
+                return new JsonResult("RequestPassed|0|Success|Employee Deleted Successfully");
             }
             else
             {
                 return new JsonResult("RequestFailed|1|Error|Error Occurred on Employee Deletion");
             }
-           
         }
+
 
         [Route("GetEmployeeDetailsForSearch")]
         public async Task<IEnumerable<EmployeeSearchViewModel>> GetEmployeeDetailsForSearch(EmployeeSearchViewModel employeeSearchViewModel)
@@ -151,6 +153,61 @@ namespace WebAppCore.Areas.EmployeeManage.Controllers
             return await Task.Run(() =>
                     new JsonResult("RequestPassed|0|Success|Validate Employee Details On Search Success"));
         }
+
+        #region Add Employee
+        [Route("AddEmployeePage")]
+        public async Task<IActionResult> AddEmployeePage()
+        {
+            EmployeeViewModel employeeViewModel = new EmployeeViewModel();
+            employeeViewModel.PermenantAddress = new EmployeeAddressViewModel();
+            employeeViewModel.CurrentAddress = new EmployeeAddressViewModel();
+            employeeViewModel.WorkLocation = 210;
+            employeeViewModel.PermenantAddress.CountryId = 211;
+            employeeViewModel.CurrentAddress.CountryId = 212;
+            return await Task.Run(() => View("AddEmployee", employeeViewModel));
+
+        }
+
+        [Route("AddEmployee")]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AddEmployee(EmployeeViewModel employeeViewModel)
+        {
+            //if (!ModelState.IsValid)
+            //{
+            //    return await Task.Run(() => View("AddEmployee", employeeViewModel));
+            //}
+
+            var loggedInUserDetails = await Task.Run(() => this.User.GetLoggedInUserDetails());
+            
+
+            EmployeeModel employee = new EmployeeModel();
+            employee = _mapper.Map<EmployeeModel>(employeeViewModel);
+            employee.UserId = loggedInUserDetails.UserId;
+            employeeViewModel.PermenantAddress.AddressType = "P";
+            employeeViewModel.CurrentAddress.AddressType = "C";
+            List<EmployeeAddressModel> employeeAddresses = new List<EmployeeAddressModel>();
+            employeeAddresses.Add(_mapper.Map<EmployeeAddressModel>(employeeViewModel.PermenantAddress));
+            employeeAddresses.Add(_mapper.Map<EmployeeAddressModel>(employeeViewModel.CurrentAddress));
+
+            var vvv = await this._IEmployeeManageService.AddEmployee(employee, employeeAddresses);
+
+            return await Task.Run(() => View("AddEmployee"));
+
+        }
+
+        [Route("GetCountries")]
+        public async Task<JsonResult> GetCountries()
+        {
+            List<CountryModel> countries = new List<CountryModel>();
+            List<CountryViewModel> countriesViewModel = new List<CountryViewModel>();
+            countries = await this._IEmployeeManageService.GetCountries();
+            countriesViewModel = _mapper.Map<List<CountryViewModel>>(countries);
+
+            return await Task.Run(() => Json(countriesViewModel));
+        }
+
+        #endregion
 
         #region Private Methods EmployeeManage Controller
 

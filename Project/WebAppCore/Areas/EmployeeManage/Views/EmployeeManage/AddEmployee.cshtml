@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewData["Title"] = "Add New Employee";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model WebAppCore.Areas.EmployeeManage.Models.EmployeeViewModel
+<form asp-area="EmployeeManage" asp-controller="EmployeeManage" asp-action="AddEmployee"
+      method="POST" data-ajax="true"
+      data-ajax-begin="onBeginAddEmployeeForm" data-ajax-complete="onCompleteAddEmployeeForm"
+      data-ajax-failure="onFailedAddEmployeeForm" data-ajax-success="onSuccessAddEmployeeForm"
+      data-ajax-update="divAddEmployee" id="formAddEmployee">
+
+    @await Html.PartialAsync("_EmployeePersonalDetails", Model)
+    @await Html.PartialAsync("_EmployeeContactDetails", Model)
+
+   
+    <div id="Results"></div>
+
+</form>
+<script>
+    var onBeginAddEmployeeForm = function () {
+
+        JsMain.ShowLoaddingIndicator();
+    };
+
+    var onCompleteAddEmployeeForm = function () {
+        //  alert();
+
+        JsMain.HideLoaddingIndicator();
+    };
+
+    var onSuccessAddEmployeeForm = function (data) {
+        //  alert();
+        JsMain.HideLoaddingIndicator();
+
+    };
+
+    var onFailedAddEmployeeForm = function () {
+        //  alert();
+        JsMain.HideLoaddingIndicator();
+    };
+</script>
+
+    </div>
+

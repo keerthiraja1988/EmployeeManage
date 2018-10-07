@@ -1,91 +1,145 @@
 ﻿
 @(Html.Kendo().Grid<WebAppCore.Areas.EmployeeManage.Models.EmployeeViewModel>().Name("grdEmployeeSearch")
-                                                    .Columns(columns =>
-                                                    {
-
-                                                        columns.Command(command =>
+                                                        .Columns(columns =>
                                                         {
 
-                                                            command.Custom("Edit").Text("<i class='fas fa-user-edit'></i>")
-                                                            .Click("onEditEmployeeDetails").HtmlAttributes(
-                                                                            new
-                                                                            {
-                                                                                @style =
-                                                                            "margin-top : 1px; margin-bottom : 1px ;margin-right : 5px ;" +
-                                                                            "box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);    transition: all 0.4s; "
-                                                                            });
+                                                            columns.Command(command =>
+                                                            {
 
-                                                            command.Custom("Delete").Text("<i class='fas fa-user-times'></i>").Click("onDeleteEmployee")
-                                                                                .HtmlAttributes(
-                                                                            new { @style =
-                                                                            "margin-top : 1px; margin-bottom : 1px ;background-color: #b71010 ;" +
-                                                                            "box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);    transition: all 0.4s; " });
+                                                                command.Custom("Edit").Text("<i class='fas fa-user-edit'></i>")
+                                                                .Click("onEditEmployeeDetails").HtmlAttributes(
+                                                                                new
+                                                                                {
+                                                                                    @style =
+                                                                                "margin-top : 1px; margin-bottom : 1px ;margin-right : 5px ;" +
+                                                                                "box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);    transition: all 0.4s; "
+                                                                                });
+                                                                command.Custom("Custom Delete").Text("<i class='fas fa-user-times'></i>")
+                                                                 .Click("openWindow")
+                                                                  .HtmlAttributes(
+                                                                             new
+                                                                             {
+                                                                                 @style =
+                                                                             "box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);    transition: all 0.4s; "+
+                                                                             "background-color: #b71010;"
+                                                                             });
+
+                                                            })
+                                                                    .Width(110);
+                                                            columns.Bound(c => c.EmployeeId).Width(125);
+                                                            columns.Bound(c => c.FirstName).Width(120);
+                                                            columns.Bound(c => c.LastName).Width(110);
+                                                            columns.Bound(c => c.FullName).Width(110);
+                                                            columns.Bound(c => c.DateOfBirth).Format("{0: yyyy-MM-dd}").Width(130);
+                                                            columns.Bound(c => c.DateOfJoining).Format("{0: yyyy-MM-dd}").Width(145);
+
+                                                            columns.Bound(c => c.Email);
+                                                            columns.Bound(c => c.TIN);
+                                                            columns.Bound(c => c.PASSPORT);
+
                                                         })
-                                                                .Width(110);
-                                                        columns.Bound(c => c.EmployeeId).Width(125);
-                                                        columns.Bound(c => c.FirstName).Width(120);
-                                                        columns.Bound(c => c.LastName).Width(110);
-                                                        columns.Bound(c => c.FullName).Width(110);
-                                                        columns.Bound(c => c.DateOfBirth).Format("{0: yyyy-MM-dd}").Width(130);
-                                                        columns.Bound(c => c.DateOfJoining).Format("{0: yyyy-MM-dd}").Width(145);
+                                                         .Mobile()
+                                .Editable(editable => editable.Mode(GridEditMode.InLine))
+                                 .Scrollable()
 
-                                                        columns.Bound(c => c.Email);
-                                                        columns.Bound(c => c.TIN);
-                                                        columns.Bound(c => c.PASSPORT);
+                                            //  .HtmlAttributes(new { style = "height: 650px; width: 1600px;" })
+                                            .Pageable()
+                                            .Editable(e => e.DisplayDeleteConfirmation(false))
 
-                                                    })
-                                                     .Mobile()
-                            .Editable(editable => editable.Mode(GridEditMode.InLine))
-                             .Scrollable()
-                             
-                                        //  .HtmlAttributes(new { style = "height: 650px; width: 1600px;" })
-                                        .Pageable()
+                                                         .Filterable()
+                                                    .Sortable()
 
-
-                                                     .Filterable()
-                                                .Sortable()
-
-                                                .ColumnMenu()
-                                               .Resizable(resizable => resizable.Columns(true))
-                                               .Events(events => events
-                                                    .DataBound("onDataBound")
-                                                    .DataBinding("onDataBinding")
-
-                                                )
-
-                                                    .DataSource(dataSource => dataSource
-                                                        .Ajax()
-                                                        .PageSize(20)
-                                                        .Model(model => model.Id(p => p.EmployeeId))
-                                                        .Events(events =>
-                                                                events.Error("onError")
-
-                                                                )
-                                                        .Read(read => read.Action(
-                                                            routeValues: "GetEmployeeDetails",
-                                                            controllerName: "EmployeeManage", actionName: "Products_Read"
-                                                            ).Data("JsEmployee.GetEmployeeSearchDataForRead")
-                                                            )
+                                                    .ColumnMenu()
+                                                   .Resizable(resizable => resizable.Columns(true))
+                                                   .Events(events => events
+                                                        .DataBound("onDataBound")
+                                                        .DataBinding("onDataBinding")
 
                                                     )
+
+                                                        .DataSource(dataSource => dataSource
+                                                            .Ajax()
+
+                                                            .PageSize(20)
+                                                            .Model(model => model.Id(p => p.EmployeeId))
+                                                            .Events(events =>
+                                                                    events.Error("onError")
+                                                                    .RequestEnd("onRequestEnd")
+                                                                    .RequestStart("onRequestStart")
+                                                                    )
+                                                            .Read(read => read.Action(
+                                                                routeValues: "GetEmployeeDetails",
+                                                                controllerName: "EmployeeManage", actionName: "Products_Read"
+                                                                ).Data("JsEmployee.GetEmployeeSearchDataForRead")
+                                                                )
+                                                          .Destroy(update => update.Action(routeValues: "GetEmployeeDetails",
+                                                                controllerName: "EmployeeManage", actionName: "DeleteEmployee"))
+
+
+
+                                                                )
 )
 
-<input type="hidden" id="hdnSeachAllEmployee" name="hdnSeachAllEmployee" value="1">
 
+<input type="hidden" id="hdnSeachAllEmployee" name="hdnSeachAllEmployee" value="1">
+<div id="modalWindow">
+    <h2>Delete?</h2>
+    <button id="yes" class="k-button">Yes</button>
+    <button id="no" class="k-button">No</button>
+</div>
 <script>
 
-    function onDeleteEmployee(e) {
-        JsMain.ShowLoaddingIndicator();
-    var urlDeleteEmployee =  '@Url.Action("DeleteEmployee", "EmployeeManage",
-                                                new { area = "EmployeeManage" })';
+    var window = $("#window").kendoWindow({
+        title: "Are you sure you want to delete this record?",
+        visible: false, //the window will not appear before its .open method is called
+        width: "400px",
+        height: "200px",
+    }).data("kendoWindow");
 
-        var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
-        JsEmployee.DeleteEmployee(urlDeleteEmployee, dataItem, e);
-        e.preventDefault();
+
+    var onError = function (e) {
+        JsMain.HideLoaddingIndicator();
+    var destroyedData = e.sender._destroyed ;
+    if (destroyedData.length > 0) {
+        alert("Error Occured on Delete the Employee Number : " + destroyedData[0].EmployeeId);
+    }
+    var grid = $("#grdEmployeeSearch").data("kendoGrid");
+    // cancel changes
+    grid.cancelChanges();
+
+}
+
+function onRequestStart(e) {
+    
+    if (e.type == "destroy") {
+
+    }
+    JsMain.ShowLoaddingIndicator();
+    //RequestEnd handler code
+}
+
+function onRequestEnd(e) {
+    JsMain.HideLoaddingIndicator();
+    if (e.type == "destroy") {
+
+        var dataArray = e.response.split("|");
+        //Request Failed
+        if (dataArray[1] == '1') {
+            JsMain.ShowMessageShowReloadPopUp(dataArray[2], dataArray[3]);
+        }
+        //Request Passed
+        if (dataArray[1] == '0') {
+
+            JsMain.ShowMessageShowPopUp(dataArray[2], dataArray[3]);
+        }
+
     }
 
-    function onEditEmployeeDetails(e) {
-        var urlEditEmployeeDetails =  '@Url.Action("GetEmployeeDetailsForEdit", "EmployeeManage",
+    //RequestEnd handler code
+}
+
+function onEditEmployeeDetails(e) {
+    var urlEditEmployeeDetails =  '@Url.Action("GetEmployeeDetailsForEdit", "EmployeeManage",
                                                 new { area = "EmployeeManage" })';
 
         var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
@@ -108,4 +162,32 @@
     function GetEmployeeSearchDataForRead() {
 
     };
+
+    var wnd;
+    $(document).ready(function () {
+        wnd = $("#modalWindow").kendoWindow({
+            title: "Delete confirmation",
+            modal: true,
+            visible: false,
+            resizable: false,
+            width: 300
+        }).data("kendoWindow");
+    });
+
+    function openWindow(e) {
+        e.preventDefault();
+
+        var grid = this;
+        var row = $(e.currentTarget).closest("tr");
+        wnd.center().open();
+
+        $("#yes").click(function () {
+            grid.removeRow(row);
+            wnd.close();
+        });
+
+        $("#no").click(function () {
+            wnd.close();
+        });
+    }
 </script>

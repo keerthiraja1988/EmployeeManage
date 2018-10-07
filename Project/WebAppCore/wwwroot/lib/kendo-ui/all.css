@@ -135,7 +135,7 @@
 .k-datetimepicker .k-state-active, .k-dateinput .k-state-focused, .k-state-focused .k-multiselect-wrap, .k-numerictextbox .k-state-focused {
   color: #292b2c;
   background-color: #ffffff;
-  border-color: #3935cd;
+  border-color: transparent;
   box-shadow: none; }
 
 .k-treeview .k-in.k-state-hover, .k-calendar .k-state-hover .k-link, .k-panelbar .k-panel > .k-item > .k-link:hover,

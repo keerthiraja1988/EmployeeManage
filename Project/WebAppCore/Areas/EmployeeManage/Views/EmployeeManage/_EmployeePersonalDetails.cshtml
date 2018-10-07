@@ -1,0 +1,126 @@
+﻿@model WebAppCore.Areas.EmployeeManage.Models.EmployeeViewModel
+<div class="card">
+
+    <div class="card-header   bg-info  text-white pt-1 pb-1">
+        <i style=" font-size: 18px;" class="far fa-address-card"></i> Personal Details
+    </div>
+    <div class="card-body pt-0  pb-1 pl-0" id="addNewEmployeeCardBody">
+
+
+        <div class="row ">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 pl-2 pr-0 pt-2">
+                <label asp-for="FirstName"></label><span> *</span>
+                <input asp-for="FirstName" id="addNewEmployeeFirstName" data-val="true" type="text"
+                       autocomplete="off" placeholder="Enter First Name" class="form-control" />
+                <small>
+                    <span asp-validation-for="FirstName" id="addNewEmployeeFirstNameVal" class="text-danger"></span>
+                </small>
+
+            </div>
+
+            <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 pl-2  pr-0 pt-2">
+                <label asp-for="LastName"></label><span> *</span>
+                <input asp-for="LastName" id="addNewEmployeeLastName" data-val="true" type="text"
+                       autocomplete="off" placeholder="Enter Last Name" class="form-control" />
+                <small>
+                    <span asp-validation-for="LastName" id="addNewEmployeeLastNameVal" class="text-danger"></span>
+                </small>
+
+            </div>
+
+
+            <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 pl-2 pr-0 pt-2">
+                <label asp-for="DateOfBirth"></label><span> *</span>
+                @(Html.Kendo().DatePickerFor(d => d.DateOfBirth)
+                                                                  .Value("")
+                                                                 .HtmlAttributes(new
+                                                                 {
+                                                                     style = "width: 100%"
+                                                                    ,
+                                                                     @placeholder = "Please Select Date"
+
+                                                                 })
+                )
+                <small>
+                    <span asp-validation-for="DateOfBirth" id="addNewEmployeeDateOfBirthVal" class="text-danger"></span>
+                </small>
+
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 pl-2  pr-0 pt-2">
+                <label asp-for="DateOfJoining"></label><span> *</span>
+                @(Html.Kendo().DatePickerFor(d => d.DateOfJoining)
+                                                                       .Value("")
+
+                                                                      .HtmlAttributes(new
+                                                                      {
+                                                                          style = "width: 100%"
+                                                                         ,
+                                                                          @placeholder = "Please Select Date"
+                                                                      })
+                )
+                <small>
+                    <span asp-validation-for="DateOfJoining" id="addNewEmployeeDateOfJoiningVal" class="text-danger"></span>
+                </small>
+
+            </div>
+
+            <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 pl-2 pr-0 pt-2">
+                <label asp-for="WorkLocation"></label><span> *</span>
+                @(Html.Kendo().ComboBoxFor(m => m.WorkLocation)
+                                .DataTextField("CountryName")
+                                .DataValueField("CountryId")
+                                .Filter("contains")
+                                
+                                           .Events(e =>
+                                            {
+                                                e.Change("onComboBoxChange");
+                                            })
+
+                                        .DataSource(source =>
+                                        {
+                                            source.Read(read => read.Action(
+                                                            routeValues: "GetCountries",
+                                                            controllerName: "EmployeeManage", actionName: "GetCountries"
+                                                            )
+                                                            )
+                                            .ServerFiltering(false);
+                                        })
+                                        .HtmlAttributes(new { style = "width:100%;" })
+                )
+                <small>
+                    <span asp-validation-for="WorkLocation" id="addNewEmployeeWorkLocationVal" class="text-danger"></span>
+                </small>
+
+            </div>
+
+            <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 pl-2  pr-0 pt-2">
+                <label asp-for="TIN"></label><span> *</span>
+                <input asp-for="TIN" id="addNewEmployeeTIN" data-val="true" type="text"
+                       autocomplete="off" placeholder="Enter TIN" class="form-control" />
+                <small>
+                    <span asp-validation-for="TIN" id="addNewEmployeeTINVal" class="text-danger"></span>
+                </small>
+            </div>
+
+            <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 pl-2  pr-0 pt-2">
+                <label asp-for="PASSPORT"></label><span> *</span>
+                <input asp-for="PASSPORT" id="addNewEmployeePASSPORT" data-val="true" type="text"
+                       autocomplete="off" placeholder="Enter Passport No." class="form-control" />
+                <small>
+                    <span asp-validation-for="PASSPORT" id="addNewEmployeePASSPORTVal" class="text-danger"></span>
+                </small>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+
+<script>
+    //Disable autocomplete throughout the site
+    $(document).ready(function () {
+        $("input:text,form").attr("autocomplete", "off");
+    })
+</script>

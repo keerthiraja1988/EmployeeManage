@@ -65,45 +65,6 @@
                 });
             },
 
-            publicMethod.DeleteEmployee = function (url, data, dataGrid) {
-           
-                $.ajax({
-                    async: true,
-                    type: "POST",
-                    url: url,
-                    data: JSON.stringify(data),
-                    contentType: 'application/json;',
-                    dataType: 'json',
-                    begin: function (data) {
-                        JsMain.ShowLoaddingIndicator();
-                    },
-                    complete: function (data) {
-                        JsMain.HideLoaddingIndicator();
-                    },
-                    success: function (returnData) {
-                      
-                        var dataArray = returnData.split("|");
-                        //Request Failed
-                        if (dataArray[1] == '1') {
-                            JsMain.ShowMessageShowReloadPopUp(dataArray[2], dataArray[3] );
-                        }
-                        //Request Passed
-                        if (dataArray[1] == '0') {
-                            var oldConfirm = window.confirm;
-                            window.confirm = function () { return true; };
-                            var grid = $("#grdEmployeeSearch").data("kendoGrid");
-                            grid.removeRow($(dataGrid.currentTarget).closest("tr"));
-                            window.confirm = oldConfirm;
-                            JsMain.ShowMessageShowPopUp(dataArray[2], dataArray[3]);
-                        }
-                    },
-                    error: function (data) {
-                        //JsMain.HideLoaddingIndicator();
-                        JsMain.Response404Error(data);
-                    }
-                });
-            },
-
             publicMethod.ValidateEmployeeDetailsOnSearch = function (url) {
                 JsMain.ShowLoaddingIndicator();
                 var data = JSON.stringify(JsEmployee.GetEmployeeSearchDataForRead());

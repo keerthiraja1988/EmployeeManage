@@ -1,4 +1,5 @@
 ﻿using DomainModel.EmployeeManage;
+using DomainModel.Shared;
 using Insight.Database;
 using System;
 using System.Collections.Generic;
@@ -29,6 +30,12 @@ namespace Repository
 
         [Sql("P_DeleteEmployee")]
         Task<int> DeleteEmployee(EmployeeModel employeeModel);
+
+        [Sql("SELECT *  FROM [dbo].[Country]")]
+        Task<List<CountryModel>> GetCountries();
+
+        [Sql("P_CreateEmployee")]
+        Task<int> AddEmployee(EmployeeModel employeeModel, List<EmployeeAddressModel> EmployeeAddress);
 
     }
 }

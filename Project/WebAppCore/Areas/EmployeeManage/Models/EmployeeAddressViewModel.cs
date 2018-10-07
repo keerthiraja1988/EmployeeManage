@@ -11,7 +11,7 @@ namespace WebAppCore.Areas.EmployeeManage.Models
 
         public int EmployeeId { get; set; }
 
-        public int Address1 { get; set; }
+        public string Address1 { get; set; }
 
         public string Address2 { get; set; }
 
@@ -21,7 +21,10 @@ namespace WebAppCore.Areas.EmployeeManage.Models
 
         public string State { get; set; }
 
-        public int Country { get; set; }
+        public int CountryId { get; set; }
+
+        public string CountryName { get; set; }
+        public string AddressType { get; set; }
 
         public bool IsActive { get; set; }
 

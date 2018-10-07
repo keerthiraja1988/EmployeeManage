@@ -149,7 +149,7 @@
                 </div>
 
                 <!-- Modal footer -->
-                <div class="modal-footer">
+                <div class="modal-footer" style="padding-top: 5px; padding-bottom: 5px;">
                     <button type="button" id="modalMessageShowPopUpClose" class="btn btn-dark ml-2"
                             data-dismiss="modal">
                         <i class="fas fa-times"></i>
@@ -174,7 +174,7 @@
 
     <nav class="navbar navbar-expand-lg  navbar-dark bg-primary fixed-top pt-0 pb-0 pl-0 pr-0"
          style="box-shadow: 1px 3px 3px 0px rgba(105, 24, 24, 0.37);
-           min-height: 53px;">
+               min-height: 50px;">
         <div id="brandLogo" class="btn pl-0" style="background-color:rgb(17, 23, 82);
                     box-shadow: 2px 3px 10px rgba(10, 6, 6, 0.38); position: fixed; width: 65px;
                     height: 58px; left: 7px;  z-index: 2;cursor:pointer ;top: 0px;
@@ -184,7 +184,7 @@
             </h3>
         </div>
         <a id="navBrandHome" class="navbar-brand" href="\" style="padding-left: 83px;padding-right:5px;margin-right: 0.352;
-                    font-size: 23px;margin-right: 3px;">HR Management</a>
+                    font-size: 23px;margin-right: 3px;" onclick="JsMain.ShowLoaddingIndicator()">HR Management</a>
         <!-- Navbar content -->
         <button id="btnNavbarCollapse" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
@@ -196,13 +196,17 @@
             <ul class="navbar-nav mr-auto ">
 
                 <li class="nav-item dropdown p-l-xs p-l-sm " id="navItemEmployeeDropDown">
-                    <a class="nav-link dropdown-toggle pl-0" href="#" id="navbaEmployeeDropDown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle pl-0" href="#" id="navbaEmployeeDropDown"
+                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                      >
                         Employee
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item"
+                        <a class="dropdown-item" onclick="JsMain.ShowLoaddingIndicator()"
+                           asp-area="EmployeeManage" asp-controller="EmployeeManage" asp-action="AddEmployeePage">Add Employee</a>
+                        <a class="dropdown-item" onclick="JsMain.ShowLoaddingIndicator()"
                            asp-area="EmployeeManage" asp-controller="EmployeeManage" asp-action="Index">Employee Manage</a>
-                        <a class="dropdown-item" href="#">Authrization</a>
+                        <a class="dropdown-item" href="#" onclick="JsMain.ShowLoaddingIndicator()">Authrization</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">Something else here</a>
                     </div>
@@ -214,8 +218,10 @@
                         Static Pages
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" asp-area="Base" asp-controller="Base" asp-action="Error">Error Page</a>
-                        <a class="dropdown-item" asp-area="Security" asp-controller="UserAccount" asp-action="AccessDenied">Access Denied</a>
+                        <a class="dropdown-item" onclick="JsMain.ShowLoaddingIndicator()" 
+                                                    asp-area="Base" asp-controller="Base" asp-action="Error">Error Page</a>
+                        <a class="dropdown-item" onclick="JsMain.ShowLoaddingIndicator()"
+                                                 asp-area="Security" asp-controller="UserAccount" asp-action="AccessDenied">Access Denied</a>
 
                     </div>
                 </li>
@@ -227,7 +233,8 @@
             </ul>
             <div style="
     display: flex;
-    padding-bottom: 1px;
+    padding-bottom: 2px;
+    padding-right: 7px;
 " class="d-flex justify-content-end">
                 @if (User.Identity.IsAuthenticated)
                 {

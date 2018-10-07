@@ -29,8 +29,9 @@ namespace WebAppCore.Areas.DashBoard.Controllers
             
             _iDashBoardService = IDashBoardService;
         }
-        [Route("")]
+
         [Route("Home")]
+        [Route("")]
         public IActionResult Index()
         {
             DashBoardRow1WidgetsModel dashBoardRow1WidgetsModel = new DashBoardRow1WidgetsModel();

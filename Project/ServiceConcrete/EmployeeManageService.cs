@@ -13,6 +13,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Data;
 using CrossCutting.Logging;
+using DomainModel.Shared;
 
 namespace ServiceConcrete
 {
@@ -60,8 +61,6 @@ namespace ServiceConcrete
                 employeeAddressModelP.Address3 = Faker.Address.SecondaryAddress();
                 employeeAddressModelP.City = Faker.Address.USCity();
                 employeeAddressModelP.State = Faker.Address.State();
-                employeeAddressModelP.Country = 10;
-                employeeAddressModelP.AddressType = "P";
 
                 EmployeeAddressModel employeeAddressModelC = new EmployeeAddressModel();
                 employeeAddressModelC.Address1 = Faker.Address.SecondaryAddress();
@@ -69,8 +68,6 @@ namespace ServiceConcrete
                 employeeAddressModelC.Address3 = Faker.Address.SecondaryAddress();
                 employeeAddressModelC.City = Faker.Address.USCity();
                 employeeAddressModelC.State = Faker.Address.State();
-                employeeAddressModelC.Country = 10;
-                employeeAddressModelC.AddressType = "C";
 
                 List<EmployeeAddressModel> employeeAddresses = new List<EmployeeAddressModel>();
                 employeeAddresses.Add(employeeAddressModelP);
@@ -125,14 +122,26 @@ namespace ServiceConcrete
 
         public async Task<int> EditEmployeeDetails(EmployeeModel employeeModel, List<EmployeeAddressModel> employeeAddresses)
         {
-           return await Task.Run(() => this._IEmployeeManageRepository
-                                                    .EditEmployeeDetails(employeeModel, employeeAddresses).Result);
+            return await Task.Run(() => this._IEmployeeManageRepository
+                                                     .EditEmployeeDetails(employeeModel, employeeAddresses).Result);
         }
 
         public async Task<int> DeleteEmployee(EmployeeModel employeeModel)
         {
             return await Task.Run(() => this._IEmployeeManageRepository
                                                      .DeleteEmployee(employeeModel).Result);
+        }
+
+        public async Task<List<CountryModel>> GetCountries()
+        {
+            return await Task.Run(() => this._IEmployeeManageRepository
+                                                     .GetCountries().Result);
+        }
+
+        public async Task<int> AddEmployee(EmployeeModel employeeModel, List<EmployeeAddressModel> employeeAddresses)
+        {
+            return await Task.Run(() => this._IEmployeeManageRepository
+                                                    .AddEmployee(employeeModel, employeeAddresses).Result);
         }
     }
 }

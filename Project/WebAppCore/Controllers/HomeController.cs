@@ -15,6 +15,7 @@ namespace WebAppCore.Controllers
             return View();
         }
 
+       // [Route("")]
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";

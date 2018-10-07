@@ -116,7 +116,7 @@
 }
 
 /*md*/
-@media (min-width: 992px) {
+@media (min-width: 990px) {
     .p-md {
         padding: 1em;
     }
@@ -134,7 +134,7 @@
     }
 
     .p-r-md {
-        padding-right: 1em;
+        padding-right: 5px !important;
     }
 
     .p-b-md {
@@ -465,9 +465,12 @@ k-picker-wrap .k-state-focused .k-state-selected {
 .k-select {
     border-radius: 0px !important;
     box-shadow: 1px 1px 1px 1px #ddd !important;
-    height: 36px;
+    height: 32px;
 }
 
+.k-widget.form-control .k-input {
+    height: auto;
+}
 
 .k-list .k-item.k-state-selected, .k-list-container .k-button:active, .k-list-container .k-button.k-state-active, .k-spreadsheet-popup .k-button:active, .k-spreadsheet-popup .k-button.k-state-active, .k-spreadsheet-popup .k-button.k-state-selected, .k-menu-group .k-item.k-state-selected, .k-menu.k-context-menu .k-item.k-state-selected {
     color: #ffffff !important;
@@ -535,3 +538,36 @@ k-picker-wrap .k-state-focused .k-state-selected {
 .k-grid-header .k-header > .k-link {
     padding-right: 28px !important;
 }
+
+.k-pager-wrap .k-pager-info {
+    min-width: 100px;
+}
+
+.k-grid-pager {
+    overflow-x: auto;
+}
+
+
+.k-i-close::before, .k-i-group-delete::before {
+    content: "";
+}
+
+.k-icon.k-i-close {
+    height: 0;
+    width: 0;
+}
+
+
+.k-dateinput-wrap .k-input, .k-dropdown-wrap .k-input, .k-picker-wrap .k-input, .k-multiselect-wrap .k-input, .k-numeric-wrap .k-input {
+    height: calc( 0.55rem + 1.45em);
+}
+
+.k-autocomplete, .k-combobox, .k-dateinput, .k-datepicker, .k-datetimepicker, .k-dropdown, .k-dropdowntree, .k-multiselect, .k-numerictextbox, .k-maskedtextbox, .k-timepicker, .k-dropdowntree {
+    height: calc( 0.65rem + 1.45em);
+}
+
+.k-dropdown-wrap {
+    border-radius: 0px;
+}
+
+

@@ -1,4 +1,5 @@
 ﻿using DomainModel.EmployeeManage;
+using DomainModel.Shared;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -21,5 +22,9 @@ namespace ServiceInterface
         Task<int> EditEmployeeDetails(EmployeeModel employeeModel, List<EmployeeAddressModel> employeeAddresses);
 
         Task<int> DeleteEmployee(EmployeeModel employeeModel);
+
+        Task<List<CountryModel>> GetCountries();
+
+        Task<int> AddEmployee(EmployeeModel employeeModel, List<EmployeeAddressModel> employeeAddresses);
     }
 }
