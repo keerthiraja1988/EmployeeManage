@@ -50,13 +50,15 @@
                     contentType: 'application/json;',
                     dataType: 'json',
                     begin: function (data) {
-                        JsMain.ShowLoaddingIndicator();
+                       // JsMain.ShowLoaddingIndicator();
                     },
                     complete: function (data) {
                         JsMain.HideLoaddingIndicator();
                     },
                     success: function (data) {
                         $("#appendEmployeeManagePartialViews").html(data);
+                        $('#appendEmployeeManagePartialViews form').data('validator', null);
+                        $.validator.unobtrusive.parse('#appendEmployeeManagePartialViews form');
                     },
                     error: function (data) {
                         //JsMain.HideLoaddingIndicator();

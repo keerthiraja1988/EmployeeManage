@@ -40,17 +40,11 @@ namespace WebAppCore.Areas.EmployeeManage.Models
         public string MobileNo { get; set; }
 
         [Display(Name = "Date Of Birth")]
-        [Required(ErrorMessage = "Please Provide Date Of Birth")]
-        [RegularExpression(@"(((0|1)[0-9]|2[0-9]|3[0-1])\/(0[1-9]|1[0-2])\/((19|20)\d\d))$", 
-                ErrorMessage = "Invalid Date Format. Please Provide in dd/mm/yyyy Format")]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [Required(ErrorMessage = "Please Provide Date Of Birth")]        
         public DateTime? DateOfBirth { get; set; }
 
         [Display(Name = "Date Of Joining")]
-        [Required(ErrorMessage = "Please Provide Date Of Joining")]
-        [RegularExpression(@"(((0|1)[0-9]|2[0-9]|3[0-1])\/(0[1-9]|1[0-2])\/((19|20)\d\d))$",
-                ErrorMessage = "Invalid Date Format. Please Provide in dd/mm/yyyy Format")]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [Required(ErrorMessage = "Please Provide Date Of Joining")]       
         public DateTime? DateOfJoining { get; set; }
 
         public int PermenantAddressId { get; set; }

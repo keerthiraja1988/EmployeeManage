@@ -32,7 +32,11 @@
             <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 pl-2 pr-0 pt-2">
                 <label asp-for="DateOfBirth"></label><span> *</span>
                 @(Html.Kendo().DatePickerFor(d => d.DateOfBirth)
-                                                                  .Value("")
+                                         .DateInput(true)
+                                         .Max("12/12/9999")
+                                        .ParseFormats(new string[] { "dd/MM/yyyy" })
+                                                                       .Value(Model.DateOfBirth)
+                                                                     
                                                                  .HtmlAttributes(new
                                                                  {
                                                                      style = "width: 100%"
@@ -50,10 +54,13 @@
             <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 pl-2  pr-0 pt-2">
                 <label asp-for="DateOfJoining"></label><span> *</span>
                 @(Html.Kendo().DatePickerFor(d => d.DateOfJoining)
-                                                                       .Value("")
-
+                                        .DateInput(true)
+                                        .ParseFormats(new string[] { "dd/MM/yyyy" })
+                                                                       .Value(Model.DateOfJoining)
+                                                                      
                                                                       .HtmlAttributes(new
                                                                       {
+                                                                       
                                                                           style = "width: 100%"
                                                                          ,
                                                                           @placeholder = "Please Select Date"
@@ -74,7 +81,7 @@
                                 
                                            .Events(e =>
                                             {
-                                                e.Change("onComboBoxChange");
+                                                e.Change("onComboBoxCountryNameChange");
                                             })
 
                                         .DataSource(source =>
@@ -123,4 +130,15 @@
     $(document).ready(function () {
         $("input:text,form").attr("autocomplete", "off");
     })
+
+
+    function onComboBoxCountryNameChange(e) {
+       
+        if (this.select() < 0) {
+            this.value("");
+            $('#WorkLocation').data('kendoComboBox').select(0);
+        }
+    }
+
+    
 </script>

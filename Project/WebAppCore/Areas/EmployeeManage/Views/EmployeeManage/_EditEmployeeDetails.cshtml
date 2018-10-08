@@ -1,7 +1,5 @@
 ﻿@model WebAppCore.Areas.EmployeeManage.Models.EmployeeViewModel
 
-@await Html.PartialAsync("_EmployeeSearchDetails")
-
 <div class="modal fade pl-0" id="modalEditUserDetails" tabindex="-1" role="dialog"
      aria-hidden="true" data-backdrop="static" data-keyboard="false">
     <script>
@@ -22,10 +20,10 @@
                  style="box-shadow: 0 0 5px #888; cursor: grab; color:white" id="EditUserDetailsHeader">
                 <h5 class="modal-title  text-secondary" id="exampleModalLabel">
                     <i class="fas fa-user-tie"></i>
-                    User Details
+                    Employee Details
                 </h5>
             </div>
-            <div class="modal-body pt-0" style="overflow-y: auto;">
+            <div class="modal-body pt-0" style="overflow-y: auto;max-height: 400px;">
                 <form asp-area="EmployeeManage" asp-controller="EmployeeManage" asp-action="EditEmployeeDetails"
                       method="POST" data-ajax="true"
                       data-ajax-begin="onBeginRegisterForm" data-ajax-complete="onCompleteRegisterForm"
@@ -76,8 +74,20 @@
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 pt-2">
                             <label asp-for="DateOfBirth" class="mb-1"></label><span> *</span>
 
-                            <input asp-for="DateOfBirth" id="editDateOfBirth" data-val="true" type="text"
-                                   placeholder="Select Date Of Birth" class="form-control" />
+                            @(Html.Kendo().DatePickerFor(d => d.DateOfBirth)
+                                                                                                                 .DateInput(true)
+                                                                                                                 .Max("12/12/9999")
+                                                                                                                .ParseFormats(new string[] { "dd/MM/yyyy" })
+                                                                                                                                               .Value(Model.DateOfBirth)
+
+                                                                                                                                         .HtmlAttributes(new
+                                                                                                                                         {
+                                                                                                                                             style = "width: 100%"
+                                                                                                                                            ,
+                                                                                                                                             @placeholder = "Please Select Date"
+
+                                                                                                                                         })
+                            )
                             <small>
                                 <span asp-validation-for="DateOfBirth" id="validateDateOfBirth" class="text-danger"></span>
                             </small>
@@ -86,8 +96,20 @@
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 pt-2">
                             <label asp-for="DateOfJoining" class="mb-1"></label><span> *</span>
 
-                            <input asp-for="DateOfJoining" id="editDateOfJoining" data-val="true" type="text"
-                                   placeholder="Select Date Of Joining" class="form-control" />
+                            @(Html.Kendo().DatePickerFor(d => d.DateOfJoining)
+                                                                                                                 .DateInput(true)
+                                                                                                                 .Max("12/12/9999")
+                                                                                                                .ParseFormats(new string[] { "dd/MM/yyyy" })
+                                                                                                                                               .Value(Model.DateOfJoining)
+
+                                                                                                                                         .HtmlAttributes(new
+                                                                                                                                         {
+                                                                                                                                             style = "width: 100%"
+                                                                                                                                            ,
+                                                                                                                                             @placeholder = "Please Select Date"
+
+                                                                                                                                         })
+                            )
                             <small>
                                 <span asp-validation-for="DateOfJoining" id="validateDateOfJoining" class="text-danger"></span>
                             </small>
@@ -96,29 +118,265 @@
                             <label asp-for="TIN" class="mb-1"></label><span> *</span>
 
                             <input asp-for="TIN" id="editTIN" data-val="true" type="text"
-                                   placeholder="Select TIN" class="form-control" />
+                                   placeholder="Enter PAN No." class="form-control" />
                             <small>
                                 <span asp-validation-for="TIN" id="validateTIN" class="text-danger"></span>
                             </small>
                         </div>
 
-                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 pt-1">
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 pt-2">
                             <label asp-for="PASSPORT" class="mb-1"></label><span> *</span>
 
                             <input asp-for="PASSPORT" id="editPASSPORT" data-val="true" type="text"
-                                   placeholder="Select PASSPORT" class="form-control" />
+                                   placeholder="Enter Passport No." class="form-control" />
                             <small>
                                 <span asp-validation-for="PASSPORT" id="validatePASSPORT" class="text-danger"></span>
                             </small>
                         </div>
 
+
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 pt-2">
+                            <label asp-for="Email" class="mb-1"></label><span> *</span>
+
+                            <input asp-for="Email" id="editEmail" data-val="true" type="text"
+                                   placeholder="Enter Email Id" class="form-control" />
+                            <small>
+                                <span asp-validation-for="Email" id="validateEmail" class="text-danger"></span>
+                            </small>
+                        </div>
+
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 pt-2">
+                            <div class="row">
+                                <div id="ValidateMyContents" class="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-4  pl-0 pr-1  pt-0
+                       ">
+                                    <span id="status" style="color:black"></span>
+                                    <label asp-for="CountryCode"></label><span> *</span>
+                                    @(Html.Kendo().ComboBoxFor(m => m.CountryCode)
+                                                                                                                .Value(Model.CountryCode)
+                                                                                                                   .DataTextField("CountryCode")
+                                                                                                                   .DataValueField("CountryId")
+                                                                                                                   .HtmlAttributes(new
+                                                                                                                   {
+                                                                                                                       required = "required"
+                                                                                                                   ,
+                                                                                                                       data_required_msg = "Selection Required"
+                                                                                                                   ,
+                                                                                                                       @Style = "width: 130px; margin:0.0 0 0 0;" +
+                                                                                                                   "height:20px;align:center; font-size:11px;"
+                                                                                                                   })
+                                                                                                                   .Filter("contains")
+                                                                                                                  .Events(e =>
+                                                                                                                  {
+                                                                                                                      e.Change("onComboBoxCountryCodeChange");
+                                                                                                                  })
+                                                                                                               .DataSource(source =>
+                                                                                                               {
+                                                                                                                   source.Read(read => read.Action(
+                                                                                                                                                   routeValues: "GetCountries",
+                                                                                                                                                   controllerName: "EmployeeManage", actionName: "GetCountries"
+                                                                                                                                                   )
+                                                                                                                                                   )
+                                                                                                                                   .ServerFiltering(false);
+                                                                                                               })
+                                                                                                               .HtmlAttributes(new { style = "width:100%;" })
+                                    )
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-7 col-lg-7 col-xl-8  pl-0 pr-1  pt-0
+                       ">
+                                    <label asp-for="MobileNo"></label><span> *</span>
+                                    <input asp-for="MobileNo" id="addNewEmployeeMobileNo" data-val="true" type="text"
+                                           autocomplete="off" placeholder="Enter Mobile No." class="form-control" />
+                                    <small>
+                                        <span asp-validation-for="MobileNo" id="addNewEmployeeMobileNoVal" class="text-danger"></span>
+                                    </small>
+                                </div>
+
+                            </div>
+
+
+
+                        </div>
+
+
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 pt-2">
+                            <div class="card " style="box-shadow: 0 3px 14px rgba(78, 43, 43, 0.4);">
+                                <div class="card-footer text-center text-muted">
+                                    Permenant Address
+                                </div>
+                                <div class="card-body">
+                                    <div class="row ">
+                                        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 pl-0 pr-0  p-r-md">
+                                            <label asp-for="PermenantAddress.Address1"></label><span> *</span>
+                                            <input asp-for="PermenantAddress.Address1" id="addNewEmployeePAddress1" data-val="true" type="text"
+                                                   autocomplete="off" placeholder="Enter Address Line 1" class="form-control" />
+                                            <small>
+                                                <span asp-validation-for="PermenantAddress.Address1" id="addNewEmployeePAddress1Val" class="text-danger"></span>
+                                            </small>
+                                        </div>
+
+                                        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 pl-0 pr-0  p-r-md pt-2">
+                                            <label asp-for="PermenantAddress.Address2"></label><span> *</span>
+                                            <input asp-for="PermenantAddress.Address2" id="addNewEmployeePAddress2" data-val="true" type="text"
+                                                   autocomplete="off" placeholder="Enter Address Line 2" class="form-control" />
+                                            <small>
+                                                <span asp-validation-for="PermenantAddress.Address2" id="addNewEmployeePAddress2Val" class="text-danger"></span>
+                                            </small>
+                                        </div>
+
+                                        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 pl-0 pr-0  p-r-md pt-2">
+                                            <label asp-for="PermenantAddress.Address3"></label><span> </span>
+                                            <input asp-for="PermenantAddress.Address3" id="addNewEmployeePAddress3" data-val="true" type="text"
+                                                   autocomplete="off" placeholder="Enter Address Line 3" class="form-control" />
+                                            <small>
+                                                <span asp-validation-for="PermenantAddress.Address3" id="addNewEmployeePAddress3Val" class="text-danger"></span>
+                                            </small>
+                                        </div>
+
+                                        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 pl-0 pr-0  p-r-md pt-2">
+                                            <label asp-for="PermenantAddress.City"></label><span> *</span>
+                                            <input asp-for="PermenantAddress.City" id="addNewEmployeePCity" data-val="true" type="text"
+                                                   autocomplete="off" placeholder="Enter Address Line 1" class="form-control" />
+                                            <small>
+                                                <span asp-validation-for="PermenantAddress.City" id="addNewEmployeePCityVal" class="text-danger"></span>
+                                            </small>
+                                        </div>
+
+                                        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 pl-0 pr-0  p-r-md pt-2">
+                                            <label asp-for="PermenantAddress.State"></label><span> *</span>
+                                            <input asp-for="PermenantAddress.State" id="addNewEmployeePState" data-val="true" type="text"
+                                                   autocomplete="off" placeholder="Enter Address Line 1" class="form-control" />
+                                            <small>
+                                                <span asp-validation-for="PermenantAddress.State" id="addNewEmployeePStateVal" class="text-danger"></span>
+                                            </small>
+                                        </div>
+                                        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 pl-0 pr-0 pt-2 p-r-md
+                                ">
+                                            <label asp-for="PermenantAddress.CountryId"></label><span> *</span>
+                                            @(Html.Kendo().ComboBoxFor(m => m.PermenantAddress.CountryId)
+                                                                                                                 .DataTextField("CountryName")
+                                                                                                                 .DataValueField("CountryId")
+
+                                                                                                                 .Filter("contains")
+                                                                                                                .Events(e =>
+                                                                                                                 {
+                                                                                                                     e.Change("onComboBoxPermenantCountryCodeChange");
+                                                                                                                 })
+
+                                                                                                             .DataSource(source =>
+                                                                                                                 {
+                                                                                                                     source.Read(read => read.Action(
+                                                                                                                                                     routeValues: "GetCountries",
+                                                                                                                                                     controllerName: "EmployeeManage", actionName: "GetCountries"
+                                                                                                                                                     )
+                                                                                                                                                     )
+                                                                                                                                     .ServerFiltering(false);
+                                                                                                                 })
+                                                                                                             .HtmlAttributes(new { style = "width:100%;" })
+                                            )
+                                            <small>
+                                                <span asp-validation-for="PermenantAddress.CountryId" id="addNewEmployeePCountryVal" class="text-danger"></span>
+                                            </small>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 pt-2">
+                            <div class="card" style="box-shadow: 0 3px 14px rgba(78, 43, 43, 0.4);">
+                                <div class="card-footer text-center text-muted">
+                                    Current Address
+                                </div>
+                                <div class="card-body">
+                                    <div class="row ">
+                                        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 pl-0 pr-0  p-r-md">
+                                            <label asp-for="CurrentAddress.Address1"></label><span> *</span>
+                                            <input asp-for="CurrentAddress.Address1" id="addNewEmployeeCAddress1" data-val="true" type="text"
+                                                   autocomplete="off" placeholder="Enter Address Line 1" class="form-control" />
+                                            <small>
+                                                <span asp-validation-for="CurrentAddress.Address1" id="addNewEmployeeCAddress1Val" class="text-danger"></span>
+                                            </small>
+                                        </div>
+                                        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 pl-0 pr-0  pt-2  p-r-md">
+                                            <label asp-for="CurrentAddress.Address2"></label><span> *</span>
+                                            <input asp-for="CurrentAddress.Address2" id="addNewEmployeeCAddress2" data-val="true" type="text"
+                                                   autocomplete="off" placeholder="Enter Address Line 2" class="form-control" />
+                                            <small>
+                                                <span asp-validation-for="CurrentAddress.Address2" id="addNewEmployeeCAddress2Val" class="text-danger"></span>
+                                            </small>
+                                        </div>
+
+                                        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 pl-0 pr-0  pt-2  p-r-md">
+                                            <label asp-for="CurrentAddress.Address3"></label><span> </span>
+                                            <input asp-for="CurrentAddress.Address3" id="addNewEmployeeCAddress3" data-val="true" type="text"
+                                                   autocomplete="off" placeholder="Enter Address Line 3" class="form-control" />
+                                            <small>
+                                                <span asp-validation-for="CurrentAddress.Address3" id="addNewEmployeeCAddress3Val" class="text-danger"></span>
+                                            </small>
+                                        </div>
+
+                                        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 pl-0 pr-0  pt-2  p-r-md">
+                                            <label asp-for="CurrentAddress.City"></label><span> *</span>
+                                            <input asp-for="CurrentAddress.City" id="addNewEmployeeCCity" data-val="true" type="text"
+                                                   autocomplete="off" placeholder="Enter City Name" class="form-control" />
+                                            <small>
+                                                <span asp-validation-for="CurrentAddress.City" id="addNewEmployeeCCityVal" class="text-danger"></span>
+                                            </small>
+                                        </div>
+
+                                        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 pl-0 pr-0  pt-2  p-r-md">
+                                            <label asp-for="CurrentAddress.State"></label><span> *</span>
+                                            <input asp-for="CurrentAddress.State" id="addNewEmployeeCState" data-val="true" type="text"
+                                                   autocomplete="off" placeholder="Enter State" class="form-control" />
+                                            <small>
+                                                <span asp-validation-for="CurrentAddress.State" id="addNewEmployeeCStateVal" class="text-danger"></span>
+                                            </small>
+                                        </div>
+
+                                        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 pl-0 pr-0 pt-2 p-r-md
+                                ">
+                                            <label asp-for="CurrentAddress.CountryId"></label><span> *</span>
+                                            @(Html.Kendo().ComboBoxFor(m => m.CurrentAddress.CountryId)
+                                                                                                                         .DataTextField("CountryName")
+                                                                                                                         .DataValueField("CountryId")
+
+                                                                                                                         .Filter("contains")
+                                                                                                                        .Events(e =>
+                                                                                                                         {
+                                                                                                                             e.Change("onComboBoxCurrentCountryCodeChange");
+                                                                                                                         })
+
+                                                                                                                     .DataSource(source =>
+                                                                                                                         {
+                                                                                                                             source.Read(read => read.Action(
+                                                                                                                                                             routeValues: "GetCountries",
+                                                                                                                                                             controllerName: "EmployeeManage", actionName: "GetCountries"
+                                                                                                                                                             )
+                                                                                                                                                             )
+                                                                                                                                             .ServerFiltering(false);
+                                                                                                                         })
+                                                                                                                     .HtmlAttributes(new { style = "width:100%;" })
+                                            )
+                                            <small>
+                                                <span asp-validation-for="CurrentAddress.CountryId" id="addNewEmployeeCCountryVal" class="text-danger"></span>
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div id="Results"></div>
                     </div>
                 </form>
 
             </div>
             <div class="modal-footer">
                 <div class="text-center">
-                    <button type="submit" class="btn btn-primary" id="btnEditEmployeeSave" value="EditEmployeeSave">
+                    <button type="submit" class="btn btn-success" id="btnEditEmployeeSave" value="EditEmployeeSave">
                         <i class="fas fa-save"></i>
                         Save
                     </button>
@@ -131,45 +389,81 @@
             </div>
         </div>
     </div>
+    <script>
+
+
+        var onBeginRegisterForm = function () {
+            JsMain.ShowLoaddingIndicator();
+        };
+
+        var onCompleteRegisterForm = function () {
+            JsMain.HideLoaddingIndicator();
+        };
+
+        var onSuccessRegisterForm = function (data) {
+
+            $('#modalEditUserDetails').modal('hide');
+            setTimeout(
+                function () {
+                    $("#modalEditUserDetails").remove();
+                    //do something special
+                }, 1000);
+
+            JsMain.HideLoaddingIndicator();
+
+            var grid = $("#grdEmployeeSearch").data("kendoGrid");
+            grid.dataSource.read();
+
+            if (data.startsWith("Request")) {
+                var dataArray = data.split("|");
+                //Request Failed
+                if (dataArray[1] == '1') {
+                    JsMain.ShowMessageShowReloadPopUp(dataArray[2], dataArray[3]);
+                }
+                //Request Passed
+                if (dataArray[1] == '0') {
+
+                    JsMain.ShowMessageShowPopUp(dataArray[2], dataArray[3]);
+                }
+
+            }
+            else {
+                $("#appendEmployeeManagePartialViews").html(data);
+                $('#appendEmployeeManagePartialViews form').data('validator', null);
+                $.validator.unobtrusive.parse('#appendEmployeeManagePartialViews form');
+            }
+        };
+
+        var onFailedRegisterForm = function () {
+            //  alert();
+            JsMain.HideLoaddingIndicator();
+            JsMain.ShowMessageShowPopUp('Error', 'Error Occurred on Employee updation. If issue presist contact support');
+        };
+
+        $('#btnEditEmployeeCancel').click(function () {
+            $('#modalEditUserDetails').modal('hide');
+            setTimeout(
+                function () {
+                    $("#modalEditUserDetails").remove();
+                    //do something special
+                }, 1000);
+
+        });
+        $('#btnEditEmployeeSave').click(function () {
+            $('#formEditEmployee').submit();
+        });
+
+
+        jQuery(document).ready(function () {
+            $('#modalEditUserDetails').modal('show');
+
+        });
+
+
+
+
+    </script>
 </div>
-<script>
-
-    var onBeginRegisterForm = function () {
-        JsMain.ShowLoaddingIndicator();
-    };
-
-    var onCompleteRegisterForm = function () {
-        JsMain.HideLoaddingIndicator();
-    };
-
-    var onSuccessRegisterForm = function (data) {
-        debugger;
-        JsMain.HideLoaddingIndicator();
-        $("#appendEmployeeManagePartialViews").html(data);
-        // $("#appendPartialView").html(data);
-    };
-
-    var onFailedRegisterForm = function () {
-        //  alert();
-        JsMain.HideLoaddingIndicator();
-    };
-
-    $('#btnEditEmployeeCancel').click(function () {
-        $('#modalEditUserDetails').modal('hide');
-        setTimeout(
-            function () {
-                $("#modalEditUserDetails").remove();
-                //do something special
-            }, 1000);
-
-    });
-    $('#btnEditEmployeeSave').click(function () {
-        $('#formEditEmployee').submit();
-    });
-
-    jQuery(document).ready(function () {
-        $('#modalEditUserDetails').modal('show');
-    });
 
 
-</script>
+

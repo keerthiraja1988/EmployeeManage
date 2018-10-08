@@ -83,14 +83,21 @@ namespace WebAppCore.Areas.EmployeeManage.Controllers
         [Route("EditEmployeeDetails")]
         public async Task<IActionResult> EditEmployeeDetails(EmployeeViewModel employeeViewModel)
         {
-            if (!ModelState.IsValid)
-            {
-                return await Task.Run(() => PartialView("_EditEmployeeDetails", employeeViewModel));
-            }
+            //if (!ModelState.IsValid)
+            //{
+            //    return await Task.Run(() => PartialView("_EditEmployeeDetails", employeeViewModel));
+            //}
 
             int isDBCallSucces = await SaveEmployeeDetails(employeeViewModel);
-
-            return Json("");
+            if (isDBCallSucces == 0)
+            {
+                return new JsonResult("RequestPassed|0|Success|Employee details saved successfully");
+            }
+            else
+            {
+                return new JsonResult("RequestFailed|1|Error|Error Occurred on Employee Deletion. If issue presist contact support");
+            }
+          
         }
 
         [AcceptVerbs("Post")]
@@ -109,7 +116,7 @@ namespace WebAppCore.Areas.EmployeeManage.Controllers
             }
             else
             {
-                return new JsonResult("RequestFailed|1|Error|Error Occurred on Employee Deletion");
+                return new JsonResult("RequestFailed|1|Error|Error Occurred on Employee Deletion. If issue presist contact support");
             }
         }
 
@@ -173,10 +180,10 @@ namespace WebAppCore.Areas.EmployeeManage.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AddEmployee(EmployeeViewModel employeeViewModel)
         {
-            //if (!ModelState.IsValid)
-            //{
-            //    return await Task.Run(() => View("AddEmployee", employeeViewModel));
-            //}
+            if (!ModelState.IsValid)
+            {
+                return await Task.Run(() => View("AddEmployee", employeeViewModel));
+            }
 
             var loggedInUserDetails = await Task.Run(() => this.User.GetLoggedInUserDetails());
             
@@ -190,9 +197,20 @@ namespace WebAppCore.Areas.EmployeeManage.Controllers
             employeeAddresses.Add(_mapper.Map<EmployeeAddressModel>(employeeViewModel.PermenantAddress));
             employeeAddresses.Add(_mapper.Map<EmployeeAddressModel>(employeeViewModel.CurrentAddress));
 
-            var vvv = await this._IEmployeeManageService.AddEmployee(employee, employeeAddresses);
+            var result = await this._IEmployeeManageService.AddEmployee(employee, employeeAddresses);
 
-            return await Task.Run(() => View("AddEmployee"));
+            if (result == 0)
+            {
+                return await Task.Run(() =>
+                   new JsonResult("RequestPassed|1|Success|Employee created successfully"));
+
+            }
+            else
+            {
+                return await Task.Run(() =>
+                 new JsonResult("RequestFailed|0|Error|Error occured on Employee creation. If issue presist contact Support Team"));
+
+            }
 
         }
 

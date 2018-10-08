@@ -66,7 +66,7 @@
                                                                      .Filter("contains")
                                                                     .Events(e =>
                                                                      {
-                                                                         e.Change("onComboBoxChange");
+                                                                         e.Change("onComboBoxPermenantCountryCodeChange");
                                                                      })
 
                                                                  .DataSource(source =>
@@ -152,7 +152,7 @@
                                                                              .Filter("contains")
                                                                             .Events(e =>
                                                                              {
-                                                                                 e.Change("onComboBoxChange");
+                                                                                 e.Change("onComboBoxCurrentCountryCodeChange");
                                                                              })
 
                                                                          .DataSource(source =>
@@ -188,7 +188,7 @@
                     <div class="card-body">
 
                         <div class="row ">
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-12 col-xl-12 pl-0 pr-0 pt-2 p-r-md
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 pl-0 pr-0 pt-2 p-r-md
                       ">
                                 <label asp-for="Email"></label><span> *</span>
                                 <input asp-for="Email" id="addNewEmployeeEmail" data-val="true" type="text"
@@ -199,22 +199,23 @@
 
                             </div>
 
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-12 col-xl-12  pl-0 pr-0  pt-0
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12  pl-0 pr-0  pt-0
                        ">
                                 <div class="row">
-                                    <div id="ValidateMyContents" class="col-12 col-sm-12 col-md-5 col-lg-4 col-xl-4  pl-0 pr-0  pt-2
+                                    <div id="ValidateMyContents" class="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-4  pl-0 pr-1  pt-2
                        ">           <span id="status" style="color:black"></span>
                                         <label asp-for="CountryCode"></label><span> *</span>
                                         @(Html.Kendo().ComboBoxFor(m => m.CountryCode)
+                                                   
                                                         .DataTextField("CountryCode")
                                                         .DataValueField("CountryId")
                                                         .HtmlAttributes(new { required = "required", data_required_msg = "Selection Required", @Style = "width: 130px; margin:0.5em 0 0 0;height:20px;align:center; font-size:11px;" })
+                                                        .SelectedIndex(0)
 
-                                                        .Value("")
                                                         .Filter("contains")
                                                        .Events(e =>
                                                        {
-                                                           e.Change("onComboBoxChange");
+                                                           e.Change("onComboBoxCountryCodeChange");
                                                        })
 
                                                     .DataSource(source =>
@@ -229,12 +230,11 @@
                                                     .HtmlAttributes(new { style = "width:100%;" })
                                         )
                                         <small>
-                                            @Html.ValidationMessageFor(m=> m.CountryCode, "", new { @class = "text-danger" })<br>
                                             <span asp-validation-for="CountryCode" id="addNewEmployeeCountryCodeVal" class="text-danger"></span>
                                         </small>
                                     </div>
 
-                                    <div class="col-12 col-sm-12 col-md-7 col-lg-8 col-xl-8  pl-2 pr-1  pt-2
+                                    <div class="col-12 col-sm-12 col-md-7 col-lg-7 col-xl-8  pl-0 pr-1  pt-2
                        ">
                                         <label asp-for="MobileNo"></label><span> *</span>
                                         <input asp-for="MobileNo" id="addNewEmployeeMobileNo" data-val="true" type="text"
@@ -276,25 +276,36 @@
     </div>
 </div>
 
+
 <script>
 
     $(document).ready(function () {
-        var validator = $("#ValidateMyContents").kendoValidator().data("kendoValidator"),
-            status = $(".status");
 
-        $("idRegisterUser").click(function () {
-            if (validator.validate()) {
-                status.text("Hooray!");
-                $("#formAddEmployee").submit();
-            } else {
-                status.text("Oops! There is invalid data in the form.");
-            }
-        });
+
     });
 
-    function onComboBoxChange(e) {
+    function onComboBoxCountryCodeChange(e) {
+       
         if (this.select() < 0) {
             this.value("");
+            $('#CountryCode').data('kendoComboBox').select(0);
+           // $('#CountryCode').data('kendoComboBox').select(0);
+        }
+    }
+
+    function onComboBoxCurrentCountryCodeChange(e) {
+        if (this.select() < 0) {
+            this.value("");
+            $('#CurrentAddress_CountryId').data('kendoComboBox').select(0);
+            // $('#CountryCode').data('kendoComboBox').select(0);
+        }
+    }
+
+    function onComboBoxPermenantCountryCodeChange(e) {
+        if (this.select() < 0) {
+            this.value("");
+            $('#PermenantAddress_CountryId').data('kendoComboBox').select(0);
+            // $('#CountryCode').data('kendoComboBox').select(0);
         }
     }
 </script>
