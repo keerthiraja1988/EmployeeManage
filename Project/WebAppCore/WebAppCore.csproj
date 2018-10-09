@@ -47,9 +47,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Areas\About\Data\" />
+    <Folder Include="Areas\About\Models\" />
     <Folder Include="Areas\DashBoard\Data\" />
     <Folder Include="Areas\EmployeeManage\Data\" />
     <Folder Include="Areas\Security\Data\" />
+    <Folder Include="wwwroot\About\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -31,7 +31,7 @@ namespace WebAppCore.Areas.DashBoard.Controllers
         }
 
         [Route("Home")]
-        [Route("")]
+       
         public IActionResult Index()
         {
             DashBoardRow1WidgetsModel dashBoardRow1WidgetsModel = new DashBoardRow1WidgetsModel();

@@ -31,11 +31,11 @@
                                                                 )
                                                                 .Series(series =>
                                                                 {
-                                                                    series.Area(new double[] { 80, 70, 37 }).Name("New Employees");
-                                                                    series.Area(new double[] { 20, 23, 50 }).Name("Leavers");
+                                                                    series.Area(new double[] { 80, 70, 37, 10, 45 }).Name("New Employees");
+                                                                    series.Area(new double[] { 20, 23, 50, 25, 17 }).Name("Leavers");
                                                                 })
                                                                 .CategoryAxis(axis => axis
-                                                                    .Categories("3 Oct", "4 Oct", "5 Oct")
+                                                                    .Categories("3 Oct", "4 Oct", "5 Oct", "6 Oct", "7 Oct")
                                                                     .MajorGridLines(lines => lines.Visible(false))
                                                                 )
                                                                 .ValueAxis(axis => axis
@@ -58,7 +58,7 @@
             @(Html.Kendo().Chart()
                                                 .Name("chart1")
                                                  .Theme("sass")
-                                                .Title("Gross domestic product growth \n /GDP annual %/")
+                                                .Title("Gross employee growth statistics")
                                                 .Legend(legend => legend
                                                     .Position(ChartLegendPosition.Bottom)
                                                 )

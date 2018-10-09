@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Symbols LinesOfCode="433" PostSharpLinesOfCode="0" EnhancedTypesCount="3" SchemaVersion="1" PostSharpVersion="6.0.27.0" xmlns="http://schemas.postsharp.org/2.0/symbols">
+<Symbols LinesOfCode="436" PostSharpLinesOfCode="0" EnhancedTypesCount="3" SchemaVersion="1" PostSharpVersion="6.0.27.0" xmlns="http://schemas.postsharp.org/2.0/symbols">
   <Evolution Source="#1=M:[WebAppCore]WebAppCore.Areas.Security.Controllers.UserAccountController::UserAccount(System.String)" Target="#2=M:[WebAppCore]WebAppCore.Areas.Security.Controllers.UserAccountController+&lt;UserAccount&gt;d__10::MoveNext()" />
   <Evolution Source="#3=M:[WebAppCore]WebAppCore.Areas.Security.Controllers.UserAccountController::Login([WebAppCore]WebAppCore.Models.UserLoginViewModel, System.String)" Target="#4=M:[WebAppCore]WebAppCore.Areas.Security.Controllers.UserAccountController+&lt;Login&gt;d__11::MoveNext()" />
   <Evolution Source="#5=M:[WebAppCore]WebAppCore.Areas.Security.Controllers.UserAccountController::RegisterUser([WebAppCore]WebAppCore.Areas.Security.Models.RegisterUserViewModel)" Target="#6=M:[WebAppCore]WebAppCore.Areas.Security.Controllers.UserAccountController+&lt;RegisterUser&gt;d__12::MoveNext()" />
@@ -22,7 +22,7 @@
   <Evolution Source="#39=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController::ValidateEmployeeDetailsOnDOJ([WebAppCore]WebAppCore.Areas.EmployeeManage.Models.EmployeeSearchViewModel)" Target="#40=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController+&lt;ValidateEmployeeDetailsOnDOJ&gt;d__22::MoveNext()" />
   <Evolution Source="#41=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController::ValidateEmployeeDetailsOnDOB([WebAppCore]WebAppCore.Areas.EmployeeManage.Models.EmployeeSearchViewModel)" Target="#42=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController+&lt;ValidateEmployeeDetailsOnDOB&gt;d__23::MoveNext()" />
   <Class Class="#43=T:[CrossCutting]CrossCutting.Logging.NLoggingAttribute">
-    <Instance Declaration="#44=T:[WebAppCore]WebAppCore.Areas.Security.Controllers.UserAccountController" Id="5878df68c471dbe8">
+    <Instance Declaration="#44=T:[WebAppCore]WebAppCore.Areas.Security.Controllers.UserAccountController" Id="5878df68766a8bee">
       <Target Target="#45=M:[WebAppCore]WebAppCore.Areas.Security.Controllers.UserAccountController::get__IUserAccountService()" LinesAvoided="6">
         <JoinPoint Advising="#43" Description="#46=Wrapped by advice(s) OnEntry, OnException, OnExit" Ordinal="0" />
       </Target>
@@ -60,7 +60,7 @@
         <JoinPoint Advised="#14" Advising="#43" Description="#46" Ordinal="11" />
       </Target>
     </Instance>
-    <Instance Declaration="#51=T:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController" Id="5878df684f024839">
+    <Instance Declaration="#51=T:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController" Id="5878df68bdc6f62d">
       <Target Target="#52=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController::get__IEmployeeManageService()" LinesAvoided="6">
         <JoinPoint Advising="#43" Description="#46" Ordinal="12" />
       </Target>
@@ -119,7 +119,7 @@
         <JoinPoint Advised="#42" Advising="#43" Description="#46" Ordinal="30" />
       </Target>
     </Instance>
-    <Instance Declaration="#57=T:[WebAppCore]WebAppCore.Areas.DashBoard.Controllers.DashBoardController" Id="5878df6877aebd32">
+    <Instance Declaration="#57=T:[WebAppCore]WebAppCore.Areas.DashBoard.Controllers.DashBoardController" Id="5878df686e87316d">
       <Target Target="#58=M:[WebAppCore]WebAppCore.Areas.DashBoard.Controllers.DashBoardController::#ctor(ServiceInterface.IDashBoardService, AutoMapper.IMapper)" LinesAvoided="6">
         <JoinPoint Advising="#43" Description="#46" Ordinal="31" />
       </Target>
