@@ -100,7 +100,9 @@
 <script>
 
     var EmployeeManageUrl = '@Url.Action("Index", "EmployeeManage", new { area = "EmployeeManage" })';
-
+    var ApplicationErrorsUrl = '@Url.Action("Error", "Base", new { area = "Base" })';
+    
+    var AccessDeniedUrl = '@Url.Action("AccessDenied", "UserAccount", new { area = "Security" })';
     var dashBoardHubConnection = new signalR.HubConnectionBuilder().withUrl("/dashBoardHub").build();
 
     dashBoardHubConnection.on("rUpdateDashBoardRow1Widgets", function (message) {

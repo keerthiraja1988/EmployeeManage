@@ -76,7 +76,6 @@
                 </div>
             </div>
 
-            <input type="password" class="form-control" style="display:none; " id="password" placeholder="Password">
             <span class="text-success" id="autoPopulatePasswordTxt"></span>
             <div class="text-center">
                 <button type="submit" class="btn btn-info mt-3" id="idRegisterUser"
@@ -147,7 +146,7 @@
                  $("#_RegisterPartialViewDiv").html(data);
                  $("#registerPassword").val("password@123");
                  $("#registerReTypePassword").val("password@123");
-                 $("#autoPopulatePasswordTxt").text("Your Password is : password");
+                 $("#autoPopulatePasswordTxt").text("Your Password is : password@123");
                  $("#password").remove();
                  $("#btnRegisterReset").removeClass("btn btn-info").addClass("btn btn-secondary");
                  $("#btnRegisterReset").prop("disabled", true);
@@ -208,26 +207,8 @@
         $('#registerReTypePassword').val('');
         $("#password").text("");
     });
+
     jQuery(document).ready(function () {
-        "use strict";
-        var options = {};
-        options.ui = {
-            bootstrap4: true,
-            container: "#pwd-container",
-            viewports: {
-                debug: true,
-                progress: ".pwstrength_viewport_progress"
-            },
-            showVerdictsInsideProgressBar: true
-        };
-        options.common = {
-            onLoad: function () {
-            }
-        };
-        $(':password').pwstrength(options);
-
-     
-
     });
 
 
