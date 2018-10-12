@@ -80,7 +80,7 @@ namespace WebAppCore
                     options.SerializerSettings.ContractResolver = new DefaultContractResolver())
                     ;
             ConfigureRazorAndCompression(services);
-
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddSignalR();
 
             // Add Kendo UI services to the services container

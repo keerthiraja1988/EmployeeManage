@@ -41,6 +41,8 @@ namespace DomainModel
 
         public bool IsLoginSuccess { get; set; }
 
+        public string UserIpAddress { get; set; }
+
     }
 
     public class UserRoleModel

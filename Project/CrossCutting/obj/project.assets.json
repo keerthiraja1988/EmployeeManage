@@ -2,6 +2,15 @@
   "version": 3,
   "targets": {
     ".NETStandard,Version=v2.0": {
+      "DarkSkyApi/3.3.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard1.1/DarkSkyApi.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/DarkSkyApi.dll": {}
+        }
+      },
       "Microsoft.CSharp/4.0.1": {
         "type": "package",
         "dependencies": {
@@ -756,6 +765,16 @@
     }
   },
   "libraries": {
+    "DarkSkyApi/3.3.0": {
+      "sha512": "9mN5RN8Vi+fcCpGIBxcaMKeri6xsxFgJqzVOak0/kfV4YssfqXpS4o35nMTQzfY9NdaT3dR8/4ham7z4LoF4RQ==",
+      "type": "package",
+      "path": "darkskyapi/3.3.0",
+      "files": [
+        "darkskyapi.3.3.0.nupkg.sha512",
+        "darkskyapi.nuspec",
+        "lib/netstandard1.1/DarkSkyApi.dll"
+      ]
+    },
     "Microsoft.CSharp/4.0.1": {
       "sha512": "17h8b5mXa87XYKrrVqdgZ38JefSUqLChUQpXgSnpzsM0nDOhE40FTeNWOJ/YmySGV6tG6T8+hjz6vxbknHJr6A==",
       "type": "package",
@@ -3255,6 +3274,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
+      "DarkSkyApi >= 3.3.0",
       "DomainModel >= 1.0.0",
       "NETStandard.Library >= 2.0.3",
       "NLog >= 4.5.10",
@@ -3310,6 +3330,10 @@
     "frameworks": {
       "netstandard2.0": {
         "dependencies": {
+          "DarkSkyApi": {
+            "target": "Package",
+            "version": "[3.3.0, )"
+          },
           "NETStandard.Library": {
             "suppressParent": "All",
             "target": "Package",

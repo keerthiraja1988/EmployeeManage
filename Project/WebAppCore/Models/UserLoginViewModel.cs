@@ -16,5 +16,8 @@ namespace WebAppCore.Models
 
         [Required(ErrorMessage = "Please Enter Password")]
         public string CryptLoginPassword { get; set; }
+
+        public string UserIpAddress { get; set; }
+
     }
 }

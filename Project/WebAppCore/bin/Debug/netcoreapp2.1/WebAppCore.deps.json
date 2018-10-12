@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.1",
-    "signature": "794b1285b7fe9f9b97754bb17742282019bd855b"
+    "signature": "510bce3440dd321eab3997c53b13798224a77fff"
   },
   "compilationOptions": {
     "defines": [
@@ -162,6 +162,17 @@
         },
         "compile": {
           "lib/netstandard1.5/Castle.Core.dll": {}
+        }
+      },
+      "DarkSkyApi/3.3.0": {
+        "runtime": {
+          "lib/netstandard1.1/DarkSkyApi.dll": {
+            "assemblyVersion": "3.3.0.0",
+            "fileVersion": "3.3.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard1.1/DarkSkyApi.dll": {}
         }
       },
       "Effortless.Net.Encryption/3.2.0": {
@@ -1595,6 +1606,7 @@
       },
       "CrossCutting/1.0.0": {
         "dependencies": {
+          "DarkSkyApi": "3.3.0",
           "DomainModel": "1.0.0",
           "NLog": "4.5.10",
           "NLog.Config": "4.5.10",
@@ -1611,6 +1623,7 @@
       "DependencyInjecionResolver/1.0.0": {
         "dependencies": {
           "Autofac": "4.9.0-beta1",
+          "CrossCutting": "1.0.0",
           "ServiceConcrete": "1.0.0",
           "ServiceInterface": "1.0.0"
         },
@@ -4506,6 +4519,13 @@
       "sha512": "sha512-8Y/eTr6GTElAGV7eAmJuhfLhGdFpNvaNrQ9UQYDScziLmX+/BLGM+9eQr0IcdNDcPN0ADmbtwT6MgecGKy4obw==",
       "path": "castle.core/4.3.1",
       "hashPath": "castle.core.4.3.1.nupkg.sha512"
+    },
+    "DarkSkyApi/3.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-9mN5RN8Vi+fcCpGIBxcaMKeri6xsxFgJqzVOak0/kfV4YssfqXpS4o35nMTQzfY9NdaT3dR8/4ham7z4LoF4RQ==",
+      "path": "darkskyapi/3.3.0",
+      "hashPath": "darkskyapi.3.3.0.nupkg.sha512"
     },
     "Effortless.Net.Encryption/3.2.0": {
       "type": "package",

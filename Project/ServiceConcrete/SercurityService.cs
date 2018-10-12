@@ -1,6 +1,9 @@
 ﻿using CrossCutting.Caching;
+using CrossCutting.IPRequest;
 using CrossCutting.Logging;
+using CrossCutting.WeatherForcast;
 using DomainModel;
+using DomainModel.Shared;
 using Effortless.Net.Encryption;
 using Insight.Database;
 using Repository;
@@ -11,6 +14,7 @@ using System.Data.Common;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -20,8 +24,11 @@ namespace ServiceConcrete
     public class SercurityService : ISercurityService
     {
         private IUserAccountRepository _IUserAccountRepository;
+        IAnalyticsRepository _IAnalyticsRepository;
+        IIPRequestDetails _IIPRequestDetails;
 
-        public SercurityService()
+        public SercurityService(IIPRequestDetails iIPRequestDetails
+           )
         {
             SqlInsightDbProvider.RegisterProvider();
             //  string sqlConnection = "Data Source=.;Initial Catalog=EmployeeManage;Integrated Security=True";
@@ -30,6 +37,8 @@ namespace ServiceConcrete
             DbConnection c = new SqlConnection(sqlConnection);
 
             _IUserAccountRepository = c.As<IUserAccountRepository>();
+            _IAnalyticsRepository = c.As<IAnalyticsRepository>();
+            _IIPRequestDetails = iIPRequestDetails;
         }
 
         public UserAccountModel GenerateHashAndSaltForPassword(UserAccountModel userAccountModel)
@@ -44,16 +53,22 @@ namespace ServiceConcrete
         }
 
 
-        public (UserAccountModel UserAccount, List<UserRolesModel> UserRoles)ValidateUserLoginAndCredential(UserAccountModel userAccountModel)
+        public (UserAccountModel UserAccount, List<UserRolesModel> UserRoles) ValidateUserLoginAndCredential(UserAccountModel userAccountModel)
         {
             bool isValidUser = false;
             UserAccountModel getUserAccount = new UserAccountModel();
             List<UserRolesModel> userRoles = new List<UserRolesModel>();
-           
+            IpPropertiesModal ipPropertiesModal = new IpPropertiesModal();
             try
             {
-                // getUserAccount = this._IUserAccountRepository.GetUserDetailsForLogin(userAccountModel);
                 var resultSet = this._IUserAccountRepository.GetUserDetailsForLogin(userAccountModel);
+
+                ipPropertiesModal = _IIPRequestDetails.GetCountryDetailsByIP(userAccountModel.UserIpAddress);
+                ipPropertiesModal.CreatedByUserName = userAccountModel.UserName;
+                ipPropertiesModal.ModifiedByUserName = userAccountModel.UserName;
+                ipPropertiesModal.UserName = userAccountModel.UserName;
+                ipPropertiesModal.CreatedOn = DateTime.Now;
+                ipPropertiesModal.ModifiedOn = DateTime.Now;
 
                 if (resultSet.Set1 == null)
                 {
@@ -64,6 +79,7 @@ namespace ServiceConcrete
                     getUserAccount = (UserAccountModel)resultSet.Set1.FirstOrDefault();
                     userRoles = resultSet.Set2.ToList();
 
+
                     userAccountModel.Password = DecryptStringAES(userAccountModel.CryptLoginPassword);
                     string passwordConcated = userAccountModel.Password + getUserAccount.PasswordSalt;
                     string generatedHashFromPassAndSalt = Hash.Create(HashType.SHA512, passwordConcated, string.Empty, false);
@@ -72,12 +88,24 @@ namespace ServiceConcrete
                         isValidUser = true;
                     }
                     userAccountModel = getUserAccount;
+                    ipPropertiesModal.UserId = userAccountModel.UserId;
+                    ipPropertiesModal.CreatedBy = userAccountModel.UserId;
+                    ipPropertiesModal.ModifiedBy = userAccountModel.UserId;
                 }
 
                 getUserAccount.IsLoginSuccess = isValidUser;
+
+                ipPropertiesModal.IsLoginSuccess = isValidUser;
+
+
+                var dbUpdateResult = _IAnalyticsRepository.SaveIpAddressDetailsOnLogin(ipPropertiesModal);
+                WeatherForecast vvvv = new WeatherForecast();
+                vvvv.GetWeatherForecastByCoOrdinates();
             }
+
             catch (Exception Ex)
             {
+                var dbUpdateResult = _IAnalyticsRepository.SaveIpAddressDetailsOnLogin(ipPropertiesModal);
 
             }
 

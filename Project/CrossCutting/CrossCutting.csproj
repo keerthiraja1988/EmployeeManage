@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="DarkSkyApi" Version="3.3.0" />
     <PackageReference Include="NLog" Version="4.5.10" />
     <PackageReference Include="NLog.Config" Version="4.5.10" />
     <PackageReference Include="PostSharp" Version="6.0.27" />

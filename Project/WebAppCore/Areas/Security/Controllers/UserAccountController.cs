@@ -10,6 +10,7 @@ using DomainModel;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -27,14 +28,15 @@ namespace WebAppCore.Areas.Security.Controllers
     {
         public IUserAccountService _IUserAccountService { get; set; }
         public IConfiguration _Configuration { get; set; }
-
+        private readonly IHttpContextAccessor _IHttpContextAccessor;
         private readonly IMapper _mapper;
         public UserAccountController(IConfiguration iConfig, IUserAccountService iUserAccountService
-            , IMapper mapper)
+            , IMapper mapper, IHttpContextAccessor httpContextAccessor)
         {
             _mapper = mapper;
             _Configuration = iConfig;
             _IUserAccountService = iUserAccountService;
+            _IHttpContextAccessor = httpContextAccessor;
         }
 
         [Route("UserAccount")]
@@ -61,6 +63,10 @@ namespace WebAppCore.Areas.Security.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Login(UserLoginViewModel userLoginViewModel, string ReturnUrl)
         {
+            userLoginViewModel.UserIpAddress = this._IHttpContextAccessor
+                                                .HttpContext.Connection.RemoteIpAddress
+                                                .ToString();
+
             var cookieAvailable = CookieAuthenticationDefaults.AuthenticationScheme;
 
             if (cookieAvailable != null)
@@ -72,17 +78,35 @@ namespace WebAppCore.Areas.Security.Controllers
                 return await Task.Run(() => PartialView("_Login", userLoginViewModel));
             }
 
-            var userAccount = _mapper.Map<UserAccountModel>(userLoginViewModel);
-            var validateUserLoginResult = this._IUserAccountService.ValidateUserLogin(userAccount);
+            UserAccountModel userAccountReturn;
+            List<UserRolesModel> userRoles;
 
-            UserAccountModel userAccountReturn = new UserAccountModel();
-            List<UserRolesModel> userRoles = new List<UserRolesModel>();
-            userAccountReturn = validateUserLoginResult.UserAccount;
-            userRoles = validateUserLoginResult.UserRoles;
+            ValidateLoginUserDetails(userLoginViewModel, out userAccountReturn, out userRoles);
 
             if (userAccountReturn.IsLoginSuccess)
             {
-                List<Claim> claims = new List<Claim>
+                return await SetCookiesAndReturnViewOnLoginSuccess(userAccountReturn, userRoles);
+            }
+            else
+            {
+                return Json(new { newUrl = "LoginFailed" });
+            }
+        }
+
+        private void ValidateLoginUserDetails(UserLoginViewModel userLoginViewModel, out UserAccountModel userAccountReturn, out List<UserRolesModel> userRoles)
+        {
+            var userAccount = _mapper.Map<UserAccountModel>(userLoginViewModel);
+            var validateUserLoginResult = this._IUserAccountService.ValidateUserLogin(userAccount);
+
+            userAccountReturn = new UserAccountModel();
+            userRoles = new List<UserRolesModel>();
+            userAccountReturn = validateUserLoginResult.UserAccount;
+            userRoles = validateUserLoginResult.UserRoles;
+        }
+
+        private async Task<IActionResult> SetCookiesAndReturnViewOnLoginSuccess(UserAccountModel userAccountReturn, List<UserRolesModel> userRoles)
+        {
+            List<Claim> claims = new List<Claim>
                 {
                 new Claim(ClaimTypes.Name, userAccountReturn.LastName + " " + userAccountReturn.FirstName),
                 new Claim ( "http://example.org/claims/UserName", "UserName", userAccountReturn.UserName),
@@ -94,25 +118,20 @@ namespace WebAppCore.Areas.Security.Controllers
                 new Claim(ClaimTypes.Email, userAccountReturn.Email),
             };
 
-                if (userRoles != null && userRoles.Count > 0)
-                {
-                    foreach (var item in userRoles)
-                    {
-                        claims.Add(new Claim(ClaimTypes.Role, item.RoleName));
-                    }
-                }
-
-                var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
-
-                // create principal
-                ClaimsPrincipal principal = new ClaimsPrincipal(identity);
-                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
-                return Json(new { newUrl = Url.Action("Index", "DashBoard", new { area = "DashBoard" }) });
-            }
-            else
+            if (userRoles != null && userRoles.Count > 0)
             {
-                return Json(new { newUrl = "LoginFailed" });
+                foreach (var item in userRoles)
+                {
+                    claims.Add(new Claim(ClaimTypes.Role, item.RoleName));
+                }
             }
+
+            var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+
+            // create principal
+            ClaimsPrincipal principal = new ClaimsPrincipal(identity);
+            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+            return Json(new { newUrl = Url.Action("Index", "DashBoard", new { area = "DashBoard" }) });
         }
 
         [HttpPost]

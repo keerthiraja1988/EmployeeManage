@@ -2,6 +2,15 @@
   "version": 3,
   "targets": {
     ".NETStandard,Version=v2.0": {
+      "DarkSkyApi/3.3.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard1.1/DarkSkyApi.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/DarkSkyApi.dll": {}
+        }
+      },
       "Insight.Database/6.2.4": {
         "type": "package",
         "dependencies": {
@@ -1077,6 +1086,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "DarkSkyApi": "3.3.0",
           "DomainModel": "1.0.0",
           "NLog": "4.5.10",
           "NLog.Config": "4.5.10",
@@ -1103,6 +1113,16 @@
     }
   },
   "libraries": {
+    "DarkSkyApi/3.3.0": {
+      "sha512": "9mN5RN8Vi+fcCpGIBxcaMKeri6xsxFgJqzVOak0/kfV4YssfqXpS4o35nMTQzfY9NdaT3dR8/4ham7z4LoF4RQ==",
+      "type": "package",
+      "path": "darkskyapi/3.3.0",
+      "files": [
+        "darkskyapi.3.3.0.nupkg.sha512",
+        "darkskyapi.nuspec",
+        "lib/netstandard1.1/DarkSkyApi.dll"
+      ]
+    },
     "Insight.Database/6.2.4": {
       "sha512": "kFdX2+PFcq/Y4rjMx2jW+56b8dgA7Pi+VunfOD6ObVioTf5sI5BD2G+Z1BHIHui0D49dLeiHTp54cueglBOaDg==",
       "type": "package",

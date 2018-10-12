@@ -15,6 +15,15 @@
           "lib/netstandard1.1/Autofac.dll": {}
         }
       },
+      "DarkSkyApi/3.3.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard1.1/DarkSkyApi.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/DarkSkyApi.dll": {}
+        }
+      },
       "Effortless.Net.Encryption/3.2.0": {
         "type": "package",
         "compile": {
@@ -1132,6 +1141,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "DarkSkyApi": "3.3.0",
           "DomainModel": "1.0.0",
           "NLog": "4.5.10",
           "NLog.Config": "4.5.10",
@@ -1218,6 +1228,16 @@
         "lib/net45/Autofac.xml",
         "lib/netstandard1.1/Autofac.dll",
         "lib/netstandard1.1/Autofac.xml"
+      ]
+    },
+    "DarkSkyApi/3.3.0": {
+      "sha512": "9mN5RN8Vi+fcCpGIBxcaMKeri6xsxFgJqzVOak0/kfV4YssfqXpS4o35nMTQzfY9NdaT3dR8/4ham7z4LoF4RQ==",
+      "type": "package",
+      "path": "darkskyapi/3.3.0",
+      "files": [
+        "darkskyapi.3.3.0.nupkg.sha512",
+        "darkskyapi.nuspec",
+        "lib/netstandard1.1/DarkSkyApi.dll"
       ]
     },
     "Effortless.Net.Encryption/3.2.0": {
@@ -4685,6 +4705,7 @@
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
       "Autofac >= 4.8.1",
+      "CrossCutting >= 1.0.0",
       "NETStandard.Library >= 2.0.3",
       "ServiceConcrete >= 1.0.0",
       "ServiceInterface >= 1.0.0"
@@ -4722,6 +4743,9 @@
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
+            "C:\\Users\\Keerthi Raja P\\source\\repos\\EmployeeManage\\Project\\CrossCutting\\CrossCutting.csproj": {
+              "projectPath": "C:\\Users\\Keerthi Raja P\\source\\repos\\EmployeeManage\\Project\\CrossCutting\\CrossCutting.csproj"
+            },
             "C:\\Users\\Keerthi Raja P\\source\\repos\\EmployeeManage\\Project\\ServiceConcrete\\ServiceConcrete.csproj": {
               "projectPath": "C:\\Users\\Keerthi Raja P\\source\\repos\\EmployeeManage\\Project\\ServiceConcrete\\ServiceConcrete.csproj"
             },

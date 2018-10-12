@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using CrossCutting.IPRequest;
 using ServiceConcrete;
 using ServiceInterface;
 using System;
@@ -25,6 +26,7 @@ namespace DependencyInjecionResolver
             
                 var asm = typeof(ServiceLayerRegister).Assembly;
 
+                builder.RegisterType<IPRequestDetails>().As<IIPRequestDetails>().SingleInstance().PreserveExistingDefaults(); ;
                 builder.RegisterAssemblyTypes(asm)
                 .Where(t => t.Name.EndsWith("Service"))
                  .AsImplementedInterfaces()

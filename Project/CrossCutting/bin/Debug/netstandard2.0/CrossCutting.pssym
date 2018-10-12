@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Symbols LinesOfCode="144" PostSharpLinesOfCode="0" EnhancedTypesCount="2" SchemaVersion="1" PostSharpVersion="6.0.27.0" xmlns="http://schemas.postsharp.org/2.0/symbols">
+<Symbols LinesOfCode="190" PostSharpLinesOfCode="0" EnhancedTypesCount="2" SchemaVersion="1" PostSharpVersion="6.0.27.0" xmlns="http://schemas.postsharp.org/2.0/symbols">
   <Class Class="#1=T:[PostSharp]PostSharp.Serialization.PSerializableAttribute">
-    <Instance Declaration="#2=T:[CrossCutting]CrossCutting.Logging.NLoggingAttribute" Id="13501b214cefc504">
+    <Instance Declaration="#2=T:[CrossCutting]CrossCutting.Logging.NLoggingAttribute" Id="13501b2143311eee">
       <Target />
     </Instance>
-    <Instance Declaration="#3=T:[CrossCutting]CrossCutting.Logging.ServiceLoggingAttribute" Id="13501b2111d9ab14">
+    <Instance Declaration="#3=T:[CrossCutting]CrossCutting.Logging.ServiceLoggingAttribute" Id="13501b21e38f7673">
       <Target />
     </Instance>
   </Class>

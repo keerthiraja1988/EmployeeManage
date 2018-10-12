@@ -1,6 +1,8 @@
 ﻿using CrossCutting.Caching;
+using CrossCutting.IPRequest;
 using CrossCutting.Logging;
 using DomainModel;
+using DomainModel.Shared;
 using Insight.Database;
 using Repository;
 using ServiceInterface;
@@ -17,15 +19,16 @@ namespace ServiceConcrete
     public class UserAccountService : IUserAccountService
     {
         IUserAccountRepository _IUserAccountRepository;
-        public UserAccountService(DbConnection Parameter)
+        ISercurityService _ISercurityService;
+
+        public UserAccountService(DbConnection Parameter, ISercurityService iSercurityService)
         {
             SqlInsightDbProvider.RegisterProvider();
-            //  string sqlConnection = "Data Source=.;Initial Catalog=EmployeeManage;Integrated Security=True";
-            string sqlConnection = Caching.Instance.GetApplicationConfigs("DBConnection")
-                                           ;
+            string sqlConnection = Caching.Instance.GetApplicationConfigs("DBConnection");
             DbConnection c = new SqlConnection(sqlConnection);
-
             _IUserAccountRepository = c.As<IUserAccountRepository>();
+
+            _ISercurityService = iSercurityService;
         }
 
         //~UserAccountService() // destructor define
@@ -41,18 +44,20 @@ namespace ServiceConcrete
 
         public bool RegisterNewUser(UserAccountModel userAccountModel)
         {
-            SercurityService sercurityService = new SercurityService();
-            userAccountModel = sercurityService.GenerateHashAndSaltForPassword(userAccountModel);
+           //SercurityService sercurityService = new SercurityService();
+            userAccountModel = _ISercurityService.GenerateHashAndSaltForPassword(userAccountModel);
 
             return this._IUserAccountRepository.RegisterNewUser(userAccountModel);
         }
 
         public (UserAccountModel UserAccount, List<UserRolesModel> UserRoles) ValidateUserLogin(UserAccountModel userAccountModel)
         {
-            SercurityService sercurityService = new SercurityService();
-            //userAccountModel = sercurityService.ValidateUserLoginAndCredential(userAccountModel);
+           // SercurityService sercurityService = new SercurityService();
+          
 
-            return sercurityService.ValidateUserLoginAndCredential(userAccountModel);
+           
+            
+            return _ISercurityService.ValidateUserLoginAndCredential(userAccountModel);
         }
 
         public UserAccountModel GetAutoGenetaratedUserData()
