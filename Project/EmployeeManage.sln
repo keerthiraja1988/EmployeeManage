@@ -38,6 +38,9 @@ EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "EmployeeManage", "Database\EmployeeManage\EmployeeManage.sqlproj", "{936DBE44-D3EC-45CA-A38B-AD89CBB0C7A3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SQLComparator", "SQLComparator", "{6F63C839-2559-4879-9E11-273B76F2FC2A}"
+	ProjectSection(SolutionItems) = preProject
+		Database\SQLCompare\LocalToProjectCompare.scmp = Database\SQLCompare\LocalToProjectCompare.scmp
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{60642129-712E-4D22-9FB2-062EA307C3B6}"
 	ProjectSection(SolutionItems) = preProject

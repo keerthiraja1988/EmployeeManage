@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Symbols LinesOfCode="494" PostSharpLinesOfCode="0" EnhancedTypesCount="3" SchemaVersion="1" PostSharpVersion="6.0.27.0" xmlns="http://schemas.postsharp.org/2.0/symbols">
+<Symbols LinesOfCode="495" PostSharpLinesOfCode="0" EnhancedTypesCount="3" SchemaVersion="1" PostSharpVersion="6.0.27.0" xmlns="http://schemas.postsharp.org/2.0/symbols">
   <Evolution Source="#1=M:[WebAppCore]WebAppCore.Areas.Security.Controllers.UserAccountController::UserAccount(System.String)" Target="#2=M:[WebAppCore]WebAppCore.Areas.Security.Controllers.UserAccountController+&lt;UserAccount&gt;d__11::MoveNext()" />
   <Evolution Source="#3=M:[WebAppCore]WebAppCore.Areas.Security.Controllers.UserAccountController::Login([WebAppCore]WebAppCore.Models.UserLoginViewModel, System.String)" Target="#4=M:[WebAppCore]WebAppCore.Areas.Security.Controllers.UserAccountController+&lt;Login&gt;d__12::MoveNext()" />
   <Evolution Source="#5=M:[WebAppCore]WebAppCore.Areas.Security.Controllers.UserAccountController::SetCookiesAndReturnViewOnLoginSuccess(DomainModel.UserAccountModel, System.Collections.Generic.List{[DomainModel]DomainModel.UserRolesModel})" Target="#6=M:[WebAppCore]WebAppCore.Areas.Security.Controllers.UserAccountController+&lt;SetCookiesAndReturnViewOnLoginSuccess&gt;d__14::MoveNext()" />
@@ -8,134 +8,138 @@
   <Evolution Source="#11=M:[WebAppCore]WebAppCore.Areas.Security.Controllers.UserAccountController::Logout(System.String)" Target="#12=M:[WebAppCore]WebAppCore.Areas.Security.Controllers.UserAccountController+&lt;Logout&gt;d__17::MoveNext()" />
   <Evolution Source="#13=M:[WebAppCore]WebAppCore.Areas.Security.Controllers.UserAccountController::AccessDenied()" Target="#14=M:[WebAppCore]WebAppCore.Areas.Security.Controllers.UserAccountController+&lt;AccessDenied&gt;d__18::MoveNext()" />
   <Evolution Source="#15=M:[WebAppCore]WebAppCore.Areas.Security.Controllers.UserAccountController::GetLoggedInUserDetails()" Target="#16=M:[WebAppCore]WebAppCore.Areas.Security.Controllers.UserAccountController+&lt;GetLoggedInUserDetails&gt;d__19::MoveNext()" />
-  <Evolution Source="#17=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController::Index()" Target="#18=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController+&lt;Index&gt;d__10::MoveNext()" />
-  <Evolution Source="#19=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController::Products_Read(Kendo.Mvc.UI.DataSourceRequest, [WebAppCore]WebAppCore.Areas.EmployeeManage.Models.EmployeeSearchViewModel)" Target="#20=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController+&lt;Products_Read&gt;d__11::MoveNext()" />
-  <Evolution Source="#21=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController::GetEmployeeDetailsForEdit([WebAppCore]WebAppCore.Areas.EmployeeManage.Models.EmployeeViewModel)" Target="#22=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController+&lt;GetEmployeeDetailsForEdit&gt;d__12::MoveNext()" />
-  <Evolution Source="#23=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController::EditEmployeeDetails([WebAppCore]WebAppCore.Areas.EmployeeManage.Models.EmployeeViewModel)" Target="#24=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController+&lt;EditEmployeeDetails&gt;d__13::MoveNext()" />
-  <Evolution Source="#25=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController::DeleteEmployee(Kendo.Mvc.UI.DataSourceRequest, [WebAppCore]WebAppCore.Areas.EmployeeManage.Models.EmployeeViewModel)" Target="#26=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController+&lt;DeleteEmployee&gt;d__14::MoveNext()" />
-  <Evolution Source="#27=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController::GetEmployeeDetailsForSearch([WebAppCore]WebAppCore.Areas.EmployeeManage.Models.EmployeeSearchViewModel)" Target="#28=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController+&lt;GetEmployeeDetailsForSearch&gt;d__15::MoveNext()" />
-  <Evolution Source="#29=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController::ValidateEmployeeDetailsOnSearch([WebAppCore]WebAppCore.Areas.EmployeeManage.Models.EmployeeSearchViewModel)" Target="#30=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController+&lt;ValidateEmployeeDetailsOnSearch&gt;d__16::MoveNext()" />
-  <Evolution Source="#31=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController::AddEmployeePage()" Target="#32=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController+&lt;AddEmployeePage&gt;d__17::MoveNext()" />
-  <Evolution Source="#33=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController::AddEmployee([WebAppCore]WebAppCore.Areas.EmployeeManage.Models.EmployeeViewModel)" Target="#34=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController+&lt;AddEmployee&gt;d__18::MoveNext()" />
-  <Evolution Source="#35=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController::GetCountries()" Target="#36=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController+&lt;GetCountries&gt;d__19::MoveNext()" />
-  <Evolution Source="#37=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController::SaveEmployeeDetails([WebAppCore]WebAppCore.Areas.EmployeeManage.Models.EmployeeViewModel)" Target="#38=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController+&lt;SaveEmployeeDetails&gt;d__20::MoveNext()" />
-  <Evolution Source="#39=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController::ValidateEmployeeDetailsOnSearchAllFiled([WebAppCore]WebAppCore.Areas.EmployeeManage.Models.EmployeeSearchViewModel)" Target="#40=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController+&lt;ValidateEmployeeDetailsOnSearchAllFiled&gt;d__21::MoveNext()" />
-  <Evolution Source="#41=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController::ValidateEmployeeDetailsOnDOJ([WebAppCore]WebAppCore.Areas.EmployeeManage.Models.EmployeeSearchViewModel)" Target="#42=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController+&lt;ValidateEmployeeDetailsOnDOJ&gt;d__22::MoveNext()" />
-  <Evolution Source="#43=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController::ValidateEmployeeDetailsOnDOB([WebAppCore]WebAppCore.Areas.EmployeeManage.Models.EmployeeSearchViewModel)" Target="#44=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController+&lt;ValidateEmployeeDetailsOnDOB&gt;d__23::MoveNext()" />
-  <Class Class="#45=T:[CrossCutting]CrossCutting.Logging.NLoggingAttribute">
-    <Instance Declaration="#46=T:[WebAppCore]WebAppCore.Areas.Security.Controllers.UserAccountController" Id="5878df687f50c866">
-      <Target Target="#47=M:[WebAppCore]WebAppCore.Areas.Security.Controllers.UserAccountController::get__IUserAccountService()" LinesAvoided="6">
-        <JoinPoint Advising="#45" Description="#48=Wrapped by advice(s) OnEntry, OnException, OnExit" Ordinal="0" />
+  <Evolution Source="#17=M:[WebAppCore]WebAppCore.Areas.Security.Controllers.UserAccountController::GetUserDetailsFromCookies()" Target="#18=M:[WebAppCore]WebAppCore.Areas.Security.Controllers.UserAccountController+&lt;GetUserDetailsFromCookies&gt;d__20::MoveNext()" />
+  <Evolution Source="#19=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController::Index()" Target="#20=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController+&lt;Index&gt;d__10::MoveNext()" />
+  <Evolution Source="#21=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController::Products_Read(Kendo.Mvc.UI.DataSourceRequest, [WebAppCore]WebAppCore.Areas.EmployeeManage.Models.EmployeeSearchViewModel)" Target="#22=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController+&lt;Products_Read&gt;d__11::MoveNext()" />
+  <Evolution Source="#23=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController::GetEmployeeDetailsForEdit([WebAppCore]WebAppCore.Areas.EmployeeManage.Models.EmployeeViewModel)" Target="#24=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController+&lt;GetEmployeeDetailsForEdit&gt;d__12::MoveNext()" />
+  <Evolution Source="#25=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController::EditEmployeeDetails([WebAppCore]WebAppCore.Areas.EmployeeManage.Models.EmployeeViewModel)" Target="#26=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController+&lt;EditEmployeeDetails&gt;d__13::MoveNext()" />
+  <Evolution Source="#27=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController::DeleteEmployee(Kendo.Mvc.UI.DataSourceRequest, [WebAppCore]WebAppCore.Areas.EmployeeManage.Models.EmployeeViewModel)" Target="#28=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController+&lt;DeleteEmployee&gt;d__14::MoveNext()" />
+  <Evolution Source="#29=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController::GetEmployeeDetailsForSearch([WebAppCore]WebAppCore.Areas.EmployeeManage.Models.EmployeeSearchViewModel)" Target="#30=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController+&lt;GetEmployeeDetailsForSearch&gt;d__15::MoveNext()" />
+  <Evolution Source="#31=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController::ValidateEmployeeDetailsOnSearch([WebAppCore]WebAppCore.Areas.EmployeeManage.Models.EmployeeSearchViewModel)" Target="#32=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController+&lt;ValidateEmployeeDetailsOnSearch&gt;d__16::MoveNext()" />
+  <Evolution Source="#33=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController::AddEmployeePage()" Target="#34=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController+&lt;AddEmployeePage&gt;d__17::MoveNext()" />
+  <Evolution Source="#35=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController::AddEmployee([WebAppCore]WebAppCore.Areas.EmployeeManage.Models.EmployeeViewModel)" Target="#36=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController+&lt;AddEmployee&gt;d__18::MoveNext()" />
+  <Evolution Source="#37=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController::GetCountries()" Target="#38=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController+&lt;GetCountries&gt;d__19::MoveNext()" />
+  <Evolution Source="#39=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController::SaveEmployeeDetails([WebAppCore]WebAppCore.Areas.EmployeeManage.Models.EmployeeViewModel)" Target="#40=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController+&lt;SaveEmployeeDetails&gt;d__20::MoveNext()" />
+  <Evolution Source="#41=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController::ValidateEmployeeDetailsOnSearchAllFiled([WebAppCore]WebAppCore.Areas.EmployeeManage.Models.EmployeeSearchViewModel)" Target="#42=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController+&lt;ValidateEmployeeDetailsOnSearchAllFiled&gt;d__21::MoveNext()" />
+  <Evolution Source="#43=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController::ValidateEmployeeDetailsOnDOJ([WebAppCore]WebAppCore.Areas.EmployeeManage.Models.EmployeeSearchViewModel)" Target="#44=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController+&lt;ValidateEmployeeDetailsOnDOJ&gt;d__22::MoveNext()" />
+  <Evolution Source="#45=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController::ValidateEmployeeDetailsOnDOB([WebAppCore]WebAppCore.Areas.EmployeeManage.Models.EmployeeSearchViewModel)" Target="#46=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController+&lt;ValidateEmployeeDetailsOnDOB&gt;d__23::MoveNext()" />
+  <Class Class="#47=T:[CrossCutting]CrossCutting.Logging.NLoggingAttribute">
+    <Instance Declaration="#48=T:[WebAppCore]WebAppCore.Areas.Security.Controllers.UserAccountController" Id="5878df68befd6bf5">
+      <Target Target="#49=M:[WebAppCore]WebAppCore.Areas.Security.Controllers.UserAccountController::get__IUserAccountService()" LinesAvoided="6">
+        <JoinPoint Advising="#47" Description="#50=Wrapped by advice(s) OnEntry, OnException, OnExit" Ordinal="0" />
       </Target>
-      <Target Target="#49=M:[WebAppCore]WebAppCore.Areas.Security.Controllers.UserAccountController::set__IUserAccountService(ServiceInterface.IUserAccountService)" LinesAvoided="6">
-        <JoinPoint Advising="#45" Description="#48" />
+      <Target Target="#51=M:[WebAppCore]WebAppCore.Areas.Security.Controllers.UserAccountController::set__IUserAccountService(ServiceInterface.IUserAccountService)" LinesAvoided="6">
+        <JoinPoint Advising="#47" Description="#50" />
       </Target>
-      <Target Target="#50=M:[WebAppCore]WebAppCore.Areas.Security.Controllers.UserAccountController::get__Configuration()" LinesAvoided="6">
-        <JoinPoint Advising="#45" Description="#48" Ordinal="2" />
+      <Target Target="#52=M:[WebAppCore]WebAppCore.Areas.Security.Controllers.UserAccountController::get__Configuration()" LinesAvoided="6">
+        <JoinPoint Advising="#47" Description="#50" Ordinal="2" />
       </Target>
-      <Target Target="#51=M:[WebAppCore]WebAppCore.Areas.Security.Controllers.UserAccountController::set__Configuration(Microsoft.Extensions.Configuration.IConfiguration)" LinesAvoided="6">
-        <JoinPoint Advising="#45" Description="#48" Ordinal="3" />
+      <Target Target="#53=M:[WebAppCore]WebAppCore.Areas.Security.Controllers.UserAccountController::set__Configuration(Microsoft.Extensions.Configuration.IConfiguration)" LinesAvoided="6">
+        <JoinPoint Advising="#47" Description="#50" Ordinal="3" />
       </Target>
-      <Target Target="#52=M:[WebAppCore]WebAppCore.Areas.Security.Controllers.UserAccountController::#ctor(Microsoft.Extensions.Configuration.IConfiguration, ServiceInterface.IUserAccountService, AutoMapper.IMapper, Microsoft.AspNetCore.Http.IHttpContextAccessor)" LinesAvoided="6">
-        <JoinPoint Advising="#45" Description="#48" Ordinal="4" />
+      <Target Target="#54=M:[WebAppCore]WebAppCore.Areas.Security.Controllers.UserAccountController::#ctor(Microsoft.Extensions.Configuration.IConfiguration, ServiceInterface.IUserAccountService, AutoMapper.IMapper, Microsoft.AspNetCore.Http.IHttpContextAccessor)" LinesAvoided="6">
+        <JoinPoint Advising="#47" Description="#50" Ordinal="4" />
       </Target>
       <Target Target="#1" LinesAvoided="6">
-        <JoinPoint Advised="#2" Advising="#45" Description="#48" Ordinal="6" />
+        <JoinPoint Advised="#2" Advising="#47" Description="#50" Ordinal="6" />
       </Target>
       <Target Target="#3" LinesAvoided="6">
-        <JoinPoint Advised="#4" Advising="#45" Description="#48" Ordinal="7" />
+        <JoinPoint Advised="#4" Advising="#47" Description="#50" Ordinal="7" />
       </Target>
-      <Target Target="#53=M:[WebAppCore]WebAppCore.Areas.Security.Controllers.UserAccountController::ValidateLoginUserDetails([WebAppCore]WebAppCore.Models.UserLoginViewModel, out DomainModel.UserAccountModel, out System.Collections.Generic.List{[DomainModel]DomainModel.UserRolesModel})" LinesAvoided="6">
-        <JoinPoint Advising="#45" Description="#48" Ordinal="5" />
+      <Target Target="#55=M:[WebAppCore]WebAppCore.Areas.Security.Controllers.UserAccountController::ValidateLoginUserDetails([WebAppCore]WebAppCore.Models.UserLoginViewModel, out DomainModel.UserAccountModel, out System.Collections.Generic.List{[DomainModel]DomainModel.UserRolesModel})" LinesAvoided="6">
+        <JoinPoint Advising="#47" Description="#50" Ordinal="5" />
       </Target>
       <Target Target="#5" LinesAvoided="6">
-        <JoinPoint Advised="#6" Advising="#45" Description="#48" Ordinal="8" />
+        <JoinPoint Advised="#6" Advising="#47" Description="#50" Ordinal="8" />
       </Target>
       <Target Target="#7" LinesAvoided="6">
-        <JoinPoint Advised="#8" Advising="#45" Description="#48" Ordinal="9" />
+        <JoinPoint Advised="#8" Advising="#47" Description="#50" Ordinal="9" />
       </Target>
       <Target Target="#9" LinesAvoided="6">
-        <JoinPoint Advised="#10" Advising="#45" Description="#48" Ordinal="10" />
+        <JoinPoint Advised="#10" Advising="#47" Description="#50" Ordinal="10" />
       </Target>
       <Target Target="#11" LinesAvoided="6">
-        <JoinPoint Advised="#12" Advising="#45" Description="#48" Ordinal="11" />
+        <JoinPoint Advised="#12" Advising="#47" Description="#50" Ordinal="11" />
       </Target>
       <Target Target="#13" LinesAvoided="6">
-        <JoinPoint Advised="#14" Advising="#45" Description="#48" Ordinal="12" />
+        <JoinPoint Advised="#14" Advising="#47" Description="#50" Ordinal="12" />
       </Target>
       <Target Target="#15" LinesAvoided="6">
-        <JoinPoint Advised="#16" Advising="#45" Description="#48" Ordinal="13" />
-      </Target>
-    </Instance>
-    <Instance Declaration="#54=T:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController" Id="5878df68cd4362c3">
-      <Target Target="#55=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController::get__IEmployeeManageService()" LinesAvoided="6">
-        <JoinPoint Advising="#45" Description="#48" Ordinal="14" />
-      </Target>
-      <Target Target="#56=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController::set__IEmployeeManageService(ServiceInterface.IEmployeeManageService)" LinesAvoided="6">
-        <JoinPoint Advising="#45" Description="#48" Ordinal="15" />
-      </Target>
-      <Target Target="#57=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController::get__configuration()" LinesAvoided="6">
-        <JoinPoint Advising="#45" Description="#48" Ordinal="16" />
-      </Target>
-      <Target Target="#58=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController::set__configuration(Microsoft.Extensions.Configuration.IConfiguration)" LinesAvoided="6">
-        <JoinPoint Advising="#45" Description="#48" Ordinal="17" />
-      </Target>
-      <Target Target="#59=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController::#ctor(Microsoft.Extensions.Configuration.IConfiguration, ServiceInterface.IEmployeeManageService, AutoMapper.IMapper)" LinesAvoided="6">
-        <JoinPoint Advising="#45" Description="#48" Ordinal="18" />
+        <JoinPoint Advised="#16" Advising="#47" Description="#50" Ordinal="13" />
       </Target>
       <Target Target="#17" LinesAvoided="6">
-        <JoinPoint Advised="#18" Advising="#45" Description="#48" Ordinal="19" />
-      </Target>
-      <Target Target="#19" LinesAvoided="6">
-        <JoinPoint Advised="#20" Advising="#45" Description="#48" Ordinal="20" />
-      </Target>
-      <Target Target="#21" LinesAvoided="6">
-        <JoinPoint Advised="#22" Advising="#45" Description="#48" Ordinal="21" />
-      </Target>
-      <Target Target="#23" LinesAvoided="6">
-        <JoinPoint Advised="#24" Advising="#45" Description="#48" Ordinal="22" />
-      </Target>
-      <Target Target="#25" LinesAvoided="6">
-        <JoinPoint Advised="#26" Advising="#45" Description="#48" Ordinal="23" />
-      </Target>
-      <Target Target="#27" LinesAvoided="6">
-        <JoinPoint Advised="#28" Advising="#45" Description="#48" Ordinal="24" />
-      </Target>
-      <Target Target="#29" LinesAvoided="6">
-        <JoinPoint Advised="#30" Advising="#45" Description="#48" Ordinal="25" />
-      </Target>
-      <Target Target="#31" LinesAvoided="6">
-        <JoinPoint Advised="#32" Advising="#45" Description="#48" Ordinal="26" />
-      </Target>
-      <Target Target="#33" LinesAvoided="6">
-        <JoinPoint Advised="#34" Advising="#45" Description="#48" Ordinal="27" />
-      </Target>
-      <Target Target="#35" LinesAvoided="6">
-        <JoinPoint Advised="#36" Advising="#45" Description="#48" Ordinal="28" />
-      </Target>
-      <Target Target="#37" LinesAvoided="6">
-        <JoinPoint Advised="#38" Advising="#45" Description="#48" Ordinal="29" />
-      </Target>
-      <Target Target="#39" LinesAvoided="6">
-        <JoinPoint Advised="#40" Advising="#45" Description="#48" Ordinal="30" />
-      </Target>
-      <Target Target="#41" LinesAvoided="6">
-        <JoinPoint Advised="#42" Advising="#45" Description="#48" Ordinal="31" />
-      </Target>
-      <Target Target="#43" LinesAvoided="6">
-        <JoinPoint Advised="#44" Advising="#45" Description="#48" Ordinal="32" />
+        <JoinPoint Advised="#18" Advising="#47" Description="#50" Ordinal="14" />
       </Target>
     </Instance>
-    <Instance Declaration="#60=T:[WebAppCore]WebAppCore.Areas.DashBoard.Controllers.DashBoardController" Id="5878df6837ed0c27">
-      <Target Target="#61=M:[WebAppCore]WebAppCore.Areas.DashBoard.Controllers.DashBoardController::#ctor(ServiceInterface.IDashBoardService, AutoMapper.IMapper, Microsoft.AspNetCore.Http.IHttpContextAccessor)" LinesAvoided="6">
-        <JoinPoint Advising="#45" Description="#48" Ordinal="33" />
+    <Instance Declaration="#56=T:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController" Id="5878df6851d84a31">
+      <Target Target="#57=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController::get__IEmployeeManageService()" LinesAvoided="6">
+        <JoinPoint Advising="#47" Description="#50" Ordinal="15" />
       </Target>
-      <Target Target="#62=M:[WebAppCore]WebAppCore.Areas.DashBoard.Controllers.DashBoardController::Index()" LinesAvoided="6">
-        <JoinPoint Advising="#45" Description="#48" Ordinal="34" />
+      <Target Target="#58=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController::set__IEmployeeManageService(ServiceInterface.IEmployeeManageService)" LinesAvoided="6">
+        <JoinPoint Advising="#47" Description="#50" Ordinal="16" />
+      </Target>
+      <Target Target="#59=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController::get__configuration()" LinesAvoided="6">
+        <JoinPoint Advising="#47" Description="#50" Ordinal="17" />
+      </Target>
+      <Target Target="#60=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController::set__configuration(Microsoft.Extensions.Configuration.IConfiguration)" LinesAvoided="6">
+        <JoinPoint Advising="#47" Description="#50" Ordinal="18" />
+      </Target>
+      <Target Target="#61=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController::#ctor(Microsoft.Extensions.Configuration.IConfiguration, ServiceInterface.IEmployeeManageService, AutoMapper.IMapper)" LinesAvoided="6">
+        <JoinPoint Advising="#47" Description="#50" Ordinal="19" />
+      </Target>
+      <Target Target="#19" LinesAvoided="6">
+        <JoinPoint Advised="#20" Advising="#47" Description="#50" Ordinal="20" />
+      </Target>
+      <Target Target="#21" LinesAvoided="6">
+        <JoinPoint Advised="#22" Advising="#47" Description="#50" Ordinal="21" />
+      </Target>
+      <Target Target="#23" LinesAvoided="6">
+        <JoinPoint Advised="#24" Advising="#47" Description="#50" Ordinal="22" />
+      </Target>
+      <Target Target="#25" LinesAvoided="6">
+        <JoinPoint Advised="#26" Advising="#47" Description="#50" Ordinal="23" />
+      </Target>
+      <Target Target="#27" LinesAvoided="6">
+        <JoinPoint Advised="#28" Advising="#47" Description="#50" Ordinal="24" />
+      </Target>
+      <Target Target="#29" LinesAvoided="6">
+        <JoinPoint Advised="#30" Advising="#47" Description="#50" Ordinal="25" />
+      </Target>
+      <Target Target="#31" LinesAvoided="6">
+        <JoinPoint Advised="#32" Advising="#47" Description="#50" Ordinal="26" />
+      </Target>
+      <Target Target="#33" LinesAvoided="6">
+        <JoinPoint Advised="#34" Advising="#47" Description="#50" Ordinal="27" />
+      </Target>
+      <Target Target="#35" LinesAvoided="6">
+        <JoinPoint Advised="#36" Advising="#47" Description="#50" Ordinal="28" />
+      </Target>
+      <Target Target="#37" LinesAvoided="6">
+        <JoinPoint Advised="#38" Advising="#47" Description="#50" Ordinal="29" />
+      </Target>
+      <Target Target="#39" LinesAvoided="6">
+        <JoinPoint Advised="#40" Advising="#47" Description="#50" Ordinal="30" />
+      </Target>
+      <Target Target="#41" LinesAvoided="6">
+        <JoinPoint Advised="#42" Advising="#47" Description="#50" Ordinal="31" />
+      </Target>
+      <Target Target="#43" LinesAvoided="6">
+        <JoinPoint Advised="#44" Advising="#47" Description="#50" Ordinal="32" />
+      </Target>
+      <Target Target="#45" LinesAvoided="6">
+        <JoinPoint Advised="#46" Advising="#47" Description="#50" Ordinal="33" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#62=T:[WebAppCore]WebAppCore.Areas.DashBoard.Controllers.DashBoardController" Id="5878df68c0b1d71e">
+      <Target Target="#63=M:[WebAppCore]WebAppCore.Areas.DashBoard.Controllers.DashBoardController::#ctor(ServiceInterface.IDashBoardService, AutoMapper.IMapper, Microsoft.AspNetCore.Http.IHttpContextAccessor)" LinesAvoided="6">
+        <JoinPoint Advising="#47" Description="#50" Ordinal="34" />
+      </Target>
+      <Target Target="#64=M:[WebAppCore]WebAppCore.Areas.DashBoard.Controllers.DashBoardController::Index()" LinesAvoided="6">
+        <JoinPoint Advising="#47" Description="#50" Ordinal="35" />
       </Target>
     </Instance>
   </Class>
-  <Annotation Target="#63=M:[CrossCutting]CrossCutting.Logging.NLoggingAttribute::OnEntry(PostSharp.Aspects.MethodExecutionArgs)" Arguments="#64=2" Description="#65=PostSharp estimates that 2 line(s) of code are saved every time this advice is applied. Use the [LinesOfCodeAvoided] attribute on the aspect or specify the LinesOfCodeAvoided property on the advice attribute to override this value." />
-  <Annotation Target="#66=M:[CrossCutting]CrossCutting.Logging.NLoggingAttribute::OnExit(PostSharp.Aspects.MethodExecutionArgs)" Arguments="#64" Description="#65" />
-  <Annotation Target="#67=M:[CrossCutting]CrossCutting.Logging.NLoggingAttribute::OnException(PostSharp.Aspects.MethodExecutionArgs)" Arguments="#64" Description="#65" />
+  <Annotation Target="#65=M:[CrossCutting]CrossCutting.Logging.NLoggingAttribute::OnEntry(PostSharp.Aspects.MethodExecutionArgs)" Arguments="#66=2" Description="#67=PostSharp estimates that 2 line(s) of code are saved every time this advice is applied. Use the [LinesOfCodeAvoided] attribute on the aspect or specify the LinesOfCodeAvoided property on the advice attribute to override this value." />
+  <Annotation Target="#68=M:[CrossCutting]CrossCutting.Logging.NLoggingAttribute::OnExit(PostSharp.Aspects.MethodExecutionArgs)" Arguments="#66" Description="#67" />
+  <Annotation Target="#69=M:[CrossCutting]CrossCutting.Logging.NLoggingAttribute::OnException(PostSharp.Aspects.MethodExecutionArgs)" Arguments="#66" Description="#67" />
 </Symbols>
