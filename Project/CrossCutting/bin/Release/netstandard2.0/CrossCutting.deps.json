@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETStandard,Version=v2.0/",
-    "signature": "69285fca94515622e2a1f32bc71b2da830fc902e"
+    "signature": "557f8f8773689ff055a9fee4dd87a893be9319c2"
   },
   "compilationOptions": {},
   "targets": {
@@ -9,6 +9,7 @@
     ".NETStandard,Version=v2.0/": {
       "CrossCutting/1.0.0": {
         "dependencies": {
+          "DarkSkyApi": "3.3.0",
           "DomainModel": "1.0.0",
           "NETStandard.Library": "2.0.3",
           "NLog": "4.5.10",
@@ -20,6 +21,14 @@
         },
         "runtime": {
           "CrossCutting.dll": {}
+        }
+      },
+      "DarkSkyApi/3.3.0": {
+        "runtime": {
+          "lib/netstandard1.1/DarkSkyApi.dll": {
+            "assemblyVersion": "3.3.0.0",
+            "fileVersion": "3.3.0.0"
+          }
         }
       },
       "Microsoft.CSharp/4.0.1": {
@@ -581,6 +590,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "DarkSkyApi/3.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-9mN5RN8Vi+fcCpGIBxcaMKeri6xsxFgJqzVOak0/kfV4YssfqXpS4o35nMTQzfY9NdaT3dR8/4ham7z4LoF4RQ==",
+      "path": "darkskyapi/3.3.0",
+      "hashPath": "darkskyapi.3.3.0.nupkg.sha512"
     },
     "Microsoft.CSharp/4.0.1": {
       "type": "package",

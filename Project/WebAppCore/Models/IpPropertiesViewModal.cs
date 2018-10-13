@@ -7,6 +7,7 @@ namespace WebAppCore.Models
 {
     public class IpPropertiesViewModal
     {
+        public string IpAddress { get; set; }
         public string Status { get; set; }
         public string Country { get; set; }
         public string CountryCode { get; set; }

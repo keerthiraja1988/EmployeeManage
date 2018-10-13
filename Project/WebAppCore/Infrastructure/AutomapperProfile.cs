@@ -41,6 +41,9 @@ namespace WebAppCore.Infrastructure
             CreateMap<DashBoardRow1WidgetsViewModel, DashBoardRow1WidgetsModel>()
                 .ReverseMap();
 
+            CreateMap<WeatherWidgetsViewModel, WeatherModel>()
+                .ReverseMap();
+
         }
     }
 }

@@ -190,6 +190,16 @@ namespace WebAppCore.Areas.Security.Controllers
         [Authorize]
         public async Task<IActionResult> GetLoggedInUserDetails()
         {
+            LoggedInUserDetailsViewModel loggedInUserDetailsViewModel = await GetUserDetailsFromCookies();
+
+            string partialViewHtml = await this.RenderViewAsync("_LoggedInUserDetails", loggedInUserDetailsViewModel, true);
+
+            return Json(partialViewHtml);
+
+        }
+
+        private async Task<LoggedInUserDetailsViewModel> GetUserDetailsFromCookies()
+        {
             var getUserDetailsTask = Task.Run(() => this.User.GetLoggedInUserDetails());
             var loggedInUserDetails = await getUserDetailsTask;
             LoggedInUserDetailsViewModel loggedInUserDetailsViewModel = new LoggedInUserDetailsViewModel();
@@ -199,15 +209,7 @@ namespace WebAppCore.Areas.Security.Controllers
             loggedInUserDetailsViewModel.UserId = loggedInUserDetails.UserId;
             loggedInUserDetailsViewModel.UserRoles = loggedInUserDetails.UserRoles;
             loggedInUserDetailsViewModel.Email = loggedInUserDetails.Email;
-
-            // return await Task.Run(() => PartialView("_LoggedInUserDetails", loggedInUserDetailsViewModel));
-
-            string partialViewHtml = await this.RenderViewAsync("_LoggedInUserDetails", loggedInUserDetailsViewModel, true);
-
-            return Json(partialViewHtml);
-
+            return loggedInUserDetailsViewModel;
         }
-
-
     }
 }

@@ -64,6 +64,7 @@ namespace ServiceConcrete
                 var resultSet = this._IUserAccountRepository.GetUserDetailsForLogin(userAccountModel);
 
                 ipPropertiesModal = _IIPRequestDetails.GetCountryDetailsByIP(userAccountModel.UserIpAddress);
+                ipPropertiesModal.IpAddress = userAccountModel.UserIpAddress;
                 ipPropertiesModal.CreatedByUserName = userAccountModel.UserName;
                 ipPropertiesModal.ModifiedByUserName = userAccountModel.UserName;
                 ipPropertiesModal.UserName = userAccountModel.UserName;
@@ -79,7 +80,6 @@ namespace ServiceConcrete
                     getUserAccount = (UserAccountModel)resultSet.Set1.FirstOrDefault();
                     userRoles = resultSet.Set2.ToList();
 
-
                     userAccountModel.Password = DecryptStringAES(userAccountModel.CryptLoginPassword);
                     string passwordConcated = userAccountModel.Password + getUserAccount.PasswordSalt;
                     string generatedHashFromPassAndSalt = Hash.Create(HashType.SHA512, passwordConcated, string.Empty, false);
@@ -92,15 +92,10 @@ namespace ServiceConcrete
                     ipPropertiesModal.CreatedBy = userAccountModel.UserId;
                     ipPropertiesModal.ModifiedBy = userAccountModel.UserId;
                 }
-
                 getUserAccount.IsLoginSuccess = isValidUser;
 
                 ipPropertiesModal.IsLoginSuccess = isValidUser;
-
-
                 var dbUpdateResult = _IAnalyticsRepository.SaveIpAddressDetailsOnLogin(ipPropertiesModal);
-                WeatherForecast vvvv = new WeatherForecast();
-                vvvv.GetWeatherForecastByCoOrdinates();
             }
 
             catch (Exception Ex)

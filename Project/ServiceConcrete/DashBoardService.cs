@@ -1,7 +1,10 @@
 ﻿using CrossCutting.Caching;
+using CrossCutting.IPRequest;
 using CrossCutting.Logging;
+using CrossCutting.WeatherForcast;
 using DomainModel;
 using DomainModel.DashBoard;
+using DomainModel.Shared;
 using FizzWare.NBuilder;
 using Insight.Database;
 using Repository;
@@ -21,7 +24,11 @@ namespace ServiceConcrete
     public class DashBoardService : IDashBoardService
     {
         IUserAccountRepository _IUserAccountRepository;
-        public DashBoardService(DbConnection Parameter)
+        IWeatherForecast _IWeatherForecast;
+        IIPRequestDetails _IIPRequestDetails;
+
+        public DashBoardService(DbConnection Parameter, IWeatherForecast iWeatherForecast,
+            IIPRequestDetails iIPRequestDetails)
         {
             SqlInsightDbProvider.RegisterProvider();
             //  string sqlConnection = "Data Source=.;Initial Catalog=EmployeeManage;Integrated Security=True";
@@ -30,6 +37,9 @@ namespace ServiceConcrete
             DbConnection c = new SqlConnection(sqlConnection);
 
             _IUserAccountRepository = c.As<IUserAccountRepository>();
+            _IIPRequestDetails = iIPRequestDetails;
+
+            _IWeatherForecast = iWeatherForecast;
         }
 
         public Task<DashBoardRow1WidgetsModel> GetBoardRow1WidgetsDetails()
@@ -60,5 +70,25 @@ namespace ServiceConcrete
             return getdashBoardRow1DetailsTask;
         }
 
+        public Task<WeatherModel> GetCurrectWeatherDetails(string userIpAddress)
+        {
+            IpPropertiesModal ipPropertiesModal = new IpPropertiesModal();
+            WeatherModel weatherModel = new WeatherModel();
+            ipPropertiesModal = _IIPRequestDetails.GetCountryDetailsByIP(userIpAddress);
+
+            var getdashBoardRow1DetailsTask = Task.Run(() =>
+                              _IWeatherForecast.GetWeatherForecastByCoOrdinates(
+                                  ipPropertiesModal.Lat
+                                  , ipPropertiesModal.Lon)
+                                      );
+            getdashBoardRow1DetailsTask.Wait();
+            getdashBoardRow1DetailsTask.Result.CurrentCityName = 
+                        ipPropertiesModal.City ;
+
+
+            getdashBoardRow1DetailsTask.Result.CurrentCountryName = ipPropertiesModal.CountryCode
+                                        + ", " + ipPropertiesModal.Country;
+            return getdashBoardRow1DetailsTask;
+        }
     }
 }

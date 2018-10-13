@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Symbols LinesOfCode="469" PostSharpLinesOfCode="0" EnhancedTypesCount="3" SchemaVersion="1" PostSharpVersion="6.0.27.0" xmlns="http://schemas.postsharp.org/2.0/symbols">
+<Symbols LinesOfCode="494" PostSharpLinesOfCode="0" EnhancedTypesCount="3" SchemaVersion="1" PostSharpVersion="6.0.27.0" xmlns="http://schemas.postsharp.org/2.0/symbols">
   <Evolution Source="#1=M:[WebAppCore]WebAppCore.Areas.Security.Controllers.UserAccountController::UserAccount(System.String)" Target="#2=M:[WebAppCore]WebAppCore.Areas.Security.Controllers.UserAccountController+&lt;UserAccount&gt;d__11::MoveNext()" />
   <Evolution Source="#3=M:[WebAppCore]WebAppCore.Areas.Security.Controllers.UserAccountController::Login([WebAppCore]WebAppCore.Models.UserLoginViewModel, System.String)" Target="#4=M:[WebAppCore]WebAppCore.Areas.Security.Controllers.UserAccountController+&lt;Login&gt;d__12::MoveNext()" />
   <Evolution Source="#5=M:[WebAppCore]WebAppCore.Areas.Security.Controllers.UserAccountController::SetCookiesAndReturnViewOnLoginSuccess(DomainModel.UserAccountModel, System.Collections.Generic.List{[DomainModel]DomainModel.UserRolesModel})" Target="#6=M:[WebAppCore]WebAppCore.Areas.Security.Controllers.UserAccountController+&lt;SetCookiesAndReturnViewOnLoginSuccess&gt;d__14::MoveNext()" />
@@ -23,7 +23,7 @@
   <Evolution Source="#41=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController::ValidateEmployeeDetailsOnDOJ([WebAppCore]WebAppCore.Areas.EmployeeManage.Models.EmployeeSearchViewModel)" Target="#42=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController+&lt;ValidateEmployeeDetailsOnDOJ&gt;d__22::MoveNext()" />
   <Evolution Source="#43=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController::ValidateEmployeeDetailsOnDOB([WebAppCore]WebAppCore.Areas.EmployeeManage.Models.EmployeeSearchViewModel)" Target="#44=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController+&lt;ValidateEmployeeDetailsOnDOB&gt;d__23::MoveNext()" />
   <Class Class="#45=T:[CrossCutting]CrossCutting.Logging.NLoggingAttribute">
-    <Instance Declaration="#46=T:[WebAppCore]WebAppCore.Areas.Security.Controllers.UserAccountController" Id="5878df686ec5542e">
+    <Instance Declaration="#46=T:[WebAppCore]WebAppCore.Areas.Security.Controllers.UserAccountController" Id="5878df687f50c866">
       <Target Target="#47=M:[WebAppCore]WebAppCore.Areas.Security.Controllers.UserAccountController::get__IUserAccountService()" LinesAvoided="6">
         <JoinPoint Advising="#45" Description="#48=Wrapped by advice(s) OnEntry, OnException, OnExit" Ordinal="0" />
       </Target>
@@ -67,7 +67,7 @@
         <JoinPoint Advised="#16" Advising="#45" Description="#48" Ordinal="13" />
       </Target>
     </Instance>
-    <Instance Declaration="#54=T:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController" Id="5878df688f063b5d">
+    <Instance Declaration="#54=T:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController" Id="5878df68cd4362c3">
       <Target Target="#55=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController::get__IEmployeeManageService()" LinesAvoided="6">
         <JoinPoint Advising="#45" Description="#48" Ordinal="14" />
       </Target>
@@ -126,8 +126,8 @@
         <JoinPoint Advised="#44" Advising="#45" Description="#48" Ordinal="32" />
       </Target>
     </Instance>
-    <Instance Declaration="#60=T:[WebAppCore]WebAppCore.Areas.DashBoard.Controllers.DashBoardController" Id="5878df683ddf0105">
-      <Target Target="#61=M:[WebAppCore]WebAppCore.Areas.DashBoard.Controllers.DashBoardController::#ctor(ServiceInterface.IDashBoardService, AutoMapper.IMapper)" LinesAvoided="6">
+    <Instance Declaration="#60=T:[WebAppCore]WebAppCore.Areas.DashBoard.Controllers.DashBoardController" Id="5878df6837ed0c27">
+      <Target Target="#61=M:[WebAppCore]WebAppCore.Areas.DashBoard.Controllers.DashBoardController::#ctor(ServiceInterface.IDashBoardService, AutoMapper.IMapper, Microsoft.AspNetCore.Http.IHttpContextAccessor)" LinesAvoided="6">
         <JoinPoint Advising="#45" Description="#48" Ordinal="33" />
       </Target>
       <Target Target="#62=M:[WebAppCore]WebAppCore.Areas.DashBoard.Controllers.DashBoardController::Index()" LinesAvoided="6">

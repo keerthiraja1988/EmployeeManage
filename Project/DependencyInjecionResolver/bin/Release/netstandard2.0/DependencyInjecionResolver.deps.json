@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETStandard,Version=v2.0/",
-    "signature": "72112cdacc9352f460f18100b6d456ac35149eaa"
+    "signature": "c21f3ef356a0255fbcb44c6f791ebf6bad4ef2ff"
   },
   "compilationOptions": {},
   "targets": {
@@ -28,6 +28,14 @@
           "lib/netstandard1.1/Autofac.dll": {
             "assemblyVersion": "4.8.1.0",
             "fileVersion": "4.8.1.0"
+          }
+        }
+      },
+      "DarkSkyApi/3.3.0": {
+        "runtime": {
+          "lib/netstandard1.1/DarkSkyApi.dll": {
+            "assemblyVersion": "3.3.0.0",
+            "fileVersion": "3.3.0.0"
           }
         }
       },
@@ -899,6 +907,7 @@
       },
       "CrossCutting/1.0.0": {
         "dependencies": {
+          "DarkSkyApi": "3.3.0",
           "DomainModel": "1.0.0",
           "NLog": "4.5.10",
           "NLog.Config": "4.5.10",
@@ -962,6 +971,13 @@
       "sha512": "sha512-aIT9rupCOdab5RMfxvWTBmOxGU77tLqmvSF4V89SzV6oQcJrtuKw/Xp55xy9EijSktbMka55SbroAPOyT+lziw==",
       "path": "autofac/4.8.1",
       "hashPath": "autofac.4.8.1.nupkg.sha512"
+    },
+    "DarkSkyApi/3.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-9mN5RN8Vi+fcCpGIBxcaMKeri6xsxFgJqzVOak0/kfV4YssfqXpS4o35nMTQzfY9NdaT3dR8/4ham7z4LoF4RQ==",
+      "path": "darkskyapi/3.3.0",
+      "hashPath": "darkskyapi.3.3.0.nupkg.sha512"
     },
     "Effortless.Net.Encryption/3.2.0": {
       "type": "package",
