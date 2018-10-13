@@ -1,4 +1,5 @@
 ﻿using DomainModel;
+using DomainModel.Shared;
 using Insight.Database;
 using System;
 using System.Collections.Generic;
@@ -15,5 +16,10 @@ namespace Repository
 
         [Sql("P_GetUserDetailsForLogin")]      
         Results<UserAccountModel, UserRolesModel> GetUserDetailsForLogin(UserAccountModel userAccountModel);
+
+
+        [Sql("P_GetUserDetailsForLastLogin")]
+        Results<IpPropertiesModal, IpPropertiesModal> GetUserDetailsForLastLogin(UserAccountModel userAccountModel);
+
     }
 }

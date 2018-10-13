@@ -2,7 +2,7 @@
 
 
 <div class="modal fade pl-0" id="modalloggedInUserDetails" tabindex="-1" role="dialog"
-    aria-hidden="true" data-backdrop="static" data-keyboard="false">
+     aria-hidden="true" data-backdrop="static" data-keyboard="false">
     <script>
         $(function () {
 
@@ -16,8 +16,7 @@
         });
     </script>
 
-    <div id="LoggedInUserDetailsdialog" class="modal-dialog  modal-lg modal-dialog-centered" role="document"
-       >
+    <div id="LoggedInUserDetailsdialog" class="modal-dialog  modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header bg-info "
                  style="box-shadow: 0 0 5px #888; cursor: grab; color:white" id="LoggedInUserDetailsheader">
@@ -26,7 +25,7 @@
                     User Details
                 </h5>
             </div>
-            <div class="modal-body"  style="overflow-y: auto; max-height: 400px;">
+            <div class="modal-body" style="overflow-y: auto; max-height: 400px;">
 
                 <div class="row">
                     <div class="col-12 col-sm-12 col-md-8 col-lg-9 col-xl-9 pl-0 pb-3">
@@ -71,6 +70,55 @@
                             }
                         </div>
                     </div>
+
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 pl-0 pt-2">
+
+                        <div class="card text-center" style="    border-radius: 0px;">
+                            <div class="card-header" style="    border-radius: 0px;">
+                                Last Session Details
+                            </div>
+                            <div class="card-body">
+                                <dl class="row">
+                                    <dd class="col-5 d-flex justify-content-start">IP Address</dd>
+                                    <dt class="col-7 d-flex justify-content-start">@Model.LastLoggedInUserDetailsViewModel.IpAddress</dt>
+                                    <dd class="col-5 d-flex justify-content-start">City</dd>
+                                    <dt class="col-7 d-flex justify-content-start">@Model.LastLoggedInUserDetailsViewModel.City</dt>
+                                    <dd class="col-5 d-flex justify-content-start">Country</dd>
+                                    <dt class="col-7 d-flex justify-content-start">@Model.LastLoggedInUserDetailsViewModel.Country</dt>
+                                    <dd class="col-5 d-flex justify-content-start">ISP Details</dd>
+                                    <dt class="col-7 d-flex justify-content-start">@Model.LastLoggedInUserDetailsViewModel.ISPDetails</dt>
+                                    <dd class="col-5 d-flex justify-content-start">Last Login</dd>
+                                    <dt class="col-7 d-flex justify-content-start">@Model.LastLoggedInUserDetailsViewModel.LastLoggedIn</dt>
+                                    <dd class="col-5 d-flex justify-content-start">Disconnected</dd>
+                                    <dt class="col-7 d-flex justify-content-start">@Model.LastLoggedInUserDetailsViewModel.SessionDisconnectedOn</dt>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 pl-0 pt-2">
+
+                        <div class="card text-center" style="    border-radius: 0px;">
+                            <div class="card-header" style="    border-radius: 0px;">
+                                Current Session Details
+                            </div>
+                            <div class="card-body">
+                                <dl class="row">
+                                    <dd class="col-5 d-flex justify-content-start">IP Address</dd>
+                                    <dt class="col-7 d-flex justify-content-start">@Model.CurrentLoggedInUserDetailsViewModel.IpAddress</dt>
+                                    <dd class="col-5 d-flex justify-content-start">City</dd>
+                                    <dt class="col-7 d-flex justify-content-start">@Model.CurrentLoggedInUserDetailsViewModel.City</dt>
+                                    <dd class="col-5 d-flex justify-content-start">Country</dd>
+                                    <dt class="col-7 d-flex justify-content-start">@Model.CurrentLoggedInUserDetailsViewModel.Country</dt>
+                                    <dd class="col-5 d-flex justify-content-start">ISP Details</dd>
+                                    <dt class="col-7 d-flex justify-content-start">@Model.CurrentLoggedInUserDetailsViewModel.ISPDetails</dt>
+                                    <dd class="col-5 d-flex justify-content-start">Last Login</dd>
+                                    <dt class="col-7 d-flex justify-content-start">@Model.CurrentLoggedInUserDetailsViewModel.LastLoggedIn</dt>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
             <div class="modal-footer">

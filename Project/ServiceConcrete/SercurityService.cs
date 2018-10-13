@@ -24,7 +24,7 @@ namespace ServiceConcrete
     public class SercurityService : ISercurityService
     {
         private IUserAccountRepository _IUserAccountRepository;
-        IAnalyticsRepository _IAnalyticsRepository;
+        IAppAnalyticsRepository _IAppAnalyticsRepository;
         IIPRequestDetails _IIPRequestDetails;
 
         public SercurityService(IIPRequestDetails iIPRequestDetails
@@ -37,7 +37,7 @@ namespace ServiceConcrete
             DbConnection c = new SqlConnection(sqlConnection);
 
             _IUserAccountRepository = c.As<IUserAccountRepository>();
-            _IAnalyticsRepository = c.As<IAnalyticsRepository>();
+            _IAppAnalyticsRepository = c.As<IAppAnalyticsRepository>();
             _IIPRequestDetails = iIPRequestDetails;
         }
 
@@ -56,7 +56,10 @@ namespace ServiceConcrete
         public (UserAccountModel UserAccount, List<UserRolesModel> UserRoles) ValidateUserLoginAndCredential(UserAccountModel userAccountModel)
         {
             bool isValidUser = false;
+            Guid cookieUniqueId;
+            cookieUniqueId = Guid.NewGuid();
             UserAccountModel getUserAccount = new UserAccountModel();
+            getUserAccount.CookieUniqueId = cookieUniqueId;
             List<UserRolesModel> userRoles = new List<UserRolesModel>();
             IpPropertiesModal ipPropertiesModal = new IpPropertiesModal();
             try
@@ -70,6 +73,7 @@ namespace ServiceConcrete
                 ipPropertiesModal.UserName = userAccountModel.UserName;
                 ipPropertiesModal.CreatedOn = DateTime.Now;
                 ipPropertiesModal.ModifiedOn = DateTime.Now;
+                ipPropertiesModal.CookieUniqueId = cookieUniqueId;
 
                 if (resultSet.Set1 == null)
                 {
@@ -90,20 +94,19 @@ namespace ServiceConcrete
                     userAccountModel = getUserAccount;
                     ipPropertiesModal.UserId = userAccountModel.UserId;
                     ipPropertiesModal.CreatedBy = userAccountModel.UserId;
-                    ipPropertiesModal.ModifiedBy = userAccountModel.UserId;
                 }
                 getUserAccount.IsLoginSuccess = isValidUser;
 
                 ipPropertiesModal.IsLoginSuccess = isValidUser;
-                var dbUpdateResult = _IAnalyticsRepository.SaveIpAddressDetailsOnLogin(ipPropertiesModal);
+                var dbUpdateResult = _IAppAnalyticsRepository.SaveIpAddressDetailsOnLogin(ipPropertiesModal);
             }
 
             catch (Exception Ex)
             {
-                var dbUpdateResult = _IAnalyticsRepository.SaveIpAddressDetailsOnLogin(ipPropertiesModal);
+                var dbUpdateResult = _IAppAnalyticsRepository.SaveIpAddressDetailsOnLogin(ipPropertiesModal);
 
             }
-
+            userAccountModel.CookieUniqueId = cookieUniqueId;
             return (userAccountModel, userRoles);
         }
 

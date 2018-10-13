@@ -6,6 +6,9 @@ namespace DomainModel.Shared
 {
    public class IpPropertiesModal
     {
+        
+        public Guid CookieUniqueId { get; set; }
+
         public string IpAddress { get; set; }
 
         public string Status { get; set; }
@@ -38,6 +41,6 @@ namespace DomainModel.Shared
 
         public bool IsLoginSuccess { get; set; }
 
-
+        public DateTime SessionDisconnectedOn { get; set; }
     }
 }

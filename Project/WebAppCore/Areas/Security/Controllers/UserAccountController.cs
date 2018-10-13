@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using CrossCutting.Logging;
 using DomainModel;
+using DomainModel.Shared;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
@@ -30,13 +31,16 @@ namespace WebAppCore.Areas.Security.Controllers
         public IConfiguration _Configuration { get; set; }
         private readonly IHttpContextAccessor _IHttpContextAccessor;
         private readonly IMapper _mapper;
+        IAppAnalyticsService _IAppAnalyticsService;
         public UserAccountController(IConfiguration iConfig, IUserAccountService iUserAccountService
-            , IMapper mapper, IHttpContextAccessor httpContextAccessor)
+            , IMapper mapper, IHttpContextAccessor httpContextAccessor,
+            IAppAnalyticsService iAppAnalyticsService)
         {
             _mapper = mapper;
             _Configuration = iConfig;
             _IUserAccountService = iUserAccountService;
             _IHttpContextAccessor = httpContextAccessor;
+            _IAppAnalyticsService = iAppAnalyticsService;
         }
 
         [Route("UserAccount")]
@@ -116,6 +120,8 @@ namespace WebAppCore.Areas.Security.Controllers
                     new Claim(ClaimTypes.NameIdentifier , userAccountReturn.UserId.ToString()),
                 new Claim("http://example.org/claims/LoggedInTime", "LoggedInTime", DateTime.Now.ToString()),
                 new Claim(ClaimTypes.Email, userAccountReturn.Email),
+                new Claim ( "http://example.org/claims/CookieUniqueId", "CookieUniqueId",userAccountReturn.CookieUniqueId.ToString() ),
+
             };
 
             if (userRoles != null && userRoles.Count > 0)
@@ -191,6 +197,23 @@ namespace WebAppCore.Areas.Security.Controllers
         public async Task<IActionResult> GetLoggedInUserDetails()
         {
             LoggedInUserDetailsViewModel loggedInUserDetailsViewModel = await GetUserDetailsFromCookies();
+            UserAccountModel userAccountModel = _mapper.Map<UserAccountModel>(loggedInUserDetailsViewModel);
+            var userLoginDetails = this._IUserAccountService.GetUserDetailsForLastLogin(userAccountModel);
+
+            loggedInUserDetailsViewModel.LastLoggedInUserDetailsViewModel = new LoggedInUserDetailsViewModel();
+            loggedInUserDetailsViewModel.CurrentLoggedInUserDetailsViewModel = new LoggedInUserDetailsViewModel();
+
+            IpPropertiesModal ipPropertiesModal = new IpPropertiesModal();
+            string ipAddress = this._IHttpContextAccessor
+                                    .HttpContext.Connection.RemoteIpAddress
+                                    .ToString();
+            ipPropertiesModal = this._IAppAnalyticsService.GetIpAddressDetails(ipAddress);
+
+            loggedInUserDetailsViewModel.LastLoggedInUserDetailsViewModel =
+                    _mapper.Map<LoggedInUserDetailsViewModel>(userLoginDetails.LastSessionDetails);
+            
+            loggedInUserDetailsViewModel.CurrentLoggedInUserDetailsViewModel =
+                    _mapper.Map<LoggedInUserDetailsViewModel>(userLoginDetails.CurrentSessionDetails);
 
             string partialViewHtml = await this.RenderViewAsync("_LoggedInUserDetails", loggedInUserDetailsViewModel, true);
 
@@ -209,6 +232,8 @@ namespace WebAppCore.Areas.Security.Controllers
             loggedInUserDetailsViewModel.UserId = loggedInUserDetails.UserId;
             loggedInUserDetailsViewModel.UserRoles = loggedInUserDetails.UserRoles;
             loggedInUserDetailsViewModel.Email = loggedInUserDetails.Email;
+            loggedInUserDetailsViewModel.CookieUniqueId = loggedInUserDetails.CookieUniqueId;
+
             return loggedInUserDetailsViewModel;
         }
     }

@@ -57,7 +57,8 @@
 
     </div>
 
-    <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 pl-0 pr-2 pt-2"
+
+    <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 pl-0 pr-0 pt-2"
         >
         <div class="demo-section k-content wide mr-2"   style=" box-shadow: 0px 4px 7px 0.7px rgba(119, 119, 119, 0.76);">
             <div class="demo-section k-content wide">
@@ -92,10 +93,11 @@
         </div>
 
     </div>
-    <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 pl-0 pr-2 mt-2 pb-2
+
+    <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 pl-0 pr-2 mt-2 pb-2 pt-0
          order-md-first order-sm-first order-first  order-lg-last order-xl-last">
 
-        <div class="card text-white pl-0 pr-0 pt-0 pb-0 mt-2"
+        <div class="card text-white pl-0 pr-0 pt-0 pb-0 mt-0"
              style=" box-shadow: 0px 4px 7px -1px #777; background-color: #0275d8;">
             <div class="card-header pb-2" style="padding-bottom: 3px; padding-top: 3px;">
                 <div class="row ">
@@ -109,8 +111,6 @@
                     </small>
                     </p>
                 </div>
-
-
 
                 <div class="card-body pb-0 pt-0 pr-0 pl-0 mt-2">
                     <div class="row pb-0 pt-0 pr-0 pl-0">
@@ -137,8 +137,10 @@
                                         @Html.HiddenFor(m => m.DashBoardRow2WidgetsViewModel
                                                             .WeatherWidgetsViewModel.WeatherConditionIcon
                                                            , new { id = "hdnWeatherConditionIcon" })
-                                        @Model.DashBoardRow2WidgetsViewModel.WeatherWidgetsViewModel.WeatherCondition
-                                    </p>
+                                        <span style="    font-size: 13px;">
+                                            @Model.DashBoardRow2WidgetsViewModel.WeatherWidgetsViewModel.WeatherCondition
+                                                </span>
+</p>
                                 </div>
 
                             </div>

@@ -5,6 +5,8 @@ namespace DomainModel
 {
     public class UserAccountModel
     {
+        public Guid CookieUniqueId { get; set; }
+
         public Int64 UserId { get; set; }
 
         public Int64 RequestUserId { get; set; }

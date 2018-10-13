@@ -36,7 +36,6 @@ namespace ServiceConcrete
         //    this._IUserAccountRepository?.Dispose();
         //}
 
-
         public int GetTestValue()
         {
             return this._IUserAccountRepository.GetTestValue();
@@ -44,7 +43,6 @@ namespace ServiceConcrete
 
         public bool RegisterNewUser(UserAccountModel userAccountModel)
         {
-           //SercurityService sercurityService = new SercurityService();
             userAccountModel = _ISercurityService.GenerateHashAndSaltForPassword(userAccountModel);
 
             return this._IUserAccountRepository.RegisterNewUser(userAccountModel);
@@ -52,11 +50,6 @@ namespace ServiceConcrete
 
         public (UserAccountModel UserAccount, List<UserRolesModel> UserRoles) ValidateUserLogin(UserAccountModel userAccountModel)
         {
-           // SercurityService sercurityService = new SercurityService();
-          
-
-           
-            
             return _ISercurityService.ValidateUserLoginAndCredential(userAccountModel);
         }
 
@@ -70,6 +63,16 @@ namespace ServiceConcrete
             userAccountModel.Password = Faker.User.Password();
 
             return userAccountModel;
+        }
+
+        public (IpPropertiesModal LastSessionDetails, IpPropertiesModal CurrentSessionDetails) GetUserDetailsForLastLogin(UserAccountModel userAccountModel)
+        {
+            var resultSet = this._IUserAccountRepository.GetUserDetailsForLastLogin(userAccountModel);
+            IpPropertiesModal lastSessionDetails = new IpPropertiesModal();
+            lastSessionDetails = (IpPropertiesModal)resultSet.Set1.FirstOrDefault();
+            IpPropertiesModal currentSessionDetails = (IpPropertiesModal)resultSet.Set2.FirstOrDefault();
+
+            return (lastSessionDetails, currentSessionDetails);
         }
 
     }

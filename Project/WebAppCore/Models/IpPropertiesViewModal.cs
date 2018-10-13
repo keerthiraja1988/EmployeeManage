@@ -7,6 +7,8 @@ namespace WebAppCore.Models
 {
     public class IpPropertiesViewModal
     {
+        public Guid CookieUniqueId { get; set; }
+
         public string IpAddress { get; set; }
         public string Status { get; set; }
         public string Country { get; set; }
@@ -30,5 +32,7 @@ namespace WebAppCore.Models
         public DateTime ModifiedOn { get; set; }
         public Int64 ModifiedBy { get; set; }
         public string ModifiedByUserName { get; set; }
+        public DateTime SessionDisconnectedOn { get; set; }
+
     }
 }

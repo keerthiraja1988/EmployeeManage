@@ -18,7 +18,7 @@ namespace WebAppCore.Infrastructure
     {
 
         public async static Task<(int UserId, string UserName, string FirstName, string LastName,
-            string Email, List<string> UserRoles, DateTime LoggedInTime)>
+            string Email, List<string> UserRoles, DateTime LoggedInTime, Guid CookieUniqueId)>
             GetLoggedInUserDetails(this ClaimsPrincipal principal)
         {
             if (principal == null)
@@ -33,7 +33,8 @@ namespace WebAppCore.Infrastructure
                             principal.Claims.Where(w => w.Value == "LoggedInTime")
                             .FirstOrDefault().ValueType);
             var userRoles = principal.FindAll(ClaimTypes.Role).Select(s => s.Value).ToList();
-            return (userId, userName, firstName, lastName, email, userRoles, loggedInTime);
+            var cookieUniqueId = new Guid(principal.Claims.Where(w => w.Value == "CookieUniqueId").FirstOrDefault().ValueType);
+            return (userId, userName, firstName, lastName, email, userRoles, loggedInTime, cookieUniqueId);
         }
 
         public static async Task<string> RenderViewAsync<TModel>(this Controller controller, string viewName, TModel model, bool partial = false)
