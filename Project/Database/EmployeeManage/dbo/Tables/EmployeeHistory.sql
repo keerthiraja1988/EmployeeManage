@@ -1,0 +1,27 @@
+﻿CREATE TABLE [dbo].[EmployeeHistory] (
+    [EmployeeHistoryId]  INT            IDENTITY (1, 1) NOT NULL,
+    [DMLOperation]       NVARCHAR (200) NOT NULL,
+    [DMLOperationOn]     DATETIME       DEFAULT (getdate()) NOT NULL,
+    [DMLOperationBy]     BIGINT         DEFAULT ((1)) NULL,
+    [EmployeeId]         INT            NOT NULL,
+    [FullName]           NVARCHAR (MAX) NULL,
+    [FirstName]          NVARCHAR (MAX) NULL,
+    [LastName]           NVARCHAR (MAX) NULL,
+    [Initial]            NVARCHAR (200) NULL,
+    [Email]              NVARCHAR (MAX) NULL,
+    [DateOfBirth]        DATETIME       NULL,
+    [DateOfJoining]      DATETIME       NULL,
+    [PermenantAddressId] INT            NULL,
+    [CurrentAddressId]   INT            NULL,
+    [TIN]                NVARCHAR (200) NULL,
+    [PASSPORT]           NVARCHAR (200) NULL,
+    [WorkLocation]       INT            NULL,
+    [IsActive]           BIT            NULL,
+    [IsAuthorized]       BIT            NULL,
+    [CreatedOn]          DATETIME       NULL,
+    [CreatedBy]          BIGINT         NULL,
+    [ModifiedOn]         DATETIME       NULL,
+    [ModifiedBy]         BIGINT         NULL,
+    CONSTRAINT [PK_dbo.EmployeeHistory] PRIMARY KEY CLUSTERED ([EmployeeHistoryId] ASC)
+);
+
