@@ -38,7 +38,7 @@ using static DependencyInjecionResolver.DependencyInjecionResolver;
 namespace WebAppCore
 {
 
-    
+
 
 
     public class Startup
@@ -69,7 +69,7 @@ namespace WebAppCore
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
 
-          
+
 
             // Maintain property names during serialization. See:
             // https://github.com/aspnet/Announcements/issues/194
@@ -86,7 +86,7 @@ namespace WebAppCore
             // Add Kendo UI services to the services container
             services.AddKendo();
 
-           // services.AddScoped<NLoggingAttribute>();
+            // services.AddScoped<NLoggingAttribute>();
 
             services.AddAutoMapper();
 
@@ -105,15 +105,15 @@ namespace WebAppCore
                        options.LoginPath = new PathString("/UserAccount");
                        options.ExpireTimeSpan = TimeSpan.FromSeconds(600);
                        options.SlidingExpiration = true;
-                    
+
                        options.Events = new CookieAuthenticationEvents()
                        {
-                           
+
 
                            OnRedirectToAccessDenied = (ctx) =>
                            {
                                var request = ctx.HttpContext.Request.Path;
-                               _logger.LogError("Access Denied to Path"+
+                               _logger.LogError("Access Denied to Path" +
                                                 request.Value);
                                ctx.Response.Redirect(ctx.RedirectUri);
                                return Task.CompletedTask;
@@ -132,10 +132,10 @@ namespace WebAppCore
 
             services.AddAntiforgery(options =>
             {
-               
+
                 // new API
                 options.Cookie.Name = "AntiforgeryCookie";
-                
+
                 options.Cookie.Path = "/";
                 options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
             });
@@ -151,14 +151,14 @@ namespace WebAppCore
             ConfigureWebOptimer(services);
 
             var builder = new Autofac.ContainerBuilder();
-        
+
             builder.RegisterAssemblyModules(System.Reflection.Assembly.GetExecutingAssembly());
             builder.Populate(services);
             var sqlConnection = Configuration.GetValue<string>("DBConnection");
             builder.RegisterModule(new ServiceDIContainer(sqlConnection));
             this.ApplicationContainer = builder.Build();
 
-           
+
 
             return new AutofacServiceProvider(this.ApplicationContainer);
         }
@@ -190,13 +190,13 @@ namespace WebAppCore
                 // ...existing configuration...
                 //app.UseMiniProfiler();
                 app.UseDeveloperExceptionPage();
-                
+
             }
             else
             {
                 //app.UseDeveloperExceptionPage();
-               app.UseExceptionHandler("/Error");
-               app.UseHsts();
+                app.UseExceptionHandler("/Error");
+                app.UseHsts();
             }
             // app.UseWebOptimizer();
             app.UseResponseCompression();
@@ -206,7 +206,7 @@ namespace WebAppCore
             app.UseCookiePolicy(new CookiePolicyOptions
             {
                 HttpOnly = HttpOnlyPolicy.Always,
-                  Secure = CookieSecurePolicy.Always,
+                Secure = CookieSecurePolicy.Always,
                 MinimumSameSitePolicy = SameSiteMode.None
             });
 

@@ -182,7 +182,7 @@
                 Logo
             </h3>
         </div>
-        <a id="navBrandHome" class="navbar-brand"  style="padding-left: 83px;padding-right:5px;margin-right: 0.352;
+        <a id="navBrandHome" class="navbar-brand" style="padding-left: 83px;padding-right:5px;margin-right: 0.352;
                     font-size: 23px;margin-right: 3px;color:white" onclick="JsMain.RedirectToHomePage()">HR Management</a>
         <!-- Navbar content -->
         <button id="btnNavbarCollapse" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -196,8 +196,7 @@
 
                 <li class="nav-item dropdown p-l-xs p-l-sm " id="navItemEmployeeDropDown">
                     <a class="nav-link dropdown-toggle pl-0" href="#" id="navbaEmployeeDropDown"
-                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                      >
+                       role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Employee
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -217,10 +216,10 @@
                         Static Pages
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" onclick="JsMain.ShowLoaddingIndicator()" 
-                                                    asp-area="Base" asp-controller="Base" asp-action="Error">Error Page</a>
                         <a class="dropdown-item" onclick="JsMain.ShowLoaddingIndicator()"
-                                                 asp-area="Security" asp-controller="UserAccount" asp-action="AccessDenied">Access Denied</a>
+                           asp-area="Base" asp-controller="Base" asp-action="Error">Error Page</a>
+                        <a class="dropdown-item" onclick="JsMain.ShowLoaddingIndicator()"
+                           asp-area="Security" asp-controller="UserAccount" asp-action="AccessDenied">Access Denied</a>
 
                     </div>
                 </li>

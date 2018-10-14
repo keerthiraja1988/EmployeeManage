@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using CrossCutting.EmailService;
 using CrossCutting.IPRequest;
 using CrossCutting.WeatherForcast;
 using ServiceConcrete;
@@ -29,6 +30,7 @@ namespace DependencyInjecionResolver
 
                 builder.RegisterType<IPRequestDetails>().As<IIPRequestDetails>().SingleInstance().PreserveExistingDefaults(); ;
                 builder.RegisterType<WeatherForecast>().As<IWeatherForecast>().SingleInstance().PreserveExistingDefaults(); ;
+                builder.RegisterType<EmailService>().As<IEmailService>().SingleInstance().PreserveExistingDefaults(); ;
 
                 builder.RegisterAssemblyTypes(asm)
                 .Where(t => t.Name.EndsWith("Service"))

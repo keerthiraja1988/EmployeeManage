@@ -1,4 +1,5 @@
 ﻿using CrossCutting.Caching;
+using CrossCutting.EmailService;
 using CrossCutting.IPRequest;
 using CrossCutting.Logging;
 using CrossCutting.WeatherForcast;
@@ -26,9 +27,9 @@ namespace ServiceConcrete
         IUserAccountRepository _IUserAccountRepository;
         IWeatherForecast _IWeatherForecast;
         IIPRequestDetails _IIPRequestDetails;
-
+        IEmailService _IEmailService;
         public DashBoardService(DbConnection Parameter, IWeatherForecast iWeatherForecast,
-            IIPRequestDetails iIPRequestDetails)
+            IIPRequestDetails iIPRequestDetails, IEmailService iEmailService)
         {
             SqlInsightDbProvider.RegisterProvider();
             //  string sqlConnection = "Data Source=.;Initial Catalog=EmployeeManage;Integrated Security=True";
@@ -40,10 +41,11 @@ namespace ServiceConcrete
             _IIPRequestDetails = iIPRequestDetails;
 
             _IWeatherForecast = iWeatherForecast;
+            _IEmailService = iEmailService;
         }
 
         public Task<DashBoardRow1WidgetsModel> GetBoardRow1WidgetsDetails()
-        {
+        { 
             DashBoardRow1WidgetsModel dashBoardRow1WidgetsModel = new DashBoardRow1WidgetsModel();
 
             var dashBoardRow1WidgetsModels = Builder<DashBoardRow1WidgetsModel>.CreateListOfSize(1)
