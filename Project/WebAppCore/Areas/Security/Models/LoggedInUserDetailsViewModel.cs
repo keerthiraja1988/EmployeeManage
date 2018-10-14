@@ -26,7 +26,8 @@ namespace WebAppCore.Areas.Security.Models
         public string ISPDetails { get; set; }        
         public DateTime? LastLoggedIn { get; set; }
         public DateTime? SessionDisconnectedOn { get; set; }
+        public DateTime CreatedOn { get; set; }
 
-        
+
     }
 }

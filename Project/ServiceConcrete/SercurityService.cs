@@ -59,9 +59,15 @@ namespace ServiceConcrete
             Guid cookieUniqueId;
             cookieUniqueId = Guid.NewGuid();
             UserAccountModel getUserAccount = new UserAccountModel();
-            getUserAccount.CookieUniqueId = cookieUniqueId;
             List<UserRolesModel> userRoles = new List<UserRolesModel>();
             IpPropertiesModal ipPropertiesModal = new IpPropertiesModal();
+
+            getUserAccount.CookieUniqueId = cookieUniqueId;
+            if (userAccountModel.UserIpAddress == "::1")
+            {
+                userAccountModel.UserIpAddress = Faker.Internet.IPv4();
+            }
+
             try
             {
                 var resultSet = this._IUserAccountRepository.GetUserDetailsForLogin(userAccountModel);
