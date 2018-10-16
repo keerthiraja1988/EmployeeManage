@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 
 namespace ServiceInterface
 {
+    // ReSharper disable once IdentifierTypo
     public interface IAppAnalyticsService
     {
         Int32 UpdatedUserDisConnectionTracking(IpPropertiesModal ipAddressDetails);
 
-        IpPropertiesModal GetIpAddressDetails(string IpAddress);
+        IpPropertiesModal GetIpAddressDetails(string ipAddress);
     }
 }

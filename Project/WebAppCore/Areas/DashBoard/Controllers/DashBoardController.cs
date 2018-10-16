@@ -57,7 +57,7 @@ namespace WebAppCore.Areas.DashBoard.Controllers
                         this._iDashBoardService.GetBoardRow1WidgetsDetails()
                     );
             var dashBoardWeatherWidgetTask = Task.Run(() =>
-            this._iDashBoardService.GetCurrectWeatherDetails(userIpAddress)
+            this._iDashBoardService.GetCurrentWeatherDetails(userIpAddress)
         );
             Task.WhenAll(dashBoardRow1WidgetsModelTask, dashBoardWeatherWidgetTask);
 

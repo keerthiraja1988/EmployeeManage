@@ -23,6 +23,7 @@ namespace DomainModel.EmployeeManage
 
         public DateTime? DateOfJoining { get; set; }
 
+        // ReSharper disable once IdentifierTypo
         public int PermenantAddressId { get; set; }
 
         public int CurrentAddressId { get; set; }

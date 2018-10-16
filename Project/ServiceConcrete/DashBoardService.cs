@@ -1,14 +1,9 @@
 ﻿using CrossCutting.Caching;
-using CrossCutting.EmailService;
 using CrossCutting.IPRequest;
 using CrossCutting.Logging;
-using CrossCutting.WeatherForcast;
-using DomainModel;
 using DomainModel.DashBoard;
-using DomainModel.Shared;
 using FizzWare.NBuilder;
 using Insight.Database;
-using Repository;
 using ServiceInterface;
 using System;
 using System.Collections.Generic;
@@ -17,19 +12,18 @@ using System.Data.SqlClient;
 using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
+using CrossCutting.WeatherForecast;
 
 namespace ServiceConcrete
 {
     [NLogging]
-
     public class DashBoardService : IDashBoardService
     {
-        IUserAccountRepository _IUserAccountRepository;
-        IWeatherForecast _IWeatherForecast;
-        IIPRequestDetails _IIPRequestDetails;
-        IEmailService _IEmailService;
-        public DashBoardService(DbConnection Parameter, IWeatherForecast iWeatherForecast,
-            IIPRequestDetails iIPRequestDetails, IEmailService iEmailService)
+        private readonly IWeatherForecast _iWeatherForecast;
+        private readonly IIpRequestDetails _iipRequestDetails;
+
+        public DashBoardService(DbConnection parameter, IWeatherForecast iWeatherForecast,
+            IIpRequestDetails iIpRequestDetails)
         {
             SqlInsightDbProvider.RegisterProvider();
             //  string sqlConnection = "Data Source=.;Initial Catalog=EmployeeManage;Integrated Security=True";
@@ -37,21 +31,17 @@ namespace ServiceConcrete
                                            ;
             DbConnection c = new SqlConnection(sqlConnection);
 
-            _IUserAccountRepository = c.As<IUserAccountRepository>();
-            _IIPRequestDetails = iIPRequestDetails;
+            _iipRequestDetails = iIpRequestDetails;
 
-            _IWeatherForecast = iWeatherForecast;
-            _IEmailService = iEmailService;
+            _iWeatherForecast = iWeatherForecast;
         }
 
         public Task<DashBoardRow1WidgetsModel> GetBoardRow1WidgetsDetails()
-        { 
-            DashBoardRow1WidgetsModel dashBoardRow1WidgetsModel = new DashBoardRow1WidgetsModel();
-
+        {
             var dashBoardRow1WidgetsModels = Builder<DashBoardRow1WidgetsModel>.CreateListOfSize(1)
                .All()
            .With(c => c.TotalNoOfApplicationUsers = Faker.Number.RandomNumber(300, 400).ToString())
-           .With(c => c.NoOfActiveSessions = Faker.Number.RandomNumber(45,55).ToString())
+           .With(c => c.NoOfActiveSessions = Faker.Number.RandomNumber(45, 55).ToString())
            .With(c => c.NoOfActiveUsers = Faker.Number.RandomNumber(15, 30).ToString())
            .With(c => c.NoOfEmployeesCreatedToday = Faker.Number.RandomNumber(25, 40).ToString())
             .With(c => c.NoOfEmployeesPendingAuth = Faker.Number.RandomNumber(35, 56).ToString())
@@ -64,33 +54,30 @@ namespace ServiceConcrete
             .With(c => c.TotalNoOfServicesScheduled = Faker.Number.RandomNumber(10, 20).ToString())
            .Build();
 
-            var getdashBoardRow1DetailsTask = Task.Run(() =>
+            var getDashBoardRow1DetailsTask = Task.Run(() =>
                                    dashBoardRow1WidgetsModels.FirstOrDefault()
                                           );
-            getdashBoardRow1DetailsTask.Wait();
+            getDashBoardRow1DetailsTask.Wait();
 
-            return getdashBoardRow1DetailsTask;
+            return getDashBoardRow1DetailsTask;
         }
 
-        public Task<WeatherModel> GetCurrectWeatherDetails(string userIpAddress)
+        public Task<WeatherModel> GetCurrentWeatherDetails(string userIpAddress)
         {
-            IpPropertiesModal ipPropertiesModal = new IpPropertiesModal();
-            WeatherModel weatherModel = new WeatherModel();
-            ipPropertiesModal = _IIPRequestDetails.GetCountryDetailsByIP(userIpAddress);
+            var ipPropertiesModal = _iipRequestDetails.GetCountryDetailsByIp(userIpAddress);
 
-            var getdashBoardRow1DetailsTask = Task.Run(() =>
-                              _IWeatherForecast.GetWeatherForecastByCoOrdinates(
+            var getDashBoardRow1DetailsTask = Task.Run(() =>
+                              _iWeatherForecast.GetWeatherForecastByCoOrdinates(
                                   ipPropertiesModal.Lat
                                   , ipPropertiesModal.Lon)
                                       );
-            getdashBoardRow1DetailsTask.Wait();
-            getdashBoardRow1DetailsTask.Result.CurrentCityName = 
-                        ipPropertiesModal.City ;
+            getDashBoardRow1DetailsTask.Wait();
+            getDashBoardRow1DetailsTask.Result.CurrentCityName =
+                        ipPropertiesModal.City;
 
-
-            getdashBoardRow1DetailsTask.Result.CurrentCountryName = ipPropertiesModal.CountryCode
+            getDashBoardRow1DetailsTask.Result.CurrentCountryName = ipPropertiesModal.CountryCode
                                         + ", " + ipPropertiesModal.Country;
-            return getdashBoardRow1DetailsTask;
+            return getDashBoardRow1DetailsTask;
         }
     }
 }

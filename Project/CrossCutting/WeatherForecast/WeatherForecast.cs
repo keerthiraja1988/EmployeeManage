@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
 
-namespace CrossCutting.WeatherForcast
+namespace CrossCutting.WeatherForecast
 {
     public class WeatherForecast : IWeatherForecast
     {

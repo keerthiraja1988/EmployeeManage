@@ -9,7 +9,7 @@ namespace ServiceInterface
 {
     public interface IEmployeeManageService
     {
-        Task<List<EmployeeModel>> LoadEmployeeData();
+        List<EmployeeModel> LoadEmployeeData();
 
         Task<List<EmployeeModel>> GetEmployeesDetails();
 

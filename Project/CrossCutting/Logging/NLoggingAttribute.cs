@@ -30,21 +30,21 @@ namespace CrossCutting.Logging
         //Logger used to log the messages. The NLog logger is not serializable, so this won't be serialized. (this does not impact functionality!) 
         [NonSerialized]
         public Logger Logger;
-        public List<ParameterInfo> parameterInfos;
+        public List<ParameterInfo> ParameterInfos;
         //Name of the method, initialized at compile time to improve performance!  
         private String _methodName;
         //Name of the class, initialized at compile time to improve performance!  
         private String _className;
 
-        //Intialize some fields at compile time to improve performance. 
+        //Initialize some fields at compile time to improve performance. 
         public override void CompileTimeInitialize(MethodBase method, AspectInfo aspectInfo)
         {
             base.CompileTimeInitialize(method, aspectInfo);
-            //Compile Time initizalization of the class name.  
-            _className = method.ReflectedType.Name;
-            //Compile Time initizalization of the method name.  
+            //Compile Time initialization of the class name.  
+            if (method.ReflectedType != null) _className = method.ReflectedType.Name;
+            //Compile Time initialization of the method name.  
             _methodName = _className + "." + method.Name;
-            parameterInfos = new List<ParameterInfo>(method.GetParameters());
+            ParameterInfos = new List<ParameterInfo>(method.GetParameters());
         }
 
 
@@ -79,7 +79,7 @@ namespace CrossCutting.Logging
             int argumentIndex = 0;
             foreach (var argument in args.Arguments)
             {
-                ParameterInfo argumentInfo = parameterInfos[argumentIndex];
+                ParameterInfo argumentInfo = ParameterInfos[argumentIndex];
                 logMessage += argumentInfo.Name + " = { ";
                 if (argument != null)
                     logMessage += argument.ToString();
@@ -106,7 +106,6 @@ namespace CrossCutting.Logging
         public override void OnException(MethodExecutionArgs args)
         {
             base.OnException(args);
-            // Logger.Error("asdcsdsdvsdfvs");
             string logMessage = "Exception occurred in " + _methodName + " with arguments: ";
             logMessage = AddArgumentsToLogMessage(args, logMessage);
             logMessage += "With exception: " + args.Exception.Message;

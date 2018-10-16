@@ -30,72 +30,39 @@ namespace CrossCutting.Logging
         //Logger used to log the messages. The NLog logger is not serializable, so this won't be serialized. (this does not impact functionality!) 
         [NonSerialized]
         public Logger Logger;
-        public List<ParameterInfo> parameterInfos;
+        public List<ParameterInfo> ParameterInfos;
         //Name of the method, initialized at compile time to improve performance!  
         private String _methodName;
         //Name of the class, initialized at compile time to improve performance!  
         private String _className;
 
-        //Intialize some fields at compile time to improve performance. 
+        //Initialize some fields at compile time to improve performance. 
         public override void CompileTimeInitialize(MethodBase method, AspectInfo aspectInfo)
         {
             base.CompileTimeInitialize(method, aspectInfo);
-            //Compile Time initizalization of the class name.  
-            _className = method.ReflectedType.Name;
-            //Compile Time initizalization of the method name.  
+            //Compile Time initialization of the class name.  
+            if (method.ReflectedType != null) _className = method.ReflectedType.Name;
+            //Compile Time initialization of the method name.  
             _methodName = _className + "." + method.Name;
-            parameterInfos = new List<ParameterInfo>(method.GetParameters());
+            ParameterInfos = new List<ParameterInfo>(method.GetParameters());
         }
 
 
         public override void RuntimeInitialize(MethodBase method)
         {
-            //            var config = new LoggingConfiguration();
-
-            //            var dbTarget = new DatabaseTarget();
-
-            //            dbTarget.ConnectionString = @"Data Source=.;Initial Catalog=EmployeeManage;Integrated Security=True";
-
-            //            dbTarget.CommandText =
-            //@"INSERT INTO [AspNetCoreLog] (Logged,  Level, Logger, Message, Exception) 
-            //    VALUES(GETDATE(), @level, @logger, @message, @exception)";
-
-            //            dbTarget.Parameters.Add(new DatabaseParameterInfo("@thread", new NLog.Layouts.SimpleLayout("${threadid}")));
-
-            //            dbTarget.Parameters.Add(new DatabaseParameterInfo("@level", new NLog.Layouts.SimpleLayout("${level}")));
-
-            //            dbTarget.Parameters.Add(new DatabaseParameterInfo("@logger", new NLog.Layouts.SimpleLayout("${logger}")));
-
-            //            dbTarget.Parameters.Add(new DatabaseParameterInfo("@message", new NLog.Layouts.SimpleLayout("${message}")));
-
-            //            dbTarget.Parameters.Add(new DatabaseParameterInfo("@exception", new NLog.Layouts.SimpleLayout("${exception}")));
-
-            //            config.AddTarget("database", dbTarget);
-
-            //            var dbRule = new LoggingRule("*", LogLevel.Trace, dbTarget);
-
-
-            //            config.LoggingRules.Add(dbRule);
-
-            //            LogManager.Configuration = config;
-
-            //            Logger = LogManager.GetCurrentClassLogger();
-            //            Logger.Info("WebCoreLogging Started");
-
             var config = new LoggingConfiguration();
 
-            var dbTarget = new DatabaseTarget();
-            dbTarget.ConnectionString = CrossCutting.Caching.Caching.Instance.GetApplicationConfigs("DBConnection");
+            var dbTarget = new DatabaseTarget
+            {
+                ConnectionString = CrossCutting.Caching.Caching.Instance.GetApplicationConfigs("DBConnection"),
+                CommandText = @"INSERT INTO [dbo].[LogsServiceConcrete]
+           ([Application]   ,[Logged]     ,[Level]     ,[UserName]
+           ,[Message]      ,[MachineName]      ,[Logger]     ,[Callsite]           ,[Exception])
+    VALUES(@application, GetDate(), @level,@username,
+@message, @machinename,   @logger, @callSite, @exception)"
+            };
 
             // dbTarget.ConnectionString = @"Data Source=.;Initial Catalog=EmployeeManage;Integrated Security=True";
-
-            dbTarget.CommandText =
-@"INSERT INTO [dbo].[LogsServiceConcrete]
-           ([Application]   ,[Logged]     ,[Level]     ,[UserName]
-           ,[Message]      ,[Machinename]      ,[Logger]     ,[Callsite]           ,[Exception])
-    VALUES(@application, GETDATE(), @level,@username,
-@message, @machinename,   @logger, @callSite, @exception)";
-
             dbTarget.Parameters.Add(new DatabaseParameterInfo("@application", new NLog.Layouts.SimpleLayout(@"${appsetting:name=AppName:default=Unknown\: set AppName in appSettings}")));
             dbTarget.Parameters.Add(new DatabaseParameterInfo("@username", new NLog.Layouts.SimpleLayout("${identity}")));
             dbTarget.Parameters.Add(new DatabaseParameterInfo("@machinename", new NLog.Layouts.SimpleLayout("${machinename}")));
@@ -107,14 +74,15 @@ namespace CrossCutting.Logging
             dbTarget.Parameters.Add(new DatabaseParameterInfo("@exception", new NLog.Layouts.SimpleLayout("${exception}")));
 
             var asyncWrapper = new AsyncTargetWrapper(dbTarget, queueLimit: 10000,
-                  overflowAction: AsyncTargetWrapperOverflowAction.Grow);
-            asyncWrapper.OptimizeBufferReuse = true;
-            asyncWrapper.TimeToSleepBetweenBatches = 50;
+                overflowAction: AsyncTargetWrapperOverflowAction.Grow)
+            {
+                OptimizeBufferReuse = true, TimeToSleepBetweenBatches = 50
+            };
 
-            var autoFlushWrapper = new AutoFlushTargetWrapper(wrappedTarget: asyncWrapper);
-            autoFlushWrapper.OptimizeBufferReuse = true;
-            autoFlushWrapper.Condition = "level >= LogLevel.Warn";
-            autoFlushWrapper.AsyncFlush = false;
+            var autoFlushWrapper = new AutoFlushTargetWrapper(wrappedTarget: asyncWrapper)
+            {
+                OptimizeBufferReuse = true, Condition = "level >= LogLevel.Warn", AsyncFlush = false
+            };
 
 
             var rule = new LoggingRule(loggerNamePattern: "*", minLevel: LogLevel.Trace, target: autoFlushWrapper);
@@ -144,7 +112,7 @@ namespace CrossCutting.Logging
             int argumentIndex = 0;
             foreach (var argument in args.Arguments)
             {
-                ParameterInfo argumentInfo = parameterInfos[argumentIndex];
+                ParameterInfo argumentInfo = ParameterInfos[argumentIndex];
                 logMessage += argumentInfo.Name + " = { ";
                 if (argument != null)
                     logMessage += argument.ToString();

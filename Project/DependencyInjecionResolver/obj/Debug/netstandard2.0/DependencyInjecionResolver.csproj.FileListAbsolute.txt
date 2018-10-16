@@ -19,3 +19,24 @@ C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\DependencyInjecionRe
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\DependencyInjecionResolver\obj\Debug\netstandard2.0\DependencyInjecionResolver.csproj.CopyComplete
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\DependencyInjecionResolver\obj\Debug\netstandard2.0\DependencyInjecionResolver.dll
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\DependencyInjecionResolver\obj\Debug\netstandard2.0\DependencyInjecionResolver.pdb
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\DependencyInjecionResolver\bin\Debug\netstandard2.0\NLog.config
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\DependencyInjecionResolver\bin\Debug\netstandard2.0\DependencyInjecionResolver.deps.json
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\DependencyInjecionResolver\bin\Debug\netstandard2.0\DependencyInjecionResolver.dll
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\DependencyInjecionResolver\bin\Debug\netstandard2.0\DependencyInjecionResolver.pdb
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\DependencyInjecionResolver\bin\Debug\netstandard2.0\CrossCutting.dll
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\DependencyInjecionResolver\bin\Debug\netstandard2.0\DomainModel.dll
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\DependencyInjecionResolver\bin\Debug\netstandard2.0\Repository.dll
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\DependencyInjecionResolver\bin\Debug\netstandard2.0\ServiceConcrete.dll
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\DependencyInjecionResolver\bin\Debug\netstandard2.0\ServiceInterface.dll
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\DependencyInjecionResolver\bin\Debug\netstandard2.0\CrossCutting.pdb
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\DependencyInjecionResolver\bin\Debug\netstandard2.0\ServiceConcrete.pdb
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\DependencyInjecionResolver\bin\Debug\netstandard2.0\ServiceInterface.pdb
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\DependencyInjecionResolver\bin\Debug\netstandard2.0\DomainModel.pdb
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\DependencyInjecionResolver\bin\Debug\netstandard2.0\Repository.pdb
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\DependencyInjecionResolver\obj\Debug\netstandard2.0\DependencyInjecionResolver.csprojAssemblyReference.cache
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\DependencyInjecionResolver\obj\Debug\netstandard2.0\DependencyInjecionResolver.csproj.CoreCompileInputs.cache
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\DependencyInjecionResolver\obj\Debug\netstandard2.0\DependencyInjecionResolver.AssemblyInfoInputs.cache
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\DependencyInjecionResolver\obj\Debug\netstandard2.0\DependencyInjecionResolver.AssemblyInfo.cs
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\DependencyInjecionResolver\obj\Debug\netstandard2.0\DependencyInjecionResolver.csproj.CopyComplete
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\DependencyInjecionResolver\obj\Debug\netstandard2.0\DependencyInjecionResolver.dll
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\DependencyInjecionResolver\obj\Debug\netstandard2.0\DependencyInjecionResolver.pdb

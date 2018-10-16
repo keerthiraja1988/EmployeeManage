@@ -7,15 +7,15 @@ using System.Text;
 
 namespace CrossCutting.IPRequest
 {
-    public class IPRequestDetails : IIPRequestDetails
+    public class IpRequestDetails : IIpRequestDetails
     {
 
-        public string IPRequestHelper(string url)
+        public string IpRequestHelper(string url)
         {
             HttpWebRequest objRequest = (HttpWebRequest)WebRequest.Create(url);
             HttpWebResponse objResponse = (HttpWebResponse)objRequest.GetResponse();
 
-            StreamReader responseStream = new StreamReader(objResponse.GetResponseStream());
+            StreamReader responseStream = new StreamReader(objResponse.GetResponseStream() ?? throw new InvalidOperationException());
             string responseRead = responseStream.ReadToEnd();
 
             responseStream.Close();
@@ -24,13 +24,13 @@ namespace CrossCutting.IPRequest
             return responseRead;
         }
 
-        public IpPropertiesModal GetCountryDetailsByIP(string ipAddress)
+        public IpPropertiesModal GetCountryDetailsByIp(string ipAddress)
         {
             IpPropertiesModal ipProperties = new IpPropertiesModal();
 
             try
             {
-                string ipResponse = IPRequestHelper("http://ip-api.com/xml/" + ipAddress);
+                string ipResponse = IpRequestHelper("http://ip-api.com/xml/" + ipAddress);
                 using (TextReader sr = new StringReader(ipResponse))
                 {
                     using (System.Data.DataSet dataBase = new System.Data.DataSet())
@@ -54,16 +54,16 @@ namespace CrossCutting.IPRequest
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception Ex)
             {
-
+                throw;
             }
             return ipProperties;
         }
     }
 
-    public interface IIPRequestDetails
+    public interface IIpRequestDetails
     {
-        IpPropertiesModal GetCountryDetailsByIP(string ipAddress);
+        IpPropertiesModal GetCountryDetailsByIp(string ipAddress);
     }
 }

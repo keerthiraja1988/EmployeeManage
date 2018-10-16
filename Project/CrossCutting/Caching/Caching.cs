@@ -12,39 +12,26 @@ namespace CrossCutting.Caching
         private Caching()
         {
         }
-        private static Caching instance = null;
-        public static Caching Instance
-        {
-            get
-            {
-                if (instance == null)
-                {
-                    instance = new Caching();
-                }
-                return instance;
-            }
-        }
+        private static Caching _instance = null;
+        public static Caching Instance => _instance ?? (_instance = new Caching());
 
-        public double ValueOne { get; set; }
-
-        List<ApplicationConfigModel> ApplicationConfigs = new List<ApplicationConfigModel>();
+        List<ApplicationConfigModel> _applicationConfigs = new List<ApplicationConfigModel>();
 
         public void AddApplicationConfigs(List<ApplicationConfigModel> applicationConfigs)
         {
-            ApplicationConfigs = applicationConfigs;
+            _applicationConfigs = applicationConfigs;
         }
 
         public List<ApplicationConfigModel> GetAllApplicationConfigs()
         {
-            return ApplicationConfigs;
+            return _applicationConfigs;
         }
 
-        public string GetApplicationConfigs(string Key)
+        public string GetApplicationConfigs(string key)
         {
-            return ApplicationConfigs
-                   .Where(w => w.Key == Key)
-                   .FirstOrDefault()
-                   .Value
+            return _applicationConfigs
+                   .FirstOrDefault(w => w.Key == key)
+                    ?.Value
                    ;
         }
     }

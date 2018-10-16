@@ -1,7 +1,7 @@
 ﻿using CrossCutting.Caching;
 using CrossCutting.IPRequest;
 using CrossCutting.Logging;
-using CrossCutting.WeatherForcast;
+using CrossCutting.WeatherForecast;
 using DomainModel;
 using DomainModel.Shared;
 using Effortless.Net.Encryption;
@@ -21,13 +21,14 @@ using System.Text;
 namespace ServiceConcrete
 {
     [NLogging]
-    public class SercurityService : ISercurityService
+    public class SecurityService : ISecurityService
     {
-        private IUserAccountRepository _IUserAccountRepository;
-        IAppAnalyticsRepository _IAppAnalyticsRepository;
-        IIPRequestDetails _IIPRequestDetails;
+        private readonly IUserAccountRepository _iUserAccountRepository;
+        // ReSharper disable once IdentifierTypo
+        private readonly IAppAnalyticsRepository _iAppAnalyticsRepository;
+        private readonly IIpRequestDetails _iipRequestDetails;
 
-        public SercurityService(IIPRequestDetails iIPRequestDetails
+        public SecurityService(IIpRequestDetails iIpRequestDetails
            )
         {
             SqlInsightDbProvider.RegisterProvider();
@@ -36,15 +37,15 @@ namespace ServiceConcrete
                                            ;
             DbConnection c = new SqlConnection(sqlConnection);
 
-            _IUserAccountRepository = c.As<IUserAccountRepository>();
-            _IAppAnalyticsRepository = c.As<IAppAnalyticsRepository>();
-            _IIPRequestDetails = iIPRequestDetails;
+            _iUserAccountRepository = c.As<IUserAccountRepository>();
+            _iAppAnalyticsRepository = c.As<IAppAnalyticsRepository>();
+            _iipRequestDetails = iIpRequestDetails;
         }
 
         public UserAccountModel GenerateHashAndSaltForPassword(UserAccountModel userAccountModel)
         {
             userAccountModel.PasswordSalt = Strings.CreateSalt(20);
-            userAccountModel.Password = DecryptStringAES(userAccountModel.CryptLoginPassword);
+            userAccountModel.Password = DecryptStringAes(userAccountModel.CryptLoginPassword);
             string passwordConcated = userAccountModel.Password + userAccountModel.PasswordSalt;
 
             string generatedHashFromPassAndSalt = Hash.Create(HashType.SHA512, passwordConcated, string.Empty, false);
@@ -70,9 +71,9 @@ namespace ServiceConcrete
 
             try
             {
-                var resultSet = this._IUserAccountRepository.GetUserDetailsForLogin(userAccountModel);
+                var resultSet = this._iUserAccountRepository.GetUserDetailsForLogin(userAccountModel);
 
-                ipPropertiesModal = _IIPRequestDetails.GetCountryDetailsByIP(userAccountModel.UserIpAddress);
+                ipPropertiesModal = _iipRequestDetails.GetCountryDetailsByIp(userAccountModel.UserIpAddress);
                 ipPropertiesModal.IpAddress = userAccountModel.UserIpAddress;
                 ipPropertiesModal.CreatedByUserName = userAccountModel.UserName;
                 ipPropertiesModal.ModifiedByUserName = userAccountModel.UserName;
@@ -83,47 +84,58 @@ namespace ServiceConcrete
 
                 if (resultSet.Set1 == null)
                 {
+                    // ReSharper disable once RedundantAssignment
                     isValidUser = false;
                 }
                 else
                 {
-                    getUserAccount = (UserAccountModel)resultSet.Set1.FirstOrDefault();
+                    getUserAccount = resultSet.Set1.FirstOrDefault();
                     userRoles = resultSet.Set2.ToList();
 
-                    userAccountModel.Password = DecryptStringAES(userAccountModel.CryptLoginPassword);
-                    string passwordConcated = userAccountModel.Password + getUserAccount.PasswordSalt;
-                    string generatedHashFromPassAndSalt = Hash.Create(HashType.SHA512, passwordConcated, string.Empty, false);
-                    if (String.Compare(generatedHashFromPassAndSalt, getUserAccount.PasswordHash) == 0)
+                    userAccountModel.Password = DecryptStringAes(userAccountModel.CryptLoginPassword);
+                    if (getUserAccount != null)
                     {
-                        isValidUser = true;
+                        string passwordConcated = userAccountModel.Password + getUserAccount.PasswordSalt;
+                        string generatedHashFromPassAndSalt = Hash.Create(HashType.SHA512, passwordConcated, string.Empty, false);
+                        if (string.CompareOrdinal(generatedHashFromPassAndSalt, getUserAccount.PasswordHash) == 0)
+                        {
+                            isValidUser = true;
+                        }
                     }
+
                     userAccountModel = getUserAccount;
-                    ipPropertiesModal.UserId = userAccountModel.UserId;
-                    ipPropertiesModal.CreatedBy = userAccountModel.UserId;
+                    if (userAccountModel != null)
+                    {
+                        ipPropertiesModal.UserId = userAccountModel.UserId;
+                        ipPropertiesModal.CreatedBy = userAccountModel.UserId;
+                    }
                 }
-                getUserAccount.IsLoginSuccess = isValidUser;
+
+                if (getUserAccount != null) getUserAccount.IsLoginSuccess = isValidUser;
 
                 ipPropertiesModal.IsLoginSuccess = isValidUser;
-                var dbUpdateResult = _IAppAnalyticsRepository.SaveIpAddressDetailsOnLogin(ipPropertiesModal);
+                var dbUpdateResult = _iAppAnalyticsRepository.SaveIpAddressDetailsOnLogin(ipPropertiesModal);
             }
 
-            catch (Exception Ex)
+            catch (Exception)
             {
-                var dbUpdateResult = _IAppAnalyticsRepository.SaveIpAddressDetailsOnLogin(ipPropertiesModal);
+                var dbUpdateResult = _iAppAnalyticsRepository.SaveIpAddressDetailsOnLogin(ipPropertiesModal);
 
             }
+
+            // ReSharper disable once PossibleNullReferenceException
             userAccountModel.CookieUniqueId = cookieUniqueId;
             return (userAccountModel, userRoles);
         }
 
-        private static string DecryptStringAES(string cipherText)
+        private static string DecryptStringAes(string cipherText)
         {
-            var keybytes = Encoding.UTF8.GetBytes("8080808080808080");
+            var keyBytes = Encoding.UTF8.GetBytes("8080808080808080");
             var iv = Encoding.UTF8.GetBytes("8080808080808080");
 
             var encrypted = Convert.FromBase64String(cipherText);
-            var decriptedFromJavascript = DecryptStringFromBytes(encrypted, keybytes, iv);
-            return string.Format(decriptedFromJavascript);
+            var decryptedFromJavascript = DecryptStringFromBytes(encrypted, keyBytes, iv);
+            return string.Format(decryptedFromJavascript);
         }
 
         private static string DecryptStringFromBytes(byte[] cipherText, byte[] key, byte[] iv)
@@ -144,7 +156,7 @@ namespace ServiceConcrete
 
             // Declare the string used to hold  
             // the decrypted text.  
-            string plaintext = null;
+            string plaintext = string.Empty;
 
             // Create an RijndaelManaged object  
             // with the specified key and IV.  

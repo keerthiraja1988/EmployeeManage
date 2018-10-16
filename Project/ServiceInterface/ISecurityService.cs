@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ServiceInterface
 {
-    public interface ISercurityService
+    public interface ISecurityService
     {
         UserAccountModel GenerateHashAndSaltForPassword(UserAccountModel userAccountModel);
 

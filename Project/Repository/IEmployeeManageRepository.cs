@@ -11,7 +11,7 @@ namespace Repository
    public interface IEmployeeManageRepository
     {
         [Sql("P_CreateEmployee")]
-        bool LoadEmployeeData(EmployeeModel EmployeeDetail, List<EmployeeAddressModel> EmployeeAddress);
+        bool LoadEmployeeData(EmployeeModel employeeDetail, List<EmployeeAddressModel> employeeAddress);
 
         [Sql("P_GetEmployeesDetails")]
         Task<List<EmployeeModel>> GetEmployeesDetails();
@@ -35,7 +35,7 @@ namespace Repository
         Task<List<CountryModel>> GetCountries();
 
         [Sql("P_CreateEmployee")]
-        Task<int> AddEmployee(EmployeeModel employeeModel, List<EmployeeAddressModel> EmployeeAddress);
+        Task<int> AddEmployee(EmployeeModel employeeModel, List<EmployeeAddressModel> employeeAddress);
 
     }
 }

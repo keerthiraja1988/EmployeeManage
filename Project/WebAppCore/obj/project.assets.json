@@ -5556,12 +5556,13 @@
       ]
     },
     "AutoMapper/7.0.1": {
-      "sha512": "6xHbhsW09sWjjYuE1sqhYn25PQzB6UEUVPME5uhlaIz2NR2+L3+FGbVxvknJKug1BLp6VTLxDb5RcGXKMm0ieQ==",
+      "sha512": "1qKMJ1WPs42VkgeQ5iXRDWf46+iUqYM/yColAvAeDQhUgQNsgzSxjMDHQc7dL2x/o0JY8TwG+obR7vbvgh+Y3g==",
       "type": "package",
       "path": "automapper/7.0.1",
       "files": [
-        "AutoMapper.7.0.1.nupkg.sha512",
-        "AutoMapper.nuspec",
+        ".signature.p7s",
+        "automapper.7.0.1.nupkg.sha512",
+        "automapper.nuspec",
         "lib/net45/AutoMapper.dll",
         "lib/net45/AutoMapper.pdb",
         "lib/net45/AutoMapper.xml",
@@ -5606,10 +5607,11 @@
       ]
     },
     "Castle.Core/4.3.1": {
-      "sha512": "8Y/eTr6GTElAGV7eAmJuhfLhGdFpNvaNrQ9UQYDScziLmX+/BLGM+9eQr0IcdNDcPN0ADmbtwT6MgecGKy4obw==",
+      "sha512": "Dx90A7xzdyYiaq1aMn3QmblpFAaVhDCiZkSblt96pf8QopOjLxCcs5ufKJA1zyg2L+Hxjnzx3JNrmfK8ZMRHvA==",
       "type": "package",
       "path": "castle.core/4.3.1",
       "files": [
+        ".signature.p7s",
         "ASL - Apache Software Foundation License.txt",
         "CHANGELOG.md",
         "LICENSE",
@@ -6649,7 +6651,7 @@
       ]
     },
     "Microsoft.AspNetCore.Razor.Design/2.1.1": {
-      "sha512": "f8PKGcxiezL1RVqmnmrazj24Mj4KCTSXqwdotl7Lc+82h8iLV7ItxEIShTJakG7M9iw0ZuCocM0J/IhYesdQrg==",
+      "sha512": "BOK5fckW9v7xWjpEI6bPGwkjw10OPVASZcAa8HoWJo/0Mmg4Azddj92v8noU+YgvD/6zNZ9o/RiRXXKxk5rYwQ==",
       "type": "package",
       "path": "microsoft.aspnetcore.razor.design/2.1.1",
       "files": [
@@ -6952,7 +6954,7 @@
       ]
     },
     "Microsoft.AspNetCore.StaticFiles/2.1.1": {
-      "sha512": "P85InsH6rD8OAeC9sR3BL1w7WUDAR2oHasHuNFvEHQauy3Zr9Z8ecMSyNYm8q2Z1i+Io2cwHkgjewEqJfW9t0g==",
+      "sha512": "3xumS58evfsC4cd8OXtYRafbwuVk5c37dsGQ1E1m0wZvRVUXScRWkTGdcPJcijoImlhoQK2pj6sY7NFMc5PfbQ==",
       "type": "package",
       "path": "microsoft.aspnetcore.staticfiles/2.1.1",
       "files": [
@@ -7157,7 +7159,7 @@
       ]
     },
     "Microsoft.DotNet.Watcher.Tools/2.0.2": {
-      "sha512": "05Nq4UV1zp3FIXYbWEMtavoFye8RLp3XLk9nXPqcD5maHutae1Nwcvx1+CRbfMOkZJqxYKcGFmRG2mu+2W8lYA==",
+      "sha512": "JwKNfl9gl99sXBmA9RENLXYBPUO2+Nv8f8KfY5+vmdJTfPCmKIHMAj7QzmrjssA0H434+2978wmfaZdNrTHljQ==",
       "type": "package",
       "path": "microsoft.dotnet.watcher.tools/2.0.2",
       "files": [
@@ -8271,10 +8273,11 @@
       ]
     },
     "Microsoft.Rest.ClientRuntime/2.3.10": {
-      "sha512": "JO9CzV1hvjtrIzq06gJ5nNv7GV24Xz3Y3O9vx7fCe7ndNA0NmD3fZ9JUgFir2UvJ2/+9vvCo/6RXjyfywvQQIw==",
+      "sha512": "a30J6t7LRkYx974tLaRnJc/dYZ1M7uhc5vdgULxdhL7HJNJydG7e+jyAVD15gK+vFR1i9MH+5Ch9t1zhb/Lp1g==",
       "type": "package",
       "path": "microsoft.rest.clientruntime/2.3.10",
       "files": [
+        ".signature.p7s",
         "lib/net452/Microsoft.Rest.ClientRuntime.dll",
         "lib/net452/Microsoft.Rest.ClientRuntime.runtimeconfig.json",
         "lib/net452/Microsoft.Rest.ClientRuntime.xml",
@@ -8931,10 +8934,11 @@
       ]
     },
     "NUglify/1.5.10": {
-      "sha512": "do9KYDUEbCVMkSFF3P3lJtcCuLLpRAxchFaIY7vidfB4hgdik97f8iqj0dVmJK1X3eZO8jTuGD0CUUYbaFTR8Q==",
+      "sha512": "3zk0u8S1U1jYcj89xQI1tv1ZfTyy1b+anEVvavxHRLxFhB3WUftzKEIHn1DlNJF0Fhro+H0OcnfGFcuk3VC2gA==",
       "type": "package",
       "path": "nuglify/1.5.10",
       "files": [
+        ".signature.p7s",
         "lib/net35/NUglify.dll",
         "lib/net35/NUglify.xml",
         "lib/net40/NUglify.dll",
@@ -9063,7 +9067,7 @@
       ]
     },
     "runtime.native.System.Data.SqlClient.sni/4.5.0": {
-      "sha512": "zmr7mxqvG7M7qWzPTHQEF0jIOo65vqsnaJ2s7AyZ9JQaSJ3rfXZ7vPGszw1EbvRATu6zsFMdpQeq1g7oaNocOg==",
+      "sha512": "X4hp5h5M2plTWZnUd79d0x4actSMj9L3Hv6e1Lu+oGi35XSaXg21ha4Rqmt2KrIesfUwMfpET8QhMkS1eiWqRQ==",
       "type": "package",
       "path": "runtime.native.system.data.sqlclient.sni/4.5.0",
       "files": [
@@ -9263,10 +9267,11 @@
       ]
     },
     "Serilog/2.5.0": {
-      "sha512": "JwwkgNYNFKT4kQZ3qBV3VqPgchUg1A6FnlFa9hgyanylwBhJ7eTFl3pgLVxijFEb+oHLImRcMaTsMzBt2AG0aQ==",
+      "sha512": "1uxuc49NByFrDrLszFOWqpUCL7pA9nc1SAgKPB3J7aNq6ChIvQmb64JIuY2hvK/K7YlWK/FGb3FYdxsFGWA+Mw==",
       "type": "package",
       "path": "serilog/2.5.0",
       "files": [
+        ".signature.p7s",
         "lib/net45/Serilog.dll",
         "lib/net45/Serilog.xml",
         "lib/net46/Serilog.dll",
@@ -9295,10 +9300,11 @@
       ]
     },
     "Serilog.Sinks.PeriodicBatching/2.1.1": {
-      "sha512": "L1iZtcEzQdEIYCPvhYJYB2RofPg+i1NhHJfS+DpXLyLSMS6OXebqaI1fxWhmJRIjD9D9BuXi23FkZTQDiP7cHw==",
+      "sha512": "b5MblvWJrT9qxRwLs0GiEHCc8iqbOKY0kWQP46RJE6slTZT7k40RbiRR2QLAQjCNRAJl/UJxr5GZ+8jsEmHRBA==",
       "type": "package",
       "path": "serilog.sinks.periodicbatching/2.1.1",
       "files": [
+        ".signature.p7s",
         "lib/net45/Serilog.Sinks.PeriodicBatching.dll",
         "lib/net45/Serilog.Sinks.PeriodicBatching.xml",
         "lib/netstandard1.1/Serilog.Sinks.PeriodicBatching.dll",
@@ -9928,13 +9934,12 @@
       ]
     },
     "System.Configuration.ConfigurationManager/4.4.0": {
-      "sha512": "gWwQv/Ug1qWJmHCmN17nAbxJYmQBM/E94QxKLksvUiiKB1Ld3Sc/eK1lgmbSjDFxkQhVuayI/cGFZhpBSodLrg==",
+      "sha512": "RLYB3YOmdz9dE3zMhBFGv3GF74upGjH0nF0G9lFFRLNLsCEMIpiuQsMGv2qE0qdp1JdheVNO8RIRpUKdokiK+g==",
       "type": "package",
       "path": "system.configuration.configurationmanager/4.4.0",
       "files": [
+        ".signature.p7s",
         "LICENSE.TXT",
-        "System.Configuration.ConfigurationManager.4.4.0.nupkg.sha512",
-        "System.Configuration.ConfigurationManager.nuspec",
         "THIRD-PARTY-NOTICES.TXT",
         "lib/net461/System.Configuration.ConfigurationManager.dll",
         "lib/netstandard2.0/System.Configuration.ConfigurationManager.dll",
@@ -9942,6 +9947,8 @@
         "ref/net461/System.Configuration.ConfigurationManager.xml",
         "ref/netstandard2.0/System.Configuration.ConfigurationManager.dll",
         "ref/netstandard2.0/System.Configuration.ConfigurationManager.xml",
+        "system.configuration.configurationmanager.4.4.0.nupkg.sha512",
+        "system.configuration.configurationmanager.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
@@ -12431,12 +12438,11 @@
       ]
     },
     "System.Runtime.Serialization.Json/4.3.0": {
-      "sha512": "CpVfOH0M/uZ5PH+M9+Gu56K0j9lJw3M+PKRegTkcrY/stOIvRUeonggxNrfBYLA5WOHL2j15KNJuTuld3x4o9w==",
+      "sha512": "Ma/DVHfRcOcgQFHVGafUrT7hT1IitsnmUjpNZG5xJCYrI/8wfaYKGYNZycxQyl9Nk+9IAJiMJE6RFuavRQ2WEg==",
       "type": "package",
       "path": "system.runtime.serialization.json/4.3.0",
       "files": [
-        "System.Runtime.Serialization.Json.4.3.0.nupkg.sha512",
-        "System.Runtime.Serialization.Json.nuspec",
+        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -12484,7 +12490,9 @@
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "ref/xamarintvos10/_._",
-        "ref/xamarinwatchos10/_._"
+        "ref/xamarinwatchos10/_._",
+        "system.runtime.serialization.json.4.3.0.nupkg.sha512",
+        "system.runtime.serialization.json.nuspec"
       ]
     },
     "System.Runtime.Serialization.Primitives/4.3.0": {
@@ -12950,10 +12958,11 @@
       ]
     },
     "System.Security.Cryptography.ProtectedData/4.4.0": {
-      "sha512": "cJV7ScGW7EhatRsjehfvvYVBvtiSMKgN8bOVI0bQhnF5bU7vnHVIsH49Kva7i7GWaWYvmEzkYVk1TC+gZYBEog==",
+      "sha512": "WwEexvBd+17yfY7fcS+fBGl+HADEfCJuKeDJqBT7D6j6vKwYvfLyGuq2y/MmrKORC6mbYwth7kjinO1mPhTL3g==",
       "type": "package",
       "path": "system.security.cryptography.protecteddata/4.4.0",
       "files": [
+        ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
         "lib/MonoAndroid10/_._",
@@ -14295,24 +14304,27 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Keerthi Raja P\\.nuget\\packages\\": {},
+    "C:\\Users\\KEERTHIRAJA\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
+    "restoreSettings": {
+      "hideWarningsAndErrors": true
+    },
     "restore": {
-      "projectUniqueName": "C:\\Users\\Keerthi Raja P\\source\\repos\\EmployeeManage\\Project\\WebAppCore\\WebAppCore.csproj",
+      "projectUniqueName": "C:\\Users\\KEERTHIRAJA\\Documents\\GitHub\\EmployeeManage\\Project\\WebAppCore\\WebAppCore.csproj",
       "projectName": "WebAppCore",
-      "projectPath": "C:\\Users\\Keerthi Raja P\\source\\repos\\EmployeeManage\\Project\\WebAppCore\\WebAppCore.csproj",
-      "packagesPath": "C:\\Users\\Keerthi Raja P\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Keerthi Raja P\\source\\repos\\EmployeeManage\\Project\\WebAppCore\\obj\\",
+      "projectPath": "C:\\Users\\KEERTHIRAJA\\Documents\\GitHub\\EmployeeManage\\Project\\WebAppCore\\WebAppCore.csproj",
+      "packagesPath": "C:\\Users\\KEERTHIRAJA\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\KEERTHIRAJA\\Documents\\GitHub\\EmployeeManage\\Project\\WebAppCore\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Keerthi Raja P\\source\\repos\\EmployeeManage\\Project\\NuGet.Config",
-        "C:\\Users\\Keerthi Raja P\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\KEERTHIRAJA\\Documents\\GitHub\\EmployeeManage\\Project\\NuGet.Config",
+        "C:\\Users\\KEERTHIRAJA\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -14326,17 +14338,17 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Users\\Keerthi Raja P\\source\\repos\\EmployeeManage\\Project\\CrossCutting\\CrossCutting.csproj": {
-              "projectPath": "C:\\Users\\Keerthi Raja P\\source\\repos\\EmployeeManage\\Project\\CrossCutting\\CrossCutting.csproj"
+            "C:\\Users\\KEERTHIRAJA\\Documents\\GitHub\\EmployeeManage\\Project\\DependencyInjecionResolver\\DependencyInjecionResolver.csproj": {
+              "projectPath": "C:\\Users\\KEERTHIRAJA\\Documents\\GitHub\\EmployeeManage\\Project\\DependencyInjecionResolver\\DependencyInjecionResolver.csproj"
             },
-            "C:\\Users\\Keerthi Raja P\\source\\repos\\EmployeeManage\\Project\\DependencyInjecionResolver\\DependencyInjecionResolver.csproj": {
-              "projectPath": "C:\\Users\\Keerthi Raja P\\source\\repos\\EmployeeManage\\Project\\DependencyInjecionResolver\\DependencyInjecionResolver.csproj"
+            "C:\\Users\\KEERTHIRAJA\\Documents\\GitHub\\EmployeeManage\\Project\\ServiceInterface\\ServiceInterface.csproj": {
+              "projectPath": "C:\\Users\\KEERTHIRAJA\\Documents\\GitHub\\EmployeeManage\\Project\\ServiceInterface\\ServiceInterface.csproj"
             },
-            "C:\\Users\\Keerthi Raja P\\source\\repos\\EmployeeManage\\Project\\DomainModel\\DomainModel.csproj": {
-              "projectPath": "C:\\Users\\Keerthi Raja P\\source\\repos\\EmployeeManage\\Project\\DomainModel\\DomainModel.csproj"
+            "C:\\Users\\KEERTHIRAJA\\Documents\\GitHub\\EmployeeManage\\Project\\CrossCutting\\CrossCutting.csproj": {
+              "projectPath": "C:\\Users\\KEERTHIRAJA\\Documents\\GitHub\\EmployeeManage\\Project\\CrossCutting\\CrossCutting.csproj"
             },
-            "C:\\Users\\Keerthi Raja P\\source\\repos\\EmployeeManage\\Project\\ServiceInterface\\ServiceInterface.csproj": {
-              "projectPath": "C:\\Users\\Keerthi Raja P\\source\\repos\\EmployeeManage\\Project\\ServiceInterface\\ServiceInterface.csproj"
+            "C:\\Users\\KEERTHIRAJA\\Documents\\GitHub\\EmployeeManage\\Project\\DomainModel\\DomainModel.csproj": {
+              "projectPath": "C:\\Users\\KEERTHIRAJA\\Documents\\GitHub\\EmployeeManage\\Project\\DomainModel\\DomainModel.csproj"
             }
           }
         }
@@ -14350,120 +14362,120 @@
     "frameworks": {
       "netcoreapp2.1": {
         "dependencies": {
-          "AutoMapper": {
+          "Microsoft.DotNet.Watcher.Tools": {
             "target": "Package",
-            "version": "[7.0.1, )"
-          },
-          "AutoMapper.Extensions.Microsoft.DependencyInjection": {
-            "target": "Package",
-            "version": "[5.0.1, )"
-          },
-          "Autofac": {
-            "target": "Package",
-            "version": "[4.9.0-beta1, )"
-          },
-          "Autofac.Extensions.DependencyInjection": {
-            "target": "Package",
-            "version": "[4.3.0, )"
-          },
-          "Autofac.Extras.DynamicProxy": {
-            "target": "Package",
-            "version": "[4.5.0, )"
-          },
-          "Brotli.NET": {
-            "target": "Package",
-            "version": "[1.0.19, )"
-          },
-          "Elmah.Io.AspNetCore": {
-            "target": "Package",
-            "version": "[3.5.59, )"
-          },
-          "FluentValidation.AspNetCore": {
-            "target": "Package",
-            "version": "[8.0.100, )"
-          },
-          "JSNLog.AspNetCore": {
-            "target": "Package",
-            "version": "[99.0.0, )"
-          },
-          "LigerShark.WebOptimizer.Core": {
-            "target": "Package",
-            "version": "[1.0.215, )"
-          },
-          "Microsoft.AspNetCore.App": {
-            "suppressParent": "All",
-            "target": "Package",
-            "version": "[2.1.1, )",
-            "autoReferenced": true
+            "version": "2.0.2"
           },
           "Microsoft.AspNetCore.Authentication.Cookies": {
             "target": "Package",
-            "version": "[2.1.2, )"
+            "version": "2.1.2"
           },
-          "Microsoft.AspNetCore.CookiePolicy": {
+          "NLog.Web.AspNetCore": {
             "target": "Package",
-            "version": "[2.1.2, )"
+            "version": "4.7.0"
           },
-          "Microsoft.AspNetCore.HttpsPolicy": {
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": {
             "target": "Package",
-            "version": "[2.1.1, )"
+            "version": "5.0.1"
           },
-          "Microsoft.AspNetCore.ResponseCompression": {
+          "PostSharp": {
             "target": "Package",
-            "version": "[2.2.0-preview2-35157, )"
+            "version": "6.0.27"
+          },
+          "FluentValidation.AspNetCore": {
+            "target": "Package",
+            "version": "8.0.100"
+          },
+          "Autofac.Extensions.DependencyInjection": {
+            "target": "Package",
+            "version": "4.3.0"
+          },
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+            "target": "Package",
+            "version": "2.1.4"
+          },
+          "Elmah.Io.AspNetCore": {
+            "target": "Package",
+            "version": "3.5.59"
+          },
+          "LigerShark.WebOptimizer.Core": {
+            "target": "Package",
+            "version": "1.0.215"
+          },
+          "RazorLight": {
+            "target": "Package",
+            "version": "2.0.0-beta1"
+          },
+          "MiniProfiler.AspNetCore.Mvc": {
+            "target": "Package",
+            "version": "4.0.138"
           },
           "Microsoft.AspNetCore.Server.IISIntegration": {
             "target": "Package",
-            "version": "[2.1.1, )"
+            "version": "2.1.1"
           },
-          "Microsoft.AspNetCore.StaticFiles": {
+          "NBuilder": {
             "target": "Package",
-            "version": "[2.1.1, )"
+            "version": "6.0.0"
           },
-          "Microsoft.DotNet.Watcher.Tools": {
+          "Telerik.UI.for.AspNet.Core": {
             "target": "Package",
-            "version": "[2.0.2, )"
+            "version": "2018.3.911"
           },
           "Microsoft.NETCore.App": {
             "target": "Package",
-            "version": "[2.1.0, )",
+            "version": "2.1",
             "autoReferenced": true
           },
           "Microsoft.VisualStudio.Web.BrowserLink": {
             "target": "Package",
-            "version": "[2.1.1, )"
-          },
-          "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
-            "target": "Package",
-            "version": "[2.1.4, )"
-          },
-          "MiniProfiler.AspNetCore.Mvc": {
-            "target": "Package",
-            "version": "[4.0.138, )"
-          },
-          "NBuilder": {
-            "target": "Package",
-            "version": "[6.0.0, )"
-          },
-          "NLog.Web.AspNetCore": {
-            "target": "Package",
-            "version": "[4.7.0, )"
-          },
-          "PostSharp": {
-            "target": "Package",
-            "version": "[6.0.27, )"
-          },
-          "RazorLight": {
-            "target": "Package",
-            "version": "[2.0.0-beta1, )"
+            "version": "2.1.1"
           },
           "System.Data.SqlClient": {
             "target": "Package",
-            "version": "[4.6.0-preview2-26905-02, )"
+            "version": "4.6.0-preview2-26905-02"
           },
-          "Telerik.UI.for.AspNet.Core": {
+          "Autofac.Extras.DynamicProxy": {
             "target": "Package",
-            "version": "[2018.3.911, )"
+            "version": "4.5.0"
+          },
+          "AutoMapper": {
+            "target": "Package",
+            "version": "7.0.1"
+          },
+          "Microsoft.AspNetCore.ResponseCompression": {
+            "target": "Package",
+            "version": "2.2.0-preview2-35157"
+          },
+          "Microsoft.AspNetCore.App": {
+            "suppressParent": "All",
+            "target": "Package",
+            "version": "2.1.1",
+            "autoReferenced": true
+          },
+          "Brotli.NET": {
+            "target": "Package",
+            "version": "1.0.19"
+          },
+          "JSNLog.AspNetCore": {
+            "target": "Package",
+            "version": "99.0.0"
+          },
+          "Microsoft.AspNetCore.StaticFiles": {
+            "target": "Package",
+            "version": "2.1.1"
+          },
+          "Microsoft.AspNetCore.HttpsPolicy": {
+            "target": "Package",
+            "version": "2.1.1"
+          },
+          "Microsoft.AspNetCore.CookiePolicy": {
+            "target": "Package",
+            "version": "2.1.2"
+          },
+          "Autofac": {
+            "target": "Package",
+            "version": "4.9.0-beta1"
           }
         },
         "imports": [

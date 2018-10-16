@@ -8,22 +8,24 @@ namespace CrossCutting.EmailService
 {
     public class EmailService : IEmailService
     {
-       public bool SendEmailThroughGmail(string Sender, string Receivers, string Subject, string Body)
+       public bool SendEmailThroughGMail(string sender, string receivers,
+                string subject, string body)
         {
-            SmtpClient client = new SmtpClient();
-            client.Host = "smtp.gmail.com";
-            client.Port = 587;
-            client.UseDefaultCredentials = false;
-            client.Credentials = new NetworkCredential("keerthiraja1988@gmail.com", "");
-            client.EnableSsl = true;
+            SmtpClient client = new SmtpClient
+            {
+                Host = "smtp.gmail.com",
+                Port = 587,
+                UseDefaultCredentials = false,
+                Credentials = new NetworkCredential("keerthiraja1988@gmail.com", ""),
+                EnableSsl = true,
+                DeliveryMethod = SmtpDeliveryMethod.Network
+            };
 
-            client.DeliveryMethod = SmtpDeliveryMethod.Network;
 
-            MailMessage mail = new MailMessage();
-            mail.From = new MailAddress("keerthiraja1988@gmail.com", "Sender");
+            MailMessage mail = new MailMessage {From = new MailAddress("keerthiraja1988@gmail.com", "Sender")};
             mail.To.Add(new MailAddress("keerthiraja1988@gmail.com"));
 
-            string htmlString = @"<html>
+            const string htmlString = @"<html>
                       <body>
                       <p>Dear Ms. Susan,</p>
                       <p>Thank you for your letter of yesterday inviting me to come for an interview on Friday afternoon, 5th July, at 2:30.
@@ -36,7 +38,6 @@ namespace CrossCutting.EmailService
 
             mail.Subject = "TEST";
             mail.IsBodyHtml = true;
-           // mail.Body = "vsdvsdv";
 
             client.Send(mail);
 
@@ -46,6 +47,6 @@ namespace CrossCutting.EmailService
 
     public interface IEmailService
     {
-        bool SendEmailThroughGmail(string Sender, string Receivers, string Subject, string Body);
+        bool SendEmailThroughGMail(string sender, string receivers, string subject, string body);
     }
 }
