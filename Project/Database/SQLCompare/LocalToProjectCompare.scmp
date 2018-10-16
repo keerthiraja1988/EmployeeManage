@@ -6,12 +6,6 @@
       <ConnectionString>Data Source=.;Initial Catalog=EmployeeManage;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Connect Timeout=60;Encrypt=False;TrustServerCertificate=True</ConnectionString>
     </ConnectionBasedModelProvider>
   </SourceModelProvider>
-  <TargetModelProvider>
-    <ProjectBasedModelProvider>
-      <ProjectGuid>{936dbe44-d3ec-45ca-a38b-ad89cbb0c7a3}</ProjectGuid>
-      <Name>EmployeeManage</Name>
-    </ProjectBasedModelProvider>
-  </TargetModelProvider>
   <SchemaCompareSettingsService>
     <SchemaCompareSettingsService>
       <PropertyElementName>
@@ -295,10 +289,6 @@
       <PropertyElementName>
         <Name>ScriptRefreshModule</Name>
         <Value>True</Value>
-      </PropertyElementName>
-      <PropertyElementName>
-        <Name>TargetDatabaseName</Name>
-        <Value>EmployeeManage</Value>
       </PropertyElementName>
       <PropertyElementName>
         <Name>TargetConnectionString</Name>

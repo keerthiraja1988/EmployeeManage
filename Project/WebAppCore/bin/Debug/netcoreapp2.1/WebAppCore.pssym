@@ -24,7 +24,7 @@
   <Evolution Source="#43=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController::ValidateEmployeeDetailsOnDOJ([WebAppCore]WebAppCore.Areas.EmployeeManage.Models.EmployeeSearchViewModel)" Target="#44=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController+&lt;ValidateEmployeeDetailsOnDOJ&gt;d__22::MoveNext()" />
   <Evolution Source="#45=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController::ValidateEmployeeDetailsOnDOB([WebAppCore]WebAppCore.Areas.EmployeeManage.Models.EmployeeSearchViewModel)" Target="#46=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController+&lt;ValidateEmployeeDetailsOnDOB&gt;d__23::MoveNext()" />
   <Class Class="#47=T:[CrossCutting]CrossCutting.Logging.NLoggingAttribute">
-    <Instance Declaration="#48=T:[WebAppCore]WebAppCore.Areas.Security.Controllers.UserAccountController" Id="5878df6811bb1193">
+    <Instance Declaration="#48=T:[WebAppCore]WebAppCore.Areas.Security.Controllers.UserAccountController" Id="5878df686b34426e">
       <Target Target="#49=M:[WebAppCore]WebAppCore.Areas.Security.Controllers.UserAccountController::get__IUserAccountService()" LinesAvoided="6">
         <JoinPoint Advising="#47" Description="#50=Wrapped by advice(s) OnEntry, OnException, OnExit" Ordinal="0" />
       </Target>
@@ -71,7 +71,7 @@
         <JoinPoint Advised="#18" Advising="#47" Description="#50" Ordinal="14" />
       </Target>
     </Instance>
-    <Instance Declaration="#56=T:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController" Id="5878df680da9d871">
+    <Instance Declaration="#56=T:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController" Id="5878df68078e6d41">
       <Target Target="#57=M:[WebAppCore]WebAppCore.Areas.EmployeeManage.Controllers.EmployeeManageController::get__IEmployeeManageService()" LinesAvoided="6">
         <JoinPoint Advising="#47" Description="#50" Ordinal="15" />
       </Target>
@@ -130,7 +130,7 @@
         <JoinPoint Advised="#46" Advising="#47" Description="#50" Ordinal="33" />
       </Target>
     </Instance>
-    <Instance Declaration="#62=T:[WebAppCore]WebAppCore.Areas.DashBoard.Controllers.DashBoardController" Id="5878df6813e3ca73">
+    <Instance Declaration="#62=T:[WebAppCore]WebAppCore.Areas.DashBoard.Controllers.DashBoardController" Id="5878df688a8a2925">
       <Target Target="#63=M:[WebAppCore]WebAppCore.Areas.DashBoard.Controllers.DashBoardController::#ctor(ServiceInterface.IDashBoardService, AutoMapper.IMapper, Microsoft.AspNetCore.Http.IHttpContextAccessor)" LinesAvoided="6">
         <JoinPoint Advising="#47" Description="#50" Ordinal="34" />
       </Target>
