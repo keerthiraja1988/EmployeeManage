@@ -25,7 +25,7 @@ namespace WebAppCore.Areas.DashBoard.Controllers
 
         public DashBoardController(
                  IDashBoardService IDashBoardService
-                   , IMapper mapper,  IHttpContextAccessor httpContextAccessor)
+                   , IMapper mapper, IHttpContextAccessor httpContextAccessor)
         {
             _mapper = mapper;
             _IHttpContextAccessor = httpContextAccessor;
@@ -34,10 +34,8 @@ namespace WebAppCore.Areas.DashBoard.Controllers
         }
 
         [Route("Home")]
-       
         public IActionResult Index()
         {
-
             var userIpAddress = this._IHttpContextAccessor
                                                 .HttpContext.Connection.RemoteIpAddress
                                                 .ToString();
@@ -48,7 +46,6 @@ namespace WebAppCore.Areas.DashBoard.Controllers
             DashBoardRow1WidgetsModel dashBoardRow1WidgetsModel = new DashBoardRow1WidgetsModel();
             WeatherWidgetsViewModel weatherWidgetsViewModel = new WeatherWidgetsViewModel();
             WeatherModel weatherModel = new WeatherModel();
-                     
 
             DashBoardWidgetsDTO dashBoardWidgetsDTO = new DashBoardWidgetsDTO();
             dashBoardWidgetsDTO.DashBoardRow1WidgetsViewModel = new DashBoardRow1WidgetsViewModel();

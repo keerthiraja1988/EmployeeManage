@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DomainModel.DashBoard
 {
-   public class WeatherModel
+    public class WeatherModel
     {
         public string CurrentCityName { get; set; }
         public string CurrentCountryName { get; set; }
@@ -14,6 +14,5 @@ namespace DomainModel.DashBoard
         public string WeatherConditionIcon { get; set; }
         public string Humidity { get; set; }
         public string WindSpeed { get; set; }
-
     }
 }

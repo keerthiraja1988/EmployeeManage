@@ -6,7 +6,6 @@ namespace DomainModel.EmployeeManage
 {
     public class EmployeeAddressModel
     {
-
         public int EmployeeAddressId { get; set; }
 
         public int EmployeeId { get; set; }
@@ -26,8 +25,6 @@ namespace DomainModel.EmployeeManage
         public string CountryName { get; set; }
         public string AddressType { get; set; }
 
-        
-
         public bool IsActive { get; set; }
 
         public DateTime CreatedOn { get; set; }
@@ -37,6 +34,5 @@ namespace DomainModel.EmployeeManage
         public DateTime ModifiedOn { get; set; }
 
         public Int64 ModifiedBy { get; set; }
-
     }
 }

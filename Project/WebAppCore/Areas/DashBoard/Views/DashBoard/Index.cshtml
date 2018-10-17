@@ -1,5 +1,4 @@
 ﻿<script>
-
 </script>
 @model WebAppCore.Areas.DashBoard.Models.DashBoardWidgetsDTO
 
@@ -15,9 +14,8 @@
 
 <div class="row pl-2 pt-0" id="divChartsRow2WidgetsHolderMain">
 
-
     <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 pr-0 pl-0 pt-2
-      order-last      order-sm-last order-md-last order-lg-first order-xl-first" >
+      order-last      order-sm-last order-md-last order-lg-first order-xl-first">
         <div class="demo-section k-content wide mr-2"   style=" box-shadow: 0px 4px 7px 0.7px rgba(119, 119, 119, 0.76);">
             @(Html.Kendo().Chart().Name("chart")
 
@@ -54,12 +52,9 @@
                                      )
             )
         </div>
-
     </div>
 
-
-    <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 pl-0 pr-0 pt-2"
-        >
+    <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 pl-0 pr-0 pt-2">
         <div class="demo-section k-content wide mr-2"   style=" box-shadow: 0px 4px 7px 0.7px rgba(119, 119, 119, 0.76);">
             <div class="demo-section k-content wide">
                 @(Html.Kendo().Chart().Name("chart33")
@@ -91,7 +86,6 @@
                 )
             </div>
         </div>
-
     </div>
 
     <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 pl-0 pr-2 mt-2 pb-2 pt-0
@@ -128,7 +122,6 @@
                                         @Model.DashBoardRow2WidgetsViewModel.WeatherWidgetsViewModel.Temperature
                                     </h1>
                                 </div>
-
                             </div>
                             <div class="row">
                                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12
@@ -142,9 +135,7 @@
                                                 </span>
 </p>
                                 </div>
-
                             </div>
-
                         </div>
                     </div>
                     <div class="row  pl-1 pr-0 mt-1" style="    font-size: 12px;">
@@ -162,7 +153,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
 
@@ -225,7 +215,6 @@
                                  style="font-size: 18px; ">
 
                                 @DateTime.Now.DayOfWeek
-
                             </div>
 
                             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12"
@@ -233,31 +222,14 @@
                                 @DateTime.Now.ToString("MMMM")
                                 @DateTime.Now.Day
                                 @DateTime.Now.Year
-
-
                             </div>
-
-
                         </div>
-
-
                     </div>
-
                 </div>
-
             </div>
-
         </div>
-
-
     </div>
-
-
-
 </div>
-
-
-
 
 <div class="row  pl-2 pt-4" id="divChartsRow2WidgetsHolderMain">
 
@@ -298,14 +270,12 @@
                        )
             )
         </div>
-
     </div>
 </div>
 
 <script>
     var skycons = new Skycons({ "color": "white" }, { "resizeClear": true });
     // on Android, a nasty hack is needed: {"resizeClear": true}
-
 
     if ($('#hdnWeatherConditionIcon').val() == 'CLEAR_DAY') {
         skycons.add(document.getElementById("weatherIcon"), Skycons.CLEAR_DAY);
@@ -352,7 +322,6 @@
 
     // start animation!
     skycons.play();
-
 </script>
 
 <script>
@@ -429,18 +398,18 @@
         $('#divDashBoardRow1WidgetActiveUsers').tilt({
             glare: true,
             maxGlare: .5
-            
+
         });
 
         $('#weatherWidget').tilt({
             glare: true,
             maxGlare: .5
-            
+
         });
         $('#clockWidget').tilt({
             glare: true,
             maxGlare: .5
-            
+
         });
         setTimeout(
             function () {
@@ -457,7 +426,4 @@
             }, 500);
 
     });
-
 </script>
-
-

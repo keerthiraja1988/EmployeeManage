@@ -18,6 +18,5 @@ namespace WebAppCore.Controllers
         {
             return new JsonResult(false);
         }
-
     }
 }

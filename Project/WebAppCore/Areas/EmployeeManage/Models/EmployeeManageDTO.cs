@@ -12,6 +12,5 @@ namespace WebAppCore.Areas.EmployeeManage.Models
         public EmployeeViewModel EmployeeViewModel { get; set; }
 
         public List<EmployeeViewModel> EmployeesViewModel { get; set; }
-
     }
 }

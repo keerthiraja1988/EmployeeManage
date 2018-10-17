@@ -15,11 +15,10 @@ using System.Linq;
 namespace ServiceConcrete
 {
     [NLogging]
-
     public class AppAnalyticsService : IAppAnalyticsService
     {
-        IAppAnalyticsRepository _IAppAnalyticsRepository;
-        IIPRequestDetails _IIPRequestDetails;
+        private IAppAnalyticsRepository _IAppAnalyticsRepository;
+        private IIPRequestDetails _IIPRequestDetails;
 
         public AppAnalyticsService(DbConnection Parameter, IIPRequestDetails iIPRequestDetails)
         {

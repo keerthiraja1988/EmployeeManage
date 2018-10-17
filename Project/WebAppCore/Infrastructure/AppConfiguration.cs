@@ -48,6 +48,5 @@ namespace WebAppCore.Infrastructure
 
             return settings;
         }
-
     }
 }

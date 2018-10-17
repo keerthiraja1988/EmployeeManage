@@ -6,7 +6,6 @@ namespace DomainModel.Shared
 {
     public class CountryModel
     {
-
         public int CountryId { get; set; }
 
         public string CountryCode { get; set; }
@@ -22,7 +21,5 @@ namespace DomainModel.Shared
         public DateTime ModifiedOn { get; set; }
 
         public Int64 ModifiedBy { get; set; }
-
     }
-
 }

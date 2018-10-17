@@ -1,5 +1,4 @@
-﻿
-@(Html.Kendo().Grid<WebAppCore.Areas.EmployeeManage.Models.EmployeeViewModel>().Name("grdEmployeeSearch")
+﻿@(Html.Kendo().Grid<WebAppCore.Areas.EmployeeManage.Models.EmployeeViewModel>().Name("grdEmployeeSearch")
                                                             .Columns(columns =>
                                                             {
 
@@ -75,14 +74,10 @@
                                                               .Destroy(update => update.Action(routeValues: "GetEmployeeDetails",
                                                                     controllerName: "EmployeeManage", actionName: "DeleteEmployee"))
 
-
-
                                                                     )
 )
 
-
 <input type="hidden" id="hdnSeachAllEmployee" name="hdnSeachAllEmployee" value="1">
-
 
 <div class="modal fade" id="modalDeleteEmployeeConfimation" tabindex="-1" role="dialog"
      data-backdrop="static" data-keyboard="false">
@@ -111,7 +106,6 @@
                     Do you want to remove this Employee from application
                 </span>
             </div>
-
 
             <!-- Modal footer -->
             <div class="modal-footer" style="padding-top: 5px; padding-bottom: 5px;">
@@ -222,8 +216,6 @@ function onRequestEnd(e) {
     function GetEmployeeSearchDataForRead() {
 
     };
-
-
 
     function openWindow(e) {
         e.preventDefault();

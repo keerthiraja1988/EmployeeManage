@@ -9,7 +9,6 @@ namespace CrossCutting.IPRequest
 {
     public class IPRequestDetails : IIPRequestDetails
     {
-
         public string IPRequestHelper(string url)
         {
             HttpWebRequest objRequest = (HttpWebRequest)WebRequest.Create(url);
@@ -50,13 +49,11 @@ namespace CrossCutting.IPRequest
                         ipProperties.ORG = dataBase.Tables[0].Rows[0][11].ToString();
                         ipProperties.ISPDetails = dataBase.Tables[0].Rows[0][12].ToString();
                         ipProperties.Query = dataBase.Tables[0].Rows[0][13].ToString();
-
                     }
                 }
             }
             catch (Exception)
             {
-
             }
             return ipProperties;
         }

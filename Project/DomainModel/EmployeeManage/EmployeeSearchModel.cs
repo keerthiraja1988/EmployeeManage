@@ -23,6 +23,5 @@ namespace DomainModel.EmployeeManage
 
         public DateTime? DateOfJoiningStart { get; set; }
         public DateTime? DateOfJoiningEnd { get; set; }
-
     }
 }

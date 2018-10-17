@@ -39,7 +39,7 @@ namespace WebAppCore.Areas.EmployeeManage.Models
         [Display(Name = "State")]
         public string State { get; set; }
 
-        [Required(ErrorMessage = "Please Provide Country")]      
+        [Required(ErrorMessage = "Please Provide Country")]
         [Display(Name = "Country")]
         public int CountryId { get; set; }
 

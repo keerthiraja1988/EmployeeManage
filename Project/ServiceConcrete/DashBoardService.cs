@@ -21,13 +21,13 @@ using System.Threading.Tasks;
 namespace ServiceConcrete
 {
     [NLogging]
-
     public class DashBoardService : IDashBoardService
     {
-        IUserAccountRepository _IUserAccountRepository;
-        IWeatherForecast _IWeatherForecast;
-        IIPRequestDetails _IIPRequestDetails;
-        IEmailService _IEmailService;
+        private IUserAccountRepository _IUserAccountRepository;
+        private IWeatherForecast _IWeatherForecast;
+        private IIPRequestDetails _IIPRequestDetails;
+        private IEmailService _IEmailService;
+
         public DashBoardService(DbConnection Parameter, IWeatherForecast iWeatherForecast,
             IIPRequestDetails iIPRequestDetails, IEmailService iEmailService)
         {
@@ -45,13 +45,13 @@ namespace ServiceConcrete
         }
 
         public Task<DashBoardRow1WidgetsModel> GetBoardRow1WidgetsDetails()
-        { 
+        {
             DashBoardRow1WidgetsModel dashBoardRow1WidgetsModel = new DashBoardRow1WidgetsModel();
 
             var dashBoardRow1WidgetsModels = Builder<DashBoardRow1WidgetsModel>.CreateListOfSize(1)
                .All()
            .With(c => c.TotalNoOfApplicationUsers = Faker.Number.RandomNumber(300, 400).ToString())
-           .With(c => c.NoOfActiveSessions = Faker.Number.RandomNumber(45,55).ToString())
+           .With(c => c.NoOfActiveSessions = Faker.Number.RandomNumber(45, 55).ToString())
            .With(c => c.NoOfActiveUsers = Faker.Number.RandomNumber(15, 30).ToString())
            .With(c => c.NoOfEmployeesCreatedToday = Faker.Number.RandomNumber(25, 40).ToString())
             .With(c => c.NoOfEmployeesPendingAuth = Faker.Number.RandomNumber(35, 56).ToString())
@@ -84,9 +84,8 @@ namespace ServiceConcrete
                                   , ipPropertiesModal.Lon)
                                       );
             getdashBoardRow1DetailsTask.Wait();
-            getdashBoardRow1DetailsTask.Result.CurrentCityName = 
-                        ipPropertiesModal.City ;
-
+            getdashBoardRow1DetailsTask.Result.CurrentCityName =
+                        ipPropertiesModal.City;
 
             getdashBoardRow1DetailsTask.Result.CurrentCountryName = ipPropertiesModal.CountryCode
                                         + ", " + ipPropertiesModal.Country;

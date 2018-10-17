@@ -14,12 +14,10 @@ namespace Repository
         [Sql("P_RegisterNewUser")]
         bool RegisterNewUser(UserAccountModel userAccountModel);
 
-        [Sql("P_GetUserDetailsForLogin")]      
+        [Sql("P_GetUserDetailsForLogin")]
         Results<UserAccountModel, UserRolesModel> GetUserDetailsForLogin(UserAccountModel userAccountModel);
-
 
         [Sql("P_GetUserDetailsForLastLogin")]
         Results<IpPropertiesModal, IpPropertiesModal> GetUserDetailsForLastLogin(UserAccountModel userAccountModel);
-
     }
 }

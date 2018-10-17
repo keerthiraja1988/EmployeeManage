@@ -11,6 +11,5 @@ namespace ServiceInterface
         Task<DashBoardRow1WidgetsModel> GetBoardRow1WidgetsDetails();
 
         Task<WeatherModel> GetCurrectWeatherDetails(string userIpAddress);
-
     }
 }

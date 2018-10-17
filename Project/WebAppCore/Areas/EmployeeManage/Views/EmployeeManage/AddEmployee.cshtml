@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Add New Employee";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -14,19 +13,16 @@
     @await Html.PartialAsync("_EmployeePersonalDetails", Model)
     @await Html.PartialAsync("_EmployeeContactDetails", Model)
 
-   
     <div id="Results"></div>
-
 </form>
 <script>
 
     $(document).ready(function () {
 
-
     });
 
     function onComboBoxChange(e) {
-      
+
         if (this.select() < 0) {
             this.value("");
         }
@@ -44,7 +40,6 @@
         'Error occured on Employee creation. If issue presist contact Support Team');
     };
 
-
     var onCompleteAddEmployeeForm = function () {
         //  alert();
 
@@ -55,7 +50,7 @@
         //  alert();
         var dataArray = data.split("|");
         JsMain.HideLoaddingIndicator();
-      
+
         //Request Failed
         if (dataArray[1] == '1') {
             JsMain.ShowMessageShowReloadPopUp(dataArray[2], dataArray[3]);
@@ -66,12 +61,6 @@
             JsMain.ShowMessageShowPopUp(dataArray[2], dataArray[3]);
         }
     };
-
-  
 </script>
 <script>
-
 </script>
-
-   
-

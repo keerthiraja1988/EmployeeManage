@@ -6,7 +6,6 @@ namespace DomainModel.EmployeeManage
 {
     public class EmployeeModel
     {
-
         public int EmployeeId { get; set; }
 
         public string FullName { get; set; }
@@ -46,6 +45,5 @@ namespace DomainModel.EmployeeManage
         public DateTime ModifiedOn { get; set; }
 
         public Int64 ModifiedBy { get; set; }
-
     }
 }

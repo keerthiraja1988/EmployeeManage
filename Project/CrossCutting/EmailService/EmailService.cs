@@ -8,7 +8,7 @@ namespace CrossCutting.EmailService
 {
     public class EmailService : IEmailService
     {
-       public bool SendEmailThroughGmail(string Sender, string Receivers, string Subject, string Body)
+        public bool SendEmailThroughGmail(string Sender, string Receivers, string Subject, string Body)
         {
             SmtpClient client = new SmtpClient();
             client.Host = "smtp.gmail.com";
@@ -36,7 +36,7 @@ namespace CrossCutting.EmailService
 
             mail.Subject = "TEST";
             mail.IsBodyHtml = true;
-           // mail.Body = "vsdvsdv";
+            // mail.Body = "vsdvsdv";
 
             client.Send(mail);
 

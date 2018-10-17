@@ -28,14 +28,11 @@ namespace WebAppCore.Controllers
         {
             return Json("Test");
         }
-               
 
         [AcceptVerbs("Get", "Post")]
         public async Task<IActionResult> Foo(string name)
         {
-
             return Json(data: true);
         }
-
     }
 }

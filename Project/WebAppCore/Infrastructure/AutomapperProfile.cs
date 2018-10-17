@@ -44,7 +44,6 @@ namespace WebAppCore.Infrastructure
             CreateMap<WeatherWidgetsViewModel, WeatherModel>()
                 .ReverseMap();
 
-
             CreateMap<LoggedInUserDetailsViewModel, UserAccountModel>()
                 .ReverseMap();
 

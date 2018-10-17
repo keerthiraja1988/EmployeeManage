@@ -24,8 +24,8 @@ namespace ServiceConcrete
     public class SercurityService : ISercurityService
     {
         private IUserAccountRepository _IUserAccountRepository;
-        IAppAnalyticsRepository _IAppAnalyticsRepository;
-        IIPRequestDetails _IIPRequestDetails;
+        private IAppAnalyticsRepository _IAppAnalyticsRepository;
+        private IIPRequestDetails _IIPRequestDetails;
 
         public SercurityService(IIPRequestDetails iIPRequestDetails
            )
@@ -51,7 +51,6 @@ namespace ServiceConcrete
             userAccountModel.PasswordHash = generatedHashFromPassAndSalt;
             return userAccountModel;
         }
-
 
         public (UserAccountModel UserAccount, List<UserRolesModel> UserRoles) ValidateUserLoginAndCredential(UserAccountModel userAccountModel)
         {
@@ -106,11 +105,9 @@ namespace ServiceConcrete
                 ipPropertiesModal.IsLoginSuccess = isValidUser;
                 var dbUpdateResult = _IAppAnalyticsRepository.SaveIpAddressDetailsOnLogin(ipPropertiesModal);
             }
-
             catch (Exception Ex)
             {
                 var dbUpdateResult = _IAppAnalyticsRepository.SaveIpAddressDetailsOnLogin(ipPropertiesModal);
-
             }
             userAccountModel.CookieUniqueId = cookieUniqueId;
             return (userAccountModel, userRoles);
@@ -128,7 +125,7 @@ namespace ServiceConcrete
 
         private static string DecryptStringFromBytes(byte[] cipherText, byte[] key, byte[] iv)
         {
-            // Check arguments.  
+            // Check arguments.
             if (cipherText == null || cipherText.Length <= 0)
             {
                 throw new ArgumentNullException("cipherText");
@@ -142,15 +139,15 @@ namespace ServiceConcrete
                 throw new ArgumentNullException("key");
             }
 
-            // Declare the string used to hold  
-            // the decrypted text.  
+            // Declare the string used to hold
+            // the decrypted text.
             string plaintext = null;
 
-            // Create an RijndaelManaged object  
-            // with the specified key and IV.  
+            // Create an RijndaelManaged object
+            // with the specified key and IV.
             using (var rijAlg = new RijndaelManaged())
             {
-                //Settings  
+                //Settings
                 rijAlg.Mode = CipherMode.CBC;
                 rijAlg.Padding = PaddingMode.PKCS7;
                 rijAlg.FeedbackSize = 128;
@@ -158,25 +155,22 @@ namespace ServiceConcrete
                 rijAlg.Key = key;
                 rijAlg.IV = iv;
 
-                // Create a decrytor to perform the stream transform.  
+                // Create a decrytor to perform the stream transform.
                 var decryptor = rijAlg.CreateDecryptor(rijAlg.Key, rijAlg.IV);
 
                 try
                 {
-                    // Create the streams used for decryption.  
+                    // Create the streams used for decryption.
                     using (var msDecrypt = new MemoryStream(cipherText))
                     {
                         using (var csDecrypt = new CryptoStream(msDecrypt, decryptor, CryptoStreamMode.Read))
                         {
-
                             using (var srDecrypt = new StreamReader(csDecrypt))
                             {
-                                // Read the decrypted bytes from the decrypting stream  
-                                // and place them in a string.  
+                                // Read the decrypted bytes from the decrypting stream
+                                // and place them in a string.
                                 plaintext = srDecrypt.ReadToEnd();
-
                             }
-
                         }
                     }
                 }
@@ -191,7 +185,7 @@ namespace ServiceConcrete
 
         private static byte[] EncryptStringToBytes(string plainText, byte[] key, byte[] iv)
         {
-            // Check arguments.  
+            // Check arguments.
             if (plainText == null || plainText.Length <= 0)
             {
                 throw new ArgumentNullException("plainText");
@@ -205,8 +199,8 @@ namespace ServiceConcrete
                 throw new ArgumentNullException("key");
             }
             byte[] encrypted;
-            // Create a RijndaelManaged object  
-            // with the specified key and IV.  
+            // Create a RijndaelManaged object
+            // with the specified key and IV.
             using (var rijAlg = new RijndaelManaged())
             {
                 rijAlg.Mode = CipherMode.CBC;
@@ -216,17 +210,17 @@ namespace ServiceConcrete
                 rijAlg.Key = key;
                 rijAlg.IV = iv;
 
-                // Create a decrytor to perform the stream transform.  
+                // Create a decrytor to perform the stream transform.
                 var encryptor = rijAlg.CreateEncryptor(rijAlg.Key, rijAlg.IV);
 
-                // Create the streams used for encryption.  
+                // Create the streams used for encryption.
                 using (var msEncrypt = new MemoryStream())
                 {
                     using (var csEncrypt = new CryptoStream(msEncrypt, encryptor, CryptoStreamMode.Write))
                     {
                         using (var swEncrypt = new StreamWriter(csEncrypt))
                         {
-                            //Write all data to the stream.  
+                            //Write all data to the stream.
                             swEncrypt.Write(plainText);
                         }
                         encrypted = msEncrypt.ToArray();
@@ -234,7 +228,7 @@ namespace ServiceConcrete
                 }
             }
 
-            // Return the encrypted bytes from the memory stream.  
+            // Return the encrypted bytes from the memory stream.
             return encrypted;
         }
     }

@@ -21,6 +21,7 @@ namespace WebAppCore.SignalRHubs
             _IHttpContextAccessor = httpContextAccessor;
             _IAppAnalyticsService = iAppAnalyticsService;
         }
+
         public class UserHubModels
         {
             public string UserName { get; set; }
@@ -38,7 +39,6 @@ namespace WebAppCore.SignalRHubs
             public Int64 UserId { get; set; }
             public Guid CookieUniqueId { get; set; }
         }
-
 
         private static readonly ConcurrentDictionary<string, UserHubModels> Users =
 new ConcurrentDictionary<string, UserHubModels>(StringComparer.InvariantCultureIgnoreCase);
@@ -92,6 +92,7 @@ new ConcurrentDictionary<string, UserHubModels>(StringComparer.InvariantCultureI
             await Groups.AddToGroupAsync(Context.ConnectionId, "SignalR Users");
             await base.OnConnectedAsync();
         }
+
         public override async Task OnDisconnectedAsync(Exception exception)
         {
             string userName = Context.User.Identity.Name;

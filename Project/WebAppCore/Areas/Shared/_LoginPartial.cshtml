@@ -1,5 +1,3 @@
-
-
 @if (User.Identity.IsAuthenticated)
 {
     <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })" method="post" id="logoutForm" class="navbar-right">

@@ -10,7 +10,7 @@
               data-ajax-begin="onBeginLoginForm" data-ajax-complete="onCompleteLoginForm"
               data-ajax-failure="onFailedLoginForm" data-ajax-success="onSuccessLoginForm"
                   asp-route-returnUrl="@Context.Request.Path"
-              data-ajax-update="divLogin" >
+              data-ajax-update="divLogin">
             <!-- form content-->
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12  pt-3">
@@ -20,9 +20,7 @@
                     <small>
                         <span asp-validation-for="LoginUserName" id="LoginUserNameVal" class="text-danger"></span>
                     </small>
-
                 </div>
-
             </div>
 
             <div class="row">
@@ -37,9 +35,7 @@
                     <input asp-for="CryptLoginPassword" id="hdnCryptLoginPassword" type="password"
                        hidden    placeholder="Enter Password" class="form-control" />
                 </div>
-
             </div>
-
 
             <div class="text-center">
                 <button type="submit" class="btn btn-info mt-3" id="btnLoginSubmit">
@@ -51,9 +47,7 @@
                     Clear
                 </button>
             </div>
-
         </form>
-
     </div>
         </div>
 
@@ -76,7 +70,7 @@
     });
 
     $('#btnLoginSubmit').click(function () {
-            
+
     });
 
     $('#btnLoginReset').click(function () {
@@ -95,7 +89,7 @@
     };
 
     var onCompleteLoginForm = function () {
-       
+
         JsMain.HideLoaddingIndicator();
     };
 
@@ -104,17 +98,17 @@
     };
 
     var onSuccessLoginForm = function (res) {
-      
+
         JsMain.HideLoaddingIndicator();
 
         if (res.newUrl == "LoginFailed") {
-          
+
             bootbox.alert("Login Failed. Please try with correct credentials.");
 
         }
         else {
             window.location.href = res.newUrl;
         }
-        
+
     };
 </script>

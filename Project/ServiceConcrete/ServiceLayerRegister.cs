@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ServiceConcrete
 {
-  public  class ServiceLayerRegister
+    public class ServiceLayerRegister
     {
     }
 }

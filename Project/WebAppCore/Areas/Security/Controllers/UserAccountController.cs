@@ -31,7 +31,8 @@ namespace WebAppCore.Areas.Security.Controllers
         public IConfiguration _Configuration { get; set; }
         private readonly IHttpContextAccessor _IHttpContextAccessor;
         private readonly IMapper _mapper;
-        IAppAnalyticsService _IAppAnalyticsService;
+        private IAppAnalyticsService _IAppAnalyticsService;
+
         public UserAccountController(IConfiguration iConfig, IUserAccountService iUserAccountService
             , IMapper mapper, IHttpContextAccessor httpContextAccessor,
             IAppAnalyticsService iAppAnalyticsService)
@@ -121,7 +122,6 @@ namespace WebAppCore.Areas.Security.Controllers
                 new Claim("http://example.org/claims/LoggedInTime", "LoggedInTime", DateTime.Now.ToString()),
                 new Claim(ClaimTypes.Email, userAccountReturn.Email),
                 new Claim ( "http://example.org/claims/CookieUniqueId", "CookieUniqueId",userAccountReturn.CookieUniqueId.ToString() ),
-
             };
 
             if (userRoles != null && userRoles.Count > 0)
@@ -211,14 +211,13 @@ namespace WebAppCore.Areas.Security.Controllers
 
             loggedInUserDetailsViewModel.LastLoggedInUserDetailsViewModel =
                     _mapper.Map<LoggedInUserDetailsViewModel>(userLoginDetails.LastSessionDetails);
-            
+
             loggedInUserDetailsViewModel.CurrentLoggedInUserDetailsViewModel =
                     _mapper.Map<LoggedInUserDetailsViewModel>(userLoginDetails.CurrentSessionDetails);
 
             string partialViewHtml = await this.RenderViewAsync("_LoggedInUserDetails", loggedInUserDetailsViewModel, true);
 
             return Json(partialViewHtml);
-
         }
 
         private async Task<LoggedInUserDetailsViewModel> GetUserDetailsFromCookies()

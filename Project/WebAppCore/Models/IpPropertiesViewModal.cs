@@ -33,6 +33,5 @@ namespace WebAppCore.Models
         public Int64 ModifiedBy { get; set; }
         public string ModifiedByUserName { get; set; }
         public DateTime SessionDisconnectedOn { get; set; }
-
     }
 }

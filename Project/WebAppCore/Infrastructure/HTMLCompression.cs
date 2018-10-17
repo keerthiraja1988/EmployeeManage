@@ -12,6 +12,7 @@ namespace WebAppCore.Infrastructure
     {
         public string EncodingName => "br";
         public bool SupportsFlush => true;
+
         public Stream CreateStream(Stream outputStream)
         {
             return new BrotliStream(outputStream, CompressionMode.Compress);

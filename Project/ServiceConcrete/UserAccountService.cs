@@ -15,11 +15,10 @@ using System.Linq;
 namespace ServiceConcrete
 {
     [NLogging]
-
     public class UserAccountService : IUserAccountService
     {
-        IUserAccountRepository _IUserAccountRepository;
-        ISercurityService _ISercurityService;
+        private IUserAccountRepository _IUserAccountRepository;
+        private ISercurityService _ISercurityService;
 
         public UserAccountService(DbConnection Parameter, ISercurityService iSercurityService)
         {
@@ -74,6 +73,5 @@ namespace ServiceConcrete
 
             return (lastSessionDetails, currentSessionDetails);
         }
-
     }
 }

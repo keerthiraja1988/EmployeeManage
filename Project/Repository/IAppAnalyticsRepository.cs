@@ -8,8 +8,7 @@ namespace Repository
 {
     public interface IAppAnalyticsRepository : IDisposable
     {
-       
-        [Sql("P_SaveIpAddressDetailsOnLogin")]      
+        [Sql("P_SaveIpAddressDetailsOnLogin")]
         Int32 SaveIpAddressDetailsOnLogin(IpPropertiesModal IpAddressDetails);
 
         [Sql("UpdatedUserDisConnectionTracking")]

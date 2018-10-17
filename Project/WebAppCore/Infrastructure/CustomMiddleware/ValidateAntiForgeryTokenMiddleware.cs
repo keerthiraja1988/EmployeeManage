@@ -9,9 +9,6 @@ using System.Threading.Tasks;
 
 namespace WebAppCore.Infrastructure.CustomMiddleware
 {
-
-    
-
     public static class ApplicationBuilderExtensions
     {
         public static IApplicationBuilder UseAntiforgeryTokens(this IApplicationBuilder app)

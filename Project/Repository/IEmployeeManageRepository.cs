@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Repository
 {
-   public interface IEmployeeManageRepository
+    public interface IEmployeeManageRepository
     {
         [Sql("P_CreateEmployee")]
         bool LoadEmployeeData(EmployeeModel EmployeeDetail, List<EmployeeAddressModel> EmployeeAddress);
@@ -36,6 +36,5 @@ namespace Repository
 
         [Sql("P_CreateEmployee")]
         Task<int> AddEmployee(EmployeeModel employeeModel, List<EmployeeAddressModel> EmployeeAddress);
-
     }
 }

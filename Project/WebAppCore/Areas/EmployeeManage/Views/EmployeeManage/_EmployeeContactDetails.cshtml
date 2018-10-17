@@ -84,12 +84,9 @@
                                     <span asp-validation-for="PermenantAddress.CountryId" id="addNewEmployeePCountryVal" class="text-danger"></span>
                                 </small>
                             </div>
-
                         </div>
                     </div>
-
                 </div>
-
             </div>
             <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 pl-2 pb-1 pr-0 pt-2">
                 <div class="card" style="box-shadow: 0 3px 14px rgba(78, 43, 43, 0.4);">
@@ -172,12 +169,8 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
-
             </div>
-
-
 
             <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 pl-2 pb-1 pr-0 pt-2
                  ">
@@ -196,7 +189,6 @@
                                 <small>
                                     <span asp-validation-for="Email" id="addNewEmployeeEmailVal" class="text-danger"></span>
                                 </small>
-
                             </div>
 
                             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12  pl-0 pr-0  pt-0
@@ -206,7 +198,7 @@
                        ">           <span id="status" style="color:black"></span>
                                         <label asp-for="CountryCode"></label><span> *</span>
                                         @(Html.Kendo().ComboBoxFor(m => m.CountryCode)
-                                                   
+
                                                         .DataTextField("CountryCode")
                                                         .DataValueField("CountryId")
                                                         .HtmlAttributes(new { required = "required", data_required_msg = "Selection Required", @Style = "width: 130px; margin:0.5em 0 0 0;height:20px;align:center; font-size:11px;" })
@@ -243,9 +235,7 @@
                                             <span asp-validation-for="MobileNo" id="addNewEmployeeMobileNoVal" class="text-danger"></span>
                                         </small>
                                     </div>
-
                                 </div>
-
                             </div>
 
                             <div class="col-12 col-sm-12 col-md-6 col-lg-12 col-xl-12  pl-2 pr-0  pt-2
@@ -264,28 +254,23 @@
                                     <i class="fas fa-redo"></i>
                                     Clear
                                 </button>
-
-
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
 </div>
-
 
 <script>
 
     $(document).ready(function () {
 
-
     });
 
     function onComboBoxCountryCodeChange(e) {
-       
+
         if (this.select() < 0) {
             this.value("");
             $('#CountryCode').data('kendoComboBox').select(0);

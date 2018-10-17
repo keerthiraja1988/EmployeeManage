@@ -4,9 +4,8 @@ using System.Text;
 
 namespace DomainModel.Shared
 {
-   public class IpPropertiesModal
+    public class IpPropertiesModal
     {
-        
         public Guid CookieUniqueId { get; set; }
 
         public string IpAddress { get; set; }

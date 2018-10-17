@@ -20,7 +20,6 @@
                     <small>
                         <span asp-validation-for="UserName" id="registerUserNameVal" class="text-danger"></span>
                     </small>
-
                 </div>
 
                 <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6  pt-3">
@@ -84,8 +83,7 @@
                     Register
                 </button>
 
-                <button type="button" id="btnRegisterReset" class="btn btn-info ml-2 mt-3"
-                        >
+                <button type="button" id="btnRegisterReset" class="btn btn-info ml-2 mt-3">
                     <i class="fas fa-redo"></i>
                     Clear
                 </button>
@@ -96,10 +94,8 @@
 
                     Auto Populate
                 </button>
-
             </div>
             <div id="Results"></div>
-
         </form>
     </div>
 </div>
@@ -168,7 +164,7 @@
     });
 
     var onBeginRegisterForm = function () {
-        
+
         JsMain.ShowLoaddingIndicator();
     };
 
@@ -181,7 +177,7 @@
     var onSuccessRegisterForm = function (data) {
         //  alert();
         JsMain.HideLoaddingIndicator();
-     
+
         $("#appendPartialView").html(data);
     };
 
@@ -211,10 +207,7 @@
     jQuery(document).ready(function () {
     });
 
-
     $("#registerPassword").keyup(function () {
         $("#password").text($("#registerPassword").val());
     });
-
-
 </script>

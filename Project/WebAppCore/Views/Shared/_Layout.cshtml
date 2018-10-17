@@ -6,14 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - WebAppCore</title>
 
-
-
-
     <link rel="stylesheet" href="~/lib/JqueryUI/jquery-ui.min.css" />
     <link rel="stylesheet" href="~/lib/JqueryUI/jquery-ui.theme.min.css" />
     <link rel="stylesheet" href="~/lib/JqueryUI/jquery-ui.structure.min.css" />
-
-
 
     <script src="~/lib/jquery/dist/jquery.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
@@ -27,8 +22,6 @@
     <script src="~/js/Main.js" asp-append-version="true"></script>
     <script src="~/js/Employee.js" asp-append-version="true"></script>
 
-
-
     <script src="https://kendo.cdn.telerik.com/2018.3.911/js/jszip.min.js"></script>
     <script src="https://kendo.cdn.telerik.com/2018.3.911/js/kendo.all.min.js"></script>
     <script src="https://kendo.cdn.telerik.com/2018.3.911/js/kendo.aspnetmvc.min.js"></script>
@@ -37,7 +30,6 @@
 
     <script src="~/lib/JqueryUI/jquery-ui.min.js" asp-append-version="true"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
-
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/aes.min.js"></script>
@@ -53,12 +45,10 @@
     <link href="~/lib/kendo-ui/all.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="~/css/site.css" />
 
-
     <script>
 
         $(window).on('load', function () {
             $('#loadingIconModal').modal('show');
-
 
         });
 
@@ -67,7 +57,6 @@
             JL("JSError.WebAppCore").error(message);
 
         };
-
     </script>
     @*<environment exclude="Development">
             <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -92,7 +81,6 @@
                             }
                         );
                         $(".modal-title").disableSelection();
-
 
                         $('#modalMessageShowReloadPopUpClose').on('click', function (e) {
                             location.reload();
@@ -210,7 +198,6 @@
                     </div>
                 </li>
 
-
                 <li class="nav-item dropdown p-l-xs p-l-sm pr-1">
                     <a class="nav-link dropdown-toggle pl-0" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Static Pages
@@ -220,14 +207,11 @@
                            asp-area="Base" asp-controller="Base" asp-action="Error">Error Page</a>
                         <a class="dropdown-item" onclick="JsMain.ShowLoaddingIndicator()"
                            asp-area="Security" asp-controller="UserAccount" asp-action="AccessDenied">Access Denied</a>
-
                     </div>
                 </li>
                 <li class="nav-item p-l-xs p-l-sm ">
                     <a class="nav-link pl-0" href="\">About Me</a>
                 </li>
-
-
             </ul>
             <div style="
     display: flex;
@@ -281,7 +265,6 @@
     </div>
     <div class="row">
         <div id="globalHTMLAppender">
-
         </div>
     </div>
 
@@ -298,13 +281,9 @@
             $('#btnNavbarCollapse').html('<i class="fas fa-angle-double-left"></i>');
             $('#navbarSupportedContent').css('overflow-y', 'hidden');
 
-
         });
 
-
-
         $(document).ready(function () {
-
 
             setTimeout(
                 function () {
@@ -330,12 +309,11 @@
 
         });
 
-
         var connection = new signalR.HubConnectionBuilder().withUrl("/applicationHub").build();
 
         connection.on("rUpdateDashBoardRow1Widgets", function (message) {
 
-            //var msg = message.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+            //var msg = message.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace( />/g, "&gt;");
             //var encodedMsg = user + " says " + msg;
             console.error(message.toString());
 
@@ -351,10 +329,6 @@
                     return console.error(err.toString());
                 });
             }, 3000);
-
-
-
-
     </script>
     <script src="https://cdn.jsdelivr.net/npm/kute.js@1.6.5/kute.min.js" crossorigin="anonymous"></script> <!-- jQuery Plugin -->
 
@@ -365,10 +339,6 @@
     <script src="https://cdn.jsdelivr.net/npm/kute.js@1.6.5/kute-text.min.js" crossorigin="anonymous"></script> <!-- jQuery Plugin -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.2.1/tilt.jquery.min.js" crossorigin="anonymous"></script> <!-- jQuery Plugin -->
 
-
     @RenderSection("Scripts", required: false)
-
-
-
 </body>
 </html>

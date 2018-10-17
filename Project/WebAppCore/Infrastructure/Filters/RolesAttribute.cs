@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace WebAppCore.Infrastructure.Filters
 {
-
     public class RolesAttribute : AuthorizeAttribute
     {
         public RolesAttribute(params string[] roles)
@@ -14,5 +13,4 @@ namespace WebAppCore.Infrastructure.Filters
             Roles = String.Join(",", roles);
         }
     }
-
 }

@@ -1,12 +1,10 @@
-﻿
-@model WebAppCore.Areas.Security.Models.UserLoginRegisterDTO
+﻿@model WebAppCore.Areas.Security.Models.UserLoginRegisterDTO
 
 @{
-  
+
     ViewData["Title"] = "Login";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 
 <div class="row">
 
@@ -26,23 +24,19 @@
                 <br />
 
                 <h5 class="card-title">Use Auto-Populate option to generate fake data</h5>
-
             </div>
         </div>
     </div>
 
-    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 pb-3 order-md-3 order-sm-3 
+    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 pb-3 order-md-3 order-sm-3
          order-2   order-xl-2 order-lg-2 pt-0 pr-2 pl-2" id="_RegisterPartialViewDiv">
         @await Html.PartialAsync("_Register", Model.RegisterUserViewModel)
     </div>
 
     <div class="col-sm-12 col-md-12 col-lg-3 col-xl-3  order-md-2 order-sm-2
          order-1   order-xl-3 order-lg-3 pt-0  pb-3  pr-2 pl-2 ">
-    
+
         @await Html.PartialAsync("_Login", Model.UserLoginViewModel)
     </div>
-    
 </div>
 <div id="appendPartialView"></div>
-
-

@@ -9,7 +9,6 @@ namespace WebAppCore.Areas.Security.Models
 {
     public class RegisterUserViewModel
     {
-
         [Required(ErrorMessage = "Please Enter User Name")]
         [MaxLength(25, ErrorMessage = "Maximum User Name Length is 25 Characters")]
         [MinLength(3, ErrorMessage = "Minimum User Name Length is 3 Characters")]
@@ -25,7 +24,6 @@ namespace WebAppCore.Areas.Security.Models
         [Required(ErrorMessage = "Please Enter Last Name")]
         [MaxLength(25, ErrorMessage = "Maximum Last Name Length is 25 Characters")]
         [MinLength(3, ErrorMessage = "Minimum Last Name Length is 3 Characters")]
-
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
@@ -40,7 +38,7 @@ namespace WebAppCore.Areas.Security.Models
         [Required(ErrorMessage = "Please Enter Password")]
         [MinLength(8, ErrorMessage = "Minimum Password Length is 8 Characters")]
         [MaxLength(25, ErrorMessage = "Maximum Password Length is 25 Characters")]
-      //  [RegularExpression(User.PasswordRegularExpression, ErrorMessage = "Пароль может содержать только латинские символы, дефисы, подчеркивания, точки")]
+        //  [RegularExpression(User.PasswordRegularExpression, ErrorMessage = "Пароль может содержать только латинские символы, дефисы, подчеркивания, точки")]
         public string Password { get; set; }
 
         [Required(ErrorMessage = "Please Enter Password")]
@@ -53,8 +51,5 @@ namespace WebAppCore.Areas.Security.Models
 
         public string CapthaValue { get; set; }
         public string CapthaEncValue { get; set; }
-
-
-
     }
 }

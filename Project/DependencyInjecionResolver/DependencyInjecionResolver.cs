@@ -15,7 +15,8 @@ namespace DependencyInjecionResolver
     {
         public class ServiceDIContainer : Autofac.Module
         {
-            string sqlConnection;
+            private string sqlConnection;
+
             public ServiceDIContainer(string _sqlConnection)
             {
                 sqlConnection = _sqlConnection;
@@ -23,9 +24,8 @@ namespace DependencyInjecionResolver
 
             protected override void Load(ContainerBuilder builder)
             {
-
                 DbConnection sqlDBConnection = new SqlConnection(sqlConnection);
-            
+
                 var asm = typeof(ServiceLayerRegister).Assembly;
 
                 builder.RegisterType<IPRequestDetails>().As<IIPRequestDetails>().SingleInstance().PreserveExistingDefaults(); ;
@@ -48,9 +48,7 @@ namespace DependencyInjecionResolver
                 //                .WithParameter(new TypedParameter(typeof(DbConnection), sqlDBConnection))
                 //                ;
                 base.Load(builder);
-
             }
-
         }
     }
 }

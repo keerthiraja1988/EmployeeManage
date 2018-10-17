@@ -40,11 +40,11 @@ namespace WebAppCore.Areas.EmployeeManage.Models
         public string MobileNo { get; set; }
 
         [Display(Name = "Date Of Birth")]
-        [Required(ErrorMessage = "Please Provide Date Of Birth")]        
+        [Required(ErrorMessage = "Please Provide Date Of Birth")]
         public DateTime? DateOfBirth { get; set; }
 
         [Display(Name = "Date Of Joining")]
-        [Required(ErrorMessage = "Please Provide Date Of Joining")]       
+        [Required(ErrorMessage = "Please Provide Date Of Joining")]
         public DateTime? DateOfJoining { get; set; }
 
         public int PermenantAddressId { get; set; }

@@ -50,6 +50,7 @@ namespace WebAppCore
             }).ToList();
             Caching.Instance.AddApplicationConfigs(applicationConfigs);
         }
+
         public IConfiguration Configuration { get; set; }
         public Autofac.IContainer ApplicationContainer { get; private set; }
 

@@ -8,11 +8,13 @@ namespace CrossCutting.Caching
 {
     public sealed class Caching
     {
-        //Private Constructor.  
+        //Private Constructor.
         private Caching()
         {
         }
+
         private static Caching instance = null;
+
         public static Caching Instance
         {
             get
@@ -27,7 +29,7 @@ namespace CrossCutting.Caching
 
         public double ValueOne { get; set; }
 
-        List<ApplicationConfigModel> ApplicationConfigs = new List<ApplicationConfigModel>();
+        private List<ApplicationConfigModel> ApplicationConfigs = new List<ApplicationConfigModel>();
 
         public void AddApplicationConfigs(List<ApplicationConfigModel> applicationConfigs)
         {

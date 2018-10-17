@@ -10,9 +10,6 @@ using System.Threading.Tasks;
 
 namespace WebAppCore.Infrastructure.Filters
 {
-
-
-
     public class HandleExceptionAttribute : ExceptionFilterAttribute
     {
         public override void OnException(ExceptionContext context)
@@ -28,4 +25,3 @@ namespace WebAppCore.Infrastructure.Filters
         }
     }
 }
-

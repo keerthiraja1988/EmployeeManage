@@ -23,34 +23,33 @@ using Serilog.Core;
 namespace CrossCutting.Logging
 {
     [PSerializable]
-
     public class NLoggingAttribute : OnMethodBoundaryAspect
     {
-
-        //Logger used to log the messages. The NLog logger is not serializable, so this won't be serialized. (this does not impact functionality!) 
+        //Logger used to log the messages. The NLog logger is not serializable, so this won't be serialized. (this does not impact functionality!)
         [NonSerialized]
         public Logger Logger;
+
         public List<ParameterInfo> parameterInfos;
-        //Name of the method, initialized at compile time to improve performance!  
+
+        //Name of the method, initialized at compile time to improve performance!
         private String _methodName;
-        //Name of the class, initialized at compile time to improve performance!  
+
+        //Name of the class, initialized at compile time to improve performance!
         private String _className;
 
-        //Intialize some fields at compile time to improve performance. 
+        //Intialize some fields at compile time to improve performance.
         public override void CompileTimeInitialize(MethodBase method, AspectInfo aspectInfo)
         {
             base.CompileTimeInitialize(method, aspectInfo);
-            //Compile Time initizalization of the class name.  
+            //Compile Time initizalization of the class name.
             _className = method.ReflectedType.Name;
-            //Compile Time initizalization of the method name.  
+            //Compile Time initizalization of the method name.
             _methodName = _className + "." + method.Name;
             parameterInfos = new List<ParameterInfo>(method.GetParameters());
         }
 
-
         public override void RuntimeInitialize(MethodBase method)
         {
-          
             var connectionString = CrossCutting.Caching.Caching.Instance.GetApplicationConfigs("DBConnection");
             var tableName = "LogsApplicationTrace";
             var columnOptions = new ColumnOptions();  // optional
@@ -59,21 +58,19 @@ namespace CrossCutting.Logging
                   .MinimumLevel.Verbose()
                 .WriteTo.MSSqlServer(connectionString, tableName, columnOptions: columnOptions)
                 .CreateLogger();
-
         }
+
         public override void OnEntry(MethodExecutionArgs args)
         {
-
             base.OnEntry(args);
-          
+
             string logMessage = "Entering " + _methodName + " with arguments: ";
             logMessage = AddArgumentsToLogMessage(args, logMessage);
             Logger.Debug(logMessage);
-
         }
 
         //This implementation can be improved by using a string builder.
-        //Also you might be interested in checking if the argument is an IEnumerable and log this using a specific syntax.  
+        //Also you might be interested in checking if the argument is an IEnumerable and log this using a specific syntax.
         private string AddArgumentsToLogMessage(MethodExecutionArgs args, string logMessage)
         {
             int argumentIndex = 0;
@@ -90,6 +87,7 @@ namespace CrossCutting.Logging
             }
             return logMessage;
         }
+
         public override void OnExit(MethodExecutionArgs args)
         {
             base.OnExit(args);
@@ -101,8 +99,8 @@ namespace CrossCutting.Logging
             else
                 logMessage += args.ReturnValue.ToString();
             Logger.Debug(logMessage);
-
         }
+
         public override void OnException(MethodExecutionArgs args)
         {
             base.OnException(args);
@@ -113,12 +111,9 @@ namespace CrossCutting.Logging
             Logger.Error(logMessage, "Exception occurred");
             //// throw new Exception();
             ////  args.FlowBehavior = FlowBehavior.RethrowException;
-
-          
         }
     }
 }
-
 
 //using Microsoft.Extensions.Configuration;
 //using PostSharp.Aspects;
@@ -148,27 +143,25 @@ namespace CrossCutting.Logging
 
 //    public class NLoggingAttribute : OnMethodBoundaryAspect
 //    {
-
-//        //Logger used to log the messages. The NLog logger is not serializable, so this won't be serialized. (this does not impact functionality!) 
+//        //Logger used to log the messages. The NLog logger is not serializable, so this won't be serialized. (this does not impact functionality!)
 //        [NonSerialized]
 //        public Logger Logger;
 //        public List<ParameterInfo> parameterInfos;
-//        //Name of the method, initialized at compile time to improve performance!  
+//        //Name of the method, initialized at compile time to improve performance!
 //        private String _methodName;
-//        //Name of the class, initialized at compile time to improve performance!  
+//        //Name of the class, initialized at compile time to improve performance!
 //        private String _className;
 
-//        //Intialize some fields at compile time to improve performance. 
+//        //Intialize some fields at compile time to improve performance.
 //        public override void CompileTimeInitialize(MethodBase method, AspectInfo aspectInfo)
 //        {
 //            base.CompileTimeInitialize(method, aspectInfo);
-//            //Compile Time initizalization of the class name.  
+//            //Compile Time initizalization of the class name.
 //            _className = method.ReflectedType.Name;
-//            //Compile Time initizalization of the method name.  
+//            //Compile Time initizalization of the method name.
 //            _methodName = _className + "." + method.Name;
 //            parameterInfos = new List<ParameterInfo>(method.GetParameters());
 //        }
-
 
 //        public override void RuntimeInitialize(MethodBase method)
 //        {
@@ -179,7 +172,7 @@ namespace CrossCutting.Logging
 //            //            dbTarget.ConnectionString = @"Data Source=.;Initial Catalog=EmployeeManage;Integrated Security=True";
 
 //            //            dbTarget.CommandText =
-//            //@"INSERT INTO [AspNetCoreLog] (Logged,  Level, Logger, Message, Exception) 
+//            //@"INSERT INTO [AspNetCoreLog] (Logged,  Level, Logger, Message, Exception)
 //            //    VALUES(GETDATE(), @level, @logger, @message, @exception)";
 
 //            //            dbTarget.Parameters.Add(new DatabaseParameterInfo("@thread", new NLog.Layouts.SimpleLayout("${threadid}")));
@@ -195,7 +188,6 @@ namespace CrossCutting.Logging
 //            //            config.AddTarget("database", dbTarget);
 
 //            //            var dbRule = new LoggingRule("*", LogLevel.Trace, dbTarget);
-
 
 //            //            config.LoggingRules.Add(dbRule);
 
@@ -238,7 +230,6 @@ namespace CrossCutting.Logging
 //            autoFlushWrapper.Condition = "level >= LogLevel.Warn";
 //            autoFlushWrapper.AsyncFlush = false;
 
-
 //            var rule = new LoggingRule(loggerNamePattern: "*", minLevel: LogLevel.Trace, target: autoFlushWrapper);
 //            config.AddTarget("database", autoFlushWrapper);
 //            config.LoggingRules.Add(rule);
@@ -246,11 +237,9 @@ namespace CrossCutting.Logging
 //            //Activate configuration
 //            LogManager.Configuration = config;
 
-
 //        }
 //        public override void OnEntry(MethodExecutionArgs args)
 //        {
-
 //            base.OnEntry(args);
 //            Logger = LogManager.GetCurrentClassLogger();
 //            string logMessage = "Entering " + _methodName + " with arguments: ";
@@ -260,7 +249,7 @@ namespace CrossCutting.Logging
 //        }
 
 //        //This implementation can be improved by using a string builder.
-//        //Also you might be interested in checking if the argument is an IEnumerable and log this using a specific syntax.  
+//        //Also you might be interested in checking if the argument is an IEnumerable and log this using a specific syntax.
 //        private string AddArgumentsToLogMessage(MethodExecutionArgs args, string logMessage)
 //        {
 //            int argumentIndex = 0;
@@ -299,8 +288,6 @@ namespace CrossCutting.Logging
 //            // throw new Exception();
 //            //  args.FlowBehavior = FlowBehavior.RethrowException;
 
-
 //        }
 //    }
 //}
-

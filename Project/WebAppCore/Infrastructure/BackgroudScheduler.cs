@@ -1,5 +1,4 @@
-﻿
-using AutoMapper;
+﻿using AutoMapper;
 using DomainModel.DashBoard;
 using Kendo.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc;
@@ -43,7 +42,6 @@ namespace WebAppCore.Infrastructure
 
         public Task StartAsync(CancellationToken cancellationToken)
         {
-
             _timer = new Timer(DoWork, null, TimeSpan.Zero,
                 TimeSpan.FromSeconds(20));
 
@@ -85,13 +83,11 @@ namespace WebAppCore.Infrastructure
 
             string pVdashBoardRow1WidgetsHtml = getdashBoardRow1DetailsTask.Result;
 
-
             _hubContext.Clients.All.SendAsync("rUpdateDashBoardRow1Widgets", pVdashBoardRow1WidgetsHtml);
         }
 
         public Task StopAsync(CancellationToken cancellationToken)
         {
-
             _timer?.Change(Timeout.Infinite, 0);
 
             return Task.CompletedTask;

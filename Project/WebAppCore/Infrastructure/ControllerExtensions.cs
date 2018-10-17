@@ -16,7 +16,6 @@ namespace WebAppCore.Infrastructure
 {
     public static class ControllerExtensions
     {
-
         public async static Task<(int UserId, string UserName, string FirstName, string LastName,
             string Email, List<string> UserRoles, DateTime LoggedInTime, Guid CookieUniqueId)>
             GetLoggedInUserDetails(this ClaimsPrincipal principal)
@@ -72,4 +71,3 @@ namespace WebAppCore.Infrastructure
         }
     }
 }
-

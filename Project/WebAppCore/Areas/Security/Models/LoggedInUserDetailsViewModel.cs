@@ -7,8 +7,6 @@ namespace WebAppCore.Areas.Security.Models
 {
     public class LoggedInUserDetailsViewModel
     {
-
-
         public LoggedInUserDetailsViewModel CurrentLoggedInUserDetailsViewModel { get; set; }
         public LoggedInUserDetailsViewModel LastLoggedInUserDetailsViewModel { get; set; }
 
@@ -23,11 +21,9 @@ namespace WebAppCore.Areas.Security.Models
         public string City { get; set; }
         public string Country { get; set; }
         public string IpAddress { get; set; }
-        public string ISPDetails { get; set; }        
+        public string ISPDetails { get; set; }
         public DateTime? LastLoggedIn { get; set; }
         public DateTime? SessionDisconnectedOn { get; set; }
         public DateTime CreatedOn { get; set; }
-
-
     }
 }

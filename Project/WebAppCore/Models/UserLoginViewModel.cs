@@ -6,7 +6,6 @@ namespace WebAppCore.Models
     public class UserLoginViewModel
     {
         [Required(ErrorMessage = "Please Enter User Name")]
-       
         [Display(Name = "User Name")]
         public string LoginUserName { get; set; }
 
@@ -18,6 +17,5 @@ namespace WebAppCore.Models
         public string CryptLoginPassword { get; set; }
 
         public string UserIpAddress { get; set; }
-
     }
 }

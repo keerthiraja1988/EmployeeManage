@@ -29,6 +29,7 @@ namespace WebAppCore.Areas.EmployeeManage.Controllers
         public IConfiguration _configuration { get; set; }
 
         private readonly IMapper _mapper;
+
         public EmployeeManageController(IConfiguration iConfig, IEmployeeManageService iEmployeeManageService
             , IMapper mapper)
         {
@@ -97,11 +98,9 @@ namespace WebAppCore.Areas.EmployeeManage.Controllers
             {
                 return new JsonResult("RequestFailed|1|Error|Error Occurred on Employee Deletion. If issue presist contact support");
             }
-          
         }
 
         [AcceptVerbs("Post")]
-     
         [Route("DeleteEmployee")]
         public async Task<IActionResult> DeleteEmployee([DataSourceRequest] DataSourceRequest request, EmployeeViewModel employeeViewModel)
         {
@@ -120,7 +119,6 @@ namespace WebAppCore.Areas.EmployeeManage.Controllers
             }
         }
 
-
         [Route("GetEmployeeDetailsForSearch")]
         public async Task<IEnumerable<EmployeeSearchViewModel>> GetEmployeeDetailsForSearch(EmployeeSearchViewModel employeeSearchViewModel)
         {
@@ -135,6 +133,7 @@ namespace WebAppCore.Areas.EmployeeManage.Controllers
 
             return employeeSearchResult;
         }
+
         [HttpPost]
         [Route("ValidateEmployeeDetailsOnSearch")]
         public async Task<IActionResult> ValidateEmployeeDetailsOnSearch([FromBody] EmployeeSearchViewModel employeeSearchViewModel
@@ -146,7 +145,7 @@ namespace WebAppCore.Areas.EmployeeManage.Controllers
 
             var ValidateResults = await Task.WhenAll(TaskValidateSearchAllFiled
                                                                 , TaskValidateSearchDOB
-                                                                ,TaskValidateSearchDOJ);
+                                                                , TaskValidateSearchDOJ);
 
             foreach (var validateResults in ValidateResults)
             {
@@ -162,6 +161,7 @@ namespace WebAppCore.Areas.EmployeeManage.Controllers
         }
 
         #region Add Employee
+
         [Route("AddEmployeePage")]
         public async Task<IActionResult> AddEmployeePage()
         {
@@ -172,7 +172,6 @@ namespace WebAppCore.Areas.EmployeeManage.Controllers
             employeeViewModel.PermenantAddress.CountryId = 211;
             employeeViewModel.CurrentAddress.CountryId = 212;
             return await Task.Run(() => View("AddEmployee", employeeViewModel));
-
         }
 
         [Route("AddEmployee")]
@@ -186,7 +185,6 @@ namespace WebAppCore.Areas.EmployeeManage.Controllers
             }
 
             var loggedInUserDetails = await Task.Run(() => this.User.GetLoggedInUserDetails());
-            
 
             EmployeeModel employee = new EmployeeModel();
             employee = _mapper.Map<EmployeeModel>(employeeViewModel);
@@ -203,15 +201,12 @@ namespace WebAppCore.Areas.EmployeeManage.Controllers
             {
                 return await Task.Run(() =>
                    new JsonResult("RequestPassed|1|Success|Employee created successfully"));
-
             }
             else
             {
                 return await Task.Run(() =>
                  new JsonResult("RequestFailed|0|Error|Error occured on Employee creation. If issue presist contact Support Team"));
-
             }
-
         }
 
         [Route("GetCountries")]
@@ -225,7 +220,7 @@ namespace WebAppCore.Areas.EmployeeManage.Controllers
             return await Task.Run(() => Json(countriesViewModel));
         }
 
-        #endregion
+        #endregion Add Employee
 
         #region Private Methods EmployeeManage Controller
 
@@ -259,7 +254,6 @@ namespace WebAppCore.Areas.EmployeeManage.Controllers
 
         private static async Task<string> ValidateEmployeeDetailsOnDOJ(EmployeeSearchViewModel employeeSearchViewModel)
         {
-
             if (employeeSearchViewModel != null && (employeeSearchViewModel.DateOfJoiningStart != null && employeeSearchViewModel.DateOfJoiningEnd == null))
             {
                 return "RequestFailed|2|Warning|Please provide Date Of Joining End date ";
@@ -279,7 +273,6 @@ namespace WebAppCore.Areas.EmployeeManage.Controllers
 
         private static async Task<string> ValidateEmployeeDetailsOnDOB(EmployeeSearchViewModel employeeSearchViewModel)
         {
-
             if (employeeSearchViewModel != null && (employeeSearchViewModel.DateOfBirthStart != null && employeeSearchViewModel.DateOfBirthEnd == null))
             {
                 return "RequestFailed|2|Warning|Please provide Date Of Birth End date ";
@@ -297,6 +290,6 @@ namespace WebAppCore.Areas.EmployeeManage.Controllers
             return "";
         }
 
-        #endregion
+        #endregion Private Methods EmployeeManage Controller
     }
 }

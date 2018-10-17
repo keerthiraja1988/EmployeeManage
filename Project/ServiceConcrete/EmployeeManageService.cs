@@ -20,7 +20,7 @@ namespace ServiceConcrete
     [NLogging]
     public class EmployeeManageService : IEmployeeManageService
     {
-        IEmployeeManageRepository _IEmployeeManageRepository;
+        private IEmployeeManageRepository _IEmployeeManageRepository;
 
         public EmployeeManageService(DbConnection Parameter)
         {
@@ -85,7 +85,6 @@ namespace ServiceConcrete
 
                 var returnValue = _IEmployeeManageRepository1.LoadEmployeeData(item, employeeAddresses);
                 //var returnValue = this._IEmployeeManageRepository.LoadEmployeeData(item);
-
             });
             return employeeDetails.ToList();
         }
