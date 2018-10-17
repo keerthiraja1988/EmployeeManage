@@ -21,19 +21,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Serialization;
 using StackExchange.Profiling.Storage;
-
-using System;
-using System.Collections.Generic;
-
 using System.Globalization;
-
-using System.Linq;
-
 using System.Net.WebSockets;
 using System.Threading;
-
-using System.Threading.Tasks;
-
 using WebAppCore.Areas.DashBoard.SignalR;
 using WebAppCore.Infrastructure;
 using WebAppCore.SignalRHubs;
