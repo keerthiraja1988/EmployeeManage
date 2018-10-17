@@ -1,4 +1,4 @@
-﻿		CREATE PROCEDURE spGetAllAddress  
+﻿		CREATE PROCEDURE [dbo].[spGetAllAddress]  
 --Add the parameters  
 
 AS  

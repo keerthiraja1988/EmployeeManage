@@ -5,6 +5,7 @@
 CREATE PROC [dbo].[P_SaveIpAddressDetailsOnLogin] 
 						 @UserId bigint
 						,@UserName  nvarchar(500)
+						,@CookieUniqueId [UNiqueidentifier] 
 						 ,@IsLoginSuccess BIT
 						, @Status nvarchar(500)
 						,@IpAddress [nvarchar](500) 
@@ -39,6 +40,7 @@ begin
            ,[IsLoginSuccess]
 		   ,
 		   [Status]
+		   ,CookieUniqueId
 		   ,IpAddress
            ,[Country]
            ,[CountryCode]
@@ -64,6 +66,7 @@ begin
 						,@UserName  
 						 ,@IsLoginSuccess 
 		,@Status 
+		,@CookieUniqueId
 		,@IpAddress
 		,@Country 
 		,@CountryCode 

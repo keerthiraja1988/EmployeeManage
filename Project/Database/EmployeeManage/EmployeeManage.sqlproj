@@ -97,5 +97,7 @@
     <Build Include="dbo\Stored Procedures\P_CreateEmployee.sql" />
     <Build Include="Database Triggers\tr_ChangeTracking.sql" />
     <Build Include="dbo\User Defined Types\T_EmployeeAddress.sql" />
+    <Build Include="dbo\Stored Procedures\P_UpdatedUserDisConnectionTracking.sql" />
+    <Build Include="dbo\Stored Procedures\P_GetUserDetailsForLastLogin.sql" />
   </ItemGroup>
 </Project>
