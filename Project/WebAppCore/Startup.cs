@@ -1,26 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.IO.Compression;
-using System.Linq;
-using System.Net;
-using System.Net.WebSockets;
-using System.Threading;
-using System.Threading.Tasks;
 using Autofac;
+using System.Collections.Generic;
 using Autofac.Extensions.DependencyInjection;
 using AutoMapper;
 using CrossCutting.Caching;
-using CrossCutting.Logging;
+using System.Linq;
 using DomainModel;
-
 using JSNLog;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.CookiePolicy;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.AspNetCore.ResponseCompression;
@@ -29,18 +21,26 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Serialization;
 using StackExchange.Profiling.Storage;
+
+using System;
+using System.Collections.Generic;
+
+using System.Globalization;
+
+using System.Linq;
+
+using System.Net.WebSockets;
+using System.Threading;
+
+using System.Threading.Tasks;
+
 using WebAppCore.Areas.DashBoard.SignalR;
 using WebAppCore.Infrastructure;
-using WebAppCore.Infrastructure.CustomMiddleware;
 using WebAppCore.SignalRHubs;
 using static DependencyInjecionResolver.DependencyInjecionResolver;
 
 namespace WebAppCore
 {
-
-
-
-
     public class Startup
     {
         private readonly ILogger<Startup> _logger;
@@ -59,18 +59,13 @@ namespace WebAppCore
                 Value = x.Value
             }).ToList();
             Caching.Instance.AddApplicationConfigs(applicationConfigs);
-
         }
-
         public IConfiguration Configuration { get; set; }
         public Autofac.IContainer ApplicationContainer { get; private set; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
-
-
-
             // Maintain property names during serialization. See:
             // https://github.com/aspnet/Announcements/issues/194
             services
@@ -97,7 +92,6 @@ namespace WebAppCore
                 options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
                 options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
                 options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-
             })
                    .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, options =>
                    {
@@ -108,8 +102,6 @@ namespace WebAppCore
 
                        options.Events = new CookieAuthenticationEvents()
                        {
-
-
                            OnRedirectToAccessDenied = (ctx) =>
                            {
                                var request = ctx.HttpContext.Request.Path;
@@ -132,7 +124,6 @@ namespace WebAppCore
 
             services.AddAntiforgery(options =>
             {
-
                 // new API
                 options.Cookie.Name = "AntiforgeryCookie";
 
@@ -158,8 +149,6 @@ namespace WebAppCore
             builder.RegisterModule(new ServiceDIContainer(sqlConnection));
             this.ApplicationContainer = builder.Build();
 
-
-
             return new AutofacServiceProvider(this.ApplicationContainer);
         }
 
@@ -167,8 +156,6 @@ namespace WebAppCore
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory
             )
         {
-
-
             var cultureInfo = new CultureInfo("en-US");
             cultureInfo.NumberFormat.CurrencySymbol = "€";
 
@@ -186,11 +173,9 @@ namespace WebAppCore
 
             if (env.IsDevelopment())
             {
-
                 // ...existing configuration...
                 //app.UseMiniProfiler();
                 app.UseDeveloperExceptionPage();
-
             }
             else
             {
@@ -253,12 +238,10 @@ namespace WebAppCore
         {
             services.Configure<RazorViewEngineOptions>(o =>
             {
-
-                //// {2} is area, {1} is controller,{0} is the action    
+                //// {2} is area, {1} is controller,{0} is the action
                 //o.ViewLocationFormats.Clear();
                 //o.ViewLocationFormats.Add("/Views/{1}/{0}" + RazorViewEngine.ViewExtension);
                 //o.ViewLocationFormats.Add("/Views/Shared/{0}" + RazorViewEngine.ViewExtension);
-
 
                 // Untested. You could remove this if you don't care about areas.
                 o.AreaViewLocationFormats.Clear();
@@ -269,14 +252,11 @@ namespace WebAppCore
 
             services.AddResponseCompression(options =>
             {
-
                 options.Providers.Add<Infrastructure.BrotliCompressionProvider>();
                 options.Providers.Add<GzipCompressionProvider>();
                 options.EnableForHttps = true;
-
             }
           );
-
         }
 
         private static void ConfigureMiniProfier(IServiceCollection services)
@@ -311,21 +291,15 @@ namespace WebAppCore
                                      , "lib/bootstrap/dist/css/bootstrap.min.css"
                                     );
 
-
                 pipeline.AddJavaScriptBundle("/js/bundle.js", "js/Main.js"
                                         , "js/site.js"
 
                                         );
 
-
                 // This will minify any JS and CSS file that isn't part of any bundle
                 pipeline.MinifyCssFiles();
                 pipeline.MinifyJsFiles();
-
             });
         }
-
-
-
     }
 }
