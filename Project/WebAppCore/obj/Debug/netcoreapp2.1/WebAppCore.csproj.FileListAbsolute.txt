@@ -32,3 +32,37 @@ C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\WebAppCore.dll
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\WebAppCore.pdb
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\PostSharp\postsharp.app.config
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\WebAppCore\bin\Debug\netcoreapp2.1\WebAppCore.pssym
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\WebAppCore\bin\Debug\netcoreapp2.1\NLog.config
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\WebAppCore\bin\Debug\netcoreapp2.1\brolib32.dll
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\WebAppCore\bin\Debug\netcoreapp2.1\brolib64.dll
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\WebAppCore\bin\Debug\netcoreapp2.1\brolib32.pdb
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\WebAppCore\bin\Debug\netcoreapp2.1\brolib64.pdb
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\WebAppCore\bin\Debug\netcoreapp2.1\web.config
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\WebAppCore\bin\Debug\netcoreapp2.1\WebAppCore.deps.json
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\WebAppCore\bin\Debug\netcoreapp2.1\WebAppCore.runtimeconfig.json
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\WebAppCore\bin\Debug\netcoreapp2.1\WebAppCore.runtimeconfig.dev.json
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\WebAppCore\bin\Debug\netcoreapp2.1\WebAppCore.dll
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\WebAppCore\bin\Debug\netcoreapp2.1\WebAppCore.pdb
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\WebAppCore\bin\Debug\netcoreapp2.1\CrossCutting.dll
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\WebAppCore\bin\Debug\netcoreapp2.1\DependencyInjecionResolver.dll
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\WebAppCore\bin\Debug\netcoreapp2.1\DomainModel.dll
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\WebAppCore\bin\Debug\netcoreapp2.1\Repository.dll
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\WebAppCore\bin\Debug\netcoreapp2.1\ServiceConcrete.dll
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\WebAppCore\bin\Debug\netcoreapp2.1\ServiceInterface.dll
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\WebAppCore\bin\Debug\netcoreapp2.1\CrossCutting.pdb
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\WebAppCore\bin\Debug\netcoreapp2.1\DependencyInjecionResolver.pdb
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\WebAppCore\bin\Debug\netcoreapp2.1\DomainModel.pdb
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\WebAppCore\bin\Debug\netcoreapp2.1\ServiceInterface.pdb
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\WebAppCore\bin\Debug\netcoreapp2.1\Repository.pdb
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\WebAppCore\bin\Debug\netcoreapp2.1\ServiceConcrete.pdb
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\WebAppCore.csprojAssemblyReference.cache
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\WebAppCore.csproj.CoreCompileInputs.cache
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\WebAppCore.AssemblyInfoInputs.cache
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\WebAppCore.AssemblyInfo.cs
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\WebAppCore.csproj.CopyComplete
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\PostSharp\touch
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\PostSharp\dependencies.txt
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\WebAppCore.dll
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\WebAppCore.pdb
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\PostSharp\postsharp.app.config

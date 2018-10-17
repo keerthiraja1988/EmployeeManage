@@ -37,6 +37,11 @@ namespace ServiceConcrete
 
         public IpPropertiesModal GetIpAddressDetails(string IpAddress)
         {
+            if (IpAddress == "::1")
+            {
+                IpAddress = Faker.Internet.IPv4();
+            }
+
             return _IIPRequestDetails.GetCountryDetailsByIP(IpAddress);
         }
     }

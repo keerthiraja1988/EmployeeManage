@@ -10,3 +10,15 @@ C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\ServiceInterface\obj
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\ServiceInterface\obj\Debug\netstandard2.0\ServiceInterface.csproj.CopyComplete
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\ServiceInterface\obj\Debug\netstandard2.0\ServiceInterface.dll
 C:\Users\Keerthi Raja P\source\repos\EmployeeManage\Project\ServiceInterface\obj\Debug\netstandard2.0\ServiceInterface.pdb
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\ServiceInterface\bin\Debug\netstandard2.0\ServiceInterface.deps.json
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\ServiceInterface\bin\Debug\netstandard2.0\ServiceInterface.dll
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\ServiceInterface\bin\Debug\netstandard2.0\ServiceInterface.pdb
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\ServiceInterface\bin\Debug\netstandard2.0\DomainModel.dll
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\ServiceInterface\bin\Debug\netstandard2.0\DomainModel.pdb
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\ServiceInterface\obj\Debug\netstandard2.0\ServiceInterface.csprojAssemblyReference.cache
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\ServiceInterface\obj\Debug\netstandard2.0\ServiceInterface.csproj.CoreCompileInputs.cache
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\ServiceInterface\obj\Debug\netstandard2.0\ServiceInterface.AssemblyInfoInputs.cache
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\ServiceInterface\obj\Debug\netstandard2.0\ServiceInterface.AssemblyInfo.cs
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\ServiceInterface\obj\Debug\netstandard2.0\ServiceInterface.csproj.CopyComplete
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\ServiceInterface\obj\Debug\netstandard2.0\ServiceInterface.dll
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\ServiceInterface\obj\Debug\netstandard2.0\ServiceInterface.pdb

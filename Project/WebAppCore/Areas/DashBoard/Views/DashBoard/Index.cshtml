@@ -97,7 +97,7 @@
     <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 pl-0 pr-2 mt-2 pb-2 pt-0
          order-md-first order-sm-first order-first  order-lg-last order-xl-last">
 
-        <div class="card text-white pl-0 pr-0 pt-0 pb-0 mt-0"
+        <div id="weatherWidget" class="card text-white pl-0 pr-0 pt-0 pb-0 mt-0"
              style=" box-shadow: 0px 4px 7px -1px #777; background-color: #0275d8;">
             <div class="card-header pb-2" style="padding-bottom: 3px; padding-top: 3px;">
                 <div class="row ">
@@ -166,7 +166,7 @@
             </div>
         </div>
 
-        <div class="card text-white pl-0 pr-0 pt-0 pb-0 mt-3"
+        <div id="clockWidget" class="card text-white pl-0 pr-0 pt-0 pb-0 mt-3"
              style=" box-shadow: 0px 4px 7px 0.7px rgba(119, 119, 119, 0.76);">
 
             <script>
@@ -376,6 +376,26 @@
         dashBoardRow1WidgetServicesAnimate.chain(dashBoardRow1WidgetActiveUsersAnimate);
 
         dashBoardRow1WidgetEmployeeDetailsAnimate.start();
+
+        $('#cardDashBoardRow1WidgetEmployeeDetails').tilt({
+            glare: true,
+            maxGlare: .5
+        });
+
+        $('#divDashBoardRow1WidgetAppErrors').tilt({
+            glare: true,
+            maxGlare: .5
+        });
+
+        $('#divDashBoardRow1WidgetServices').tilt({
+            glare: true,
+            maxGlare: .5
+        });
+
+        $('#divDashBoardRow1WidgetActiveUsers').tilt({
+            glare: true,
+            maxGlare: .5
+        });
     });
 
     dashBoardHubConnection.start().catch(function (err) {
@@ -391,7 +411,37 @@
 
     jQuery(document).ready(function () {
 
+        $('#cardDashBoardRow1WidgetEmployeeDetails').tilt({
+            glare: true,
+            maxGlare: .5
+        });
 
+        $('#divDashBoardRow1WidgetAppErrors').tilt({
+            glare: true,
+            maxGlare: .5
+        });
+
+        $('#divDashBoardRow1WidgetServices').tilt({
+            glare: true,
+            maxGlare: .5
+        });
+
+        $('#divDashBoardRow1WidgetActiveUsers').tilt({
+            glare: true,
+            maxGlare: .5
+            
+        });
+
+        $('#weatherWidget').tilt({
+            glare: true,
+            maxGlare: .5
+            
+        });
+        $('#clockWidget').tilt({
+            glare: true,
+            maxGlare: .5
+            
+        });
         setTimeout(
             function () {
                 var dashBoardRow1WidgetEmployeeDetailsAnimate = KUTE.fromTo('#divDashBoardRow1WidgetEmployeeDetails', { rotateX: 180 }, { rotateX: 0 }, { perspective: 600, duration: 1000, delay: 100 });

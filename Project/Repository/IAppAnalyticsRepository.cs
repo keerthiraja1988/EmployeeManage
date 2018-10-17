@@ -12,7 +12,7 @@ namespace Repository
         [Sql("P_SaveIpAddressDetailsOnLogin")]      
         Int32 SaveIpAddressDetailsOnLogin(IpPropertiesModal IpAddressDetails);
 
-        [Sql("P_UpdatedUserDisConnectionTracting")]
+        [Sql("UpdatedUserDisConnectionTracking")]
         Int32 UpdatedUserDisConnectionTracking(IpPropertiesModal IpAddressDetails);
     }
 }

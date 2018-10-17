@@ -176,24 +176,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Keerthi Raja P\\.nuget\\packages\\": {},
+    "C:\\Users\\KEERTHIRAJA\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Keerthi Raja P\\source\\repos\\EmployeeManage\\Project\\DomainModel\\DomainModel.csproj",
+      "projectUniqueName": "C:\\Users\\KEERTHIRAJA\\Documents\\GitHub\\EmployeeManage\\Project\\DomainModel\\DomainModel.csproj",
       "projectName": "DomainModel",
-      "projectPath": "C:\\Users\\Keerthi Raja P\\source\\repos\\EmployeeManage\\Project\\DomainModel\\DomainModel.csproj",
-      "packagesPath": "C:\\Users\\Keerthi Raja P\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Keerthi Raja P\\source\\repos\\EmployeeManage\\Project\\DomainModel\\obj\\",
+      "projectPath": "C:\\Users\\KEERTHIRAJA\\Documents\\GitHub\\EmployeeManage\\Project\\DomainModel\\DomainModel.csproj",
+      "packagesPath": "C:\\Users\\KEERTHIRAJA\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\KEERTHIRAJA\\Documents\\GitHub\\EmployeeManage\\Project\\DomainModel\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Keerthi Raja P\\source\\repos\\EmployeeManage\\Project\\NuGet.Config",
-        "C:\\Users\\Keerthi Raja P\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\KEERTHIRAJA\\Documents\\GitHub\\EmployeeManage\\Project\\NuGet.Config",
+        "C:\\Users\\KEERTHIRAJA\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
