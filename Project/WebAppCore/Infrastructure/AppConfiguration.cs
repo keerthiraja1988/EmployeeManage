@@ -1,13 +1,16 @@
-﻿using AutoMapper.Configuration;
-using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace WebAppCore.Infrastructure
+﻿namespace WebAppCore.Infrastructure
 {
+    using AutoMapper.Configuration;
+    using Microsoft.Extensions.Configuration;
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Linq;
+    using System.Threading.Tasks;
+
+    /// <summary>
+    /// 
+    /// </summary>
     public class AppConfiguration
     {
         private static AppConfiguration _appConfiguration;

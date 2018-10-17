@@ -1,2 +1,2 @@
-C:\ProgramData\PostSharp\6.0.27\bin.Release\netcoreapp2.0\PostSharp.Compiler.Engine.dll
+C:\ProgramData\PostSharp\6.0.28\bin.Release\netcoreapp2.0\PostSharp.Compiler.Engine.dll
 C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\CrossCutting\obj\Debug\netstandard2.0\PostSharp\postsharp.config

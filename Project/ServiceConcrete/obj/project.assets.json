@@ -29,12 +29,12 @@
           "lib/net45/Faker.dll": {}
         }
       },
-      "Insight.Database/6.2.4": {
+      "Insight.Database/6.2.6": {
         "type": "package",
         "dependencies": {
-          "Insight.Database.Configuration": "6.2.4",
-          "Insight.Database.Core": "6.2.4",
-          "Insight.Database.Providers.Default": "6.2.4"
+          "Insight.Database.Configuration": "6.2.6",
+          "Insight.Database.Core": "6.2.6",
+          "Insight.Database.Providers.Default": "6.2.6"
         },
         "compile": {
           "lib/netstandard2.0/Insight.Database.dll": {}
@@ -43,10 +43,10 @@
           "lib/netstandard2.0/Insight.Database.dll": {}
         }
       },
-      "Insight.Database.Configuration/6.2.4": {
+      "Insight.Database.Configuration/6.2.6": {
         "type": "package",
         "dependencies": {
-          "Insight.Database.Core": "6.2.4",
+          "Insight.Database.Core": "6.2.6",
           "System.Data.SqlClient": "4.4.0"
         },
         "compile": {
@@ -56,7 +56,7 @@
           "lib/netstandard2.0/Insight.Database.Configuration.dll": {}
         }
       },
-      "Insight.Database.Core/6.2.4": {
+      "Insight.Database.Core/6.2.6": {
         "type": "package",
         "dependencies": {
           "System.Data.Common": "4.3.0",
@@ -77,10 +77,10 @@
           "lib/netstandard2.0/Insight.Database.Core.dll": {}
         }
       },
-      "Insight.Database.Providers.Default/6.2.4": {
+      "Insight.Database.Providers.Default/6.2.6": {
         "type": "package",
         "dependencies": {
-          "Insight.Database.Core": "6.2.4",
+          "Insight.Database.Core": "6.2.6",
           "System.Data.SqlClient": "4.4.0",
           "System.Diagnostics.Tools": "4.3.0"
         },
@@ -215,10 +215,10 @@
           }
         }
       },
-      "PostSharp/6.0.27": {
+      "PostSharp/6.0.28": {
         "type": "package",
         "dependencies": {
-          "PostSharp.Redist": "[6.0.27, 7.0.0)"
+          "PostSharp.Redist": "[6.0.28, 7.0.0)"
         },
         "compile": {
           "lib/netstandard1.0/_._": {}
@@ -231,7 +231,7 @@
           "build/PostSharp.targets": {}
         }
       },
-      "PostSharp.Redist/6.0.27": {
+      "PostSharp.Redist/6.0.28": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/PostSharp.dll": {}
@@ -1121,7 +1121,7 @@
           "DomainModel": "1.0.0",
           "NLog": "4.5.10",
           "NLog.Config": "4.5.10",
-          "PostSharp": "6.0.27",
+          "PostSharp": "6.0.28",
           "Serilog.Sinks.MSSqlServer": "5.1.2"
         },
         "compile": {
@@ -1147,7 +1147,7 @@
         "dependencies": {
           "CrossCutting": "1.0.0",
           "DomainModel": "1.0.0",
-          "Insight.Database": "6.2.4"
+          "Insight.Database": "6.2.6"
         },
         "compile": {
           "bin/placeholder/Repository.dll": {}
@@ -1202,13 +1202,13 @@
         "lib/net45/Faker.dll"
       ]
     },
-    "Insight.Database/6.2.4": {
-      "sha512": "kFdX2+PFcq/Y4rjMx2jW+56b8dgA7Pi+VunfOD6ObVioTf5sI5BD2G+Z1BHIHui0D49dLeiHTp54cueglBOaDg==",
+    "Insight.Database/6.2.6": {
+      "sha512": "M+ydQa8k+TBooMO7P311cwALReMQRjIhisfYlxSU6B4yIJy5ZelNged9rFh15x1azRV7TFQ5PBc72DpYoehe2g==",
       "type": "package",
-      "path": "insight.database/6.2.4",
+      "path": "insight.database/6.2.6",
       "files": [
         ".signature.p7s",
-        "insight.database.6.2.4.nupkg.sha512",
+        "insight.database.6.2.6.nupkg.sha512",
         "insight.database.nuspec",
         "lib/net45/Insight.Database.dll",
         "lib/net451/Insight.Database.dll",
@@ -1216,13 +1216,13 @@
         "lib/netstandard2.0/Insight.Database.dll"
       ]
     },
-    "Insight.Database.Configuration/6.2.4": {
-      "sha512": "icOq+5lWQ7Gc648HMK2lSP80MQ9w6wvwL+vyzeLTscQ6E43lhI8wPTVdlKOCXwbSKtOoNxKpg0Q/YZO49O/vZw==",
+    "Insight.Database.Configuration/6.2.6": {
+      "sha512": "MNvn2Iu/jLHYuvPhAOqJ/rSOJ9pY8wIcVkUzKRIsF9Hv/X0OWt8qqlcTDlEEJVjh9U1auYx8GPqteshngD3nLg==",
       "type": "package",
-      "path": "insight.database.configuration/6.2.4",
+      "path": "insight.database.configuration/6.2.6",
       "files": [
         ".signature.p7s",
-        "insight.database.configuration.6.2.4.nupkg.sha512",
+        "insight.database.configuration.6.2.6.nupkg.sha512",
         "insight.database.configuration.nuspec",
         "lib/net45/Insight.Database.Configuration.dll",
         "lib/net45/Insight.Database.Configuration.xml",
@@ -1234,13 +1234,13 @@
         "lib/netstandard2.0/Insight.Database.Configuration.xml"
       ]
     },
-    "Insight.Database.Core/6.2.4": {
-      "sha512": "YoAfQJ50xTaQCzVVkUBdY4OmoqOfAdlLmI8Dpe0HnMPItpsDqZDgnP8zkxfTYiwVlFdBwkI6vOr+X02NAziIpQ==",
+    "Insight.Database.Core/6.2.6": {
+      "sha512": "K8KDi7Z2kG5vn5RFOs0d0VS3MfExBdYeGN/mE8Hfrf1eL0Zo+2LKqNBdJnWbTwqxbvaYY6ohQA1z3xNi3w7O7w==",
       "type": "package",
-      "path": "insight.database.core/6.2.4",
+      "path": "insight.database.core/6.2.6",
       "files": [
         ".signature.p7s",
-        "insight.database.core.6.2.4.nupkg.sha512",
+        "insight.database.core.6.2.6.nupkg.sha512",
         "insight.database.core.nuspec",
         "lib/net45/Insight.Database.Core.dll",
         "lib/net45/Insight.Database.Core.xml",
@@ -1252,13 +1252,13 @@
         "lib/netstandard2.0/Insight.Database.Core.xml"
       ]
     },
-    "Insight.Database.Providers.Default/6.2.4": {
-      "sha512": "x87mYauDFB7ARxQFQNV+M/MbFHvHlfORAvcDM4TlXm0Bxm7NBirxwZeAdOPD6/JayJmSKvFHDrCD12UvSekaWw==",
+    "Insight.Database.Providers.Default/6.2.6": {
+      "sha512": "LI633ueYCw6IzCDyxE1flJXkfVZl8yh9ANPWztdHm2t+CESq8DsSXMot2Hek/WTKfsSCBSvsLVBox2JKj6fG4Q==",
       "type": "package",
-      "path": "insight.database.providers.default/6.2.4",
+      "path": "insight.database.providers.default/6.2.6",
       "files": [
         ".signature.p7s",
-        "insight.database.providers.default.6.2.4.nupkg.sha512",
+        "insight.database.providers.default.6.2.6.nupkg.sha512",
         "insight.database.providers.default.nuspec",
         "lib/net45/Insight.Database.Providers.Default.dll",
         "lib/net45/Insight.Database.Providers.Default.xml",
@@ -1587,10 +1587,10 @@
         "nlog.schema.nuspec"
       ]
     },
-    "PostSharp/6.0.27": {
-      "sha512": "6w35QeX757xIgmVS8Z/85+v0cAJaK07FK79KprxCPg3QWD/Y+jbfSicwHYGG381cEykqQahPopQrLIkxCt/UAQ==",
+    "PostSharp/6.0.28": {
+      "sha512": "UGZ1eEIeN2++Vve0c9DZCgN1OXDtSHlnh3e3hQgPLyaBQT1WtwIqjwXt2CddqodmOdImsEe97phVdhFCM913jg==",
       "type": "package",
-      "path": "postsharp/6.0.27",
+      "path": "postsharp/6.0.28",
       "files": [
         ".signature.p7s",
         "build/PostSharp-Tools.exe",
@@ -1599,20 +1599,20 @@
         "build/PostSharp.props",
         "build/PostSharp.targets",
         "build/PostSharp.tasks",
-        "build/net471/PostSharp.MSBuild.v6.0.27.Release.dll",
-        "build/net471/PostSharp.MSBuild.v6.0.27.Release.pdb",
-        "build/netcoreapp2.0/PostSharp.MSBuild.v6.0.27.Release.dll",
-        "build/netcoreapp2.0/PostSharp.MSBuild.v6.0.27.Release.pdb",
+        "build/net471/PostSharp.MSBuild.v6.0.28.Release.dll",
+        "build/net471/PostSharp.MSBuild.v6.0.28.Release.pdb",
+        "build/netcoreapp2.0/PostSharp.MSBuild.v6.0.28.Release.dll",
+        "build/netcoreapp2.0/PostSharp.MSBuild.v6.0.28.Release.pdb",
         "lib/net35-client/_._",
         "lib/netstandard1.0/_._",
-        "postsharp.6.0.27.nupkg.sha512",
+        "postsharp.6.0.28.nupkg.sha512",
         "postsharp.nuspec"
       ]
     },
-    "PostSharp.Redist/6.0.27": {
-      "sha512": "EfxsT20Djcu6kGMcd+5t79JDjqgCCJonke3rTuzIAcb4Trq+BXL3szC8c2nFugDHcYez12d9OsWIz2ckq9NCbg==",
+    "PostSharp.Redist/6.0.28": {
+      "sha512": "UNTVpWWQEYBx2A4MEQv8mcWJldOXmzVpUPCwUgh5+yH2SZRlobmui71EOy4d6F3IM6kt0feFZOmQWtMWCf5frw==",
       "type": "package",
-      "path": "postsharp.redist/6.0.27",
+      "path": "postsharp.redist/6.0.28",
       "files": [
         ".signature.p7s",
         "lib/net35-client/PostSharp.dll",
@@ -1623,7 +1623,7 @@
         "lib/netstandard1.3/PostSharp.xml",
         "lib/netstandard2.0/PostSharp.dll",
         "lib/netstandard2.0/PostSharp.xml",
-        "postsharp.redist.6.0.27.nupkg.sha512",
+        "postsharp.redist.6.0.28.nupkg.sha512",
         "postsharp.redist.nuspec"
       ]
     },
@@ -4600,10 +4600,10 @@
       "DomainModel >= 1.0.0",
       "Effortless.Net.Encryption >= 3.2.0",
       "Faker.Data >= 1.0.7",
-      "Insight.Database >= 6.2.4",
+      "Insight.Database >= 6.2.6",
       "NBuilder >= 6.0.0",
       "NETStandard.Library >= 2.0.3",
-      "PostSharp >= 6.0.27",
+      "PostSharp >= 6.0.28",
       "Repository >= 1.0.0",
       "ServiceInterface >= 1.0.0"
     ]
@@ -4674,7 +4674,7 @@
           },
           "Insight.Database": {
             "target": "Package",
-            "version": "[6.2.4, )"
+            "version": "[6.2.6, )"
           },
           "NBuilder": {
             "target": "Package",
@@ -4688,7 +4688,7 @@
           },
           "PostSharp": {
             "target": "Package",
-            "version": "[6.0.27, )"
+            "version": "[6.0.28, )"
           }
         },
         "imports": [

@@ -24,6 +24,6 @@
     </None>
   </ItemGroup>
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <Import Project="$(NuGetPackageRoot)postsharp\6.0.27\build\PostSharp.props" Condition="Exists('$(NuGetPackageRoot)postsharp\6.0.27\build\PostSharp.props')" />
+    <Import Project="$(NuGetPackageRoot)postsharp\6.0.28\build\PostSharp.props" Condition="Exists('$(NuGetPackageRoot)postsharp\6.0.28\build\PostSharp.props')" />
   </ImportGroup>
 </Project>

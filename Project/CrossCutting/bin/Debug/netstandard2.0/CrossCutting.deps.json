@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETStandard,Version=v2.0/",
-    "signature": "557f8f8773689ff055a9fee4dd87a893be9319c2"
+    "signature": "e05133ba50d4b58e7e6de7e830bdbfb4bdec265f"
   },
   "compilationOptions": {},
   "targets": {
@@ -14,7 +14,7 @@
           "NETStandard.Library": "2.0.3",
           "NLog": "4.5.10",
           "NLog.Config": "4.5.10",
-          "PostSharp": "6.0.27",
+          "PostSharp": "6.0.28",
           "Serilog.Sinks.MSSqlServer": "5.1.2",
           "Microsoft.AspNetCore.Mvc.ViewFeatures": "2.1.1.0",
           "Microsoft.Extensions.Configuration": "2.1.1.0"
@@ -91,16 +91,16 @@
         }
       },
       "NLog.Schema/4.5.10": {},
-      "PostSharp/6.0.27": {
+      "PostSharp/6.0.28": {
         "dependencies": {
-          "PostSharp.Redist": "6.0.27"
+          "PostSharp.Redist": "6.0.28"
         }
       },
-      "PostSharp.Redist/6.0.27": {
+      "PostSharp.Redist/6.0.28": {
         "runtime": {
           "lib/netstandard2.0/PostSharp.dll": {
-            "assemblyVersion": "6.0.27.0",
-            "fileVersion": "6.0.27.0"
+            "assemblyVersion": "6.0.28.0",
+            "fileVersion": "6.0.28.0"
           }
         }
       },
@@ -654,19 +654,19 @@
       "path": "nlog.schema/4.5.10",
       "hashPath": "nlog.schema.4.5.10.nupkg.sha512"
     },
-    "PostSharp/6.0.27": {
+    "PostSharp/6.0.28": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-6w35QeX757xIgmVS8Z/85+v0cAJaK07FK79KprxCPg3QWD/Y+jbfSicwHYGG381cEykqQahPopQrLIkxCt/UAQ==",
-      "path": "postsharp/6.0.27",
-      "hashPath": "postsharp.6.0.27.nupkg.sha512"
+      "sha512": "sha512-UGZ1eEIeN2++Vve0c9DZCgN1OXDtSHlnh3e3hQgPLyaBQT1WtwIqjwXt2CddqodmOdImsEe97phVdhFCM913jg==",
+      "path": "postsharp/6.0.28",
+      "hashPath": "postsharp.6.0.28.nupkg.sha512"
     },
-    "PostSharp.Redist/6.0.27": {
+    "PostSharp.Redist/6.0.28": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-EfxsT20Djcu6kGMcd+5t79JDjqgCCJonke3rTuzIAcb4Trq+BXL3szC8c2nFugDHcYez12d9OsWIz2ckq9NCbg==",
-      "path": "postsharp.redist/6.0.27",
-      "hashPath": "postsharp.redist.6.0.27.nupkg.sha512"
+      "sha512": "sha512-UNTVpWWQEYBx2A4MEQv8mcWJldOXmzVpUPCwUgh5+yH2SZRlobmui71EOy4d6F3IM6kt0feFZOmQWtMWCf5frw==",
+      "path": "postsharp.redist/6.0.28",
+      "hashPath": "postsharp.redist.6.0.28.nupkg.sha512"
     },
     "runtime.native.System.Data.SqlClient.sni/4.4.0": {
       "type": "package",
