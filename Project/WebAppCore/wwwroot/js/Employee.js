@@ -1,6 +1,5 @@
 ﻿(
     function (publicMethod, $) {
-
         publicMethod.EmployeeDetailsPage = function (url) {
             setTimeout(
                 function () {
@@ -41,7 +40,6 @@
             },
 
             publicMethod.EditEmployeeDetails = function (url, data) {
-
                 $.ajax({
                     async: true,
                     type: "POST",
@@ -50,7 +48,7 @@
                     contentType: 'application/json;',
                     dataType: 'json',
                     begin: function (data) {
-                       // JsMain.ShowLoaddingIndicator();
+                        // JsMain.ShowLoaddingIndicator();
                     },
                     complete: function (data) {
                         JsMain.HideLoaddingIndicator();
@@ -80,7 +78,6 @@
                     dataType: 'json',
 
                     begin: function (data) {
-
                     },
                     complete: function (data) {
                         JsMain.HideLoaddingIndicator();
@@ -99,7 +96,5 @@
                     }
                 });
             }
-
-
     }(window.JsEmployee = window.JsEmployee || {}, jQuery)
 );

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Net.Mail;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace CrossCutting.EmailService
 {
@@ -14,7 +15,7 @@ namespace CrossCutting.EmailService
             client.Host = "smtp.gmail.com";
             client.Port = 587;
             client.UseDefaultCredentials = false;
-            client.Credentials = new NetworkCredential("keerthiraja1988@gmail.com", "");
+            client.Credentials = new NetworkCredential("keerthiraja1988@gmail.com", "KIRTHI789+k");
             client.EnableSsl = true;
 
             client.DeliveryMethod = SmtpDeliveryMethod.Network;

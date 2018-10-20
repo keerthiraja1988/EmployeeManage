@@ -17,6 +17,9 @@ using DomainModel.EmployeeManage;
 using System.Globalization;
 using DomainModel.Shared;
 using WebAppCore.Models;
+using MassTransit;
+using MessageContracts;
+using System.Threading;
 
 namespace WebAppCore.Areas.EmployeeManage.Controllers
 {
@@ -25,17 +28,23 @@ namespace WebAppCore.Areas.EmployeeManage.Controllers
     [Roles("SuperUser", "Admin")]
     public class EmployeeManageController : Controller
     {
+        private readonly IBus _bus;
+        private readonly IRequestClient<SendEmailRequest, SendEmailResponse> _requestClient;
+
         public IEmployeeManageService _IEmployeeManageService { get; set; }
         public IConfiguration _configuration { get; set; }
 
         private readonly IMapper _mapper;
 
         public EmployeeManageController(IConfiguration iConfig, IEmployeeManageService iEmployeeManageService
-            , IMapper mapper)
+            , IMapper mapper, IBus bus
+            , IRequestClient<SendEmailRequest, SendEmailResponse> requestClient)
         {
             _mapper = mapper;
             _configuration = iConfig;
             _IEmployeeManageService = iEmployeeManageService;
+            _bus = bus;
+            _requestClient = requestClient;
         }
 
         public async Task<IActionResult> Index()
@@ -177,8 +186,31 @@ namespace WebAppCore.Areas.EmployeeManage.Controllers
         [Route("AddEmployee")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> AddEmployee(EmployeeViewModel employeeViewModel)
+        public async Task<IActionResult> AddEmployee(EmployeeViewModel employeeViewModel
+            , CancellationToken cancellationToken)
         {
+            SendEmailResponse result1 = await _requestClient.Request(new { Id = 50 }, cancellationToken);
+
+            // Message Definition
+
+            //await _bus.Publish(new SubmitEmailRequestContract
+            //{
+            //    From = "keerthiraja1988@gmail.com"
+            //  ,
+            //    To = "keerthiraja1988@gmail.com"
+            //  ,
+            //    Body = "keerthiraja1988@gmail.com"
+            //  ,
+            //    Subject = "keerthiraja1988@gmail.com"
+            //});
+
+            //var addUserEndpoint = await _bus.GetSendEndpoint(new Uri("rabbitmq://localhost/MassTransistQueue"));
+
+            //await addUserEndpoint.Send<SendEmailRequest>(new
+            //{
+            //    Id = 50
+            //});
+
             if (!ModelState.IsValid)
             {
                 return await Task.Run(() => View("AddEmployee", employeeViewModel));

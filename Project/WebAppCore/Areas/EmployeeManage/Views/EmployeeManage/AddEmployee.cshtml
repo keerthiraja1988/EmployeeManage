@@ -36,8 +36,8 @@
     var onFailedAddEmployeeForm = function () {
 
         JsMain.HideLoaddingIndicator();
-        JsMain.ShowMessageShowReloadPopUp('Error',
-        'Error occured on Employee creation. If issue presist contact Support Team');
+        //JsMain.ShowMessageShowReloadPopUp('Error',
+        //'Error occured on Employee creation. If issue presist contact Support Team');
     };
 
     var onCompleteAddEmployeeForm = function () {
@@ -51,15 +51,18 @@
         var dataArray = data.split("|");
         JsMain.HideLoaddingIndicator();
 
-        //Request Failed
-        if (dataArray[1] == '1') {
-            JsMain.ShowMessageShowReloadPopUp(dataArray[2], dataArray[3]);
-        }
-        //Request Passed
-        if (dataArray[1] == '0') {
+        JsMain.ShowMessageShowPopUp(dataArray[2], dataArray[3]);
 
-            JsMain.ShowMessageShowPopUp(dataArray[2], dataArray[3]);
-        }
+        ////Request Failed
+        //if (dataArray[1] == '1') {
+        //    JsMain.ShowMessageShowPopUp(dataArray[2], dataArray[3]);
+        //    JsMain.ShowMessageShowReloadPopUp(dataArray[2], dataArray[3]);
+        //}
+        ////Request Passed
+        //if (dataArray[1] == '0') {
+
+        //    JsMain.ShowMessageShowPopUp(dataArray[2], dataArray[3]);
+        //}
     };
 </script>
 <script>

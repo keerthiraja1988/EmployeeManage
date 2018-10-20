@@ -66,3 +66,5 @@ C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\WebAppCore\obj\Debu
 C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\WebAppCore.dll
 C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\WebAppCore.pdb
 C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\PostSharp\postsharp.app.config
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\WebAppCore\bin\Debug\netcoreapp2.1\MessageContracts.dll
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\WebAppCore\bin\Debug\netcoreapp2.1\MessageContracts.pdb

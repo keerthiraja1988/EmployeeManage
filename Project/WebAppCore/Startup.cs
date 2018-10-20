@@ -28,6 +28,10 @@ using WebAppCore.Areas.DashBoard.SignalR;
 using WebAppCore.Infrastructure;
 using WebAppCore.SignalRHubs;
 using static DependencyInjecionResolver.DependencyInjecionResolver;
+using MassTransit;
+using MassTransit.Util;
+using Autofac.Core;
+using MessageContracts;
 
 namespace WebAppCore
 {
@@ -65,6 +69,7 @@ namespace WebAppCore
                 .AddJsonOptions(options =>
                     options.SerializerSettings.ContractResolver = new DefaultContractResolver())
                     ;
+
             ConfigureRazorAndCompression(services);
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddSignalR();
@@ -88,7 +93,7 @@ namespace WebAppCore
                    {
                        options.AccessDeniedPath = new PathString("/AccessDenied");
                        options.LoginPath = new PathString("/UserAccount");
-                       options.ExpireTimeSpan = TimeSpan.FromSeconds(600);
+                       options.ExpireTimeSpan = TimeSpan.FromSeconds(60000);
                        options.SlidingExpiration = true;
 
                        options.Events = new CookieAuthenticationEvents()
@@ -136,9 +141,34 @@ namespace WebAppCore
 
             builder.RegisterAssemblyModules(System.Reflection.Assembly.GetExecutingAssembly());
             builder.Populate(services);
+
             var sqlConnection = Configuration.GetValue<string>("DBConnection");
+
             builder.RegisterModule(new ServiceDIContainer(sqlConnection));
+
+            builder.Register(c =>
+            {
+                return Bus.Factory.CreateUsingRabbitMq(sbc =>
+                    sbc.Host(new Uri("rabbitmq://localhost:/"), h =>
+                    {
+                        h.Username("guest");
+                        h.Password("guest");
+                    })
+
+                );
+            })
+            .As<IBusControl>()
+            .As<IBus>()
+            .As<IPublishEndpoint>()
+
+            .SingleInstance();
+
+            builder.RegisterModule<RequestClientModule>();
+
             this.ApplicationContainer = builder.Build();
+
+            var container = this.ApplicationContainer.Resolve<IBusControl>();
+            container.Start();
 
             return new AutofacServiceProvider(this.ApplicationContainer);
         }
@@ -291,6 +321,19 @@ namespace WebAppCore
                 pipeline.MinifyCssFiles();
                 pipeline.MinifyJsFiles();
             });
+        }
+    }
+
+    public class RequestClientModule : Module
+    {
+        protected override void Load(ContainerBuilder builder)
+        {
+            Uri address = new Uri("rabbitmq://localhost/order-service");
+            TimeSpan requestTimeout = TimeSpan.FromSeconds(30);
+
+            builder.Register(c => new MessageRequestClient<SendEmailRequest, SendEmailResponse>(c.Resolve<IBus>(), address, requestTimeout))
+                .As<IRequestClient<SendEmailRequest, SendEmailResponse>>()
+                .SingleInstance();
         }
     }
 }

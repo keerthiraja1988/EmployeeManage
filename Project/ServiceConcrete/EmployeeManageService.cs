@@ -139,8 +139,10 @@ namespace ServiceConcrete
 
         public async Task<int> AddEmployee(EmployeeModel employeeModel, List<EmployeeAddressModel> employeeAddresses)
         {
-            return await Task.Run(() => this._IEmployeeManageRepository
-                                                    .AddEmployee(employeeModel, employeeAddresses).Result);
+            var dbResult = await Task.Run(() => this._IEmployeeManageRepository
+                                                   .AddEmployee(employeeModel, employeeAddresses).Result);
+
+            return dbResult;
         }
     }
 }

@@ -14,6 +14,8 @@
 
     <PackageReference Include="JSNLog.AspNetCore" Version="99.0.0" />
     <PackageReference Include="LigerShark.WebOptimizer.Core" Version="1.0.215" />
+    <PackageReference Include="MassTransit.Autofac" Version="5.1.5" />
+    <PackageReference Include="MassTransit.RabbitMQ" Version="5.1.5" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
 
     <PackageReference Include="Autofac" Version="4.9.0-beta1" />
@@ -42,6 +44,7 @@
     <ProjectReference Include="..\CrossCutting\CrossCutting.csproj" />
     <ProjectReference Include="..\DependencyInjecionResolver\DependencyInjecionResolver.csproj" />
     <ProjectReference Include="..\DomainModel\DomainModel.csproj" />
+    <ProjectReference Include="..\MessageContracts\MessageContracts.csproj" />
     <ProjectReference Include="..\ServiceInterface\ServiceInterface.csproj" />
   </ItemGroup>
 
