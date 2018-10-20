@@ -47,12 +47,14 @@ C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\WebAppCore\bin\Debu
 C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\WebAppCore\bin\Debug\netcoreapp2.1\CrossCutting.dll
 C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\WebAppCore\bin\Debug\netcoreapp2.1\DependencyInjecionResolver.dll
 C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\WebAppCore\bin\Debug\netcoreapp2.1\DomainModel.dll
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\WebAppCore\bin\Debug\netcoreapp2.1\MessageContracts.dll
 C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\WebAppCore\bin\Debug\netcoreapp2.1\Repository.dll
 C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\WebAppCore\bin\Debug\netcoreapp2.1\ServiceConcrete.dll
 C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\WebAppCore\bin\Debug\netcoreapp2.1\ServiceInterface.dll
 C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\WebAppCore\bin\Debug\netcoreapp2.1\CrossCutting.pdb
 C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\WebAppCore\bin\Debug\netcoreapp2.1\DependencyInjecionResolver.pdb
 C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\WebAppCore\bin\Debug\netcoreapp2.1\DomainModel.pdb
+C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\WebAppCore\bin\Debug\netcoreapp2.1\MessageContracts.pdb
 C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\WebAppCore\bin\Debug\netcoreapp2.1\ServiceInterface.pdb
 C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\WebAppCore\bin\Debug\netcoreapp2.1\Repository.pdb
 C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\WebAppCore\bin\Debug\netcoreapp2.1\ServiceConcrete.pdb
@@ -66,5 +68,3 @@ C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\WebAppCore\obj\Debu
 C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\WebAppCore.dll
 C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\WebAppCore.pdb
 C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\WebAppCore\obj\Debug\netcoreapp2.1\PostSharp\postsharp.app.config
-C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\WebAppCore\bin\Debug\netcoreapp2.1\MessageContracts.dll
-C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\WebAppCore\bin\Debug\netcoreapp2.1\MessageContracts.pdb

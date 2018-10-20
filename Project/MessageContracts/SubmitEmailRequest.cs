@@ -8,14 +8,14 @@ namespace MessageContracts
         public string Value { get; set; }
     }
 
-    public class SubmitEmailRequestContract
+    public interface SubmitEmailRequestContract
     {
-        public string From { get; set; }
-        public string To { get; set; }
+        string From { get; set; }
+        string To { get; set; }
+        string Subject { get; set; }
+        string Body { get; set; }
 
-        public string Subject { get; set; }
-
-        public string Body { get; set; }
+        DateTime SentOn { get; set; }
     }
 
     public interface SendEmailRequest

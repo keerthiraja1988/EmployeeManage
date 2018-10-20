@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETStandard,Version=v2.0/",
-    "signature": "68f594d13006f95101eac46309c8bc9484c3021b"
+    "signature": "711968c2791c8817e93998a4514a66fbec7f3268"
   },
   "compilationOptions": {},
   "targets": {
@@ -9,7 +9,7 @@
     ".NETStandard,Version=v2.0/": {
       "DependencyInjecionResolver/1.0.0": {
         "dependencies": {
-          "Autofac": "4.9.0-beta1",
+          "Autofac": "4.8.1",
           "CrossCutting": "1.0.0",
           "NETStandard.Library": "2.0.3",
           "ServiceConcrete": "1.0.0",
@@ -19,15 +19,15 @@
           "DependencyInjecionResolver.dll": {}
         }
       },
-      "Autofac/4.9.0-beta1": {
+      "Autofac/4.8.1": {
         "dependencies": {
           "NETStandard.Library": "2.0.3",
           "System.ComponentModel": "4.0.1"
         },
         "runtime": {
           "lib/netstandard1.1/Autofac.dll": {
-            "assemblyVersion": "4.9.0.0",
-            "fileVersion": "4.9.0.0"
+            "assemblyVersion": "4.8.1.0",
+            "fileVersion": "4.8.1.0"
           }
         }
       },
@@ -965,12 +965,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Autofac/4.9.0-beta1": {
+    "Autofac/4.8.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-ELArZEhLmHfl9zv1jht61Fd9qi8qJ3etbs2vRZUnutlG1dVofK+lKDlfyEh+Jfx8RNLxps0PbbgUTaHM6OA+og==",
-      "path": "autofac/4.9.0-beta1",
-      "hashPath": "autofac.4.9.0-beta1.nupkg.sha512"
+      "sha512": "sha512-GYRLxd2wCzhvee2u1vs3AbUbF4CHDWfD7BCNjD3Vxb4wxQz3HC8bPm9Sj9uOT0gE8a6PC2fx1zufmhLgxK+cZg==",
+      "path": "autofac/4.8.1",
+      "hashPath": "autofac.4.8.1.nupkg.sha512"
     },
     "DarkSkyApi/3.3.0": {
       "type": "package",

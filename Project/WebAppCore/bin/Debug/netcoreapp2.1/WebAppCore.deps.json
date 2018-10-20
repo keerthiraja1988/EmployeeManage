@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.1",
-    "signature": "db3ac91a908018ae691484be815730e96e3cb59d"
+    "signature": "4c3af9014e412f9eb49758451465ec0125cd3985"
   },
   "compilationOptions": {
     "defines": [
@@ -27,7 +27,7 @@
         "dependencies": {
           "AutoMapper": "7.0.1",
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "5.0.1",
-          "Autofac": "4.9.0-beta1",
+          "Autofac": "4.8.1",
           "Autofac.Extensions.DependencyInjection": "4.3.0",
           "Autofac.Extras.DynamicProxy": "4.5.0",
           "Brotli.NET": "1.0.19",
@@ -68,15 +68,15 @@
           "WebAppCore.dll": {}
         }
       },
-      "Autofac/4.9.0-beta1": {
+      "Autofac/4.8.1": {
         "dependencies": {
           "NETStandard.Library": "2.0.3",
           "System.ComponentModel": "4.3.0"
         },
         "runtime": {
           "lib/netstandard1.1/Autofac.dll": {
-            "assemblyVersion": "4.9.0.0",
-            "fileVersion": "4.9.0.0"
+            "assemblyVersion": "4.8.1.0",
+            "fileVersion": "4.8.1.0"
           }
         },
         "compile": {
@@ -85,7 +85,7 @@
       },
       "Autofac.Extensions.DependencyInjection/4.3.0": {
         "dependencies": {
-          "Autofac": "4.9.0-beta1",
+          "Autofac": "4.8.1",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "2.2.0-preview2-35157"
         },
         "runtime": {
@@ -100,7 +100,7 @@
       },
       "Autofac.Extras.DynamicProxy/4.5.0": {
         "dependencies": {
-          "Autofac": "4.9.0-beta1",
+          "Autofac": "4.8.1",
           "Castle.Core": "4.3.1",
           "NETStandard.Library": "2.0.3"
         },
@@ -413,7 +413,7 @@
       },
       "MassTransit.Autofac/5.1.5": {
         "dependencies": {
-          "Autofac": "4.9.0-beta1",
+          "Autofac": "4.8.1",
           "GreenPipes": "2.1.2",
           "MassTransit": "5.1.5",
           "Newtonsoft.Json": "11.0.2"
@@ -2025,7 +2025,7 @@
       },
       "DependencyInjecionResolver/1.0.0": {
         "dependencies": {
-          "Autofac": "4.9.0-beta1",
+          "Autofac": "4.8.1",
           "CrossCutting": "1.0.0",
           "ServiceConcrete": "1.0.0",
           "ServiceInterface": "1.0.0"
@@ -4840,12 +4840,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Autofac/4.9.0-beta1": {
+    "Autofac/4.8.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-ELArZEhLmHfl9zv1jht61Fd9qi8qJ3etbs2vRZUnutlG1dVofK+lKDlfyEh+Jfx8RNLxps0PbbgUTaHM6OA+og==",
-      "path": "autofac/4.9.0-beta1",
-      "hashPath": "autofac.4.9.0-beta1.nupkg.sha512"
+      "sha512": "sha512-GYRLxd2wCzhvee2u1vs3AbUbF4CHDWfD7BCNjD3Vxb4wxQz3HC8bPm9Sj9uOT0gE8a6PC2fx1zufmhLgxK+cZg==",
+      "path": "autofac/4.8.1",
+      "hashPath": "autofac.4.8.1.nupkg.sha512"
     },
     "Autofac.Extensions.DependencyInjection/4.3.0": {
       "type": "package",
@@ -5634,7 +5634,7 @@
     "System.ValueTuple/4.5.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-xZtSZNEHGa+tGsKuP4sh257vxJ/yemShz4EusmomkynMzuEDDjVaErBNewpzEF6swUgbcrSQAX3ELsEp1zCOwA==",
+      "sha512": "sha512-fa3P1cPe2SlrjCjJ/yc3mcXkDj4GQORmileNFYBtBZh2qddzwRubagAkj8yz/yF9oLvJVqaZYar9l2SCqNKDJg==",
       "path": "system.valuetuple/4.5.0",
       "hashPath": "system.valuetuple.4.5.0.nupkg.sha512"
     },

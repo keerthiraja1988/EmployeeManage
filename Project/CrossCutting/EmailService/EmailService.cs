@@ -9,20 +9,20 @@ namespace CrossCutting.EmailService
 {
     public class EmailService : IEmailService
     {
-        public bool SendEmailThroughGmail(string Sender, string Receivers, string Subject, string Body)
+        public bool SendEmailThroughGmail(string From, string To, string Subject, string Body)
         {
             SmtpClient client = new SmtpClient();
             client.Host = "smtp.gmail.com";
             client.Port = 587;
             client.UseDefaultCredentials = false;
-            client.Credentials = new NetworkCredential("keerthiraja1988@gmail.com", "KIRTHI789+k");
+            client.Credentials = new NetworkCredential("keerthiraja1988@gmail.com", "K");
             client.EnableSsl = true;
 
             client.DeliveryMethod = SmtpDeliveryMethod.Network;
 
             MailMessage mail = new MailMessage();
-            mail.From = new MailAddress("keerthiraja1988@gmail.com", "Sender");
-            mail.To.Add(new MailAddress("keerthiraja1988@gmail.com"));
+            mail.From = new MailAddress("keerthiraja1988@gmail.com", "Keerthi Raja");
+            mail.To.Add(new MailAddress(To));
 
             string htmlString = @"<html>
                       <body>
@@ -37,7 +37,6 @@ namespace CrossCutting.EmailService
 
             mail.Subject = "TEST";
             mail.IsBodyHtml = true;
-            // mail.Body = "vsdvsdv";
 
             client.Send(mail);
 

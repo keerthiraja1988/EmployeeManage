@@ -14,4 +14,3 @@ C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\DomainModel\obj\Deb
 C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\DomainModel\obj\Debug\netstandard2.0\DomainModel.AssemblyInfo.cs
 C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\DomainModel\obj\Debug\netstandard2.0\DomainModel.dll
 C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\DomainModel\obj\Debug\netstandard2.0\DomainModel.pdb
-C:\Users\KEERTHIRAJA\Documents\GitHub\EmployeeManage\Project\DomainModel\obj\Debug\netstandard2.0\DomainModel.csprojAssemblyReference.cache

@@ -29,7 +29,6 @@ namespace WebAppCore.Areas.EmployeeManage.Controllers
     public class EmployeeManageController : Controller
     {
         private readonly IBus _bus;
-        private readonly IRequestClient<SendEmailRequest, SendEmailResponse> _requestClient;
 
         public IEmployeeManageService _IEmployeeManageService { get; set; }
         public IConfiguration _configuration { get; set; }
@@ -38,13 +37,12 @@ namespace WebAppCore.Areas.EmployeeManage.Controllers
 
         public EmployeeManageController(IConfiguration iConfig, IEmployeeManageService iEmployeeManageService
             , IMapper mapper, IBus bus
-            , IRequestClient<SendEmailRequest, SendEmailResponse> requestClient)
+           )
         {
             _mapper = mapper;
             _configuration = iConfig;
             _IEmployeeManageService = iEmployeeManageService;
             _bus = bus;
-            _requestClient = requestClient;
         }
 
         public async Task<IActionResult> Index()
@@ -189,27 +187,20 @@ namespace WebAppCore.Areas.EmployeeManage.Controllers
         public async Task<IActionResult> AddEmployee(EmployeeViewModel employeeViewModel
             , CancellationToken cancellationToken)
         {
-            SendEmailResponse result1 = await _requestClient.Request(new { Id = 50 }, cancellationToken);
+            var addUserEndpoint = await _bus.GetSendEndpoint(new Uri("rabbitmq://localhost/NewEmployeeRegisterService"));
 
-            // Message Definition
-
-            //await _bus.Publish(new SubmitEmailRequestContract
-            //{
-            //    From = "keerthiraja1988@gmail.com"
-            //  ,
-            //    To = "keerthiraja1988@gmail.com"
-            //  ,
-            //    Body = "keerthiraja1988@gmail.com"
-            //  ,
-            //    Subject = "keerthiraja1988@gmail.com"
-            //});
-
-            //var addUserEndpoint = await _bus.GetSendEndpoint(new Uri("rabbitmq://localhost/MassTransistQueue"));
-
-            //await addUserEndpoint.Send<SendEmailRequest>(new
-            //{
-            //    Id = 50
-            //});
+            await addUserEndpoint.Send<SubmitEmailRequestContract>(new
+            {
+                From = "keerthiraja1988@gmail.com"
+                ,
+                To = "keerthirajapraba@gmail.com"
+                ,
+                Subject = "Hello"
+                ,
+                Body = "Test"
+                ,
+                SentOn = DateTime.Now
+            });
 
             if (!ModelState.IsValid)
             {

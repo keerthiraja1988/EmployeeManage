@@ -160,15 +160,9 @@ namespace WebAppCore
             .As<IBusControl>()
             .As<IBus>()
             .As<IPublishEndpoint>()
-
             .SingleInstance();
 
-            builder.RegisterModule<RequestClientModule>();
-
             this.ApplicationContainer = builder.Build();
-
-            var container = this.ApplicationContainer.Resolve<IBusControl>();
-            container.Start();
 
             return new AutofacServiceProvider(this.ApplicationContainer);
         }
@@ -321,19 +315,6 @@ namespace WebAppCore
                 pipeline.MinifyCssFiles();
                 pipeline.MinifyJsFiles();
             });
-        }
-    }
-
-    public class RequestClientModule : Module
-    {
-        protected override void Load(ContainerBuilder builder)
-        {
-            Uri address = new Uri("rabbitmq://localhost/order-service");
-            TimeSpan requestTimeout = TimeSpan.FromSeconds(30);
-
-            builder.Register(c => new MessageRequestClient<SendEmailRequest, SendEmailResponse>(c.Resolve<IBus>(), address, requestTimeout))
-                .As<IRequestClient<SendEmailRequest, SendEmailResponse>>()
-                .SingleInstance();
         }
     }
 }

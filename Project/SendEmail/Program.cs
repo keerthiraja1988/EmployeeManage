@@ -1,11 +1,23 @@
-﻿using CrossCutting.EmailService;
+﻿using Autofac;
+using CrossCutting.Caching;
+using CrossCutting.EmailService;
+using CrossCutting.Logging;
+using DomainModel;
 using MassTransit;
 using MessageContracts;
+using Microsoft.AspNet.SignalR;
+using Microsoft.Owin.Cors;
+using Microsoft.Owin.Hosting;
+using Owin;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using Topshelf;
+using Topshelf.Autofac;
+using static DependencyInjecionResolver.DependencyInjecionResolver;
 
 namespace SendEmail
 {
@@ -13,61 +25,77 @@ namespace SendEmail
     {
         private static void Main(string[] args)
         {
-            MainAsync(args).Wait();
-        }
-
-        private static async Task MainAsync(string[] args)
-        {
-            var bus = Bus.Factory.CreateUsingRabbitMq(sbc =>
+            string url = "http://localhost:8080";
+            using (WebApp.Start(url))
             {
-                var host = sbc.Host(new Uri("rabbitmq://localhost:/"), h =>
+                Console.WriteLine("Signal R Serivce Started");
+                List<ApplicationConfigModel> applicationConfigs = new List<ApplicationConfigModel>();
+
+                applicationConfigs.Add(new ApplicationConfigModel
                 {
-                    h.Username("guest");
-                    h.Password("guest");
+                    Key = "DBConnection"
+                    ,
+                    Value = "Data Source=.;Initial Catalog=EmployeeManage;Integrated Security=True"
                 });
 
-                sbc.ReceiveEndpoint(host, "order-service", endpoint =>
-                {
-                    endpoint.Handler<SendEmailRequest>(async context =>
-                    {
-                        await Console.Out.WriteLineAsync($"Received: {context.Message.Id.ToString()}");
-                        await context.RespondAsync<SendEmailResponse>(new
-                        {
-                            Id = 50
-                        });
-                    });
+                Caching.Instance.AddApplicationConfigs(applicationConfigs);
 
-                    //endpoint.Consumer<ProcessRequest>();
-
-                    //endpoint.Handler<SubmitEmailRequestContract>(async context =>
-                    //{
-                    //    await Console.Out.WriteLineAsync($"Received: {context.Message.Subject}");
-                    //    EmailService emailService = new EmailService();
-                    //    emailService.SendEmailThroughGmail(
-                    //            context.Message.From
-                    //          , context.Message.To
-                    //          , context.Message.Subject
-                    //          , context.Message.Body
-                    //        );
-                    //});
-                });
-            });
-
-            await bus.StartAsync();
-            try
-            {
-                Console.WriteLine("Working....");
-
+                ConfigureService.Configure();
                 Console.ReadLine();
             }
-            catch (Exception e)
+        }
+
+        private static void aTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+        {
+            var context = GlobalHost.ConnectionManager.GetHubContext<MyHub>();
+
+            context.Clients.All.addMessage("", "SendEmail Service BroadCasted on " + DateTime.Now);
+        }
+    }
+
+    internal static class ConfigureService
+    {
+        internal static void Configure()
+        {
+            HostFactory.Run(configure =>
             {
-                Console.WriteLine(e);
-            }
-            finally
-            {
-                await bus.StopAsync();
-            }
+                configure.Service<SendEmailService>(service =>
+                {
+                    service.ConstructUsing(s => new SendEmailService());
+                    service.WhenStarted(s => s.Start());
+                    service.WhenStopped(s => s.Stop());
+                });
+                //Setup Account that window service use to run.
+                configure.RunAsLocalSystem();
+                configure.SetServiceName("MyWindowServiceWithTopshelf");
+                configure.SetDisplayName("MyWindowServiceWithTopshelf");
+                configure.SetDescription("My .Net windows service with Topshelf");
+            });
+        }
+    }
+
+    internal class Startup
+    {
+        public void Configuration(IAppBuilder app)
+        {
+            app.UseCors(CorsOptions.AllowAll);
+            app.MapSignalR();
+        }
+    }
+
+    public class MyHub : Hub
+    {
+        public void SendMessage(string name, String message)
+
+        {
+            // Call the addMessage methods on all clients
+
+            Clients.All.addMessage("dddd", message);
+        }
+
+        public void Send(string name, string message)
+        {
+            Clients.All.addMessage(name, message);
         }
     }
 }

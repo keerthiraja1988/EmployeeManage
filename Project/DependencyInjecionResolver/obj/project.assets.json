@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     ".NETStandard,Version=v2.0": {
-      "Autofac/4.9.0-beta1": {
+      "Autofac/4.8.1": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "1.6.0",
@@ -1217,19 +1217,17 @@
     }
   },
   "libraries": {
-    "Autofac/4.9.0-beta1": {
-      "sha512": "ELArZEhLmHfl9zv1jht61Fd9qi8qJ3etbs2vRZUnutlG1dVofK+lKDlfyEh+Jfx8RNLxps0PbbgUTaHM6OA+og==",
+    "Autofac/4.8.1": {
+      "sha512": "GYRLxd2wCzhvee2u1vs3AbUbF4CHDWfD7BCNjD3Vxb4wxQz3HC8bPm9Sj9uOT0gE8a6PC2fx1zufmhLgxK+cZg==",
       "type": "package",
-      "path": "autofac/4.9.0-beta1",
+      "path": "autofac/4.8.1",
       "files": [
         ".signature.p7s",
-        "autofac.4.9.0-beta1.nupkg.sha512",
+        "autofac.4.8.1.nupkg.sha512",
         "autofac.nuspec",
         "lib/net45/Autofac.dll",
-        "lib/net45/Autofac.pdb",
         "lib/net45/Autofac.xml",
         "lib/netstandard1.1/Autofac.dll",
-        "lib/netstandard1.1/Autofac.pdb",
         "lib/netstandard1.1/Autofac.xml"
       ]
     },
@@ -4720,7 +4718,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
-      "Autofac >= 4.9.0-beta1",
+      "Autofac >= 4.8.1",
       "CrossCutting >= 1.0.0",
       "NETStandard.Library >= 2.0.3",
       "ServiceConcrete >= 1.0.0",
@@ -4782,7 +4780,7 @@
         "dependencies": {
           "Autofac": {
             "target": "Package",
-            "version": "[4.9.0-beta1, )"
+            "version": "[4.8.1, )"
           },
           "NETStandard.Library": {
             "suppressParent": "All",
