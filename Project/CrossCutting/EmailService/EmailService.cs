@@ -15,7 +15,7 @@ namespace CrossCutting.EmailService
             client.Host = "smtp.gmail.com";
             client.Port = 587;
             client.UseDefaultCredentials = false;
-            client.Credentials = new NetworkCredential("keerthiraja1988@gmail.com", "K");
+            client.Credentials = new NetworkCredential("keerthiraja1988@gmail.com", "KIRTHI789+k");
             client.EnableSsl = true;
 
             client.DeliveryMethod = SmtpDeliveryMethod.Network;
@@ -46,6 +46,6 @@ namespace CrossCutting.EmailService
 
     public interface IEmailService
     {
-        bool SendEmailThroughGmail(string Sender, string Receivers, string Subject, string Body);
+        bool SendEmailThroughGmail(string From, string To, string Subject, string Body);
     }
 }

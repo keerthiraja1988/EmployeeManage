@@ -57,6 +57,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceMonitor", "ServiceMo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalR", "SignalR\SignalR.csproj", "{D104BF33-6BDA-42A4-A3B3-40095341CD0B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SendEmailService", "SendEmailService\SendEmailService.csproj", "{A0014F65-DACD-4F2A-8BCC-BAD76BBCFE81}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -117,6 +119,10 @@ Global
 		{D104BF33-6BDA-42A4-A3B3-40095341CD0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D104BF33-6BDA-42A4-A3B3-40095341CD0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D104BF33-6BDA-42A4-A3B3-40095341CD0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0014F65-DACD-4F2A-8BCC-BAD76BBCFE81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0014F65-DACD-4F2A-8BCC-BAD76BBCFE81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0014F65-DACD-4F2A-8BCC-BAD76BBCFE81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0014F65-DACD-4F2A-8BCC-BAD76BBCFE81}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -138,6 +144,7 @@ Global
 		{AC8A977D-E51E-49A4-9A53-BE69CAC319FA} = {9E9B7FCB-23EE-4CFB-A92C-EA8094CC84D6}
 		{8CD6C33B-8164-40C0-83E8-9D5D920BFD9D} = {99C4E756-8E32-46BB-8BFF-3C0E618C7243}
 		{D104BF33-6BDA-42A4-A3B3-40095341CD0B} = {99C4E756-8E32-46BB-8BFF-3C0E618C7243}
+		{A0014F65-DACD-4F2A-8BCC-BAD76BBCFE81} = {9E9B7FCB-23EE-4CFB-A92C-EA8094CC84D6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B8181AF9-2555-4C76-838C-EC684D38EBBB}
