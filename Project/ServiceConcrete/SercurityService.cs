@@ -27,13 +27,11 @@ namespace ServiceConcrete
         private IAppAnalyticsRepository _IAppAnalyticsRepository;
         private IIPRequestDetails _IIPRequestDetails;
 
-        public SercurityService(IIPRequestDetails iIPRequestDetails
-           )
+        public SercurityService(IIPRequestDetails iIPRequestDetails)
         {
             SqlInsightDbProvider.RegisterProvider();
             //  string sqlConnection = "Data Source=.;Initial Catalog=EmployeeManage;Integrated Security=True";
-            string sqlConnection = Caching.Instance.GetApplicationConfigs("DBConnection")
-                                           ;
+            string sqlConnection = Caching.Instance.GetApplicationConfigs("DBConnection");
             DbConnection c = new SqlConnection(sqlConnection);
 
             _IUserAccountRepository = c.As<IUserAccountRepository>();

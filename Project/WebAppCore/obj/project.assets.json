@@ -345,6 +345,18 @@
           "lib/netstandard2.0/MassTransit.RabbitMqTransport.dll": {}
         }
       },
+      "Microsoft.AspNet.SignalR.Client/2.3.0": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "9.0.1"
+        },
+        "compile": {
+          "lib/netstandard1.3/Microsoft.AspNet.SignalR.Client.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.AspNet.SignalR.Client.dll": {}
+        }
+      },
       "Microsoft.AspNet.WebApi.Client/5.2.6": {
         "type": "package",
         "dependencies": {
@@ -6240,6 +6252,28 @@
         "lib/netstandard2.0/MassTransit.RabbitMqTransport.xml",
         "masstransit.rabbitmq.5.1.5.nupkg.sha512",
         "masstransit.rabbitmq.nuspec"
+      ]
+    },
+    "Microsoft.AspNet.SignalR.Client/2.3.0": {
+      "sha512": "XgUxSeNlwsdK7m1T0SJiPSAICGP3xNHLVYgAgUOEzrHVuP5G7ooYyY+uLZ00X5FXu1TMGHp0vPXd8YaQACuJKg==",
+      "type": "package",
+      "path": "microsoft.aspnet.signalr.client/2.3.0",
+      "files": [
+        ".signature.p7s",
+        "lib/net40/Microsoft.AspNet.SignalR.Client.XML",
+        "lib/net40/Microsoft.AspNet.SignalR.Client.dll",
+        "lib/net45/Microsoft.AspNet.SignalR.Client.XML",
+        "lib/net45/Microsoft.AspNet.SignalR.Client.dll",
+        "lib/netcore50/Microsoft.AspNet.SignalR.Client.XML",
+        "lib/netcore50/Microsoft.AspNet.SignalR.Client.dll",
+        "lib/netstandard1.3/Microsoft.AspNet.SignalR.Client.XML",
+        "lib/netstandard1.3/Microsoft.AspNet.SignalR.Client.dll",
+        "lib/portable-net45+sl50+win+wpa81+wp80/Microsoft.AspNet.SignalR.Client.XML",
+        "lib/portable-net45+sl50+win+wpa81+wp80/Microsoft.AspNet.SignalR.Client.dll",
+        "lib/portable-win81+wpa81/Microsoft.AspNet.SignalR.Client.XML",
+        "lib/portable-win81+wpa81/Microsoft.AspNet.SignalR.Client.dll",
+        "microsoft.aspnet.signalr.client.2.3.0.nupkg.sha512",
+        "microsoft.aspnet.signalr.client.nuspec"
       ]
     },
     "Microsoft.AspNet.WebApi.Client/5.2.6": {
@@ -15133,6 +15167,7 @@
       "MassTransit.Autofac >= 5.1.5",
       "MassTransit.RabbitMQ >= 5.1.5",
       "MessageContracts >= 1.0.0",
+      "Microsoft.AspNet.SignalR.Client >= 2.3.0",
       "Microsoft.AspNetCore.App >= 2.1.1",
       "Microsoft.AspNetCore.Authentication.Cookies >= 2.1.2",
       "Microsoft.AspNetCore.CookiePolicy >= 2.1.2",
@@ -15260,6 +15295,10 @@
           "MassTransit.RabbitMQ": {
             "target": "Package",
             "version": "[5.1.5, )"
+          },
+          "Microsoft.AspNet.SignalR.Client": {
+            "target": "Package",
+            "version": "[2.3.0, )"
           },
           "Microsoft.AspNetCore.App": {
             "suppressParent": "All",

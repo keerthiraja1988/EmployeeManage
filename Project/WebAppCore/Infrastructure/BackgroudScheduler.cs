@@ -74,6 +74,17 @@ namespace WebAppCore.Infrastructure
             dashBoardWidgetsDTO.DashBoardRow1WidgetsViewModel = new DashBoardRow1WidgetsViewModel();
             dashBoardWidgetsDTO.DashBoardRow1WidgetsViewModel = _mapper.Map<DashBoardRow1WidgetsViewModel>(dashBoardRow1WidgetsModel);
 
+            var serviceScheduled = ApplicationGlobalVariables.ServiceScheduled;
+
+            dashBoardWidgetsDTO.DashBoardRow1WidgetsViewModel.TotalNoOfServicesScheduled =
+                                serviceScheduled.Keys.Count.ToString();
+
+            var servicesDown = serviceScheduled.Values.Where(s => s.UpdatedOn <= DateTime.Now.AddSeconds(-30))
+                                    .Count();
+
+            dashBoardWidgetsDTO.DashBoardRow1WidgetsViewModel.ServicesLastChecked = DateTime.Now.ToString();
+            dashBoardWidgetsDTO.DashBoardRow1WidgetsViewModel.TotalNoOfServicesDown = servicesDown.ToString();
+
             var getdashBoardRow1DetailsTask = Task.Run(() =>
                                       engine.CompileRenderAsync("sdvsdvd", content,
                                                     dashBoardWidgetsDTO.DashBoardRow1WidgetsViewModel)

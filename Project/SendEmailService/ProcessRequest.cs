@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace SendEmailService
 {
-    internal class ProcessRequest : IConsumer<SubmitEmailRequestContract>
+    internal class ProcessEmailRequest : IConsumer<SubmitEmailRequestContract>
     {
         private readonly IEmailService _iEmailService;
 
-        public ProcessRequest(IEmailService iEmailService)
+        public ProcessEmailRequest(IEmailService iEmailService)
         {
             _iEmailService = iEmailService;
         }

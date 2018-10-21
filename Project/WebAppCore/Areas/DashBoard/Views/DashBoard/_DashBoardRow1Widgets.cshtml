@@ -1,5 +1,5 @@
 ﻿@model WebAppCore.Areas.DashBoard.Models.DashBoardRow1WidgetsViewModel
-
+@using System
 <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 pl-0 pr-2 pt-0 pb-0 mb-2"
      id="divDashBoardRow1WidgetEmployeeDetails" onclick="JsEmployee.EmployeeDetailsPage(EmployeeManageUrl)">
 
@@ -22,10 +22,10 @@
         <div class="card-body pb-0 pt-0 pr-0 pl-0" style="font-size:12px">
             <div class="row " style="padding-top: 2px; padding-bottom: 2px;">
                 <div class="col-8 d-flex justify-content-end ">
-                   Employees Created Today :
+                    Employees Created Today :
                 </div>
                 <div class="col-4 d-flex justify-content-start">
-                   @Model.NoOfEmployeesCreatedToday
+                    @Model.NoOfEmployeesCreatedToday
                 </div>
             </div>
             <div class="row " style="padding-top: 2px; padding-bottom: 2px;">
@@ -39,49 +39,52 @@
         </div>
     </div>
 </div>
-    <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 pl-0 pr-2 pt-0 pb-0 mb-2"
-         id="divDashBoardRow1WidgetAppErrors"  onclick="JsMain.RedirectToUrl(ApplicationErrorsUrl)">
-        <div class="card text-white bg-info pl-0 pr-0 pt-0 pb-0 btn btn-info "
-             style=" box-shadow: 0px 4px 7px -1px #777;">
-            <div class="card-header " style="padding-bottom: 3px; padding-top: 3px;">
-                <div class="row" style="font-size: 14px;">
-                    <i style="font-size: 18px;" class="fas fa-exclamation-triangle mr-2  mt-1"></i>
-                    Application Errors
-                </div>
+<div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 pl-0 pr-2 pt-0 pb-0 mb-2"
+     id="divDashBoardRow1WidgetAppErrors" onclick="JsMain.RedirectToUrl(ApplicationErrorsUrl)">
+    <div class="card text-white bg-info pl-0 pr-0 pt-0 pb-0 btn btn-info "
+         style=" box-shadow: 0px 4px 7px -1px #777;">
+        <div class="card-header " style="padding-bottom: 3px; padding-top: 3px;">
+            <div class="row" style="font-size: 14px;">
+                <i style="font-size: 18px;" class="fas fa-exclamation-triangle mr-2  mt-1"></i>
+                Application Errors
+            </div>
 
-                <div class="row justify-content-center">
-                    <h1 class="display-4 mb-0" style="font-size:45px ; line-height: 1.1;">
-                        @Model.TodayNoOfApplicationErrors
-                    </h1>
+            <div class="row justify-content-center">
+                <h1 class="display-4 mb-0" style="font-size:45px ; line-height: 1.1;">
+                    @Model.TodayNoOfApplicationErrors
+                </h1>
+            </div>
+            <div style="font-size:14px" class="row justify-content-center">
+                Today
+            </div>
+        </div>
+        <div class="card-body pb-0 pt-0 pr-0 pl-0" style="font-size:12px">
+            <div class="row" style="padding-top: 2px; padding-bottom: 2px;">
+                <div class="col-5 d-flex justify-content-end">
+                    Last Logged :
                 </div>
-                <div style="font-size:14px" class="row justify-content-center">
-                    Today
+                <div class="col-7 d-flex justify-content-start">
+                    @Model.ErrorLastLoggedOn
                 </div>
             </div>
-            <div class="card-body pb-0 pt-0 pr-0 pl-0" style="font-size:12px">
-                <div class="row" style="padding-top: 2px; padding-bottom: 2px;">
-                    <div class="col-5 d-flex justify-content-end">
-                      Last Logged :
-                    </div>
-                    <div class="col-7 d-flex justify-content-start">
-                       @Model.ErrorLastLoggedOn
-                    </div>
+            <div class="row" style="padding-top: 2px; padding-bottom: 2px;">
+                <div class="col-5 d-flex justify-content-end">
+                    Total Errors :
                 </div>
-                <div class="row" style="padding-top: 2px; padding-bottom: 2px;">
-                    <div class="col-5 d-flex justify-content-end">
-                       Total Errors :
-                    </div>
-                    <div class="col-7 d-flex justify-content-start">
-                       @Model.TotalNoOfApplicationErrors
-                    </div>
+                <div class="col-7 d-flex justify-content-start">
+                    @Model.TotalNoOfApplicationErrors
                 </div>
             </div>
         </div>
     </div>
-    <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 pl-0 pr-2 pt-0 pb-0 mb-2"
-         id="divDashBoardRow1WidgetServices"   onclick="JsMain.RedirectToUrl(AccessDeniedUrl)">
-        <div class="card text-white bg-info pl-0 pr-0 pt-0 pb-0 btn btn-info "
+</div>
+<div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 pl-0 pr-2 pt-0 pb-0 mb-2"
+     id="divDashBoardRow1WidgetServices" onclick="JsMain.RedirectToUrl(AccessDeniedUrl)">
+    @if (@Convert.ToInt32(@Model.TotalNoOfServicesDown) > 0)
+    {
+        <div class="card text-white bg-danger pl-0 pr-0 pt-0 pb-0 btn btn-info "
              style=" box-shadow: 0px 4px 7px -1px #777;">
+
             <div class="card-header " style="padding-bottom: 3px; padding-top: 3px;">
                 <div class="row" style="font-size: 14px;">
 
@@ -97,10 +100,10 @@
                     Services
                 </div>
             </div>
-            <div class="card-body pb-0 pt-0 pr-0 pl-0"  style="font-size:12px">
+            <div class="card-body pb-0 pt-0 pr-0 pl-0" style="font-size:12px">
                 <div class="row" style="padding-top: 2px; padding-bottom: 2px;">
                     <div class="col-5 d-flex justify-content-end">
-                       Last Checked :
+                        Last Checked :
                     </div>
                     <div class="col-7 d-flex justify-content-start">
                         @Model.ServicesLastChecked
@@ -108,56 +111,97 @@
                 </div>
                 <div class="row" style="padding-top: 2px; padding-bottom: 2px;">
                     <div class="col-5 d-flex justify-content-end">
-                      Services Down :
+                        Services Down :
                     </div>
                     <div class="col-7 d-flex justify-content-start">
-                       @Model.TotalNoOfServicesDown
+                        @Model.TotalNoOfServicesDown
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-
-    <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 pl-0 pr-2 pt-0 pb-0 mb-0"
-         id="divDashBoardRow1WidgetActiveUsers">
+    }
+    else
+    {
         <div class="card text-white bg-info pl-0 pr-0 pt-0 pb-0 btn btn-info "
              style=" box-shadow: 0px 4px 7px -1px #777;">
+
             <div class="card-header " style="padding-bottom: 3px; padding-top: 3px;">
                 <div class="row" style="font-size: 14px;">
 
-                    <i style="font-size: 18px; padding-right:2px"  class="fas fa-male mt-1"></i>
-                    <i style="font-size: 18px;"  class="fas fa-female mr-2  mt-1"></i>
-
-                    @*<i style="font-size: 18px;" class="fas fa-user-tie mr-2 mt-0"></i>*@
-                    Application Users
+                    <i style="font-size: 18px;" class="fas fa-cogs mr-2 mt-1"></i>  Services Scheduled
                 </div>
 
                 <div class="row justify-content-center">
                     <h1 class="display-4 mb-0" style="font-size:45px ; line-height: 1.1;">
-                        @Model.TotalNoOfApplicationUsers
+                        @Model.TotalNoOfServicesScheduled
                     </h1>
                 </div>
                 <div style="font-size:14px" class="row justify-content-center">
-                    Total
+                    Services
                 </div>
             </div>
             <div class="card-body pb-0 pt-0 pr-0 pl-0" style="font-size:12px">
                 <div class="row" style="padding-top: 2px; padding-bottom: 2px;">
-                    <div class="col-6 d-flex justify-content-end">
-                        Active Users :
+                    <div class="col-5 d-flex justify-content-end">
+                        Last Checked :
                     </div>
-                    <div class="col-6 d-flex justify-content-start">
-                      @Model.NoOfActiveUsers
+                    <div class="col-7 d-flex justify-content-start">
+                        @Model.ServicesLastChecked
                     </div>
                 </div>
-                <div class="row" style="padding-top: 2px; padding-bottom: 5px;">
-                    <div class="col-6 d-flex justify-content-end">
-                       Active Sessions :
+                <div class="row" style="padding-top: 2px; padding-bottom: 2px;">
+                    <div class="col-5 d-flex justify-content-end">
+                        Services Down :
                     </div>
-                    <div class="col-6 d-flex justify-content-start">
-                       @Model.NoOfActiveSessions
+                    <div class="col-7 d-flex justify-content-start">
+                        @Model.TotalNoOfServicesDown
                     </div>
                 </div>
             </div>
         </div>
+    }
+</div>
+
+<div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 pl-0 pr-2 pt-0 pb-0 mb-0"
+     id="divDashBoardRow1WidgetActiveUsers">
+    <div class="card text-white bg-info pl-0 pr-0 pt-0 pb-0 btn btn-info "
+         style=" box-shadow: 0px 4px 7px -1px #777;">
+        <div class="card-header " style="padding-bottom: 3px; padding-top: 3px;">
+            <div class="row" style="font-size: 14px;">
+
+                <i style="font-size: 18px; padding-right:2px" class="fas fa-male mt-1"></i>
+                <i style="font-size: 18px;" class="fas fa-female mr-2  mt-1"></i>
+
+                @*<i style="font-size: 18px;" class="fas fa-user-tie mr-2 mt-0"></i>*@
+                Application Users
+            </div>
+
+            <div class="row justify-content-center">
+                <h1 class="display-4 mb-0" style="font-size:45px ; line-height: 1.1;">
+                    @Model.TotalNoOfApplicationUsers
+                </h1>
+            </div>
+            <div style="font-size:14px" class="row justify-content-center">
+                Total
+            </div>
+        </div>
+        <div class="card-body pb-0 pt-0 pr-0 pl-0" style="font-size:12px">
+            <div class="row" style="padding-top: 2px; padding-bottom: 2px;">
+                <div class="col-6 d-flex justify-content-end">
+                    Active Users :
+                </div>
+                <div class="col-6 d-flex justify-content-start">
+                    @Model.NoOfActiveUsers
+                </div>
+            </div>
+            <div class="row" style="padding-top: 2px; padding-bottom: 2px;">
+                <div class="col-6 d-flex justify-content-end">
+                    Active Sessions :
+                </div>
+                <div class="col-6 d-flex justify-content-start">
+                    @Model.NoOfActiveSessions
+                </div>
+            </div>
+        </div>
     </div>
+</div>

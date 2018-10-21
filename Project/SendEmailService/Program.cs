@@ -24,24 +24,29 @@ namespace SendEmailService
             {
                 Console.WriteLine("Server running on {0}", url);
 
-                new Thread(() =>
-                {
-                    Thread.CurrentThread.IsBackground = true;
-                    /* run your code here */
-                    Console.WriteLine("Service Monitor Timer Started");
-
-                    var aTimer = new System.Timers.Timer(1000);
-
-                    aTimer.Elapsed += aTimer_Elapsed;
-
-                    aTimer.Interval = 3000;
-
-                    aTimer.Enabled = true;
-                }).Start();
+                ServiceBroadCastThread();
 
                 ConfigureService.Configure();
                 Console.ReadLine();
             }
+        }
+
+        private static void ServiceBroadCastThread()
+        {
+            new Thread(() =>
+            {
+                Thread.CurrentThread.IsBackground = true;
+                /* run your code here */
+                Console.WriteLine("Service Monitor Timer Started");
+
+                var aTimer = new System.Timers.Timer(1000);
+
+                aTimer.Elapsed += aTimer_Elapsed;
+
+                aTimer.Interval = 3000;
+
+                aTimer.Enabled = true;
+            }).Start();
         }
 
         private static void aTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
@@ -58,9 +63,9 @@ namespace SendEmailService
         {
             HostFactory.Run(configure =>
             {
-                configure.Service<MyService>(service =>
+                configure.Service<SendEmailService>(service =>
                 {
-                    service.ConstructUsing(s => new MyService());
+                    service.ConstructUsing(s => new SendEmailService());
                     service.WhenStarted(s => s.Start());
                     service.WhenStopped(s => s.Stop());
                 });
@@ -75,81 +80,6 @@ namespace SendEmailService
 
     public class MyService
     {
-        public void Start()
-        {
-            //var bus = Bus.Factory.CreateUsingRabbitMq(sbc =>
-            //{
-            //    var host = sbc.Host(new Uri("rabbitmq://localhost:/"), h =>
-            //    {
-            //        h.Username("guest");
-            //        h.Password("guest");
-            //    });
-
-            //    sbc.ReceiveEndpoint(host, "NewEmployeeRegisterService", endpoint =>
-            //    {
-            //        endpoint.Consumer<ProcessRequest>();
-            //    });
-            //});
-
-            //bus.StartAsync();
-            //Console.WriteLine("Service Bus Ready.");
-            ////bus.Publish(new MyMessage { Value = "Hello, World." });
-
-            //Console.ReadLine();
-
-            //bus.StopAsync();
-
-            Console.WriteLine("Service Bus Started.");
-
-            var builder = new ContainerBuilder();
-
-            // register a specific consumer
-            builder.RegisterType<ProcessRequest>();
-
-            var sqlConnection = "Data Source=.;Initial Catalog=EmployeeManage;Integrated Security=True";
-
-            builder.RegisterModule(new ServiceDIContainer(sqlConnection));
-
-            builder.Register(context =>
-            {
-                var busControl = Bus.Factory.CreateUsingRabbitMq(cfg =>
-                {
-                    var host = cfg.Host(new Uri("rabbitmq://localhost/"), h =>
-                    {
-                        h.Username("guest");
-                        h.Password("guest");
-                    });
-
-                    cfg.ReceiveEndpoint("NewEmployeeRegisterService", ec =>
-                    {
-                        // otherwise, be smart, register explicitly
-                        ec.Consumer<ProcessRequest>(context);
-                    });
-                });
-
-                return busControl;
-            })
-            .SingleInstance()
-                .As<IBusControl>()
-                .As<IBus>();
-
-            var container = builder.Build();
-
-            var bc = container.Resolve<IBusControl>();
-
-            bc.StartAsync();
-            Console.WriteLine("Service Bus Ready.");
-            //bus.Publish(new MyMessage { Value = "Hello, World." });
-
-            Console.ReadLine();
-
-            bc.StopAsync();
-        }
-
-        public void Stop()
-        {
-            // write code here that runs when the Windows Service stops.
-        }
     }
 
     internal class Startup
