@@ -26,7 +26,6 @@ namespace WebAppCore.SignalRHubs
         {
             public string UserName { get; set; }
             public Int64 UserId { get; set; }
-
             public HashSet<string> ConnectionIds { get; set; }
         }
 
