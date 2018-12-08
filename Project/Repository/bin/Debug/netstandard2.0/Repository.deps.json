@@ -925,7 +925,7 @@
     "Microsoft.NETCore.Platforms/1.1.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A==",
+      "sha512": "sha512-bLpT1f/SFlO1CzqXG12KnJzpZs6lv24uX2Rzi4Fmm0noJpNlnWRVryuO3yK18Ca04t/YHcO1e1Z0WDfjseqNzw==",
       "path": "microsoft.netcore.platforms/1.1.0",
       "hashPath": "microsoft.netcore.platforms.1.1.0.nupkg.sha512"
     },
@@ -1023,7 +1023,7 @@
     "Serilog.Sinks.MSSqlServer/5.1.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-+FU05c8tKomMmKy0m1FXPciuKBkTPY1blBm5zrRTXCisuB87aT1bR8m8HGaUnSwIrIP7nSISub4+qyBHf+zpKw==",
+      "sha512": "sha512-RKACHyMv5FPpT5LEa3UShx9W0jSWDASG7UHvYr/iFkr6q4+LKbuuKKnlCK23yDHJJ7YHbhgmh2NUh09tTId0Ow==",
       "path": "serilog.sinks.mssqlserver/5.1.2",
       "hashPath": "serilog.sinks.mssqlserver.5.1.2.nupkg.sha512"
     },
@@ -1051,7 +1051,7 @@
     "System.Collections.NonGeneric/4.0.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-hMxFT2RhhlffyCdKLDXjx8WEC5JfCvNozAZxCablAuFRH74SCV4AgzE8yJCh/73bFnEoZgJ9MJmkjQ0dJmnKqA==",
+      "sha512": "sha512-00tOaRBr5u4JsckEJfBw1eI4Frc5pOFM5gSdqr6oMYjXwQLLhV/LAl2Ty0BgELDvSuqBRBETTgNCMwRuUShk9Q==",
       "path": "system.collections.nongeneric/4.0.1",
       "hashPath": "system.collections.nongeneric.4.0.1.nupkg.sha512"
     },
@@ -1065,7 +1065,7 @@
     "System.Data.Common/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-lm6E3T5u7BOuEH0u18JpbJHxBfOJPuCyl4Kg1RH10ktYLp5uEEE1xKrHW56/We4SnZpGAuCc9N0MJpSDhTHZGQ==",
+      "sha512": "sha512-OGX4ifHI67s/2KRrXGMmEjmszCptbhWS4BieBdiBPl/8pn0A1xPMx0Gn0dKK0zKtEaelYNh5M7M5lCZL0EA4eA==",
       "path": "system.data.common/4.3.0",
       "hashPath": "system.data.common.4.3.0.nupkg.sha512"
     },
@@ -1163,7 +1163,7 @@
     "System.Private.DataContractSerialization/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-yDaJ2x3mMmjdZEDB4IbezSnCsnjQ4BxinKhRAaP6kEgL6Bb6jANWphs5SzyD8imqeC/3FxgsuXT6ykkiH1uUmA==",
+      "sha512": "sha512-wEjvYddMMRV04qSvr/3+v9YsjnYKjxR6riG749gI5DdqXKvJtAKJSfXDxefu7TxlKvGiufQd6mVsI/NMmBIg8A==",
       "path": "system.private.datacontractserialization/4.3.0",
       "hashPath": "system.private.datacontractserialization.4.3.0.nupkg.sha512"
     },
@@ -1268,7 +1268,7 @@
     "System.Runtime.Serialization.Xml/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-nUQx/5OVgrqEba3+j7OdiofvVq9koWZAC7Z3xGI8IIViZqApWnZ5+lLcwYgTlbkobrl/Rat+Jb8GeD4WQESD2A==",
+      "sha512": "sha512-v5BPUVQNkxkHh80Lhe8YM3iVSN0zYP5Xm9Zw47aoSu6+SyRGbGbEC6i/Vq3gUufIjPSgi16fs1wBLEZNU9zXyQ==",
       "path": "system.runtime.serialization.xml/4.3.0",
       "hashPath": "system.runtime.serialization.xml.4.3.0.nupkg.sha512"
     },
@@ -1373,14 +1373,14 @@
     "System.Xml.XmlDocument/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-lJ8AxvkX7GQxpC6GFCeBj8ThYVyQczx2+f/cWHJU8tjS7YfI6Cv6bon70jVEgs2CiFbmmM8b9j1oZVx0dSI2Ww==",
+      "sha512": "sha512-xsnq6w3/S+NeYkUtxoCEDAn2Z+AkgvGLvJnslrTRte4jEU+fkR3DVG+s0sBmQYQ4c3r8949PaGg8AnRb9bBc2w==",
       "path": "system.xml.xmldocument/4.3.0",
       "hashPath": "system.xml.xmldocument.4.3.0.nupkg.sha512"
     },
     "System.Xml.XmlSerializer/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-MYoTCP7EZ98RrANESW05J5ZwskKDoN0AuZ06ZflnowE50LTpbR5yRg3tHckTVm5j/m47stuGgCrCHWePyHS70Q==",
+      "sha512": "sha512-kwo6Kf+0jjEcmB+S2BI5SL0xHHRIBd0Cjf11BGliuZ3Va9V1hDbKZmq0mb7HO8QPlYYrq8eNToOzipfw6ARKEw==",
       "path": "system.xml.xmlserializer/4.3.0",
       "hashPath": "system.xml.xmlserializer.4.3.0.nupkg.sha512"
     },

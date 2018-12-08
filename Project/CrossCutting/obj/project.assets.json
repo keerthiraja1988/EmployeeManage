@@ -833,10 +833,12 @@
       ]
     },
     "Microsoft.NETCore.Platforms/1.1.0": {
-      "sha512": "kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A==",
+      "sha512": "bLpT1f/SFlO1CzqXG12KnJzpZs6lv24uX2Rzi4Fmm0noJpNlnWRVryuO3yK18Ca04t/YHcO1e1Z0WDfjseqNzw==",
       "type": "package",
       "path": "microsoft.netcore.platforms/1.1.0",
       "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/netstandard1.0/_._",
@@ -863,6 +865,7 @@
       "type": "package",
       "path": "microsoft.win32.registry/4.4.0",
       "files": [
+        ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
@@ -1195,10 +1198,11 @@
       ]
     },
     "Serilog.Sinks.MSSqlServer/5.1.2": {
-      "sha512": "+FU05c8tKomMmKy0m1FXPciuKBkTPY1blBm5zrRTXCisuB87aT1bR8m8HGaUnSwIrIP7nSISub4+qyBHf+zpKw==",
+      "sha512": "RKACHyMv5FPpT5LEa3UShx9W0jSWDASG7UHvYr/iFkr6q4+LKbuuKKnlCK23yDHJJ7YHbhgmh2NUh09tTId0Ow==",
       "type": "package",
       "path": "serilog.sinks.mssqlserver/5.1.2",
       "files": [
+        ".signature.p7s",
         "lib/net45/Serilog.Sinks.MSSqlServer.dll",
         "lib/net45/Serilog.Sinks.MSSqlServer.xml",
         "lib/net452/Serilog.Sinks.MSSqlServer.dll",
@@ -1358,10 +1362,12 @@
       ]
     },
     "System.Collections.NonGeneric/4.0.1": {
-      "sha512": "hMxFT2RhhlffyCdKLDXjx8WEC5JfCvNozAZxCablAuFRH74SCV4AgzE8yJCh/73bFnEoZgJ9MJmkjQ0dJmnKqA==",
+      "sha512": "00tOaRBr5u4JsckEJfBw1eI4Frc5pOFM5gSdqr6oMYjXwQLLhV/LAl2Ty0BgELDvSuqBRBETTgNCMwRuUShk9Q==",
       "type": "package",
       "path": "system.collections.nongeneric/4.0.1",
       "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -1552,6 +1558,7 @@
       "type": "package",
       "path": "system.diagnostics.diagnosticsource/4.4.1",
       "files": [
+        ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
@@ -2781,6 +2788,7 @@
       "type": "package",
       "path": "system.security.accesscontrol/4.4.0",
       "files": [
+        ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
@@ -2860,6 +2868,7 @@
       "type": "package",
       "path": "system.security.principal.windows/4.4.0",
       "files": [
+        ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
@@ -2965,6 +2974,7 @@
       "type": "package",
       "path": "system.text.encoding.codepages/4.4.0",
       "files": [
+        ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
@@ -3294,27 +3304,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\KEERTHIRAJA\\.nuget\\packages\\": {},
+    "C:\\Users\\keerthi raja p\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
-    "restoreSettings": {
-      "hideWarningsAndErrors": true
-    },
     "restore": {
-      "projectUniqueName": "C:\\Users\\KEERTHIRAJA\\Documents\\GitHub\\EmployeeManage\\Project\\CrossCutting\\CrossCutting.csproj",
+      "projectUniqueName": "C:\\Developemnt\\EmployeeManage\\Project\\CrossCutting\\CrossCutting.csproj",
       "projectName": "CrossCutting",
-      "projectPath": "C:\\Users\\KEERTHIRAJA\\Documents\\GitHub\\EmployeeManage\\Project\\CrossCutting\\CrossCutting.csproj",
-      "packagesPath": "C:\\Users\\KEERTHIRAJA\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\KEERTHIRAJA\\Documents\\GitHub\\EmployeeManage\\Project\\CrossCutting\\obj\\",
+      "projectPath": "C:\\Developemnt\\EmployeeManage\\Project\\CrossCutting\\CrossCutting.csproj",
+      "packagesPath": "C:\\Users\\keerthi raja p\\.nuget\\packages\\",
+      "outputPath": "C:\\Developemnt\\EmployeeManage\\Project\\CrossCutting\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\KEERTHIRAJA\\Documents\\GitHub\\EmployeeManage\\Project\\NuGet.Config",
-        "C:\\Users\\KEERTHIRAJA\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Developemnt\\EmployeeManage\\Project\\NuGet.Config",
+        "C:\\Users\\keerthi raja p\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3328,8 +3335,8 @@
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "C:\\Users\\KEERTHIRAJA\\Documents\\GitHub\\EmployeeManage\\Project\\DomainModel\\DomainModel.csproj": {
-              "projectPath": "C:\\Users\\KEERTHIRAJA\\Documents\\GitHub\\EmployeeManage\\Project\\DomainModel\\DomainModel.csproj"
+            "C:\\Developemnt\\EmployeeManage\\Project\\DomainModel\\DomainModel.csproj": {
+              "projectPath": "C:\\Developemnt\\EmployeeManage\\Project\\DomainModel\\DomainModel.csproj"
             }
           }
         }
@@ -3345,29 +3352,29 @@
         "dependencies": {
           "DarkSkyApi": {
             "target": "Package",
-            "version": "3.3.0"
-          },
-          "Serilog.Sinks.MSSqlServer": {
-            "target": "Package",
-            "version": "5.1.2"
-          },
-          "PostSharp": {
-            "target": "Package",
-            "version": "6.0.27"
+            "version": "[3.3.0, )"
           },
           "NETStandard.Library": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "2.0.3",
+            "version": "[2.0.3, )",
             "autoReferenced": true
-          },
-          "NLog.Config": {
-            "target": "Package",
-            "version": "4.5.10"
           },
           "NLog": {
             "target": "Package",
-            "version": "4.5.10"
+            "version": "[4.5.10, )"
+          },
+          "NLog.Config": {
+            "target": "Package",
+            "version": "[4.5.10, )"
+          },
+          "PostSharp": {
+            "target": "Package",
+            "version": "[6.0.27, )"
+          },
+          "Serilog.Sinks.MSSqlServer": {
+            "target": "Package",
+            "version": "[5.1.2, )"
           }
         },
         "imports": [

@@ -40,10 +40,12 @@
   },
   "libraries": {
     "Microsoft.NETCore.Platforms/1.1.0": {
-      "sha512": "kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A==",
+      "sha512": "bLpT1f/SFlO1CzqXG12KnJzpZs6lv24uX2Rzi4Fmm0noJpNlnWRVryuO3yK18Ca04t/YHcO1e1Z0WDfjseqNzw==",
       "type": "package",
       "path": "microsoft.netcore.platforms/1.1.0",
       "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/netstandard1.0/_._",
@@ -192,27 +194,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\KEERTHIRAJA\\.nuget\\packages\\": {},
+    "C:\\Users\\keerthi raja p\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
-    "restoreSettings": {
-      "hideWarningsAndErrors": true
-    },
     "restore": {
-      "projectUniqueName": "C:\\Users\\KEERTHIRAJA\\Documents\\GitHub\\EmployeeManage\\Project\\ServiceInterface\\ServiceInterface.csproj",
+      "projectUniqueName": "C:\\Developemnt\\EmployeeManage\\Project\\ServiceInterface\\ServiceInterface.csproj",
       "projectName": "ServiceInterface",
-      "projectPath": "C:\\Users\\KEERTHIRAJA\\Documents\\GitHub\\EmployeeManage\\Project\\ServiceInterface\\ServiceInterface.csproj",
-      "packagesPath": "C:\\Users\\KEERTHIRAJA\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\KEERTHIRAJA\\Documents\\GitHub\\EmployeeManage\\Project\\ServiceInterface\\obj\\",
+      "projectPath": "C:\\Developemnt\\EmployeeManage\\Project\\ServiceInterface\\ServiceInterface.csproj",
+      "packagesPath": "C:\\Users\\keerthi raja p\\.nuget\\packages\\",
+      "outputPath": "C:\\Developemnt\\EmployeeManage\\Project\\ServiceInterface\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\KEERTHIRAJA\\Documents\\GitHub\\EmployeeManage\\Project\\NuGet.Config",
-        "C:\\Users\\KEERTHIRAJA\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Developemnt\\EmployeeManage\\Project\\NuGet.Config",
+        "C:\\Users\\keerthi raja p\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -226,8 +225,8 @@
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "C:\\Users\\KEERTHIRAJA\\Documents\\GitHub\\EmployeeManage\\Project\\DomainModel\\DomainModel.csproj": {
-              "projectPath": "C:\\Users\\KEERTHIRAJA\\Documents\\GitHub\\EmployeeManage\\Project\\DomainModel\\DomainModel.csproj"
+            "C:\\Developemnt\\EmployeeManage\\Project\\DomainModel\\DomainModel.csproj": {
+              "projectPath": "C:\\Developemnt\\EmployeeManage\\Project\\DomainModel\\DomainModel.csproj"
             }
           }
         }
@@ -244,7 +243,7 @@
           "NETStandard.Library": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "2.0.3",
+            "version": "[2.0.3, )",
             "autoReferenced": true
           }
         },

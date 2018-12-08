@@ -608,7 +608,7 @@
     "Microsoft.NETCore.Platforms/1.1.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A==",
+      "sha512": "sha512-bLpT1f/SFlO1CzqXG12KnJzpZs6lv24uX2Rzi4Fmm0noJpNlnWRVryuO3yK18Ca04t/YHcO1e1Z0WDfjseqNzw==",
       "path": "microsoft.netcore.platforms/1.1.0",
       "hashPath": "microsoft.netcore.platforms.1.1.0.nupkg.sha512"
     },
@@ -706,7 +706,7 @@
     "Serilog.Sinks.MSSqlServer/5.1.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-+FU05c8tKomMmKy0m1FXPciuKBkTPY1blBm5zrRTXCisuB87aT1bR8m8HGaUnSwIrIP7nSISub4+qyBHf+zpKw==",
+      "sha512": "sha512-RKACHyMv5FPpT5LEa3UShx9W0jSWDASG7UHvYr/iFkr6q4+LKbuuKKnlCK23yDHJJ7YHbhgmh2NUh09tTId0Ow==",
       "path": "serilog.sinks.mssqlserver/5.1.2",
       "hashPath": "serilog.sinks.mssqlserver.5.1.2.nupkg.sha512"
     },
@@ -734,7 +734,7 @@
     "System.Collections.NonGeneric/4.0.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-hMxFT2RhhlffyCdKLDXjx8WEC5JfCvNozAZxCablAuFRH74SCV4AgzE8yJCh/73bFnEoZgJ9MJmkjQ0dJmnKqA==",
+      "sha512": "sha512-00tOaRBr5u4JsckEJfBw1eI4Frc5pOFM5gSdqr6oMYjXwQLLhV/LAl2Ty0BgELDvSuqBRBETTgNCMwRuUShk9Q==",
       "path": "system.collections.nongeneric/4.0.1",
       "hashPath": "system.collections.nongeneric.4.0.1.nupkg.sha512"
     },
